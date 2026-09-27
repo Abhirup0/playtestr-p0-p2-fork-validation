@@ -1,0 +1,32 @@
+name: E3 terminal fidelity investigation
+on:
+  push:
+    branches: [readiness/e3-e5]
+    paths: ['scripts/readiness/e3-fidelity.py', '.github/workflows/readiness-e3.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fidelity:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [ubuntu-24.04, macos-15]
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-go@v7
+        with:
+          go-version: '1.26.0'
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Capture first attempts and exact identities
+        run: python scripts/readiness/e3-fidelity.py
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: e3-fidelity-${{ matrix.runner }}
+          path: artifacts/e3-fidelity/**
+          retention-days: 14
