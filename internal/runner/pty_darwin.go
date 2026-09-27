@@ -62,6 +62,31 @@ func (p *darwinTerminalPty) Read(buffer []byte) (int, error) {
 	}
 }
 
+func (p *darwinTerminalPty) Write(buffer []byte) (int, error) {
+	written := 0
+	for written < len(buffer) {
+		p.mu.Lock()
+		if p.closed {
+			p.mu.Unlock()
+			return written, os.ErrClosed
+		}
+		events := []unix.PollFd{{Fd: int32(p.fd), Events: unix.POLLOUT}}
+		ready, err := unix.Poll(events, 25)
+		if err == nil && ready > 0 {
+			var n int
+			n, err = unix.Write(p.fd, buffer[written:min(len(buffer), written+32768)])
+			if n > 0 {
+				written += n
+			}
+		}
+		p.mu.Unlock()
+		if err != nil && err != unix.EAGAIN && err != unix.EINTR {
+			return written, err
+		}
+	}
+	return written, nil
+}
+
 func (p *darwinTerminalPty) Close() error {
 	p.mu.Lock()
 	defer p.mu.Unlock()
