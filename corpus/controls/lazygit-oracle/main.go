@@ -70,7 +70,7 @@ func main() {
 		if err := os.WriteFile(filepath.Join(cwd, "alpha.txt"), []byte("PLAYTESTR-LG alpha changed\n"), 0o600); err != nil {
 			fail("change alpha: %v", err)
 		}
-		if profile == "navigate" || profile == "help" {
+		if profile == "navigate" || profile == "help" || profile == "stage-neighbor" {
 			if err := os.WriteFile(filepath.Join(cwd, "beta.txt"), []byte("PLAYTESTR-LG beta changed\n"), 0o600); err != nil {
 				fail("change beta: %v", err)
 			}
@@ -111,6 +111,17 @@ func main() {
 	case "stage":
 		if cached != "alpha.txt" || work != "" {
 			fail("stage state cached=%q work=%q", cached, work)
+		}
+	case "stage-neighbor":
+		if cached != "alpha.txt" || work != "beta.txt" || head != initial {
+			fail("neighbor stage state cached=%q work=%q head_unchanged=%v", cached, work, head == initial)
+		}
+		if git(cwd, "show", ":alpha.txt") != "PLAYTESTR-LG alpha changed" {
+			fail("staged alpha bytes differ")
+		}
+		beta, err := os.ReadFile(filepath.Join(cwd, "beta.txt"))
+		if err != nil || string(beta) != "PLAYTESTR-LG beta changed\n" {
+			fail("unstaged beta bytes differ: %v", err)
 		}
 	case "unstage":
 		if cached != "" || work != "alpha.txt" {

@@ -100,9 +100,9 @@ func main() {
 	}
 }
 
-// reviewedReference is intentionally explicit. Pure contract cells use a
-// direct contract test where one exists; integration and native cells use the
-// real-process or platform-portable test that was run on each native host.
+// reviewedReference is intentionally explicit. These are risk-to-source
+// mappings, not separate executions. Consult the dated evidence ledger for
+// actual test/subcase events and native-host evidence.
 func reviewedReference(family string, risk, layer int) string {
 	contract := map[string][]string{
 		"VAL": {
@@ -128,8 +128,8 @@ func reviewedReference(family string, risk, layer int) string {
 	if risk < 0 || risk >= len(references) {
 		return ""
 	}
-	// The layer remains part of the distinct case identity. Every portable
-	// reference is executed on the native host named by layers 2-4.
+	// Layer labels remain part of the mapping identity. Reusing a reference
+	// does not establish that the risk or workflow ran on the labeled host.
 	_ = layer
 	return references[risk]
 }

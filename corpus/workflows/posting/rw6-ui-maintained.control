@@ -1,0 +1,72 @@
+{
+    "version":  2,
+    "name":  "RW6 edit save and send exact request",
+    "command":  [
+                    "../../../.trial-private/corpus-tools/posting-oracle",
+                    "save-send"
+                ],
+    "workspace":  {
+                      "fixture":  "fixture",
+                      "cwd":  ".",
+                      "home":  "temporary",
+                      "temp":  "temporary"
+                  },
+    "width":  120,
+    "height":  40,
+    "timeout_ms":  10000,
+    "run_timeout_ms":  30000,
+    "max_output_bytes":  2000000,
+    "steps":  [
+                  {
+                      "expect":  "Reviewed Saved Request"
+                  },
+                  {
+                      "key":  "CtrlO"
+                  },
+                  {
+                      "expect":  "Press a key to jump"
+                  },
+                  {
+                      "key":  "Tab"
+                  },
+                  {
+                      "expect_not":  "Press a key to jump"
+                  },
+                  {
+                      "key":  "Enter"
+                  },
+                  {
+                      "expect":  "http://127.0.0.1:28741/saved"
+                  },
+                  {
+                      "text":  "-edited"
+                  },
+                  {
+                      "expect":  "saved-edited"
+                  },
+                  {
+                      "key":  "CtrlS"
+                  },
+                  {
+                      "expect":  "Request stored"
+                  },
+                  {
+                      "text":  "\u001b\r"
+                  },
+                  {
+                      "expect":  "PLAYTESTR-POST-SAVE-SEND"
+                  },
+                  {
+                      "key":  "CtrlC"
+                  },
+                  {
+                      "expect":  "PLAYTESTR-POST-ORACLE save-send OK"
+                  },
+                  {
+                      "exit":  0
+                  }
+              ],
+    "env":  {
+                "PLAYTESTR_POSTING_UI_CHANGE":  "1"
+            }
+}

@@ -1,0 +1,84 @@
+{
+  "date": "2026-09-26",
+  "status": "E0 complete; E1 partial; E2 diagnostic only; conditional push pending",
+  "native_endpoint_available": false,
+  "scope": "Sampled instrumented Windows diagnostics; no accepted matched speed comparison or complete tree coverage",
+  "short_suite": {
+    "observations": 30,
+    "passed_results": 30,
+    "nonzero_or_missing_exits": 0,
+    "cleanup_unconfirmed": 0,
+    "wall_ms": {
+      "min": 2602.985,
+      "median": 2799.8462,
+      "max": 2894.0497
+    },
+    "tree_sampled_cpu_ms_median": 616.0,
+    "tree_sampled_peak_rss_bytes_median": 70719488.0,
+    "observed_survivors": 0
+  },
+  "suite_sizes": {
+    "10": {
+      "observations": 1,
+      "passed_results": 10,
+      "nonzero_or_missing_exits": 0,
+      "cleanup_unconfirmed": 0,
+      "wall_ms": {
+        "min": 22878.6945,
+        "median": 22878.6945,
+        "max": 22878.6945
+      },
+      "tree_sampled_cpu_ms_median": 10174,
+      "tree_sampled_peak_rss_bytes_median": 141889536,
+      "observed_survivors": 0
+    },
+    "50": {
+      "observations": 1,
+      "passed_results": 50,
+      "nonzero_or_missing_exits": 0,
+      "cleanup_unconfirmed": 0,
+      "wall_ms": {
+        "min": 105722.3291,
+        "median": 105722.3291,
+        "max": 105722.3291
+      },
+      "tree_sampled_cpu_ms_median": 51576,
+      "tree_sampled_peak_rss_bytes_median": 142536704,
+      "observed_survivors": 0
+    }
+  },
+  "excluded_campaigns": [
+    {
+      "campaign": "windows-measurements-short",
+      "reason": "30 task passes but missing runner exit codes"
+    },
+    {
+      "campaign": "windows-measurements-tree-pilot",
+      "reason": "PowerShell dictionary aggregation failed"
+    },
+    {
+      "campaign": "windows-measurements-tree-short",
+      "reason": "One stale parent-PID attribution included a pre-existing ASUS utility; original tree statistics excluded"
+    }
+  ],
+  "node_pty_diagnostics": {
+    "initial_no_kill": "target exited 0; Node remained alive; explicitly stopped identified process tree",
+    "bounded_no_kill": {
+      "target_exit": 0,
+      "adapter_exit": 2,
+      "budget_ms": 10000,
+      "active_handles": [
+        "Socket",
+        "Socket",
+        "MessagePort",
+        "Socket"
+      ]
+    },
+    "kill_after_exit": {
+      "target_exit": 0,
+      "adapter_exit": 0,
+      "stderr": "AttachConsole failed"
+    },
+    "acceptance": "cleanup remains unqualified"
+  }
+}

@@ -1,8 +1,8 @@
 # Sprint 11 corpus checkpoint
 
 Status: **A0/A1 complete on 20 September 2026 and Sprint 11-B complete on 24
-September 2026.** Sprint 11-B implements all 120 admitted workflows, closes the
-300 focused risk cells, and records one detected known-bad plus recovery for all
+September 2026.** Sprint 11-B implements all 120 admitted workflows, maps the
+300 risk/layer rows, and records one detected known-bad plus recovery for all
 15 projects. This is discovery/depth evidence, not R6 frozen-byte qualification
 or broad cross-platform application compatibility.
 
@@ -11,8 +11,10 @@ The machine-checked artifacts are:
 - [`manifest.json`](manifest.json): 15 frozen projects, exact source/package or
   binary identities, install/lock/state/resource/limit/disposal contracts and
   explicit host status.
-- [`risk-map.json`](risk-map.json): 300 distinct risk/layer cells with exact test
-  anchors. The contract verifies every referenced file/test anchor exists.
+- [`risk-map.json`](risk-map.json): 300 risk/layer mappings to 40 Go test functions
+  and one workflow. Anchor validation establishes existence, not 300 executed
+  tests or native coverage. The [E0 audit](../docs/validation/e0-evidence-reconciliation-2026-09-26.md)
+  separates mappings, subcases, observed events and control provenance.
 - [`boundary-map.json`](boundary-map.json): two reviewed rejection,
   cancellation, or meaningful-boundary workflows for every project.
 - [`results/`](results): 15 machine-checked result records with exact target and
@@ -30,7 +32,7 @@ The machine-checked artifacts are:
 The completed depth checkpoint is recorded in
 [`docs/validation/sprint-11-b-corpus-depth-2026-09-24.md`](../docs/validation/sprint-11-b-corpus-depth-2026-09-24.md).
 The machine-checked denominators are 15 projects, 120 distinct workflow specs,
-300 reviewed focused risk cells, 15 intended known-bad detections with 15
+300 reviewed risk mappings, 15 intended known-bad detections with 15
 passing recoveries, and 30 reviewed rejection/cancellation/boundary workflows.
 
 Thirteen application suites ran as native Windows amd64 targets. TIG and

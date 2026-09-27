@@ -5,6 +5,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"runtime"
 )
 
 const databaseScript = `import sqlite3,sys
@@ -15,7 +16,7 @@ if phase=='init':
  c.commit();sys.exit(0)
 rows=c.execute('select id,value from results order by id').fetchall()
 want=[('alpha','one'),('beta','two')]
-if profile=='insert': want.append(('gamma','three'))
+if profile in ('insert','transaction'): want.append(('gamma','three'))
 if rows!=want: print('rows',rows,'want',want,file=sys.stderr);sys.exit(90)
 print('PLAYTESTR-LITE-ORACLE '+profile+' OK')`
 
@@ -37,6 +38,9 @@ func main() {
 		fail("locate oracle: %v", err)
 	}
 	target := filepath.Clean(filepath.Join(filepath.Dir(exe), "..", "r3c", "windows", "py-02-litecli", "venv", "Scripts", "litecli.exe"))
+	if runtime.GOOS != "windows" {
+		target = filepath.Clean(filepath.Join(filepath.Dir(exe), "..", "r3c", runtime.GOOS, "py-02-litecli", "venv", "bin", "litecli"))
+	}
 	sessions := 1
 	if profile == "reopen" {
 		sessions = 2
@@ -46,6 +50,9 @@ func main() {
 		command.Stdin, command.Stdout, command.Stderr = os.Stdin, os.Stdout, os.Stderr
 		if os.Getenv("PLAYTESTR_LITECLI_MUTATION") == "1" {
 			command.Env = append(os.Environ(), "PYTHONPATH="+filepath.Join(filepath.Dir(exe), "litecli-mutated"))
+		}
+		if os.Getenv("PLAYTESTR_LITECLI_STATE_MUTATION") == "1" {
+			command.Env = append(os.Environ(), "PYTHONPATH="+filepath.Join(filepath.Dir(exe), "litecli-state-mutated"))
 		}
 		if err := command.Run(); err != nil {
 			if exitErr, ok := err.(*exec.ExitError); ok {

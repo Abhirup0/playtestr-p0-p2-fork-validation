@@ -1,0 +1,1237 @@
+{
+  "accessible_historical_files_sha256": {
+    ".trial-private/competitive-success-35750618644/adversarial.jsonl": "6fdfae690f5ee98f872e5b213d44b2c298ad2dcc4c6cbaa3935b5acee54cfaf9",
+    ".trial-private/competitive-success-35750618644/c1-attempts.jsonl": "95c6913208845da3ba94f29c6d35a6b3362fe5c97e2f18ef304f49c723ccf71f",
+    ".trial-private/competitive-success-35750618644/c1-controls.jsonl": "1ff8099a166676c623f5e57e4299153fceb0a646ae585f06207da4141602288f",
+    ".trial-private/competitive-success-35750618644/c23-attempts.jsonl": "f5bd5e7dd917b49ba5dae5b0b6dff82a80bd9674487bdca0af3b6d1921eef860",
+    ".trial-private/competitive-success-35750618644/c23-controls.jsonl": "4ecd8a637a67e7bf0fdb5420c9529e4cc761d14456d9700075f2df32db93192c",
+    ".trial-private/competitive-success-35750618644/install.jsonl": "f47d8fc689d71ceaccfa52af83ed52fbdee093aaa0fec43d43492a8ab75e1942",
+    ".trial-private/competitive-success-35750618644/versions.txt": "59a8468070928529bf446779ac4c5b59a14553fc9d38744b10486cd557092910",
+    "artifacts/qualification-final-36106092065/qualification-darwin-arm64-100/attempts.jsonl": "85269f82d2c7d346beb3b9c181745ba8042879b596457356122feb5b049eae03",
+    "artifacts/qualification-final-36106092065/qualification-linux-amd64-100/attempts.jsonl": "d5cb9bbb746e69d399f1f8e26b8c158e5c6d49aab57b1a1ae0af58df2d955c9e",
+    "artifacts/qualification-final-36106092065/qualification-windows-amd64-100/attempts.jsonl": "59e5fbe16eff1f91761b61437952817d937a8fe4ee3fc13f82e541dd900eaeb3",
+    "corpus/results/bottom-windows-amd64.json": "c13d24cd52f86faaf17579c827fcde1d87592920ea7d86c9be4936c0b9b09e55",
+    "corpus/results/create-vite-windows-amd64.json": "e1912844b537db2f4f6254fdd26346715aab451b26581e8f1051abdb09eb2f4c",
+    "corpus/results/fzf-windows-amd64.json": "7330f242b73c2295103969e3f7dbf74b55dbbc4a1e787414a4efa0990ac7fa31",
+    "corpus/results/gitui-windows-amd64.json": "c08dffbc3e766025d8be0d3f8ede1def549e6083275233af2b09d95d79d7e7bf",
+    "corpus/results/gum-windows-amd64.json": "82095c8b6fcb685a014b9bb52efc4d3eab3445365da5598875baf8157f0cb63d",
+    "corpus/results/ipm-windows-amd64.json": "6373fc515bf3ed896b9a4dc00d4d4dc66a11364a2508a183adc9a97d98fcb5cc",
+    "corpus/results/lazygit-windows-amd64.json": "d8336ed53486a0dea4954abfd13a3cd6120bb241634429eb686262d6616c5dd8",
+    "corpus/results/litecli-windows-amd64.json": "a158c51838cb2026325e1390630af74b4e331fe1552d6e2ea3bc273f0beed0cb",
+    "corpus/results/micro-windows-amd64.json": "d7ea45258ec11896a3ee35a0993061b2883e15e6e39c82044eb54bebbd26b9ca",
+    "corpus/results/mitmproxy-windows-amd64.json": "cedec8834b4b0677b77dfd1faca1e38a283366c08814d92f267ce69f4d5f3025",
+    "corpus/results/npkill-windows-amd64.json": "56ab4b33ded138112d25a2f2e01b5db829a2cef72aafdf428626703285a0edd5",
+    "corpus/results/posting-windows-amd64.json": "0d501533fb319c52cd0d196a1c66fe92bacf16977ee3e9f47e90b284dc562153",
+    "corpus/results/taskwarrior-tui-windows-amd64.json": "95d88d9e30b7e53f5ab19566c6fecd67a9ddc06d9c681e99bbf0ac8d2b7d6136",
+    "corpus/results/television-windows-amd64.json": "991872a3dfd38f90ad0338944f56f5d7fd2000caf73ce7d32a021661f076e025",
+    "corpus/results/tig-windows-amd64.json": "fc16c2e11802a08956139a695a43ff3ab88d4d3849f3d41e399d97a4132a6579"
+  },
+  "distinct_reference_strings": 41,
+  "mapped_rows": 300,
+  "mapping_audit": [
+    {
+      "reference": "cmd/playtestr/main_test.go#TestArtifactRunDirectoriesSeparateDuplicateBasenamesAndNoStaleReferences",
+      "mapped_rows": [
+        "SNP-036",
+        "SNP-037",
+        "SNP-038",
+        "SNP-039",
+        "SNP-040"
+      ],
+      "mapped_risks": [
+        "duplicate basename artifact isolation"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestArtifactRunDirectoriesSeparateDuplicateBasenamesAndNoStaleReferences": "pass"
+      }
+    },
+    {
+      "reference": "cmd/playtestr/main_test.go#TestCancellationReturns130AndStopsLaterSpecs",
+      "mapped_rows": [
+        "LIF-046",
+        "LIF-047",
+        "LIF-048",
+        "LIF-049",
+        "LIF-050"
+      ],
+      "mapped_risks": [
+        "runner interrupt"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestCancellationReturns130AndStopsLaterSpecs": "pass"
+      }
+    },
+    {
+      "reference": "corpus/workflows/bottom/bottom-08.json",
+      "mapped_rows": [
+        "REN-041",
+        "REN-042",
+        "REN-043",
+        "REN-044",
+        "REN-045"
+      ],
+      "mapped_risks": [
+        "continuous repaint"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null
+    },
+    {
+      "reference": "internal/report/html_test.go#TestRenderHTMLAggregateEvidenceAndGeneratedOutputLimits",
+      "mapped_rows": [
+        "ART-021",
+        "ART-022",
+        "ART-023",
+        "ART-024",
+        "ART-025"
+      ],
+      "mapped_risks": [
+        "aggregate evidence limit"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestRenderHTMLAggregateEvidenceAndGeneratedOutputLimits": "pass"
+      }
+    },
+    {
+      "reference": "internal/report/html_test.go#TestRenderHTMLBoundsEvidenceAndPreservesOutputOnEveryFailure",
+      "mapped_rows": [
+        "ART-026",
+        "ART-027",
+        "ART-028",
+        "ART-029",
+        "ART-030"
+      ],
+      "mapped_risks": [
+        "atomic output preservation"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestRenderHTMLBoundsEvidenceAndPreservesOutputOnEveryFailure": "pass"
+      }
+    },
+    {
+      "reference": "internal/report/html_test.go#TestRenderHTMLMixedSuiteIsOfflineEscapedAndComplete",
+      "mapped_rows": [
+        "ART-001",
+        "ART-002",
+        "ART-003",
+        "ART-004",
+        "ART-005",
+        "ART-006",
+        "ART-007",
+        "ART-008",
+        "ART-009",
+        "ART-010"
+      ],
+      "mapped_risks": [
+        "mixed report versions",
+        "hostile report text"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestRenderHTMLMixedSuiteIsOfflineEscapedAndComplete": "pass"
+      }
+    },
+    {
+      "reference": "internal/report/html_test.go#TestRenderHTMLRejectsUnsafeEvidenceReferences",
+      "mapped_rows": [
+        "ART-011",
+        "ART-012",
+        "ART-013",
+        "ART-014",
+        "ART-015",
+        "ART-016",
+        "ART-017",
+        "ART-018",
+        "ART-019",
+        "ART-020"
+      ],
+      "mapped_risks": [
+        "missing evidence",
+        "evidence path escape"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestRenderHTMLRejectsUnsafeEvidenceReferences": "pass",
+        "TestRenderHTMLRejectsUnsafeEvidenceReferences/absolute": "pass",
+        "TestRenderHTMLRejectsUnsafeEvidenceReferences/network": "pass",
+        "TestRenderHTMLRejectsUnsafeEvidenceReferences/remote": "pass",
+        "TestRenderHTMLRejectsUnsafeEvidenceReferences/traversal": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/runner_test.go#TestAuthoringDiagnosticsRejectBeforeLaunchWithoutLeakingInput",
+      "mapped_rows": [
+        "VAL-011",
+        "VAL-012",
+        "VAL-013",
+        "VAL-014",
+        "VAL-015",
+        "VAL-016",
+        "VAL-017",
+        "VAL-018",
+        "VAL-019",
+        "VAL-020",
+        "VAL-021",
+        "VAL-022",
+        "VAL-023",
+        "VAL-024",
+        "VAL-025",
+        "VAL-031",
+        "VAL-032",
+        "VAL-033",
+        "VAL-034",
+        "VAL-035"
+      ],
+      "mapped_risks": [
+        "explicit null field",
+        "missing command",
+        "empty command element",
+        "unsupported key name"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestAuthoringDiagnosticsRejectBeforeLaunchWithoutLeakingInput": "pass",
+        "TestAuthoringDiagnosticsRejectBeforeLaunchWithoutLeakingInput/empty_command_element": "pass",
+        "TestAuthoringDiagnosticsRejectBeforeLaunchWithoutLeakingInput/incorrect_workspace_path": "pass",
+        "TestAuthoringDiagnosticsRejectBeforeLaunchWithoutLeakingInput/invalid_key": "pass",
+        "TestAuthoringDiagnosticsRejectBeforeLaunchWithoutLeakingInput/malformed_duration": "pass",
+        "TestAuthoringDiagnosticsRejectBeforeLaunchWithoutLeakingInput/missing_command": "pass",
+        "TestAuthoringDiagnosticsRejectBeforeLaunchWithoutLeakingInput/mixed_actions": "pass",
+        "TestAuthoringDiagnosticsRejectBeforeLaunchWithoutLeakingInput/null_command": "pass",
+        "TestAuthoringDiagnosticsRejectBeforeLaunchWithoutLeakingInput/snapshot_without_readiness": "pass",
+        "TestAuthoringDiagnosticsRejectBeforeLaunchWithoutLeakingInput/unknown_field": "pass",
+        "TestAuthoringDiagnosticsRejectBeforeLaunchWithoutLeakingInput/wrong_version": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/runner_test.go#TestBlockedInputHonorsContext",
+      "mapped_rows": [
+        "LIF-036",
+        "LIF-037",
+        "LIF-038",
+        "LIF-039",
+        "LIF-040"
+      ],
+      "mapped_risks": [
+        "blocked input cancellation"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestBlockedInputHonorsContext": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/runner_test.go#TestChildProcessCleanup",
+      "mapped_rows": [
+        "LIF-051",
+        "LIF-052",
+        "LIF-053",
+        "LIF-054",
+        "LIF-055"
+      ],
+      "mapped_risks": [
+        "hung descendant cleanup"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestChildProcessCleanup": "pass",
+        "TestChildProcessCleanup/parent-child": "pass",
+        "TestChildProcessCleanup/parent-exits-child": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/runner_test.go#TestExitWhileWaitingForText",
+      "mapped_rows": [
+        "LIF-016",
+        "LIF-017",
+        "LIF-018",
+        "LIF-019",
+        "LIF-020"
+      ],
+      "mapped_risks": [
+        "exit before readiness"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestExitWhileWaitingForText": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/runner_test.go#TestExpectNotTimesOutWhileObservedTextRemains",
+      "mapped_rows": [
+        "REN-026",
+        "REN-027",
+        "REN-028",
+        "REN-029",
+        "REN-030"
+      ],
+      "mapped_risks": [
+        "stale positive text"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestExpectNotTimesOutWhileObservedTextRemains": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/runner_test.go#TestExpectNotWaitsForObservedTextToDisappear",
+      "mapped_rows": [
+        "REN-031",
+        "REN-032",
+        "REN-033",
+        "REN-034",
+        "REN-035"
+      ],
+      "mapped_risks": [
+        "observed text disappearance"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestExpectNotWaitsForObservedTextToDisappear": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/runner_test.go#TestExpectedExitZero",
+      "mapped_rows": [
+        "LIF-001",
+        "LIF-002",
+        "LIF-003",
+        "LIF-004",
+        "LIF-005"
+      ],
+      "mapped_risks": [
+        "natural exit zero"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestExpectedExitZero": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/runner_test.go#TestExpectedNonzeroExit",
+      "mapped_rows": [
+        "LIF-006",
+        "LIF-007",
+        "LIF-008",
+        "LIF-009",
+        "LIF-010"
+      ],
+      "mapped_risks": [
+        "expected nonzero exit"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestExpectedNonzeroExit": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/runner_test.go#TestOutputLimit",
+      "mapped_rows": [
+        "LIF-041",
+        "LIF-042",
+        "LIF-043",
+        "LIF-044",
+        "LIF-045"
+      ],
+      "mapped_risks": [
+        "output flood"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestOutputLimit": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/runner_test.go#TestRejectInvalidSpecs",
+      "mapped_rows": [
+        "VAL-006",
+        "VAL-007",
+        "VAL-008",
+        "VAL-009",
+        "VAL-010",
+        "VAL-026",
+        "VAL-027",
+        "VAL-028",
+        "VAL-029",
+        "VAL-030",
+        "VAL-036",
+        "VAL-037",
+        "VAL-038",
+        "VAL-039",
+        "VAL-040",
+        "VAL-041",
+        "VAL-042",
+        "VAL-043",
+        "VAL-044",
+        "VAL-045",
+        "VAL-046",
+        "VAL-047",
+        "VAL-048",
+        "VAL-049",
+        "VAL-050",
+        "VAL-051",
+        "VAL-052",
+        "VAL-053",
+        "VAL-054",
+        "VAL-055"
+      ],
+      "mapped_risks": [
+        "unknown object field",
+        "step with mixed actions",
+        "nonpositive duration",
+        "viewport below minimum",
+        "viewport above maximum",
+        "invalid environment name"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestRejectInvalidSpecs": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/runner_test.go#TestRepeatedSessionCleanup",
+      "mapped_rows": [
+        "LIF-056",
+        "LIF-057",
+        "LIF-058",
+        "LIF-059",
+        "LIF-060"
+      ],
+      "mapped_risks": [
+        "repeated session cleanup"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestRepeatedSessionCleanup": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/runner_test.go#TestRunTimeout",
+      "mapped_rows": [
+        "LIF-031",
+        "LIF-032",
+        "LIF-033",
+        "LIF-034",
+        "LIF-035"
+      ],
+      "mapped_risks": [
+        "total run timeout"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestRunTimeout": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/runner_test.go#TestScreenRedraw",
+      "mapped_rows": [
+        "REN-036",
+        "REN-037",
+        "REN-038",
+        "REN-039",
+        "REN-040"
+      ],
+      "mapped_risks": [
+        "delayed redraw readiness"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestScreenRedraw": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/runner_test.go#TestSilentTargetCanReceiveInputWithoutStartupTimeout",
+      "mapped_rows": [
+        "LIF-021",
+        "LIF-022",
+        "LIF-023",
+        "LIF-024",
+        "LIF-025"
+      ],
+      "mapped_risks": [
+        "silent target input"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestSilentTargetCanReceiveInputWithoutStartupTimeout": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/runner_test.go#TestSpecVersionAndSizeLimits",
+      "mapped_rows": [
+        "VAL-001",
+        "VAL-002",
+        "VAL-003",
+        "VAL-004",
+        "VAL-005"
+      ],
+      "mapped_risks": [
+        "unsupported spec version"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestSpecVersionAndSizeLimits": "pass",
+        "TestSpecVersionAndSizeLimits/missing": "pass",
+        "TestSpecVersionAndSizeLimits/unsupported": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/runner_test.go#TestStartupTimeout",
+      "mapped_rows": [
+        "LIF-026",
+        "LIF-027",
+        "LIF-028",
+        "LIF-029",
+        "LIF-030"
+      ],
+      "mapped_risks": [
+        "startup timeout"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestStartupTimeout": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/runner_test.go#TestTargetObservesResize",
+      "mapped_rows": [
+        "REN-046",
+        "REN-047",
+        "REN-048",
+        "REN-049",
+        "REN-050",
+        "REN-051",
+        "REN-052",
+        "REN-053",
+        "REN-054",
+        "REN-055"
+      ],
+      "mapped_risks": [
+        "narrow viewport resize",
+        "wide viewport resize"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestTargetObservesResize": "pass",
+        "TestTargetObservesResize/20x5": "pass",
+        "TestTargetObservesResize/60x10": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/runner_test.go#TestWorkingDirectoryAndExplicitEnvironment",
+      "mapped_rows": [
+        "WSP-026",
+        "WSP-027",
+        "WSP-028",
+        "WSP-029",
+        "WSP-030"
+      ],
+      "mapped_risks": [
+        "managed environment conflict"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestWorkingDirectoryAndExplicitEnvironment": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/runner_test.go#TestWrongExitCode",
+      "mapped_rows": [
+        "LIF-011",
+        "LIF-012",
+        "LIF-013",
+        "LIF-014",
+        "LIF-015"
+      ],
+      "mapped_risks": [
+        "unexpected exit code"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestWrongExitCode": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/snapshot_test.go#TestSnapshotBaselineAndReadableMismatch",
+      "mapped_rows": [
+        "SNP-011",
+        "SNP-012",
+        "SNP-013",
+        "SNP-014",
+        "SNP-015"
+      ],
+      "mapped_risks": [
+        "readable mismatch diff"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestSnapshotBaselineAndReadableMismatch": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/snapshot_test.go#TestSnapshotMissingAndSizeFailuresAreDistinct",
+      "mapped_rows": [
+        "SNP-001",
+        "SNP-002",
+        "SNP-003",
+        "SNP-004",
+        "SNP-005",
+        "SNP-006",
+        "SNP-007",
+        "SNP-008",
+        "SNP-009",
+        "SNP-010"
+      ],
+      "mapped_risks": [
+        "missing baseline",
+        "oversized baseline"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": [
+        "\"missing\"",
+        "\"oversized\""
+      ],
+      "observed_windows_events": {
+        "TestSnapshotMissingAndSizeFailuresAreDistinct": "pass",
+        "TestSnapshotMissingAndSizeFailuresAreDistinct/missing": "pass",
+        "TestSnapshotMissingAndSizeFailuresAreDistinct/oversized": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/snapshot_test.go#TestSnapshotUpdatesAreNotCommittedAfterCancellation",
+      "mapped_rows": [
+        "SNP-026",
+        "SNP-027",
+        "SNP-028",
+        "SNP-029",
+        "SNP-030"
+      ],
+      "mapped_risks": [
+        "cancellation rollback"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestSnapshotUpdatesAreNotCommittedAfterCancellation": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/snapshot_test.go#TestSnapshotUpdatesAreNotCommittedAfterLaterFailure",
+      "mapped_rows": [
+        "SNP-021",
+        "SNP-022",
+        "SNP-023",
+        "SNP-024",
+        "SNP-025"
+      ],
+      "mapped_risks": [
+        "later-step rollback"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestSnapshotUpdatesAreNotCommittedAfterLaterFailure": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/snapshot_test.go#TestTargetedSnapshotUpdate",
+      "mapped_rows": [
+        "SNP-016",
+        "SNP-017",
+        "SNP-018",
+        "SNP-019",
+        "SNP-020"
+      ],
+      "mapped_risks": [
+        "targeted baseline update"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestTargetedSnapshotUpdate": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/snapshot_test.go#TestUnknownSnapshotSelectorFailsBeforeTargetLaunch",
+      "mapped_rows": [
+        "SNP-031",
+        "SNP-032",
+        "SNP-033",
+        "SNP-034",
+        "SNP-035"
+      ],
+      "mapped_risks": [
+        "unknown selector"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestUnknownSnapshotSelectorFailsBeforeTargetLaunch": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/terminal_test.go#TestRenderedScreenContract",
+      "mapped_rows": [
+        "REN-001",
+        "REN-002",
+        "REN-003",
+        "REN-004",
+        "REN-005",
+        "REN-006",
+        "REN-007",
+        "REN-008",
+        "REN-009",
+        "REN-010",
+        "REN-011",
+        "REN-012",
+        "REN-013",
+        "REN-014",
+        "REN-015",
+        "REN-016",
+        "REN-017",
+        "REN-018",
+        "REN-019",
+        "REN-020",
+        "REN-021",
+        "REN-022",
+        "REN-023",
+        "REN-024",
+        "REN-025",
+        "REN-056",
+        "REN-057",
+        "REN-058",
+        "REN-059",
+        "REN-060"
+      ],
+      "mapped_risks": [
+        "split UTF-8 sequence",
+        "split CSI escape",
+        "screen erase and home",
+        "carriage-return redraw",
+        "alternate-screen enter and leave",
+        "supported Unicode width"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": [
+        "\"normalization\"",
+        "\"carriage return cursor movement and erase\"",
+        "\"split escape sequence\"",
+        "\"split UTF-8\"",
+        "\"alternate screen\""
+      ],
+      "observed_windows_events": {
+        "TestRenderedScreenContract": "pass",
+        "TestRenderedScreenContract/alternate_screen": "pass",
+        "TestRenderedScreenContract/carriage_return_cursor_movement_and_erase": "pass",
+        "TestRenderedScreenContract/normalization": "pass",
+        "TestRenderedScreenContract/split_UTF-8": "pass",
+        "TestRenderedScreenContract/split_escape_sequence": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/workspace_test.go#TestWorkspaceCancellationCleansAfterTarget",
+      "mapped_rows": [
+        "WSP-031",
+        "WSP-032",
+        "WSP-033",
+        "WSP-034",
+        "WSP-035"
+      ],
+      "mapped_risks": [
+        "setup cancellation"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestWorkspaceCancellationCleansAfterTarget": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/workspace_test.go#TestWorkspaceCleanupFailurePreventsSnapshotCommit",
+      "mapped_rows": [
+        "WSP-041",
+        "WSP-042",
+        "WSP-043",
+        "WSP-044",
+        "WSP-045"
+      ],
+      "mapped_risks": [
+        "cleanup failure"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestWorkspaceCleanupFailurePreventsSnapshotCommit": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/workspace_test.go#TestWorkspaceFailureCleanupAndExplicitRetention",
+      "mapped_rows": [
+        "WSP-036",
+        "WSP-037",
+        "WSP-038",
+        "WSP-039",
+        "WSP-040"
+      ],
+      "mapped_risks": [
+        "retained failed state"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestWorkspaceFailureCleanupAndExplicitRetention": "pass",
+        "TestWorkspaceFailureCleanupAndExplicitRetention/clean": "pass",
+        "TestWorkspaceFailureCleanupAndExplicitRetention/retain": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/workspace_test.go#TestWorkspaceFixtureCopyRejectsUnsafeAndBoundedInputs",
+      "mapped_rows": [
+        "WSP-016",
+        "WSP-017",
+        "WSP-018",
+        "WSP-019",
+        "WSP-020",
+        "WSP-021",
+        "WSP-022",
+        "WSP-023",
+        "WSP-024",
+        "WSP-025"
+      ],
+      "mapped_risks": [
+        "fixture link or junction",
+        "entry and byte bounds"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": [
+        "\"cancelled\"",
+        "\"oversized file\"",
+        "\"too many entries\"",
+        "\"symbolic link\""
+      ],
+      "observed_windows_events": {
+        "TestWorkspaceFixtureCopyRejectsUnsafeAndBoundedInputs": "pass",
+        "TestWorkspaceFixtureCopyRejectsUnsafeAndBoundedInputs/cancelled": "pass",
+        "TestWorkspaceFixtureCopyRejectsUnsafeAndBoundedInputs/oversized_file": "pass",
+        "TestWorkspaceFixtureCopyRejectsUnsafeAndBoundedInputs/symbolic_link": "skip",
+        "TestWorkspaceFixtureCopyRejectsUnsafeAndBoundedInputs/too_many_entries": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/workspace_test.go#TestWorkspaceRunsTwiceFromFreshFixtureAndCleans",
+      "mapped_rows": [
+        "WSP-001",
+        "WSP-002",
+        "WSP-003",
+        "WSP-004",
+        "WSP-005",
+        "WSP-006",
+        "WSP-007",
+        "WSP-008",
+        "WSP-009",
+        "WSP-010"
+      ],
+      "mapped_risks": [
+        "fresh fixture copy",
+        "prior-state contamination"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestWorkspaceRunsTwiceFromFreshFixtureAndCleans": "pass"
+      }
+    },
+    {
+      "reference": "internal/runner/workspace_test.go#TestWorkspaceSpecValidation",
+      "mapped_rows": [
+        "WSP-011",
+        "WSP-012",
+        "WSP-013",
+        "WSP-014",
+        "WSP-015"
+      ],
+      "mapped_risks": [
+        "escaping relative path"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestWorkspaceSpecValidation": "pass",
+        "TestWorkspaceSpecValidation/absolute_cwd": "pass",
+        "TestWorkspaceSpecValidation/escaping_fixture": "pass",
+        "TestWorkspaceSpecValidation/home_value": "pass",
+        "TestWorkspaceSpecValidation/managed_env_conflict": "pass",
+        "TestWorkspaceSpecValidation/managed_inherit_conflict": "pass",
+        "TestWorkspaceSpecValidation/top_level_cwd": "pass",
+        "TestWorkspaceSpecValidation/v1_workspace": "pass",
+        "TestWorkspaceSpecValidation/v2_without_workspace": "pass"
+      }
+    },
+    {
+      "reference": "internal/setupaction/install_integration_test.go#TestSetupActionRejectsPartialAndOversizedDownloads",
+      "mapped_rows": [
+        "ART-036",
+        "ART-037",
+        "ART-038",
+        "ART-039",
+        "ART-040"
+      ],
+      "mapped_risks": [
+        "interrupted download"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestSetupActionRejectsPartialAndOversizedDownloads": "pass",
+        "TestSetupActionRejectsPartialAndOversizedDownloads/oversized_response": "pass",
+        "TestSetupActionRejectsPartialAndOversizedDownloads/partial_response": "pass"
+      }
+    },
+    {
+      "reference": "internal/setupaction/install_integration_test.go#TestSetupActionRejectsUnsafeOrUnverifiedInputs",
+      "mapped_rows": [
+        "ART-031",
+        "ART-032",
+        "ART-033",
+        "ART-034",
+        "ART-035"
+      ],
+      "mapped_risks": [
+        "corrupt archive or checksum"
+      ],
+      "labels_not_execution": [
+        "pure contract boundary",
+        "runner integration boundary",
+        "Windows amd64 native boundary",
+        "Linux amd64 native boundary",
+        "macOS arm64 native boundary"
+      ],
+      "source_anchor_found": true,
+      "literal_subcase_names_not_exhaustive": null,
+      "observed_windows_events": {
+        "TestSetupActionRejectsUnsafeOrUnverifiedInputs": "pass",
+        "TestSetupActionRejectsUnsafeOrUnverifiedInputs/corrupt_archive_with_matching_checksum": "pass",
+        "TestSetupActionRejectsUnsafeOrUnverifiedInputs/escaping_archive_member": "pass",
+        "TestSetupActionRejectsUnsafeOrUnverifiedInputs/missing_executable_member": "pass",
+        "TestSetupActionRejectsUnsafeOrUnverifiedInputs/missing_release": "pass",
+        "TestSetupActionRejectsUnsafeOrUnverifiedInputs/non-exact_version": "pass",
+        "TestSetupActionRejectsUnsafeOrUnverifiedInputs/supported_but_non-native_platform": "pass",
+        "TestSetupActionRejectsUnsafeOrUnverifiedInputs/unsupported_architecture": "pass",
+        "TestSetupActionRejectsUnsafeOrUnverifiedInputs/wrong_checksum": "pass"
+      }
+    }
+  ],
+  "subcase_policy": "Literal names are only source inventory. Distinct runtime subcases are observed full test names; table-driven/dynamic cases are counted only from events. Parent events are not additional subcases. Windows events prove only this native path; no row automatically gains a native execution from its label.",
+  "test_function_anchors": 40,
+  "workflow_anchors": 1
+}

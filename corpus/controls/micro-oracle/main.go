@@ -1,12 +1,14 @@
 package main
 
 import (
+	"bufio"
 	"bytes"
 	"encoding/json"
 	"fmt"
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strings"
 )
 
 type oracle struct {
@@ -30,6 +32,15 @@ func main() {
 	if len(expected.Files) == 0 {
 		fail("validate oracle", fmt.Errorf("files must not be empty"))
 	}
+	if os.Getenv("PLAYTESTR_MICRO_REVIEWED_CONFIG") == "1" {
+		seed, err := os.ReadFile(filepath.Join("reviewed-config", "settings.seed"))
+		if err != nil || len(seed) > 4096 || !json.Valid(seed) {
+			fail("reviewed config seed", fmt.Errorf("invalid or unavailable bounded seed: %v", err))
+		}
+		if err := os.WriteFile(filepath.Join("reviewed-config", "settings.json"), seed, 0600); err != nil {
+			fail("prepare reviewed config", err)
+		}
+	}
 
 	target := os.Args[3]
 	if filepath.Base(target) == target {
@@ -39,11 +50,28 @@ func main() {
 		}
 		target = filepath.Join(filepath.Dir(executable), target)
 	}
-	command := exec.Command(target, os.Args[4:]...)
+	runMicro(target, os.Args[4:])
+	verifyFiles(expected)
+	if os.Getenv("PLAYTESTR_MICRO_REOPEN") == "1" {
+		// Positive transition barrier prevents input being consumed by the
+		// exiting editor's buffered reader before the next editor starts.
+		fmt.Println("PLAYTESTR_MICRO_REOPEN_READY")
+		line, err := bufio.NewReaderSize(os.Stdin, 128).ReadSlice('\n')
+		if err != nil || strings.TrimSpace(string(line)) != "reopen" {
+			fail("reopen transition", fmt.Errorf("expected bounded reopen acknowledgement: %v", err))
+		}
+		runMicro(target, os.Args[4:])
+		verifyFiles(expected)
+	}
+	fmt.Println("PLAYTESTR_MICRO_ORACLE=passed")
+}
+
+func runMicro(target string, args []string) {
+	command := exec.Command(target, args...)
 	command.Stdin = os.Stdin
 	command.Stdout = os.Stdout
 	command.Stderr = os.Stderr
-	err = command.Run()
+	err := command.Run()
 	exitCode := 0
 	if err != nil {
 		var exitErr *exec.ExitError
@@ -57,6 +85,9 @@ func main() {
 		os.Exit(exitCode)
 	}
 
+}
+
+func verifyFiles(expected oracle) {
 	for name, want := range expected.Files {
 		path, err := localPath(name)
 		if err != nil {
@@ -70,7 +101,6 @@ func main() {
 			fail("check oracle file", fmt.Errorf("%s bytes differ", name))
 		}
 	}
-	fmt.Println("PLAYTESTR_MICRO_ORACLE=passed")
 }
 
 func asExitError(err error, target **exec.ExitError) bool {

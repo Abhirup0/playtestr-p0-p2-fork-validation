@@ -1,0 +1,108 @@
+{
+    "version":  2,
+    "name":  "RW5 rollback then commit exact transaction",
+    "command":  [
+                    "../../../.trial-private/corpus-tools/litecli-oracle",
+                    "transaction"
+                ],
+    "workspace":  {
+                      "fixture":  "fixture",
+                      "cwd":  ".",
+                      "home":  "temporary",
+                      "temp":  "temporary"
+                  },
+    "width":  100,
+    "height":  30,
+    "timeout_ms":  8000,
+    "run_timeout_ms":  30000,
+    "max_output_bytes":  1000000,
+    "steps":  [
+                  {
+                      "expect":  "trial\u003e"
+                  },
+                  {
+                      "text":  "BEGIN;"
+                  },
+                  {
+                      "key":  "Enter"
+                  },
+                  {
+                      "expect":  "Query OK"
+                  },
+                  {
+                      "text":  "INSERT INTO results VALUES (\u0027gamma\u0027,\u0027three\u0027);"
+                  },
+                  {
+                      "key":  "Enter"
+                  },
+                  {
+                      "expect":  "Query OK"
+                  },
+                  {
+                      "text":  "ROLLBACK;"
+                  },
+                  {
+                      "key":  "Enter"
+                  },
+                  {
+                      "expect":  "Query OK"
+                  },
+                  {
+                      "text":  "SELECT \u0027after-rollback-\u0027 || count(*) FROM results;"
+                  },
+                  {
+                      "key":  "Enter"
+                  },
+                  {
+                      "expect":  "after-rollback-2"
+                  },
+                  {
+                      "text":  "BEGIN;"
+                  },
+                  {
+                      "key":  "Enter"
+                  },
+                  {
+                      "expect":  "Query OK"
+                  },
+                  {
+                      "text":  "INSERT INTO results VALUES (\u0027gamma\u0027,\u0027three\u0027);"
+                  },
+                  {
+                      "key":  "Enter"
+                  },
+                  {
+                      "expect":  "Query OK"
+                  },
+                  {
+                      "text":  "COMMIT;"
+                  },
+                  {
+                      "key":  "Enter"
+                  },
+                  {
+                      "expect":  "Query OK"
+                  },
+                  {
+                      "text":  "SELECT \u0027after-commit-\u0027 || count(*) FROM results;"
+                  },
+                  {
+                      "key":  "Enter"
+                  },
+                  {
+                      "expect":  "after-commit-3"
+                  },
+                  {
+                      "text":  "\\q"
+                  },
+                  {
+                      "key":  "Enter"
+                  },
+                  {
+                      "expect":  "PLAYTESTR-LITE-ORACLE transaction OK"
+                  },
+                  {
+                      "exit":  0
+                  }
+              ]
+}

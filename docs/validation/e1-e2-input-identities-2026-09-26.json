@@ -1,0 +1,310 @@
+[
+  {
+    "path": ".trial-private/corpus-tools/create-vite-code-mutated-runtime/node_modules/create-vite/dist/index.js",
+    "sha256": "23ca944a09883a99b5ea3006621a08c626eb8e85719896b5e3fbb0a6307db1f0"
+  },
+  {
+    "path": ".trial-private/corpus-tools/create-vite-oracle.exe",
+    "sha256": "9577a243aea3ed663e2387e52e87139fae656833d92f3e1ee66ce93c1ddfb233"
+  },
+  {
+    "path": ".trial-private/corpus-tools/create-vite-ui-mutated-runtime/node_modules/create-vite/dist/index.js",
+    "sha256": "6e9fa471412379d098631f6d13094b27eef49331b460da04bdf82c602f55bf33"
+  },
+  {
+    "path": ".trial-private/corpus-tools/create-vite-ui-runtime/node_modules/create-vite/dist/index.js",
+    "sha256": "6e9fa471412379d098631f6d13094b27eef49331b460da04bdf82c602f55bf33"
+  },
+  {
+    "path": ".trial-private/corpus-tools/gitui-oracle.exe",
+    "sha256": "2c095594fedbd1dd44069813a479ed58b323686a1837514f5aac5f43ca60fdff"
+  },
+  {
+    "path": ".trial-private/corpus-tools/ipm-oracle.exe",
+    "sha256": "ba6cee2676e920cedcfa0c5aa1af7edb9475e02fc9b443c85dcc8a06c782ddc5"
+  },
+  {
+    "path": ".trial-private/corpus-tools/lazygit-oracle.exe",
+    "sha256": "91f86b372c7a23eaa2a2211a599795901b671856994927b94995ac498082e16d"
+  },
+  {
+    "path": ".trial-private/corpus-tools/litecli-oracle.exe",
+    "sha256": "a6113dc767851b348e6af7e0debb41e02ad7b62edc13f8d39c7c63ccfa92e929"
+  },
+  {
+    "path": ".trial-private/corpus-tools/litecli-state-mutated/litecli/sqlexecute.py",
+    "sha256": "f18d7cad34cea9cf90d285b38085b846503b8e872d952f4598eedbe4194c9fee"
+  },
+  {
+    "path": ".trial-private/corpus-tools/micro-oracle-race.exe",
+    "sha256": "f98a87bab454f329312a66bea91c7415283755c0097d1d5b36ab3f2176c4eead"
+  },
+  {
+    "path": ".trial-private/corpus-tools/micro-oracle.exe",
+    "sha256": "0dd8ee5fb646e0979a9150a2646a2c46eb49c96b0dbce2fd43f6fd2641f73621"
+  },
+  {
+    "path": ".trial-private/corpus-tools/mitmproxy-oracle.exe",
+    "sha256": "75429b5c91dcb39e6fceae5c03ed40a929de39699245461e0290eff823864993"
+  },
+  {
+    "path": ".trial-private/corpus-tools/posting-oracle-race.exe",
+    "sha256": "4c1fda65b9a1c17539f8451d2d2ca1bc146ce5f3683e56ca37f58902d2180a8e"
+  },
+  {
+    "path": ".trial-private/corpus-tools/posting-oracle.exe",
+    "sha256": "c3fb8ceda3ee6775c482388999eee169dcf9aef35e1af4c26219a114260e1afc"
+  },
+  {
+    "path": ".trial-private/corpus-tools/posting-save-mutated/posting/collection.py",
+    "sha256": "2d5aa43f09bdd86b286cc9a23a3ecb00bd3750fbd57861bf8b723c445da45a41"
+  },
+  {
+    "path": ".trial-private/corpus-tools/posting-ui-changed/posting/app.py",
+    "sha256": "f6485bac2914a942a4c102f5e6eb49398fb5f716eb5974196f2714c12b593b23"
+  },
+  {
+    "path": ".trial-private/corpus-tools/posting-ui-save-mutated/posting/app.py",
+    "sha256": "f6485bac2914a942a4c102f5e6eb49398fb5f716eb5974196f2714c12b593b23"
+  },
+  {
+    "path": ".trial-private/corpus-tools/task-oracle.exe",
+    "sha256": "1876fe28ae15cf24eee11ce3337ef068b18c85424ca35a673b9ea6f8e68a2e92"
+  },
+  {
+    "path": ".trial-private/corpus-tools/tig-oracle.exe",
+    "sha256": "7b6efe060717e30148a4ac87791a4803571c6a85505777f155b49bbb783901cc"
+  },
+  {
+    "path": ".trial-private/readiness-termless/node_modules/@termless/core/dist/backends-BrIwN-vr.mjs",
+    "sha256": "6f9fbbae9b7dfe16d5f2b1d9d4d6be8da0ecfa4a2dc8883b131ae89aad9f6d35"
+  },
+  {
+    "path": ".trial-private/readiness-termless/node_modules/node-pty/lib/windowsPtyAgent.js",
+    "sha256": "8636d16b38266112204061a22b135734177c242837982fd3a4055be726efa64a"
+  },
+  {
+    "path": ".trial-private/readiness-termless/node_modules/node-pty/lib/windowsTerminal.js",
+    "sha256": "c3a65716f53fed0135a8a633373d5f9c2ab092544d651f27ef0a67096dd3bcd9"
+  },
+  {
+    "path": ".trial-private/readiness-termless/package-lock.json",
+    "sha256": "aef02bc4f7c09a60dac3b68da4d9b722c17c3050399436106cf3efb7a34261cb"
+  },
+  {
+    "path": "artifacts/readiness-2026-09-26/discovery-final-local/pins.json",
+    "sha256": "1309aad43df29ba8f89a80c995258e1867efd696f14d79593caa953f7af7464a"
+  },
+  {
+    "path": "artifacts/readiness-2026-09-26/discovery-rw3-code/pins.json",
+    "sha256": "1309aad43df29ba8f89a80c995258e1867efd696f14d79593caa953f7af7464a"
+  },
+  {
+    "path": "artifacts/readiness-2026-09-26/discovery-rw3-exact-final/pins.json",
+    "sha256": "c67ebbed22ef344d4599109760843eb61138851fed8fc1a0e715db337610df23"
+  },
+  {
+    "path": "artifacts/readiness-2026-09-26/discovery-state-oracles/pins.json",
+    "sha256": "6de6628c1565b4196756a5a747af9b71efee585bd97f9cdf25b24634d3f074d0"
+  },
+  {
+    "path": "artifacts/readiness-2026-09-26/node-pty-kill-after-exit-bounded.stderr.log",
+    "sha256": "3bff6219cb4056c1b458d82d719f6feeb2d253bb1b28cf9e972e00098e226019"
+  },
+  {
+    "path": "artifacts/readiness-2026-09-26/node-pty-kill-after-exit-bounded.stdout.log",
+    "sha256": "4d3563cd8b2f489008c49903ae1dc83caa5d6606b0c31f1583e3a234406c1c16"
+  },
+  {
+    "path": "artifacts/readiness-2026-09-26/node-pty-kill-after-exit.stderr.log",
+    "sha256": "5e466c028039103b10f1bd765180bf1ebaac9c6dea550c68ded5b98759a9feba"
+  },
+  {
+    "path": "artifacts/readiness-2026-09-26/node-pty-kill-after-exit.stdout.log",
+    "sha256": "4d3563cd8b2f489008c49903ae1dc83caa5d6606b0c31f1583e3a234406c1c16"
+  },
+  {
+    "path": "artifacts/readiness-2026-09-26/node-pty-natural-bounded.stderr.log",
+    "sha256": "55170effb5e73de9022eeff0d556332c537ca950da29e6b6046873baca2b8019"
+  },
+  {
+    "path": "artifacts/readiness-2026-09-26/node-pty-natural-bounded.stdout.log",
+    "sha256": "b8bbd6eb549609b7f4a58250d80f3ebcd26d02b25c3e4a2eea8aad0f7110f543"
+  },
+  {
+    "path": "artifacts/readiness-2026-09-26/node-pty-natural.stderr.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "artifacts/readiness-2026-09-26/node-pty-natural.stdout.log",
+    "sha256": "b8bbd6eb549609b7f4a58250d80f3ebcd26d02b25c3e4a2eea8aad0f7110f543"
+  },
+  {
+    "path": "artifacts/readiness-2026-09-26/runner.trace",
+    "sha256": "6d79f3e9a6facb2229c4c92fd3d09b05a8616bc34aee30e9ecbb44dcbd471aa7"
+  },
+  {
+    "path": "artifacts/readiness-2026-09-26/sync.pprof",
+    "sha256": "5961cdbb6e6f94d30ec2ed585a4fbf8f42d888c2ae053f97a5984c5261c1d917"
+  },
+  {
+    "path": "artifacts/readiness-2026-09-26/windows-measurements-handle-pilot/observations.jsonl",
+    "sha256": "070477b5578cccd3fabd604c9c2b27aca07084ed15c30dd4aa1c7d70bec4c965"
+  },
+  {
+    "path": "artifacts/readiness-2026-09-26/windows-measurements-short/observations.jsonl",
+    "sha256": "ee61400b8b3e0068f8c578dab6fec0a946999c36c6192d775b2e2cc147dcb64f"
+  },
+  {
+    "path": "artifacts/readiness-2026-09-26/windows-measurements-tree-identity-corrected/observations.jsonl",
+    "sha256": "c18d051c963eb6aaaee49c8d3f6f2dd62d5cd9fb05c9f3a43baf95d8001965a3"
+  },
+  {
+    "path": "artifacts/readiness-2026-09-26/windows-measurements-tree-pilot-repaired/observations.jsonl",
+    "sha256": "c0bde9615d275820367bf82cfca65d50ea50f476714476f39eec0149bfb64a3f"
+  },
+  {
+    "path": "artifacts/readiness-2026-09-26/windows-measurements-tree-short/observations.jsonl",
+    "sha256": "51115c84874bcafeeacb20cb08a1e75f594423b408fceb423e7a7e80a765dbb6"
+  },
+  {
+    "path": "artifacts/readiness-2026-09-26/windows-measurements-tree-suites/observations.jsonl",
+    "sha256": "cb21c5982ef9d193ee03ecfecc88e1841a8d7953180f656380be9f008dba2c36"
+  },
+  {
+    "path": "corpus/controls/create-vite-oracle/VITE-TEMPLATE-LICENSE",
+    "sha256": "fdd944ea8725b433812417b93b0caf2205f5321233c82010c873b8577edcb256"
+  },
+  {
+    "path": "corpus/controls/create-vite-oracle/go.mod",
+    "sha256": "81f68d19b76d8ba12f29e6733fbf875adb67b71dfc04e8b3e35bfea0ffe5a079"
+  },
+  {
+    "path": "corpus/controls/create-vite-oracle/main.go",
+    "sha256": "1d3645f04d0a801e28f9eb0797c40de34ab8c2bcced76ae3221b1dce31cd9983"
+  },
+  {
+    "path": "corpus/controls/create-vite-oracle/vanilla-golden.NOTICE.md",
+    "sha256": "c22ccc7073bd91f808f18f2283e2f5c5f972746a74b7f54fca8e9dfe6403067a"
+  },
+  {
+    "path": "corpus/controls/create-vite-oracle/vanilla-golden/_gitignore",
+    "sha256": "fe718e7babb14f3cbad2d97f08889b9ce5215ed3fe0e43b2b8cfbfb3b9b844e8"
+  },
+  {
+    "path": "corpus/controls/create-vite-oracle/vanilla-golden/index.html",
+    "sha256": "b56c70e2f1939591fd0b25b6fc80c9cf2878ee951666b45ac0b5bd5843152337"
+  },
+  {
+    "path": "corpus/controls/create-vite-oracle/vanilla-golden/package.json",
+    "sha256": "9c7fda4e995fcf8bd8fb6510c5986215b29c721aa969e31601bd7e9b4fb26872"
+  },
+  {
+    "path": "corpus/controls/create-vite-oracle/vanilla-golden/public/favicon.svg",
+    "sha256": "ceeac38434be7a3b4d0f68b8cd8aa2b9ae78c260d6343087c6e095f8031ce4ff"
+  },
+  {
+    "path": "corpus/controls/create-vite-oracle/vanilla-golden/public/icons.svg",
+    "sha256": "b45fa506195cfcdef406ba9f0c77b36ddc1a7c224040926ec70abc2fdea7b93a"
+  },
+  {
+    "path": "corpus/controls/create-vite-oracle/vanilla-golden/src/assets/hero.png",
+    "sha256": "881ffbcaafc212e49addad08846a5b82761355fa20624253af3477ba33262c5c"
+  },
+  {
+    "path": "corpus/controls/create-vite-oracle/vanilla-golden/src/assets/javascript.svg",
+    "sha256": "5c16f64d7e77fb23372f24dc8c93688209aaab1b1cf7a3d0a278ed2500ebdd4e"
+  },
+  {
+    "path": "corpus/controls/create-vite-oracle/vanilla-golden/src/assets/vite.svg",
+    "sha256": "5be21acd42eb7b896e517f4e0f0f11eb5c5d9e54fbbcebe9453f033008fcca6f"
+  },
+  {
+    "path": "corpus/controls/create-vite-oracle/vanilla-golden/src/counter.js",
+    "sha256": "7291271b8a0968819be49efef31dcdf3703eb2a3acc16b1495534df64940e4da"
+  },
+  {
+    "path": "corpus/controls/create-vite-oracle/vanilla-golden/src/main.js",
+    "sha256": "2c70bbd7236869dc002b21a955b2746163a7d1d31f938c0ab4fea42629cae8bf"
+  },
+  {
+    "path": "corpus/controls/create-vite-oracle/vanilla-golden/src/style.css",
+    "sha256": "5ec45168127a4b9229c69b55d25b3c5c6d3fcf284e0cf2bf24533285f7f89208"
+  },
+  {
+    "path": "corpus/controls/create-vite-oracle/vanilla.go",
+    "sha256": "095241cf62b156c2d6d1bb00f97249441f6c37c65c44dddec36076cd4cc3ea78"
+  },
+  {
+    "path": "corpus/controls/create-vite-oracle/vanilla_test.go",
+    "sha256": "465df326c7fad1088279f4afc2fa54ef977bed34d208950627f88843d12e4f22"
+  },
+  {
+    "path": "corpus/controls/micro-oracle/go.mod",
+    "sha256": "06212f67157c7e8a8f59bc61715d3b5c32eb728999dbcd3569d202739d325559"
+  },
+  {
+    "path": "corpus/controls/micro-oracle/main.go",
+    "sha256": "8892b80e797fb414cf2c8bb6345243e1bff1cdc25d8f1fd8939a799c222270d4"
+  },
+  {
+    "path": "corpus/controls/posting-oracle/go.mod",
+    "sha256": "96fbbcdcb7ec0d50d9c26e93f0b2c62040e29915845d5665da2d0a5e9aeb1148"
+  },
+  {
+    "path": "corpus/controls/posting-oracle/main.go",
+    "sha256": "6accf64085b68380a3965787c9ad67fb5c92a62b6ef130d3f2ac6e2233924fa5"
+  },
+  {
+    "path": "corpus/controls/posting-oracle/main_test.go",
+    "sha256": "848d425b13b80c17acaf69bc4d3069c5b5ca9c889646fbe0d732e7ae2d726e6a"
+  },
+  {
+    "path": "corpus/workflows/micro/realistic-fixture/draft caf\u00e9.txt",
+    "sha256": "dbd9bbb5eb2ed8db98ea4ddf4f8adde4d0320ec62a67d19dea5da97f357d3d37"
+  },
+  {
+    "path": "corpus/workflows/micro/realistic-fixture/neighbor.txt",
+    "sha256": "e9af82739bea5e95377765e92ef4bc7972909e66210388d084a6bddb3aefa6aa"
+  },
+  {
+    "path": "corpus/workflows/micro/realistic-fixture/oracle-01.oracle",
+    "sha256": "acccebdcfbfa222790103edb40d412cbb9ce2feee7533362880164a031de9e26"
+  },
+  {
+    "path": "corpus/workflows/micro/realistic-fixture/oracle-04.oracle",
+    "sha256": "277453724ec10162650c397e877827ce6fc1e8ad27ae83cccba12c8d9cf8a458"
+  },
+  {
+    "path": "corpus/workflows/micro/realistic-fixture/oracle-07.oracle",
+    "sha256": "3cbe5eaf0e0a708a0d03edbe6cb633084548acdfdd9469f415044e13df3aa581"
+  },
+  {
+    "path": "corpus/workflows/micro/realistic-fixture/oracle-08.oracle",
+    "sha256": "dc2bf9ee30999ea9b607f1f1b0f5bf8f58600a1649fde5b4a84e7032200ed29a"
+  },
+  {
+    "path": "corpus/workflows/micro/realistic-fixture/oracle-unchanged.oracle",
+    "sha256": "e7a231050171b195d5f2a27ffb88b4187140543ae62f959e46910d6ddf898017"
+  },
+  {
+    "path": "corpus/workflows/micro/realistic-fixture/reviewed-config/settings.seed",
+    "sha256": "fd239268642a1ad286097daee30159fc5e14a46f74963f8a5dc336907f75ea6e"
+  },
+  {
+    "path": "corpus/workflows/micro/realistic-fixture/second.txt",
+    "sha256": "2d3b78ac841b0a29d3ec9b927f0888b57e8201bb2b627a36786e460ecbcc1a61"
+  },
+  {
+    "path": "scripts/readiness/node-pty-natural-exit.mjs",
+    "sha256": "0a78d1ad9b1976b71d2f067e41ab7fff8bae3b446996799d31c423a435599832"
+  },
+  {
+    "path": "scripts/readiness/run-windows-measurements.ps1",
+    "sha256": "463333324af3de028052c0a69786ac0a632dbe53fe5be80cca487add0562b6ba"
+  },
+  {
+    "path": "scripts/readiness/termless-package-lock.json",
+    "sha256": "aef02bc4f7c09a60dac3b68da4d9b722c17c3050399436106cf3efb7a34261cb"
+  }
+]

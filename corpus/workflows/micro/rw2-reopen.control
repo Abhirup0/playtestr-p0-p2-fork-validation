@@ -1,0 +1,81 @@
+{
+    "version":  2,
+    "name":  "RW2 save reopen and discard a second edit",
+    "command":  [
+                    "../../../.trial-private/corpus-tools/micro-oracle",
+                    "oracle-01.oracle",
+                    "--",
+                    "micro.exe",
+                    "document.txt"
+                ],
+    "workspace":  {
+                      "fixture":  "fixture",
+                      "cwd":  ".",
+                      "home":  "temporary",
+                      "temp":  "temporary"
+                  },
+    "width":  70,
+    "height":  16,
+    "timeout_ms":  15000,
+    "run_timeout_ms":  30000,
+    "max_output_bytes":  10000000,
+    "steps":  [
+                  {
+                      "expect":  "alpha marker"
+                  },
+                  {
+                      "text":  "edited "
+                  },
+                  {
+                      "expect":  "edited alpha marker"
+                  },
+                  {
+                      "key":  "CtrlS"
+                  },
+                  {
+                      "expect":  "Saved document.txt"
+                  },
+                  {
+                      "key":  "CtrlQ"
+                  },
+                  {
+                      "expect":  "PLAYTESTR_MICRO_REOPEN_READY"
+                  },
+                  {
+                      "text":  "reopen"
+                  },
+                  {
+                      "key":  "Enter"
+                  },
+                  {
+                      "expect_not":  "PLAYTESTR_MICRO_REOPEN_READY"
+                  },
+                  {
+                      "expect":  "edited alpha marker"
+                  },
+                  {
+                      "text":  "draft "
+                  },
+                  {
+                      "expect":  "draft edited alpha marker"
+                  },
+                  {
+                      "key":  "CtrlQ"
+                  },
+                  {
+                      "expect":  "Save changes to document.txt before closing?"
+                  },
+                  {
+                      "text":  "n"
+                  },
+                  {
+                      "expect":  "PLAYTESTR_MICRO_ORACLE=passed"
+                  },
+                  {
+                      "exit":  0
+                  }
+              ],
+    "env":  {
+                "PLAYTESTR_MICRO_REOPEN":  "1"
+            }
+}

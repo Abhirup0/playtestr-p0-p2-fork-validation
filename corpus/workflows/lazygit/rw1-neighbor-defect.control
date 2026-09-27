@@ -1,0 +1,54 @@
+{
+    "version":  2,
+    "name":  "RW1 stage alpha with distracting beta",
+    "command":  [
+                    "../../../.trial-private/corpus-tools/lazygit-oracle",
+                    "stage-neighbor"
+                ],
+    "workspace":  {
+                      "fixture":  "fixture",
+                      "cwd":  ".",
+                      "home":  "temporary",
+                      "temp":  "temporary"
+                  },
+    "width":  120,
+    "height":  40,
+    "timeout_ms":  10000,
+    "run_timeout_ms":  30000,
+    "max_output_bytes":  5000000,
+    "steps":  [
+                  {
+                      "expect":  "alpha.txt"
+                  },
+                  {
+                      "expect":  "beta.txt"
+                  },
+                  {
+                      "text":  "2"
+                  },
+                  {
+                      "key":  "ArrowDown"
+                  },
+                  {
+                      "expect":  "PLAYTESTR-LG alpha changed"
+                  },
+                  {
+                      "text":  " "
+                  },
+                  {
+                      "expect":  "Staged changes"
+                  },
+                  {
+                      "text":  "\u0003"
+                  },
+                  {
+                      "expect":  "PLAYTESTR-LAZYGIT-ORACLE stage-neighbor OK"
+                  },
+                  {
+                      "exit":  0
+                  }
+              ],
+    "env":  {
+                "PLAYTESTR_LAZYGIT_MUTATION":  "1"
+            }
+}

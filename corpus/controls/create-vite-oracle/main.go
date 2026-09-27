@@ -55,13 +55,19 @@ func main() {
 func verify(profile string) error {
 	switch profile {
 	case "vanilla":
-		return verifyProject("cv-vanilla", "cv-vanilla", "src/main.js", "")
+		if err := verifyProject("cv-vanilla", "cv-vanilla", "src/main.js", ""); err != nil {
+			return err
+		}
+		return verifyVanillaTree("cv-vanilla", "cv-vanilla")
 	case "typescript":
 		return verifyProject("cv-typescript", "cv-typescript", "src/main.ts", "")
 	case "lit":
 		return verifyProject("cv-lit", "cv-lit", "src/my-element.js", "lit")
 	case "corrected":
-		return verifyProject("Bad Name", "corrected-package", "src/main.js", "")
+		if err := verifyProject("Bad Name", "corrected-package", "src/main.js", ""); err != nil {
+			return err
+		}
+		return verifyVanillaTree("Bad Name", "corrected-package")
 	case "refuse":
 		data, err := os.ReadFile(filepath.Join("occupied", "sentinel.txt"))
 		if err != nil || strings.TrimSpace(string(data)) != "PLAYTESTR-CV-SENTINEL" {
