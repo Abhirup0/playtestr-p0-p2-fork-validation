@@ -1,5 +1,8 @@
 name: E5 frozen-byte native lifecycle and resource gates
 on:
+  push:
+    branches: [readiness/e3-e5]
+    paths: ['.github/workflows/readiness-e5-bytes.yml', 'scripts/readiness/e5-native-gates.py']
   workflow_dispatch:
 permissions:
   actions: read
