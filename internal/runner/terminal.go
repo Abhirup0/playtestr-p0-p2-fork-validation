@@ -3,7 +3,7 @@ package runner
 import (
 	"unicode/utf8"
 
-	"github.com/hinshun/vt10x"
+	"github.com/Wyrcan-io/playtestr/internal/terminal/vt10x"
 )
 
 // screenEmulator keeps partial UTF-8 runes between PTY reads. vt10x keeps VT

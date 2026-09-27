@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/hinshun/vt10x"
+	"github.com/Wyrcan-io/playtestr/internal/terminal/vt10x"
 )
 
 func TestRenderedScreenContract(t *testing.T) {
@@ -60,6 +60,51 @@ func TestRenderedScreenContract(t *testing.T) {
 		}
 		if got := normalize(terminal.String()); !strings.HasPrefix(got, "main screen") {
 			t.Fatalf("restored screen = %q", got)
+		}
+	})
+}
+
+func TestRenderedWideScreenContract(t *testing.T) {
+	t.Run("split bytes and addressed redraw", func(t *testing.T) {
+		e := newScreenEmulator(8, 3)
+		for _, b := range []byte("  雪 X\x1b[1;6HZ") {
+			e.Write([]byte{b})
+		}
+		if got := normalize(e.String()); got != "  雪 Z\n" {
+			t.Fatalf("screen = %q", got)
+		}
+	})
+	t.Run("crop and expand both screens", func(t *testing.T) {
+		e := newScreenEmulator(6, 3)
+		e.Write([]byte("abc雪\x1b[?1049h\x1b[2J\x1b[H123雪"))
+		e.Resize(4, 3)
+		e.Resize(8, 3)
+		if got := normalize(e.String()); got != "123\n" {
+			t.Fatalf("alternate = %q", got)
+		}
+		e.Write([]byte("\x1b[?1049l"))
+		if got := normalize(e.String()); got != "abc\n" {
+			t.Fatalf("main = %q", got)
+		}
+		e.Write([]byte("\x1b[H\x1b[2J雪X"))
+		if got := normalize(e.String()); got != "雪X\n" {
+			t.Fatalf("redraw = %q", got)
+		}
+	})
+	t.Run("queries remain discarded", func(t *testing.T) {
+		e := newScreenEmulator(8, 3)
+		e.Write([]byte("雪X\x1b[6n\x1b[c"))
+		if got := normalize(e.String()); got != "雪X\n" {
+			t.Fatalf("screen = %q", got)
+		}
+	})
+	// NFD combining marks are intentionally still outside the rendering contract.
+	// Passing a precomposed accent must not silently broaden that claim.
+	t.Run("combining boundary remains explicit", func(t *testing.T) {
+		e := newScreenEmulator(8, 3)
+		e.Write([]byte("e\u0301X"))
+		if c := e.terminal.Cursor(); c.X != 3 {
+			t.Fatalf("unexpected combining behavior: %v", c)
 		}
 	})
 }

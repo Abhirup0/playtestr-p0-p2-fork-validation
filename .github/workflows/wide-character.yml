@@ -1,0 +1,83 @@
+name: Wide character native development validation
+on:
+  push:
+    branches: [readiness/wide-character]
+    paths: ['internal/**', 'go.mod', 'go.sum', 'scripts/readiness/e3-fidelity.py', '.github/workflows/wide-character.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [ubuntu-24.04, macos-15, windows-latest]
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-go@v7
+        with:
+          go-version: '1.26.0'
+      - name: Full tests vet race required events and manual examples
+        shell: pwsh
+        run: ./scripts/test-integrated-hardening.ps1 -EvidenceDirectory artifacts/wide-source
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: wide-source-${{ matrix.runner }}
+          path: artifacts/wide-source
+          retention-days: 14
+  fidelity:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [ubuntu-24.04, macos-15, windows-latest]
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-go@v7
+        with:
+          go-version: '1.26.0'
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Unchanged micro wide assertion saved-file oracle and fzf companions
+        run: python scripts/readiness/e3-fidelity.py --out artifacts/wide-real --require-wide-pass
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: wide-real-${{ matrix.runner }}
+          path: artifacts/wide-real
+          retention-days: 14
+  journeys:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [ubuntu-24.04, macos-15]
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-go@v7
+        with:
+          go-version: '1.26.0'
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24.7.0'
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: python scripts/readiness/setup-native.py
+      - run: go build -trimpath -o bin/playtestr-wide ./cmd/playtestr
+      - name: Six existing native task boundaries and defect recovery
+        run: python scripts/readiness/run-native.py --runner bin/playtestr-wide --primary-only --out artifacts/wide-journeys
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: wide-journeys-${{ matrix.runner }}
+          path: |
+            artifacts/wide-journeys
+            artifacts/readiness-native
+          retention-days: 14

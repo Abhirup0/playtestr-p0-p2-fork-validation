@@ -61,6 +61,9 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## github.com/hinshun/vt10x
 
+Also applies to the locally maintained copy in `internal/terminal/vt10x`,
+derived from commit 5011da428d02. Its original license is retained there.
+
 Copyright (C) 2013 James Gray
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -83,7 +86,7 @@ SOFTWARE.
 
 The spelling above is preserved from the dependency's distributed license text.
 
-## Go standard library, golang.org/x/sys, and golang.org/x/term
+## Go standard library, golang.org/x/sys, golang.org/x/term, and golang.org/x/text
 
 Copyright 2009 The Go Authors.
 

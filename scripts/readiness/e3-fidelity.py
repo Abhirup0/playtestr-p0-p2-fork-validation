@@ -1,5 +1,6 @@
 """Bounded E3 first-attempt investigation; never executes holdouts."""
 import hashlib
+import argparse
 import json
 import os
 from pathlib import Path
@@ -9,7 +10,11 @@ import time
 from datetime import datetime, timezone
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / 'artifacts/e3-fidelity'
+parser = argparse.ArgumentParser()
+parser.add_argument('--out', default='artifacts/e3-fidelity')
+parser.add_argument('--require-wide-pass', action='store_true', help='Fail if any investigated real case or cleanup fails')
+args = parser.parse_args()
+OUT = ROOT / args.out
 TOOLS = ROOT / '.trial-private/corpus-tools'
 OUT.mkdir(parents=True, exist_ok=False)
 TOOLS.mkdir(parents=True, exist_ok=True)
@@ -87,3 +92,9 @@ for name, rel, derived in cases:
             runner_hour_cap=6,compressed_byte_cap=1073741824,
             note='Two native jobs, five cells each; target setup measured by Actions separately. No repeats.')
         (OUT/'forecast.json').write_text(json.dumps(forecast,indent=2)+'\n')
+if args.require_wide_pass:
+    accepted = all(r['exit'] == 0 and r['result']['cleanup']['confirmed_exited'] is True
+                   and r['result'].get('workspace', {}).get('cleaned') is True for r in rows)
+    (OUT/'summary.json').write_text(json.dumps(dict(attempts=len(rows), accepted=accepted,
+        runner_sha256=identity['runner_sha256'], original_wide_spec_unchanged=True),indent=2)+'\n')
+    raise SystemExit(0 if accepted else 1)
