@@ -1,0 +1,38 @@
+name: Reduce native macOS final output failure
+on:
+  push:
+    branches: [readiness/e3-e5]
+    paths: ['.github/workflows/readiness-macos-output.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reduce:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [ubuntu-24.04, macos-15, macos-26]
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-go@v7
+        with:
+          go-version: '1.26.0'
+      - name: Retain one delayed-reader result and twenty immediate exit results
+        shell: bash
+        run: |
+          mkdir -p artifacts/macos-output
+          set +e
+          go test -count=1 -json -run '^TestTerminalPreservesOutputBeforeReaderStarts$' ./internal/runner > artifacts/macos-output/delayed-reader.jsonl
+          first=$?
+          go test -count=20 -json -run '^TestWorkspaceLifecycleOutcomesCleanOwnedState/expected_nonzero$' ./internal/runner > artifacts/macos-output/immediate-exit.jsonl
+          repeated=$?
+          printf '{"delayed_reader_exit":%s,"immediate_exit_exit":%s}\n' "$first" "$repeated" > artifacts/macos-output/status.json
+          exit 0
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: macos-output-${{ matrix.runner }}
+          path: artifacts/macos-output/**
+          retention-days: 14

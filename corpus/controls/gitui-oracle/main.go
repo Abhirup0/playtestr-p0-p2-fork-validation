@@ -102,6 +102,24 @@ func main() {
 	cached := git(cwd, "diff", "--cached", "--name-only")
 	work := git(cwd, "diff", "--name-only")
 	head := git(cwd, "rev-parse", "HEAD")
+	if profile == "stage" || profile == "unstage" {
+		// Holdout admission requires exact worktree and index bytes, rather than
+		// only filename membership. Keep this check before deleting owned state.
+		selected, err := os.ReadFile(filepath.Join(cwd, "selected.txt"))
+		if err != nil || string(selected) != "PLAYTESTR-GUI selected changed\n" || head != initial {
+			fail("selected bytes or unchanged HEAD differ: %v", err)
+		}
+		neighbor, err := os.ReadFile(filepath.Join(cwd, "neighbor.txt"))
+		wantNeighbor := "PLAYTESTR-GUI neighbor\n"
+		wantIndex := "PLAYTESTR-GUI baseline"
+		if profile == "stage" {
+			wantNeighbor = "PLAYTESTR-GUI neighbor changed\n"
+			wantIndex = "PLAYTESTR-GUI selected changed"
+		}
+		if err != nil || string(neighbor) != wantNeighbor || git(cwd, "show", ":selected.txt") != wantIndex || git(cwd, "show", ":neighbor.txt") != "PLAYTESTR-GUI neighbor" {
+			fail("exact neighbor/index bytes differ: %v", err)
+		}
+	}
 	switch profile {
 	case "stage":
 		if cached != "selected.txt" || work != "neighbor.txt" {
