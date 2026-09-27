@@ -18,7 +18,7 @@ func fail(format string, args ...any) {
 	os.Exit(1)
 }
 
-func git(cwd string, args ...string) string {
+func gitBytes(cwd string, args ...string) string {
 	command := exec.Command("git", append([]string{"-c", "commit.gpgsign=false"}, args...)...)
 	command.Dir = cwd
 	command.Env = append(os.Environ(), "GIT_CONFIG_GLOBAL=NUL")
@@ -26,7 +26,11 @@ func git(cwd string, args ...string) string {
 	if err != nil {
 		fail("git %s: %v: %s", strings.Join(args, " "), err, output)
 	}
-	return strings.TrimSpace(string(output))
+	return string(output)
+}
+
+func git(cwd string, args ...string) string {
+	return strings.TrimSpace(gitBytes(cwd, args...))
 }
 
 func main() {
@@ -111,12 +115,12 @@ func main() {
 		}
 		neighbor, err := os.ReadFile(filepath.Join(cwd, "neighbor.txt"))
 		wantNeighbor := "PLAYTESTR-GUI neighbor\n"
-		wantIndex := "PLAYTESTR-GUI baseline"
+		wantIndex := "PLAYTESTR-GUI baseline\n"
 		if profile == "stage" {
 			wantNeighbor = "PLAYTESTR-GUI neighbor changed\n"
-			wantIndex = "PLAYTESTR-GUI selected changed"
+			wantIndex = "PLAYTESTR-GUI selected changed\n"
 		}
-		if err != nil || string(neighbor) != wantNeighbor || git(cwd, "show", ":selected.txt") != wantIndex || git(cwd, "show", ":neighbor.txt") != "PLAYTESTR-GUI neighbor" {
+		if err != nil || string(neighbor) != wantNeighbor || gitBytes(cwd, "show", ":selected.txt") != wantIndex || gitBytes(cwd, "show", ":neighbor.txt") != "PLAYTESTR-GUI neighbor\n" {
 			fail("exact neighbor/index bytes differ: %v", err)
 		}
 	}

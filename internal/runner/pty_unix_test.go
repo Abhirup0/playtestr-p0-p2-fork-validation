@@ -6,6 +6,7 @@ import (
 	"context"
 	"os"
 	"os/exec"
+	"runtime"
 	"strings"
 	"testing"
 	"time"
@@ -79,6 +80,26 @@ func TestNaturalExitReachesTerminalEOF(t *testing.T) {
 	code, err, exited := session.outcome.wait(ctx)
 	if !exited || err != nil || code != 0 {
 		t.Fatalf("natural exit: code=%d exited=%v error=%v", code, exited, err)
+	}
+	if runtime.GOOS == "darwin" {
+		// Darwin retains the parent's slave to preserve unread final bytes.
+		// It uses the existing bounded drain, then releases the slave during
+		// cleanup; immediate EOF is a Linux optimization, not a Darwin promise.
+		select {
+		case <-session.firstOutput:
+		case <-ctx.Done():
+			t.Fatal("final output was not read after natural exit")
+		}
+		drainCtx, drainCancel := context.WithTimeout(ctx, 50*time.Millisecond)
+		_ = session.drainFinal(drainCtx, 25*time.Millisecond)
+		drainCancel()
+		if screen := session.observe().screen; !strings.Contains(screen, "finished cleanly") {
+			t.Fatalf("final output missing: %q", screen)
+		}
+		if result := session.stop(ctx); result.err != nil || !result.confirmedExited {
+			t.Fatalf("bounded natural-exit cleanup: %+v", result)
+		}
+		return
 	}
 	select {
 	case <-session.readerDone:
