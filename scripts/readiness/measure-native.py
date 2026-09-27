@@ -8,7 +8,7 @@ import subprocess
 import time
 
 ROOT=Path(__file__).resolve().parents[2]
-p=argparse.ArgumentParser();p.add_argument('--runner',required=True);p.add_argument('--out',default='artifacts/readiness-native/resources');a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--runner',required=True);p.add_argument('--candidate');p.add_argument('--out',default='artifacts/readiness-native/resources');a=p.parse_args()
 out=ROOT/a.out;out.mkdir(parents=True,exist_ok=False)
 sources=['lazygit/rw1-resize.control','micro/rw2-basic-unicode.control','create-vite/create-vite-04.json','litecli/rw5-transaction.control','posting/rw6-slow-response.control']
 tick=os.sysconf('SC_CLK_TCK');page=os.sysconf('SC_PAGE_SIZE')
@@ -32,8 +32,8 @@ def inventory():
     return records
 
 rows=[]
-def attempt(size,sample,instrumented):
-    identity=f'size-{size}-{sample}-'+('sampled' if instrumented else 'plain')
+def attempt(size,sample,instrumented,mode='baseline'):
+    identity=f'{mode}-size-{size}-{sample}-'+('sampled' if instrumented else 'plain')
     aliases=[]
     for i in range(size):
         source=inputs[i%len(inputs)];data=json.loads(source.read_text())
@@ -42,7 +42,7 @@ def attempt(size,sample,instrumented):
     owned={};peak=0;samples=[];timed_out=False
     started=time.monotonic()
     with (out/(identity+'.log')).open('wb') as log:
-        proc=subprocess.Popen([a.runner,'test','--report',str(report),'--artifacts-dir',str(evidence),*[str(x) for x in aliases]],cwd=ROOT,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
+        proc=subprocess.Popen([a.candidate if mode=='candidate' else a.runner,'test','--report',str(report),'--artifacts-dir',str(evidence),*[str(x) for x in aliases]],cwd=ROOT,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
         while proc.poll() is None:
             if time.monotonic()-started>size*35+10:
                 os.killpg(proc.pid,signal.SIGKILL);proc.wait(timeout=5);timed_out=True;break
@@ -66,14 +66,18 @@ def attempt(size,sample,instrumented):
     results=product['results']
     after=inventory() if instrumented else {}
     survivors=[x for x in owned.values() if x['pid'] in after and after[x['pid']]['born']==x['born']]
-    row=dict(identity=identity,size=size,sample=sample,instrumented=instrumented,wall_ms=wall,exit=exitcode,harness_timeout=timed_out,passed=sum(x['status']=='passed' for x in results),cleanup_unconfirmed=sum(not x.get('cleanup',{}).get('confirmed_exited') or not x.get('workspace',{}).get('cleaned') for x in results),sampled_cpu_ms=sum(x['cpu_ms'] for x in owned.values()) if instrumented else None,sampled_peak_rss_bytes=peak if instrumented else None,observed_survivors=survivors,resource_samples=samples,artifact_bytes=sum(x.stat().st_size for x in evidence.rglob('*') if x.is_file())+(report.stat().st_size if report.exists() else 0),scope='Linux proc samples miss short-lived/reparented children; aggregate CPU/RSS lower bounds; no complete survivor guarantee')
+    row=dict(identity=identity,mode=mode,size=size,sample=sample,instrumented=instrumented,wall_ms=wall,exit=exitcode,harness_timeout=timed_out,passed=sum(x['status']=='passed' for x in results),cleanup_unconfirmed=sum(not x.get('cleanup',{}).get('confirmed_exited') or not x.get('workspace',{}).get('cleaned') for x in results),sampled_cpu_ms=sum(x['cpu_ms'] for x in owned.values()) if instrumented else None,sampled_peak_rss_bytes=peak if instrumented else None,observed_survivors=survivors,resource_samples=samples,artifact_bytes=sum(x.stat().st_size for x in evidence.rglob('*') if x.is_file())+(report.stat().st_size if report.exists() else 0),scope='Linux proc samples miss short-lived/reparented children; aggregate CPU/RSS lower bounds; no complete survivor guarantee')
     row['accepted']=exitcode==0 and not timed_out and row['passed']==size and row['cleanup_unconfirmed']==0 and not survivors
     rows.append(row)
     with (out/'observations.jsonl').open('a') as ledger:ledger.write(json.dumps(row)+'\n')
     print(identity,'passed',row['passed'],'wall_ms',round(wall),'accepted',row['accepted'],flush=True)
 for sample in range(1,31):
-    for instrumented in ([False,True] if sample%2 else [True,False]):attempt(1,sample,instrumented)
+    for instrumented in ([False,True] if sample%2 else [True,False]):
+        for mode in (['baseline','candidate'] if sample%2 else ['candidate','baseline']) if a.candidate else ['baseline']:
+            attempt(1,sample,instrumented,mode)
 for size in [10,50]:
-    for instrumented in [False,True]:attempt(size,1,instrumented)
+    for instrumented in [False,True]:
+        for mode in (['baseline','candidate'] if size==10 else ['candidate','baseline']) if a.candidate else ['baseline']:
+            attempt(size,1,instrumented,mode)
 (out/'summary.json').write_text(json.dumps(dict(attempts=len(rows),accepted=sum(x['accepted'] for x in rows),scope='30 matched instrumentation controls for size 1; single larger suites and within-suite drift'),indent=2)+'\n')
 raise SystemExit(0 if all(x['accepted'] for x in rows) else 1)

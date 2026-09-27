@@ -2,6 +2,7 @@
 import hashlib
 import json
 import os
+import platform
 from pathlib import Path
 import shutil
 import subprocess
@@ -15,8 +16,11 @@ subprocess.run(['git', 'worktree', 'add', '--detach', str(baseline), 'adee5bf655
 shutil.copyfile(ROOT / 'internal/runner/pty_unix_test.go', baseline / 'internal/runner/pty_unix_test.go')
 with (out / 'before-regression.log').open('wb') as log:
     regression = subprocess.run(['go', 'test', '-count=1', './internal/runner', '-run', '^TestNaturalExitReachesTerminalEOF$'], cwd=baseline, stdout=log, stderr=subprocess.STDOUT, timeout=90)
-if regression.returncode == 0 or 'terminal reader did not reach EOF after natural exit' not in (out / 'before-regression.log').read_text():
-    raise SystemExit('Baseline did not reproduce the intended EOF regression')
+if platform.system() == 'Linux':
+    if regression.returncode == 0 or 'terminal reader did not reach EOF after natural exit' not in (out / 'before-regression.log').read_text():
+        raise SystemExit('Linux baseline did not reproduce the intended EOF regression')
+elif regression.returncode != 0:
+    raise SystemExit('macOS baseline EOF control failed; retain and diagnose')
 with (out / 'after-regression.log').open('wb') as log:
     subprocess.run(['go', 'test', '-count=1', './internal/runner', '-run', '^TestNaturalExitReachesTerminalEOF$'], cwd=ROOT, stdout=log, stderr=subprocess.STDOUT, check=True, timeout=90)
 binaries = {}

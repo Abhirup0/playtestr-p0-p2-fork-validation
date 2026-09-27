@@ -1,12 +1,13 @@
 param(
     [string]$Runner = 'artifacts/qualified candidate extracted/playtestr_0.4.0-rc.1_windows_amd64/playtestr.exe',
+    [string]$ExpectedRunnerSHA256 = '7a73b598613d34e8a05831d12f2ab26d4abae3e6ce05e63c7d80c316bcc80fc2',
     [string]$Output = 'artifacts/readiness-2026-09-26/discovery',
     [string[]]$Journeys = @('RW1','RW2','RW3','RW4','RW5','RW6')
 )
 $ErrorActionPreference = 'Stop'
 $runnerPath = (Resolve-Path -LiteralPath $Runner).Path
 $runnerHash = (Get-FileHash -LiteralPath $runnerPath -Algorithm SHA256).Hash.ToLower()
-if ($runnerHash -ne '7a73b598613d34e8a05831d12f2ab26d4abae3e6ce05e63c7d80c316bcc80fc2') {
+if ($ExpectedRunnerSHA256 -notmatch '^[a-f0-9]{64}$' -or $runnerHash -ne $ExpectedRunnerSHA256) {
     throw 'Runner does not match frozen experiment identity'
 }
 if (Test-Path -LiteralPath $Output) { throw 'Use a new output directory; first attempts must remain intact' }

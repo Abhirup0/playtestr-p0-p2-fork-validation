@@ -76,7 +76,7 @@ jobs:
         run: python scripts/readiness/run-native.py --runner "$PWD/artifacts/readiness-native/candidate/after-playtestr" --out artifacts/readiness-native/candidate-tasks
       - name: Candidate matched suite resources
         if: matrix.target == 'linux_amd64'
-        run: python scripts/readiness/measure-native.py --runner "$PWD/artifacts/readiness-native/candidate/after-playtestr" --out artifacts/readiness-native/candidate-resources
+        run: python scripts/readiness/measure-native.py --runner "$PWD/artifacts/readiness-native/candidate/before-playtestr" --candidate "$PWD/artifacts/readiness-native/candidate/after-playtestr" --out artifacts/readiness-native/candidate-resources
       - uses: actions/upload-artifact@v6
         if: always()
         with:
