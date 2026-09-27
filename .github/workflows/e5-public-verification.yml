@@ -65,13 +65,15 @@ jobs:
           fi
           printf '{"version":99}' > invalid.json
           set +e
-          "$binary" test invalid.json > invalid.log 2>&1
+          "$binary" test --report invalid-result.json invalid.json > invalid.log 2>&1
           code=$?
           set -e
-          test "$code" -eq 2
+          test "$code" -eq 1
           python - <<'PY'
           import json,pathlib
           root=pathlib.Path('.')
+          invalid=json.loads((root/'invalid-result.json').read_text())['results'][0]
+          assert invalid['failure']['category']=='invalid_spec' and not invalid['cleanup']['attempted']
           for name in ['good','recovery']:
               r=json.loads((root/(name+'-result.json')).read_text()); assert r['summary']['passed']==1 and r['results'][0]['cleanup']['confirmed_exited']
           r=json.loads((root/'bad-result.json').read_text()); assert r['results'][0]['failure']['category']=='assertion_timeout' and r['results'][0]['cleanup']['confirmed_exited']
