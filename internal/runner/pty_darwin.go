@@ -13,6 +13,7 @@ type darwinTerminalPty struct {
 	*xpty.UnixPty
 	mu     sync.Mutex
 	closed bool
+	fd     int
 }
 
 // macOS can discard unread output when the last slave descriptor closes. Keep
@@ -24,11 +25,12 @@ func newTerminalPty(width, height int) (xpty.Pty, error) {
 	if err != nil {
 		return nil, err
 	}
-	if err := unix.SetNonblock(int(p.Master().Fd()), true); err != nil {
+	fd := int(p.Master().Fd())
+	if err := unix.SetNonblock(fd, true); err != nil {
 		_ = p.Close()
 		return nil, err
 	}
-	return &darwinTerminalPty{UnixPty: p}, nil
+	return &darwinTerminalPty{UnixPty: p, fd: fd}, nil
 }
 
 func (p *darwinTerminalPty) Read(buffer []byte) (int, error) {
@@ -41,7 +43,7 @@ func (p *darwinTerminalPty) Read(buffer []byte) (int, error) {
 			p.mu.Unlock()
 			return 0, os.ErrClosed
 		}
-		fd := int(p.Master().Fd())
+		fd := p.fd
 		events := []unix.PollFd{{Fd: int32(fd), Events: unix.POLLIN}}
 		ready, err := unix.Poll(events, 25)
 		if err == nil && ready > 0 {
