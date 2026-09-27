@@ -80,7 +80,7 @@ if all(pilot):
         attempt(ident+'-recovery','corpus/workflows/'+good,0)
     variations=[
         'lazygit/rw1-resize.control','micro/rw2-ui-maintained.control',
-        'micro/micro-05.json','micro/micro-08.json','micro/rw2-realistic.control',
+        'micro/micro-05.json','micro/rw2-basic-unicode.control','micro/rw2-realistic.control',
         'create-vite/create-vite-04.json','create-vite/create-vite-05.json',
         'fzf/fzf-03.json','fzf/fzf-04.json','fzf/rw4-combining.control',
         'litecli/rw5-transaction.control','posting/rw6-slow-response.control',

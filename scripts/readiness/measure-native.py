@@ -10,7 +10,7 @@ import time
 ROOT=Path(__file__).resolve().parents[2]
 p=argparse.ArgumentParser();p.add_argument('--runner',required=True);a=p.parse_args()
 out=ROOT/'artifacts/readiness-native/resources';out.mkdir(parents=True,exist_ok=False)
-sources=['lazygit/rw1-resize.control','micro/micro-08.json','create-vite/create-vite-04.json','litecli/rw5-transaction.control','posting/rw6-slow-response.control']
+sources=['lazygit/rw1-resize.control','micro/rw2-basic-unicode.control','create-vite/create-vite-04.json','litecli/rw5-transaction.control','posting/rw6-slow-response.control']
 tick=os.sysconf('SC_CLK_TCK');page=os.sysconf('SC_PAGE_SIZE')
 inputs=[]
 for number,source in enumerate(sources):

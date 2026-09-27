@@ -37,15 +37,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p artifacts/readiness-native/runner
-          archive=artifacts/readiness-native/runner/candidate.tar.gz
-          curl --fail --location --silent --show-error -o "$archive" 'https://github.com/Wyrcan-io/playtestr/releases/download/v0.4.0-rc.1/playtestr_0.4.0-rc.1_${{ matrix.target }}.tar.gz'
-          echo '${{ matrix.archive_sha256 }}' > artifacts/readiness-native/runner/archive-sha256.txt
-          python - "$archive" '${{ matrix.archive_sha256 }}' <<'PY'
-          import hashlib,sys
-          assert hashlib.sha256(open(sys.argv[1],'rb').read()).hexdigest()==sys.argv[2]
-          PY
-          tar -xzf "$archive" -C artifacts/readiness-native/runner
+          python scripts/readiness/acquire-native.py --target '${{ matrix.target }}' --sha256 '${{ matrix.archive_sha256 }}'
           echo "NATIVE_RUNNER=$(find "$PWD/artifacts/readiness-native/runner" -type f -name playtestr)" >> "$GITHUB_ENV"
       - name: Prepare pinned targets and reviewed source defects
         run: python scripts/readiness/setup-native.py
@@ -71,8 +63,8 @@ jobs:
           mkdir -p artifacts/competitive/bin artifacts/competitive/tools
           bash scripts/competitive/install-c1-tools.sh
           python -m pip install PyYAML==6.0.3
-          python scripts/readiness/compare-real.py --runner "$NATIVE_RUNNER" --atago "$PWD/artifacts/competitive/tools/atago"
           python scripts/readiness/profile-native.py
+          python scripts/readiness/compare-real.py --runner "$NATIVE_RUNNER" --atago "$PWD/artifacts/competitive/tools/atago"
           python scripts/readiness/measure-native.py --runner "$NATIVE_RUNNER"
       - uses: actions/upload-artifact@v6
         if: always()
@@ -81,6 +73,7 @@ jobs:
           path: |
             artifacts/readiness-native/runner/*/playtestr*
             artifacts/readiness-native/runner/archive-sha256.txt
+            artifacts/readiness-native/runner/acquisition.json
             artifacts/readiness-native/target-pins.json
             artifacts/readiness-native/setup-operations.json
             artifacts/readiness-native/tasks/**

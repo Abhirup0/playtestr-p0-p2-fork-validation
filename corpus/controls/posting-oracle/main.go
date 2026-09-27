@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"context"
 	"fmt"
 	"io"
@@ -34,8 +35,19 @@ func main() {
 		go func() {
 			connection, err := listener.Accept()
 			if err == nil {
+				// Close after a complete request header, not during the TCP
+				// handshake. Reject retries instead of leaving a listening
+				// socket with no accepting goroutine.
+				_ = connection.SetReadDeadline(time.Now().Add(2 * time.Second))
+				request, readErr := http.ReadRequest(bufio.NewReader(connection))
+				listener.Close()
+				entry := observation{method: "INVALID_REQUEST"}
+				if readErr == nil {
+					entry = observation{method: "CONNECT_ATTEMPT", uri: request.RequestURI}
+					request.Body.Close()
+				}
 				mu.Lock()
-				seen = append(seen, observation{method: "CONNECT_ATTEMPT"})
+				seen = append(seen, entry)
 				mu.Unlock()
 				fmt.Println("PLAYTESTR-POST-FAILURE-CONNECTED")
 				connection.Close()
@@ -106,7 +118,7 @@ func main() {
 
 func verify(profile string, seen []observation) error {
 	if profile == "failure" {
-		if len(seen) != 1 || seen[0].method != "CONNECT_ATTEMPT" {
+		if len(seen) != 1 || seen[0].method != "CONNECT_ATTEMPT" || seen[0].uri != "/unavailable" {
 			return fmt.Errorf("connection attempts=%v", seen)
 		}
 		return nil

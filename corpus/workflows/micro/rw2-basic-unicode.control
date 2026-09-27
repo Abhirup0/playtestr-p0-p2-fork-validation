@@ -1,0 +1,60 @@
+{
+  "version": 2,
+  "name": "RW2 basic Unicode resize and exact save",
+  "command": [
+    "../../../.trial-private/corpus-tools/micro-oracle",
+    "oracle-basic.oracle",
+    "--",
+    "micro.exe",
+    "document.txt"
+  ],
+  "workspace": {
+    "fixture": "supported-unicode-fixture",
+    "cwd": ".",
+    "home": "temporary",
+    "temp": "temporary"
+  },
+  "width": 70,
+  "height": 16,
+  "timeout_ms": 15000,
+  "run_timeout_ms": 30000,
+  "max_output_bytes": 10000000,
+  "steps": [
+    {
+      "expect": "alpha marker"
+    },
+    {
+      "text": "café λ "
+    },
+    {
+      "expect": "café λ alpha marker"
+    },
+    {
+      "resize": {
+        "width": 84,
+        "height": 22
+      }
+    },
+    {
+      "wait_for_redraw": true
+    },
+    {
+      "expect": "café λ alpha marker"
+    },
+    {
+      "key": "CtrlS"
+    },
+    {
+      "expect": "Saved document.txt"
+    },
+    {
+      "key": "CtrlQ"
+    },
+    {
+      "expect": "PLAYTESTR_MICRO_ORACLE=passed"
+    },
+    {
+      "exit": 0
+    }
+  ]
+}
