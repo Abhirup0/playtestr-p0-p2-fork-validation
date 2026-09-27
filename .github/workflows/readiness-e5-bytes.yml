@@ -52,9 +52,10 @@ jobs:
           with open(__import__('os').environ['GITHUB_ENV'],'a') as env: env.write('FROZEN_RUNNER='+str(binary)+'\n')
           PY
           suffix=''; if [[ "$RUNNER_OS" == Windows ]]; then suffix='.exe'; fi
+          frozen_runner="$(find 'frozen candidate' -name '${{ matrix.executable }}' -type f)"
           # Build a helper only; never rebuild or relabel the frozen runner.
           go build -o "artifacts/e5-fixture$suffix" ./cmd/fixture
-          python scripts/readiness/e5-native-gates.py --runner "$FROZEN_RUNNER" --fixture "artifacts/e5-fixture$suffix" --out artifacts/e5-native-bytes
+          python scripts/readiness/e5-native-gates.py --runner "$frozen_runner" --fixture "artifacts/e5-fixture$suffix" --out artifacts/e5-native-bytes
       - uses: actions/upload-artifact@v6
         if: always()
         with:
