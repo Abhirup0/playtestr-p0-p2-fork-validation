@@ -31,21 +31,21 @@ install_playtestr() {
 
 install_atago() {
   local archive="$download_dir/atago_0.23.0_linux_amd64.tar.gz"
-  curl --fail --location --silent --show-error \
+  measure_install atago-acquisition curl --fail --location --silent --show-error \
     --output "$archive" \
     https://github.com/nao1215/atago/releases/download/v0.23.0/atago_0.23.0_linux_amd64.tar.gz
   echo "7e1582bb40ac0b437f3fffb54a4b26b8d1c00ee27654322fcd003c59d85b325d  $archive" | sha256sum --check --status
-  tar -xzf "$archive" -C "$download_dir"
+  measure_install atago-extraction tar -xzf "$archive" -C "$download_dir"
   install -m 0755 "$(find "$download_dir" -type f -name atago -print -quit)" "$tool_dir/atago"
 }
 
 install_tui_test() {
   local archive="$download_dir/tui-test-x86_64-unknown-linux-gnu.tar.gz"
-  curl --fail --location --silent --show-error \
+  measure_install tui-test-acquisition curl --fail --location --silent --show-error \
     --output "$archive" \
     https://github.com/microsoft/tui-test/releases/download/0.1.0-beta.5/tui-test-x86_64-unknown-linux-gnu.tar.gz
   echo "4788539cf313fe6d30b321de5bbe7ac8b5830c84b2aa6f6815335686da19dc83  $archive" | sha256sum --check --status
-  tar -xzf "$archive" -C "$download_dir"
+  measure_install tui-test-extraction tar -xzf "$archive" -C "$download_dir"
   install -m 0755 "$(find "$download_dir" -type f -name tui-test -print -quit)" "$tool_dir/tui-test"
 }
 

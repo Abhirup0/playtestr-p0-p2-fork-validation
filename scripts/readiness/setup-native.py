@@ -23,7 +23,7 @@ ledger = []
 def run(args, cwd=ROOT):
     started = time.monotonic()
     subprocess.run([str(x) for x in args], cwd=cwd, check=True, timeout=1200)
-    ledger.append({'command': [str(x) for x in args], 'elapsed_ms': (time.monotonic()-started)*1000})
+    ledger.append({'command': [str(x) for x in args], 'cwd':str(Path(cwd).relative_to(ROOT)), 'elapsed_ms': (time.monotonic()-started)*1000})
 
 def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()

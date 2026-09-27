@@ -87,6 +87,14 @@ if all(pilot):
         'posting/posting-07.json']
     for number,source in enumerate(variations,1):
         attempt('variation-'+str(number),'corpus/workflows/'+source,0)
+    race_binary=ROOT/'.trial-private/corpus-tools/posting-oracle-race'
+    subprocess.run(['go','build','-race','-o',str(race_binary),'.'],cwd=ROOT/'corpus/controls/posting-oracle',check=True,timeout=180)
+    race_source=ROOT/'corpus/workflows/posting/readiness-failure-race.control'
+    race_spec=json.loads((ROOT/'corpus/workflows/posting/posting-07.json').read_text())
+    race_spec['command'][0]='../../../.trial-private/corpus-tools/posting-oracle-race'
+    race_spec['env']={'GORACE':'halt_on_error=1 exitcode=66'}
+    race_source.write_text(json.dumps(race_spec,indent=2)+'\n')
+    attempt('race-posting-failure',str(race_source.relative_to(ROOT)),0)
     # Synthetic UI maintenance: original expectation must fail for readiness;
     # maintained target must pass and retain state-defect sensitivity.
     for ident,project in [('rw2','micro'),('rw3','create-vite'),('rw6','posting')]:

@@ -3,6 +3,7 @@
 package main
 
 import (
+	"bytes"
 	"encoding/json"
 	"flag"
 	"fmt"
@@ -10,6 +11,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"time"
 )
 
 func main() { os.Exit(run()) }
@@ -18,6 +20,7 @@ func run() int {
 	journey := flag.String("journey", "", "RW1 or RW3")
 	variant := flag.String("variant", "good", "good or defect")
 	output := flag.String("output", "", "absolute independent result file")
+	rootArgument := flag.String("root", "", "absolute experiment repository")
 	flag.Parse()
 	if (*journey != "RW1" && *journey != "RW3") || (*variant != "good" && *variant != "defect") || !filepath.IsAbs(*output) {
 		fmt.Fprintln(os.Stderr, "invalid experiment arguments")
@@ -26,6 +29,12 @@ func run() int {
 	root, err := os.Getwd()
 	if err != nil {
 		return 2
+	}
+	if *rootArgument != "" {
+		if !filepath.IsAbs(*rootArgument) {
+			return 2
+		}
+		root = *rootArgument
 	}
 	project, profile := "lazygit", "stage-neighbor"
 	if *journey == "RW3" {
@@ -38,7 +47,9 @@ func run() int {
 	}
 	// Final cleanup happens before the independent result and success marker.
 	code := 0
-	err = copyFixture(filepath.Join(root, "corpus", "workflows", project, "fixture"), workspace)
+	fixture := filepath.Join(workspace, "fixture")
+	err = copyFixture(filepath.Join(root, "corpus", "workflows", project, "fixture"), fixture)
+	targetStarted, stateDefect := false, false
 	if err == nil {
 		for _, name := range []string{".managed-home", ".managed-temp"} {
 			if err = os.Mkdir(filepath.Join(workspace, name), 0700); err != nil {
@@ -52,8 +63,10 @@ func run() int {
 			args = append(args, "Bad Name", "--interactive")
 		}
 		cmd := exec.Command(filepath.Join(root, ".trial-private", "corpus-tools", project+"-oracle"), args...)
-		cmd.Dir = workspace
-		cmd.Stdin, cmd.Stdout, cmd.Stderr = os.Stdin, os.Stdout, os.Stderr
+		cmd.Dir = fixture
+		var diagnostic tailBuffer
+		cmd.Stdin, cmd.Stdout, cmd.Stderr = os.Stdin, os.Stdout, io.MultiWriter(os.Stderr, &diagnostic)
+		cmd.WaitDelay = 2 * time.Second
 		cmd.Env = append(os.Environ(), "HOME="+filepath.Join(workspace, ".managed-home"), "TMPDIR="+filepath.Join(workspace, ".managed-temp"), "PLAYTESTR_LAZYGIT_MUTATION=0", "PLAYTESTR_CREATE_VITE_RUNTIME=create-vite-runtime")
 		if *variant == "defect" {
 			if *journey == "RW1" {
@@ -63,6 +76,8 @@ func run() int {
 			}
 		}
 		err = cmd.Run()
+		targetStarted = cmd.Process != nil
+		stateDefect = bytes.Contains(diagnostic.data, []byte("neighbor stage state cached=\"\"")) || bytes.Contains(diagnostic.data, []byte("type=\"commonjs\""))
 		if exit, ok := err.(*exec.ExitError); ok {
 			code = exit.ExitCode()
 		}
@@ -76,11 +91,13 @@ func run() int {
 		code = 1
 	}
 	record := struct {
-		Journey string `json:"journey"`
-		Variant string `json:"variant"`
-		Exit    int    `json:"exit"`
-		Cleaned bool   `json:"cleaned"`
-	}{*journey, *variant, code, cleanErr == nil}
+		Journey       string `json:"journey"`
+		Variant       string `json:"variant"`
+		Exit          int    `json:"exit"`
+		Cleaned       bool   `json:"cleaned"`
+		TargetStarted bool   `json:"target_started"`
+		StateDefect   bool   `json:"independent_state_defect"`
+	}{*journey, *variant, code, cleanErr == nil, targetStarted, stateDefect}
 	data, _ := json.Marshal(record)
 	if err := os.WriteFile(*output, append(data, '\n'), 0600); err != nil {
 		fmt.Fprintln(os.Stderr, err)
@@ -93,6 +110,21 @@ func run() int {
 		fmt.Printf("PLAYTESTR-E2-%s-WRAPPER-OK\n", *journey)
 	}
 	return code
+}
+
+type tailBuffer struct{ data []byte }
+
+func (b *tailBuffer) Write(p []byte) (int, error) {
+	n := len(p)
+	if len(p) >= 65536 {
+		b.data = append(b.data[:0], p[len(p)-65536:]...)
+		return n, nil
+	}
+	if len(b.data)+len(p) > 65536 {
+		b.data = append([]byte(nil), b.data[len(b.data)+len(p)-65536:]...)
+	}
+	b.data = append(b.data, p...)
+	return n, nil
 }
 
 func copyFixture(source, destination string) error {

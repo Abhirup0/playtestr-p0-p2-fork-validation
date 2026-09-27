@@ -39,7 +39,7 @@ func main() {
 				// handshake. Reject retries instead of leaving a listening
 				// socket with no accepting goroutine.
 				_ = connection.SetReadDeadline(time.Now().Add(2 * time.Second))
-				request, readErr := http.ReadRequest(bufio.NewReader(connection))
+				request, readErr := http.ReadRequest(bufio.NewReader(io.LimitReader(connection, 16384)))
 				listener.Close()
 				entry := observation{method: "INVALID_REQUEST"}
 				if readErr == nil {

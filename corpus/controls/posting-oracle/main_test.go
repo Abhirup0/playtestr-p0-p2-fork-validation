@@ -6,6 +6,26 @@ import (
 	"testing"
 )
 
+func TestFailureRequestState(t *testing.T) {
+	for _, tc := range []struct {
+		name string
+		seen []observation
+		pass bool
+	}{
+		{"reviewed request", []observation{{method: "CONNECT_ATTEMPT", uri: "/unavailable"}}, true},
+		{"no request", nil, false},
+		{"wrong path", []observation{{method: "CONNECT_ATTEMPT", uri: "/wrong"}}, false},
+		{"invalid request", []observation{{method: "INVALID_REQUEST"}}, false},
+		{"duplicate", []observation{{method: "CONNECT_ATTEMPT", uri: "/unavailable"}, {method: "CONNECT_ATTEMPT", uri: "/unavailable"}}, false},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			if err := verify("failure", tc.seen); (err == nil) != tc.pass {
+				t.Fatalf("verify failure request: error=%v want pass=%v", err, tc.pass)
+			}
+		})
+	}
+}
+
 // This exercises the independent persisted-state reader with the real pinned
 // interpreter. A success-looking UI cannot rescue a corrupt or missing file.
 func TestSavedRequestState(t *testing.T) {

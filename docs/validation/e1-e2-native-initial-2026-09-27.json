@@ -1,0 +1,130 @@
+{
+  "run_id": 36298926797,
+  "source_commit": "1e1362d8d1505b17ccc7fe3ddf152ccab1750d74",
+  "status": "first native campaign; Linux staging failure classifier revised separately",
+  "native": {
+    "linux": {
+      "attempts": 60,
+      "initially_accepted": 59,
+      "failures": [
+        {
+          "id": "RW1-defect",
+          "failure": {
+            "category": "assertion_timeout",
+            "message": "RW1 stage alpha with distracting beta: step 7: step timed out: context deadline exceeded"
+          },
+          "target": {
+            "exited": true,
+            "exit_code": 1
+          },
+          "cleanup": {
+            "attempted": true,
+            "graceful": true,
+            "forced": false,
+            "confirmed_exited": true,
+            "mechanism": "unix-process-group"
+          }
+        }
+      ],
+      "runner_sha256": "2ed5c7f06d9117a4450079312ffd00001205f893bbca36fbc0ab551338171d0b"
+    },
+    "macos": {
+      "attempts": 60,
+      "initially_accepted": 60,
+      "failures": [],
+      "runner_sha256": "a2a662c53d948795cae12ee931d3d4e761a4baf9e54d7ddfe76ae2cd1fa524f8"
+    }
+  },
+  "comparison": {
+    "C1": {
+      "atago": {
+        "observations": 30,
+        "median_ms": 50.0,
+        "min_ms": 49,
+        "max_ms": 53,
+        "failures": 0
+      },
+      "playtestr": {
+        "observations": 30,
+        "median_ms": 295.0,
+        "min_ms": 294,
+        "max_ms": 309,
+        "failures": 0
+      },
+      "termlens": {
+        "observations": 30,
+        "median_ms": 50.0,
+        "min_ms": 50,
+        "max_ms": 55,
+        "failures": 0
+      },
+      "tui-test": {
+        "observations": 30,
+        "median_ms": 140.0,
+        "min_ms": 138,
+        "max_ms": 143,
+        "failures": 0
+      }
+    },
+    "C2": {
+      "atago": {
+        "observations": 30,
+        "median_ms": 51.0,
+        "min_ms": 50,
+        "max_ms": 64,
+        "failures": 0
+      },
+      "playtestr": {
+        "observations": 30,
+        "median_ms": 296.0,
+        "min_ms": 295,
+        "max_ms": 297,
+        "failures": 0
+      },
+      "termlens": {
+        "observations": 30,
+        "median_ms": 50.0,
+        "min_ms": 49,
+        "max_ms": 62,
+        "failures": 0
+      },
+      "tui-test": {
+        "observations": 30,
+        "median_ms": 144.0,
+        "min_ms": 143,
+        "max_ms": 158,
+        "failures": 0
+      }
+    },
+    "C3": {
+      "atago": {
+        "observations": 30,
+        "median_ms": 105.0,
+        "min_ms": 103,
+        "max_ms": 107,
+        "failures": 0
+      },
+      "playtestr": {
+        "observations": 30,
+        "median_ms": 305.0,
+        "min_ms": 294,
+        "max_ms": 306,
+        "failures": 0
+      },
+      "termlens": {
+        "observations": 30,
+        "median_ms": 54.0,
+        "min_ms": 54,
+        "max_ms": 56,
+        "failures": 0
+      },
+      "tui-test": {
+        "observations": 30,
+        "median_ms": 150.0,
+        "min_ms": 148,
+        "max_ms": 153,
+        "failures": 0
+      }
+    }
+  }
+}
