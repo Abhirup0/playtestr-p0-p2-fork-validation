@@ -4,7 +4,19 @@ All notable user-visible changes are recorded here. Playtestr is pre-1.0; the
 compatibility rules for released specs, reports, and patches are in
 [`SUPPORT.md`](SUPPORT.md).
 
-## Unreleased
+## v0.4.0-rc.2 - 2026-09-28
+
+### Fixed
+
+- Bound Windows installer stalled/slow body reads by the whole-request deadline.
+- Preserve unread macOS final terminal output with interruptible bounded cleanup.
+- Retain Linux natural-exit EOF optimization; v1/v2 contracts remain unchanged.
+
+Published exact qualified bytes on Linux amd64, macOS arm64 and Windows amd64.
+See [release/install evidence](docs/releases/v0.4.0-rc.2.md).
+Wide/combining layout and terminal queries remain unsupported.
+
+## v0.4.0-rc.1 - 2026-09-25
 
 ### Added
 

@@ -1,13 +1,12 @@
 # Install Playtestr in GitHub Actions
 
 Status: immutable action revision
-`1c03904075512e67f53b0c94a13daa17f0383f1d` is verified for exact-version
-installation on Windows amd64, Linux amd64, and macOS arm64. Public install
-[36172240134](https://github.com/Wyrcan-io/playtestr/actions/runs/36172240134)
-and the six-lane public-byte/upgrade run
-[36173075209](https://github.com/Wyrcan-io/playtestr/actions/runs/36173075209)
-passed with `v0.4.0-rc.1`. Pin this full commit SHA; do not replace it with a
-branch name.
+`ae97c62022966cde9699b26169b4dc6ef0a12439` is verified for exact-version
+installation of published `v0.4.0-rc.2` on Windows amd64, Linux amd64 and
+macOS arm64. [Public distribution/upgrade verification](https://github.com/Wyrcan-io/playtestr/actions/runs/36345677928)
+and [binary-only installation checks](https://github.com/Wyrcan-io/playtestr/actions/runs/36346042029)
+passed. Pin the full action SHA and runner version independently. Historical
+v0.4.0-rc.1 action evidence remains in its own release record.
 
 The setup action installs exactly one published Playtestr runner release. It
 does not install the target application, run tests, update snapshots, cache
@@ -30,12 +29,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
-      PLAYTESTR_VERSION: v0.4.0-rc.1
+      PLAYTESTR_VERSION: v0.4.0-rc.2
     steps:
       - uses: actions/checkout@v6
       - name: Install Playtestr
         id: playtestr
-        uses: Wyrcan-io/playtestr/setup-playtestr@1c03904075512e67f53b0c94a13daa17f0383f1d
+        uses: Wyrcan-io/playtestr/setup-playtestr@ae97c62022966cde9699b26169b4dc6ef0a12439
         with:
           version: ${{ env.PLAYTESTR_VERSION }}
       - name: Verify selected version

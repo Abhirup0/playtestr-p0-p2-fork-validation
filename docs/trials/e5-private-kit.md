@@ -4,7 +4,9 @@ Status: **qualified private v0.4.0-rc.2; technically ready for a scoped trial**.
 All 3,000 first attempts passed on the three native hosts. See the
 [readiness decision](../validation/e5-qualified-readiness-2026-09-27.md) and
 [evidence index](../validation/e3-e5-evidence-index-2026-09-27.md).
-This kit does not authorize publication, a deployment, or contact with anyone.
+Historical kit prepared before publication authorization. The user later
+authorized download publication and verification; [public record](../validation/e5-publication-2026-09-28.md).
+This private packet remains private. No deployment, outreach or marketing is authorized.
 
 Proposed trial version: `v0.4.0-rc.2`, exact source
 `ae97c62022966cde9699b26169b4dc6ef0a12439`, Go 1.26.0, native Linux amd64,
@@ -39,7 +41,7 @@ unmet. No independent demand, comprehension, retained use or purchase evidence
 is inferred from these operator campaigns.
 
 After a separate publication decision, the following is the exact proposed
-asset preparation and prerelease command. It has **not** been executed:
+asset preparation and prerelease command. Publication was subsequently executed under the user's explicit instruction; these commands preserve the prepared proposal:
 
 ```powershell
 gh run download 36329978517 --dir 'artifacts/e5 promotion download'
@@ -58,9 +60,7 @@ The proposed action is `Wyrcan-io/playtestr/setup-playtestr@ae97c62022966cde9699
 with `version: v0.4.0-rc.2`. Existing v0.4.0-rc.1 public routes remain old-byte
 evidence. No website deployment is part of this proposal.
 
-Outreach proposal for a later decision: invite consenting maintainers to one
-scoped target workflow, collect first-use/diagnosis time and participant CI,
-then observe voluntary reuse. Request permission for each specific recipient
-and message before sending anything. A1's comprehension and retention targets
-remain independent-use questions; the operator must not substitute these
-engineering walkthroughs for participant results.
+Outreach and marketing are explicitly held by the user. Do not invite, contact,
+message or post anywhere. Independent first-use/adoption questions remain
+unknown and do not authorize A1 work. Only a later explicit user instruction
+can reopen this boundary.

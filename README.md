@@ -17,6 +17,8 @@ Stable `v0.1.0` publishes native archives for Linux x86-64 (`amd64`), Apple sili
 
 Playtestr starts a real pseudoterminal, sends keyboard input, and feeds output into a VT terminal emulator. Assertions inspect the rendered screen, including cursor movement and redraws.
 
+The newest tested prerelease is [v0.4.0-rc.2](https://github.com/Wyrcan-io/playtestr/releases/tag/v0.4.0-rc.2), with suites, offline reports, opt-in workspaces and the installer/macOS output repairs. See its [downloads and installation](docs/releases/v0.4.0-rc.2.md). Stable v0.1.0 remains available below.
+
 ## Install and run a first test
 
 Choose the archive that matches your host exactly. Each archive has an adjacent SHA-256 integrity file:

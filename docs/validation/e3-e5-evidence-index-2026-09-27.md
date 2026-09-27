@@ -26,3 +26,8 @@ per-member integrity and artifact digests retained before hosted expiry.
 Original target/harness/runner failures remain included. User edits and the
 execution prompt are excluded from commits and the synthetic evidence packet.
 Publication, website deployment, tags and outreach have not been performed.
+
+Subsequent authorized download publication:
+[28 September public verification record](e5-publication-2026-09-28.md).
+The original private packet above remains unchanged historical evidence.
+The later instruction authorizes downloads, not outreach, marketing or deployment.

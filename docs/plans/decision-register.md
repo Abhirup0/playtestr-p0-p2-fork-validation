@@ -4,6 +4,10 @@ Updated 26 September 2026. The [root roadmap](../../roadmap.md) fixes order; thi
 
 Current execution status updated 27 September: E0–E5 accepted within recorded boundaries; v0.4.0-rc.2 qualified privately. Publication and outreach remain held. The dated decisions below retain the earlier partial states.
 
+28 September override: the user authorized exact-byte download publication and
+public verification, now complete. Outreach and marketing are explicitly
+prohibited; A1/A2 remain unstarted even after technical readiness.
+
 ## Current sequencing override
 
 D21 supersedes D01's immediate R6-to-A1 scheduling and the old fixed stop at Sprint 14, at the user's explicit request on 26 September. Completed engineering and evidence-backed deferrals stay complete. E0-E5 are a finite new phase, not an indefinite parity campaign. Further outreach is held; recorded prior invitations remain history.

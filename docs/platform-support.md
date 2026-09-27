@@ -1,6 +1,6 @@
 # Platform support evidence
 
-The latest unpublished engineering phase is the [E3–E5 checkpoint](validation/e3-e5-checkpoint-2026-09-27.md).
+The completed engineering phase is the [E3–E5 checkpoint](validation/e3-e5-checkpoint-2026-09-27.md).
 E4 source tests/vet/race and required non-skipped installer/lifecycle events
 passed on native Linux amd64, macOS arm64 and Windows amd64. macOS 15/26
 before/after reductions prove the final-output repair; Linux retains immediate
@@ -8,7 +8,9 @@ EOF and macOS retains the slave through bounded drain/cleanup. These source
 results are distinct from final release-byte qualification. Private v0.4.0-rc.2
 completed its exact-byte three-host qualification;
 [readiness and scope](validation/e5-qualified-readiness-2026-09-27.md).
-No new public release is available from this phase. Wide-cell
+Published v0.4.0-rc.2 passed native public archive/action, upgrade and binary-only
+checks on Linux amd64, macOS arm64 and Windows amd64;
+[publication evidence](validation/e5-publication-2026-09-28.md). Wide-cell
 cursor layout and terminal-query-dependent flows remain explicitly unsupported;
 [exact fidelity boundary](validation/e3-fidelity-boundary-2026-09-27.md).
 

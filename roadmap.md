@@ -2,7 +2,7 @@
 
 Updated 27 September 2026 after scoped E0–E5 acceptance. **This file is the authoritative status and execution order.** Detailed plans live in [docs/plans](docs/plans/README.md). Historical evidence remains in its original dated records.
 
-Product goal: a developer installs one runner, writes a short terminal interaction, catches a meaningful regression, and understands the failure quickly. Protect correctness and simplicity while increasing real-project depth. E0-E5 are accepted within their recorded boundaries: audited claims, native real tasks, measured cost, investigated fidelity deferral and operator walkthroughs. The macOS last-output and bounded installer repairs passed native gates. E5 qualified exact private v0.4.0-rc.2 bytes and recommends a scoped trial; publication and outreach remain held. [Execution checkpoint](docs/validation/e3-e5-checkpoint-2026-09-27.md).
+Product goal: a developer installs one runner, writes a short terminal interaction, catches a meaningful regression, and understands the failure quickly. Protect correctness and simplicity while increasing real-project depth. E0-E5 are accepted within their recorded boundaries: audited claims, native real tasks, measured cost, investigated fidelity deferral and operator walkthroughs. The macOS last-output and bounded installer repairs passed native gates. E5 qualified exact private v0.4.0-rc.2 bytes and recommends a scoped trial; publication subsequently completed with verified downloads; outreach and marketing remain held. [Execution checkpoint](docs/validation/e3-e5-checkpoint-2026-09-27.md).
 
 ## Read the status correctly
 
@@ -27,6 +27,7 @@ Engineering completion, publication and adoption are separate dimensions. An unc
 | [v0.2.0-rc.1](docs/validation/sprint-5-engineering-2026-09-15.md) | Sprint 5 directory suites, preview, summaries and isolated evidence | Source `ea2e77f`; release run `35096743871`; public-install run `35120830130`; three native hosts | Prerelease, not stable v0.2.0; participant acceptance pending |
 | [v0.3.0-rc.1](docs/releases/v0.3.0-rc.1.md) | Sprint 7 offline HTML reports plus prior suite work, published 18 September | Source `7cf64af`; release run `35288218202`; public-install run `35288555826`; three native hosts | Historical prerelease; does not contain later spec-v2 workspaces |
 | [v0.4.0-rc.1](docs/releases/v0.4.0-rc.1.md) | Opt-in workspaces, report v2, setup action and release stories, published 25 September | Frozen source `f6ffeb7`; qualified archive hashes match public assets; immutable action `1c03904`; six-lane public verification [36173075209](https://github.com/Wyrcan-io/playtestr/actions/runs/36173075209) | Verified prerelease on Windows amd64, Linux amd64 and macOS arm64; not the stable channel |
+| [v0.4.0-rc.2](docs/releases/v0.4.0-rc.2.md) | Bounded installer reads, Linux EOF optimization, macOS final-output preservation | Frozen source `ae97c62`; exact archives promoted unchanged; public distribution/upgrade and binary-only checks passed on three native hosts | Prerelease; wide-cell/query and human-accessibility exclusions retained; no outreach |
 
 Exact hashes and run links belong to the cited records. Local tags corroborate identities but do not themselves prove publication. The annotated v0.1.0 tag object differs from its peeled source commit; use the source commit above for code provenance. No stable v0.2.0/v0.3.0/v0.4.0 is claimed; released workspaces are available in v0.4.0-rc.1.
 
@@ -71,7 +72,7 @@ The original MVP and the accepted subsequent engineering batch are complete thro
 
 Recorded depth is 15 projects / 120 workflows; 3,000 repetitions cover ten selected workflows on three hosts. Full application depth is not a 120-workflow three-host matrix. The 300 focused risk-map rows point to 41 distinct references and are not automatically 300 independent executed tests. See the [weekly audit](docs/plans/weekly-review-2026-09-26.md) and [exact host coverage](docs/qualified-compatibility-v0.4.0-rc.1.md).
 
-The historical Linux comparison found equal selected detection and a Playtestr speed deficit; that record remains intact. The new unpublished candidate removes a measured Linux final-drain cost, improves matched short-task whole-command medians about 80%, and reduces the observed 50-test suite from 126.8 to 113.5 seconds. Create-vite now effectively ties Atago on the selected task; Lazygit remains substantially slower. [Native acceptance and measured tradeoffs](docs/validation/e1-e2-native-readiness-2026-09-27.md) retain every loss and sampling limitation; no universal ranking follows.
+The historical Linux comparison found equal selected detection and a Playtestr speed deficit; that record remains intact. The E2 candidate, subsequently published as v0.4.0-rc.2, removes a measured Linux final-drain cost, improves matched short-task whole-command medians about 80%, and reduces the observed 50-test suite from 126.8 to 113.5 seconds. Create-vite now effectively ties Atago on the selected task; Lazygit remains substantially slower. [Native acceptance and measured tradeoffs](docs/validation/e1-e2-native-readiness-2026-09-27.md) retain every loss and sampling limitation; no universal ranking follows.
 
 ## Execute next, in this order
 
@@ -84,7 +85,7 @@ The user subsequently authorized E0 through E2 implementation and verification, 
 | E2: runtime and resource cost | Explain and safely reduce measured overhead; compare real suites and total effort | E0 plus two valid E1 journeys; matched before/after, real-task comparison and lifecycle controls | **Complete at engineering boundary**: causal EOF proof, matched short/real tasks, paired 1/10/50 resource suites and lifecycle/race controls; remaining runtime/effort losses explicit; [record](docs/validation/e1-e2-native-readiness-2026-09-27.md) |
 | E3: targeted terminal fidelity | Native reduced cell/input/redraw investigation | [Explicit wide-cell/query exclusions](docs/validation/e3-fidelity-boundary-2026-09-27.md) | Accepted deferral |
 | E4: authoring, diagnosis and maintenance | Four walkthroughs, eight maintenance changes, six diagnoses and native correctness repairs | [Operator and accessibility boundaries](docs/validation/e4-operator-readiness-2026-09-27.md) | Accepted |
-| E5: final qualification and readiness decision | Exact-byte evidence, two held-out definitions, honest competitive scorecard | [Qualified private v0.4.0-rc.2](docs/validation/e5-qualified-readiness-2026-09-27.md); 3,000 first attempts on three native hosts, support/accessibility exclusions | **Complete; scoped trial recommended; unpublished** |
+| E5: final qualification and readiness decision | Exact-byte evidence, two held-out definitions, honest competitive scorecard | [Qualified private v0.4.0-rc.2](docs/validation/e5-qualified-readiness-2026-09-27.md); 3,000 first attempts on three native hosts, support/accessibility exclusions | **Complete; published downloads verified; outreach held** |
 | A1: independent adoption | Consenting maintainer first use, participant CI and voluntary later use | E5 readiness review plus explicit permission for each outreach action | **Held** |
 | A2: commercial discovery | Evidence about paid value and support cost, or a no-build decision | Independent repeat use; no cloud/accounts/billing assumption | Preparation only; gate closed |
 
@@ -98,7 +99,7 @@ E5 produces a concrete recommendation for the user. Technical readiness can be e
 
 ## Release strategy
 
-Stable v0.1.0 and qualified prerelease v0.4.0-rc.1 remain the recorded channels. Private v0.4.0-rc.2 is qualified for a separate release decision; no publication date is selected. Keep published tags/assets immutable. A necessary correctness hotfix may interrupt planned work with narrow acceptance and its own qualification.
+Stable v0.1.0 remains the stable channel; v0.4.0-rc.2 is now a published, verified prerelease. [Publication evidence](docs/validation/e5-publication-2026-09-28.md). Keep published tags/assets immutable. A necessary correctness hotfix may interrupt planned work with narrow acceptance and its own qualification.
 
 Any runner source, version, compiler/dependency or build-flag change creates new bytes and requires affected native and final qualification. Unchanged-byte evidence may be reused under the [invalidation policy](docs/plans/execution-contract.md). A new stable version is not qualified by relabeling prerelease results. Publication and downloaded-byte verification remain separate explicit actions under [R6](docs/plans/release/06-qualified-release.md).
 
@@ -114,7 +115,10 @@ Every checkpoint ends with exact evidence, retained failures, exclusions, actual
 
 **E0–E5 complete at their scoped boundaries.** Review the
 [private readiness decision and kit](docs/validation/e5-qualified-readiness-2026-09-27.md).
-Publication and specific outreach need separate authorization.
+Publication and native download/install verification completed under the later user instruction.
+**No outreach or marketing now:** A1/A2 remain held until a later explicit instruction.
+Use the verified download and existing examples locally; further engineering needs
+a concrete observed defect or separately requested task.
 
 **E3 closed through investigated deferral.** Native MICRO-08 and fixed-cell reductions establish the exact wide/combining cursor gap; fzf companions passed. [The record](docs/validation/e3-fidelity-boundary-2026-09-27.md) preserves unsupported cells and persistence evidence separately. The later user instruction authorized E3-E5; historical E0-E2 authorization did not.
 
