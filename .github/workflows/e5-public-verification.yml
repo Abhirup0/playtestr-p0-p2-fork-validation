@@ -1,4 +1,4 @@
-name: Proposed E5 public verification after authorized publication
+name: Published binary installation checks
 on:
   push:
     branches: [readiness/e3-e5]
@@ -20,15 +20,9 @@ jobs:
     runs-on: ${{ matrix.runner }}
     steps:
       - uses: actions/checkout@v6
-      - name: Checkout immutable setup-action source
-        uses: actions/checkout@v6
-        with:
-          repository: Wyrcan-io/playtestr
-          ref: ae97c62022966cde9699b26169b4dc6ef0a12439
-          path: .setup-action
       - name: Install published candidate through immutable action
         id: setup
-        uses: ./.setup-action/setup-playtestr
+        uses: Wyrcan-io/playtestr/setup-playtestr@ae97c62022966cde9699b26169b4dc6ef0a12439
         with:
           version: v0.4.0-rc.2
       - name: Verify public installed identities and behavior without Go
@@ -66,12 +60,23 @@ jobs:
           test "$code" -eq 1
           "$binary" test --report recovery-result.json good.json > recovery.log
           "$binary" report --input bad-result.json --evidence-root . --output report.html
+          if [[ "$RUNNER_OS" != Windows ]]; then
+            "$binary" test --report controlling-tty-result.json controlling-tty.json > controlling-tty.log
+          fi
+          printf '{"version":99}' > invalid.json
+          set +e
+          "$binary" test invalid.json > invalid.log 2>&1
+          code=$?
+          set -e
+          test "$code" -eq 2
           python - <<'PY'
           import json,pathlib
           root=pathlib.Path('.')
           for name in ['good','recovery']:
               r=json.loads((root/(name+'-result.json')).read_text()); assert r['summary']['passed']==1 and r['results'][0]['cleanup']['confirmed_exited']
           r=json.loads((root/'bad-result.json').read_text()); assert r['results'][0]['failure']['category']=='assertion_timeout' and r['results'][0]['cleanup']['confirmed_exited']
+          if (root/'controlling-tty-result.json').exists():
+              r=json.loads((root/'controlling-tty-result.json').read_text()); assert r['summary']['passed']==1 and r['results'][0]['cleanup']['confirmed_exited']
           PY
       - uses: actions/upload-artifact@v6
         if: always()
