@@ -63,6 +63,17 @@ jobs:
           go test -C corpus/controls/posting-oracle -race ./...
       - name: Native primary discovery and maintenance
         run: python scripts/readiness/run-native.py --runner "$NATIVE_RUNNER"
+      - name: Real-task alternatives and sampled suite resources
+        if: matrix.target == 'linux_amd64'
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/competitive/bin artifacts/competitive/tools
+          bash scripts/competitive/install-c1-tools.sh
+          python -m pip install PyYAML==6.0.3
+          python scripts/readiness/compare-real.py --runner "$NATIVE_RUNNER" --atago "$PWD/artifacts/competitive/tools/atago"
+          python scripts/readiness/profile-native.py
+          python scripts/readiness/measure-native.py --runner "$NATIVE_RUNNER"
       - uses: actions/upload-artifact@v6
         if: always()
         with:
@@ -73,6 +84,9 @@ jobs:
             artifacts/readiness-native/target-pins.json
             artifacts/readiness-native/setup-operations.json
             artifacts/readiness-native/tasks/**
+            artifacts/readiness-native/real-comparison/**
+            artifacts/readiness-native/profile/**
+            artifacts/readiness-native/resources/**
           retention-days: 14
           if-no-files-found: warn
   linux-comparison:
