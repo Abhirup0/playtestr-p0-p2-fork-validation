@@ -2,15 +2,17 @@ param(
     [string]$Output = 'artifacts/readiness-2026-09-26/windows-measurements',
     [int]$Samples = 30,
     [int[]]$Sizes = @(1,10,50),
-    [switch]$ObserveTree
+    [switch]$ObserveTree,
+    [string]$Runner = 'artifacts/qualified candidate extracted/playtestr_0.4.0-rc.1_windows_amd64/playtestr.exe',
+    [string]$ExpectedSHA256 = '7a73b598613d34e8a05831d12f2ab26d4abae3e6ce05e63c7d80c316bcc80fc2'
 )
 $ErrorActionPreference = 'Stop'
 if ($Samples -lt 1 -or $Samples -gt 100) { throw 'Samples must be 1..100' }
 if (@($Sizes | Where-Object { $_ -notin @(1,10,50) }).Count) { throw 'Unsupported suite size' }
 $root = (Get-Location).Path
-$runner = (Resolve-Path -LiteralPath 'artifacts/qualified candidate extracted/playtestr_0.4.0-rc.1_windows_amd64/playtestr.exe').Path
+$runner = (Resolve-Path -LiteralPath $Runner).Path
 $hash = (Get-FileHash -LiteralPath $runner -Algorithm SHA256).Hash.ToLower()
-if ($hash -ne '7a73b598613d34e8a05831d12f2ab26d4abae3e6ce05e63c7d80c316bcc80fc2') { throw 'Runner pin mismatch' }
+if ($ExpectedSHA256 -notmatch '^[0-9a-f]{64}$' -or $hash -ne $ExpectedSHA256) { throw 'Runner pin mismatch' }
 if (Test-Path -LiteralPath $Output) { throw 'Use a fresh evidence directory' }
 New-Item -ItemType Directory -Path $Output | Out-Null
 $out = (Resolve-Path -LiteralPath $Output).Path

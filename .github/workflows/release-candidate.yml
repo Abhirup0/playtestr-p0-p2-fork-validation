@@ -43,7 +43,7 @@ jobs:
       - uses: actions/checkout@v6
       - uses: actions/setup-go@v7
         with:
-          go-version: '1.25.0'
+          go-version: '1.26.0'
           cache-dependency-path: go.sum
       - name: Validate release target
         shell: bash
@@ -63,6 +63,18 @@ jobs:
       - name: Package native release
         shell: bash
         run: go run ./cmd/package-release -binary "bin/${{ matrix.executable }}" -version "$VERSION" -os "${{ matrix.target_os }}" -arch "${{ matrix.target_arch }}" -out dist
+      - name: Install exact private archive using current source installer
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          New-Item -ItemType Directory -Force artifacts | Out-Null
+          ./setup-playtestr/install.ps1 -Version $env:VERSION -DownloadDirectory (Join-Path (Get-Location) 'dist') -InstallRoot (Join-Path (Get-Location) 'private candidate install') -OutputFile artifacts/private-install.outputs -PathFile artifacts/private-install.path
+          $outputs = @{}
+          Get-Content artifacts/private-install.outputs | ForEach-Object { $key, $value = $_ -split '=', 2; $outputs[$key] = $value }
+          $expected = (Get-FileHash 'bin/${{ matrix.executable }}' -Algorithm SHA256).Hash.ToLowerInvariant()
+          $actual = (Get-FileHash -LiteralPath $outputs['binary-path'] -Algorithm SHA256).Hash.ToLowerInvariant()
+          if ($expected -ne $actual) { throw 'Private installed bytes differ from frozen build' }
+          @{ version=$env:VERSION; binary_sha256=$actual; archive_sha256=$outputs['archive-sha256']; route='Source installer local verified archive seam; unpublished'; source_commit=$env:GITHUB_SHA } | ConvertTo-Json | Set-Content artifacts/private-install-identity.json
       - name: Verify and run the extracted release archive
         shell: bash
         run: |
@@ -212,4 +224,6 @@ jobs:
           path: |
             dist/*
             artifacts/candidate-evidence-*.json
+            artifacts/private-install-identity.json
           if-no-files-found: error
+          retention-days: 14

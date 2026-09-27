@@ -120,7 +120,7 @@ function Invoke-EvidenceCheck {
     })
 }
 
-Invoke-EvidenceCommand -Name 'full-tests' -File 'go' -Arguments @('test', '-count=1', './...') `
+Invoke-EvidenceCommand -Name 'full-tests' -File 'go' -Arguments @('test', '-count=1', '-json', './...') `
     -ExpectedResult 'Every package passes without the Go test cache.'
 Invoke-EvidenceCommand -Name 'vet' -File 'go' -Arguments @('vet', './...') `
     -ExpectedResult 'Static analysis exits successfully.'

@@ -75,8 +75,8 @@ Do not silently pick a new format version during implementation. Document altern
 | --- | --- | --- | --- |
 | Q10 | Which claims retain reproducible raw evidence and distinct test execution? | **Closed at E0 audit boundary** | [Ledger](../validation/e0-evidence-reconciliation-2026-09-26.md); missing historical evidence remains missing |
 | Q11 | What causes the speed gap and can it be reduced safely? | **Closed at E2 investigation boundary** | [Native record](../validation/e1-e2-native-readiness-2026-09-27.md): Linux final drain explained and repaired; remaining RW1 readiness cost and human-effort comparison remain explicit gaps |
-| Q12 | Which fidelity family blocks a useful real task? | Maintainer, E3 | Reduced application failure and independent cell/input expectation; no checkbox-driven change |
-| Q13 | Does total authoring/maintenance effort beat an applicable alternative? | Operator, E4 | Two real-task comparisons and all helper work; later independent A1 confirmation |
+| Q12 | Which fidelity family blocks a useful real task? | **Closed at E3 investigated deferral** | [Native MICRO-08 and reduced cells](../validation/e3-fidelity-boundary-2026-09-27.md); wide/combining cursor layout and query-dependent flows excluded |
+| Q13 | Does total authoring/maintenance effort beat an applicable alternative? | **Closed as unmet/unknown at E4** | [Four walkthroughs and task scorecard](../validation/e4-operator-readiness-2026-09-27.md); human total effort unknown, two meaningful advantages not demonstrated |
 | Q14 | Is evidence sufficient to resume a scoped trial? | User, E5 | Honest scorecard and exact support/release proposal; specific outreach permission still required |
 
 ## Backlog admission table

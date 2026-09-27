@@ -2,7 +2,7 @@
 
 Updated 27 September 2026 after native E1/E2 acceptance. **This file is the authoritative status and execution order.** Detailed plans live in [docs/plans](docs/plans/README.md). Historical evidence remains in its original dated records.
 
-Product goal: a developer installs one runner, writes a short terminal interaction, catches a meaningful regression, and understands the failure quickly. Protect correctness and simplicity while increasing real-project depth. The previous engineering batch and qualified prerelease are complete. E0-E2 are accepted: audited claims, controlled real tasks on three native hosts, matched timing/resource comparisons and an engineering-validated Unix EOF repair. E3-E5 remain unstarted; the new candidate is not published or final-byte qualified.
+Product goal: a developer installs one runner, writes a short terminal interaction, catches a meaningful regression, and understands the failure quickly. Protect correctness and simplicity while increasing real-project depth. E0-E4 are accepted within their recorded boundaries: audited claims, native real tasks, measured cost, investigated fidelity deferral and operator walkthroughs. The macOS last-output and bounded installer repairs passed native gates. E5 is qualifying private changed bytes; publication and outreach remain held. [Execution checkpoint](docs/validation/e3-e5-checkpoint-2026-09-27.md).
 
 ## Read the status correctly
 
@@ -82,9 +82,9 @@ The user subsequently authorized E0 through E2 implementation and verification, 
 | E0: evidence reconciliation | Auditable claims, counts, artifact availability and frozen experiment questions | Map risk rows to actual tests; classify controls; select scenarios, hosts and comparison pins | **Complete with scoped evidence gaps**; [ledger](docs/validation/e0-evidence-reconciliation-2026-09-26.md), [freeze](docs/validation/e0-experiment-freeze-2026-09-26.md) |
 | E1: real-world effectiveness | Six useful primary journeys with state checks, target defects and maintenance exercises | E0; good/defect/recovery on two native hosts per primary journey, all three runner hosts represented; two holdouts reserved | **Complete at admitted scope**: six journeys on all three hosts, scheduled variations and three synthetic maintenance exercises; human authoring time remains unknown; [record](docs/validation/e1-e2-native-readiness-2026-09-27.md) |
 | E2: runtime and resource cost | Explain and safely reduce measured overhead; compare real suites and total effort | E0 plus two valid E1 journeys; matched before/after, real-task comparison and lifecycle controls | **Complete at engineering boundary**: causal EOF proof, matched short/real tasks, paired 1/10/50 resource suites and lifecycle/race controls; remaining runtime/effort losses explicit; [record](docs/validation/e1-e2-native-readiness-2026-09-27.md) |
-| E3: targeted terminal fidelity | Probe real Unicode/input/redraw gaps and fix one demonstrated family if justified | E1 reduced failing task and independent expected cells; otherwise explicit limited scope | Planned / conditional implementation |
-| E4: authoring, diagnosis and maintenance | Clean-directory journeys, mixed failure diagnosis, upgrade effort and accessible evidence | Relevant E1-E3 behavior settled; four walkthroughs, six diagnosis classes and screen-reader gap disposition | Planned |
-| E5: final qualification and readiness decision | Exact-byte evidence, two held-out journeys, honest competitive scorecard | E0-E4 records, no supported correctness blocker; qualify changed bytes under R6 policy | Planned |
+| E3: targeted terminal fidelity | Native reduced cell/input/redraw investigation | [Explicit wide-cell/query exclusions](docs/validation/e3-fidelity-boundary-2026-09-27.md) | Accepted deferral |
+| E4: authoring, diagnosis and maintenance | Four walkthroughs, eight maintenance changes, six diagnoses and native correctness repairs | [Operator and accessibility boundaries](docs/validation/e4-operator-readiness-2026-09-27.md) | Accepted |
+| E5: final qualification and readiness decision | Exact-byte evidence, two held-out journeys, honest competitive scorecard | E0-E4 accepted; qualify private v0.4.0-rc.2 under R6 policy | In progress |
 | A1: independent adoption | Consenting maintainer first use, participant CI and voluntary later use | E5 readiness review plus explicit permission for each outreach action | **Held** |
 | A2: commercial discovery | Evidence about paid value and support cost, or a no-build decision | Independent repeat use; no cloud/accounts/billing assumption | Preparation only; gate closed |
 
@@ -112,7 +112,7 @@ Every checkpoint ends with exact evidence, retained failures, exclusions, actual
 
 ## Immediate next task
 
-**Later E3: independently reduce the retained wide-cell editor failure.** On native Linux/macOS, reproduce MICRO-08's Snow/stale-cell result under fixed geometry and UTF-8 locale, establish authoritative expected cells/reference capture, and compare the frozen fzf wide/combining/resize companion. Choose one demonstrated cell-width family for repair or an explicit support boundary. E3 is not authorized or started by the completed E0-E2 work.
+**E3 closed through investigated deferral.** Native MICRO-08 and fixed-cell reductions establish the exact wide/combining cursor gap; fzf companions passed. [The record](docs/validation/e3-fidelity-boundary-2026-09-27.md) preserves unsupported cells and persistence evidence separately. The later user instruction authorized E3-E5; historical E0-E2 authorization did not.
 
 GitHub-hosted native jobs resolved the missing-device dependency. E0-E2 acceptance
 and the completed push preserve first failures, source/runner/target hashes,
