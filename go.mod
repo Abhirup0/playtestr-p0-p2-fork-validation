@@ -7,7 +7,7 @@ require (
 	github.com/hinshun/vt10x v0.0.0-20220301184237-5011da428d02
 	golang.org/x/sys v0.47.0
 	golang.org/x/term v0.45.0
-	golang.org/x/text v0.35.0
+	golang.org/x/text v0.39.0
 )
 
 require (

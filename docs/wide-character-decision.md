@@ -14,10 +14,15 @@ The first failing reduced test output is retained in the development evidence.
 Maintain a small internal copy of vt10x at its existing pinned commit
 5011da428d02, retaining its MIT license and upstream tests. Add two-cell heads
 and continuation flags to its existing fixed-size Glyph representation.
-Use `golang.org/x/text/width v0.35.0` for East Asian Wide/Fullwidth properties.
+Use `golang.org/x/text/width v0.39.0` for East Asian Wide/Fullwidth properties.
 Ambiguous characters remain one column. This dependency is Go's maintained
 Unicode table package under the same BSD license as the existing x packages;
 it adds no transitive production dependency. Go 1.25 remains the module floor.
+
+The first audit of v0.35.0 reported the module-only
+[GO-2026-5970](https://pkg.go.dev/vuln/GO-2026-5970) finding in Unicode
+normalization, which this renderer does not import or call. The dependency
+was upgraded to the fixed v0.39.0 anyway; the original scan is retained.
 
 This is a local maintenance responsibility. Future updates must review the
 copied parser and cell operations explicitly, retain attribution, and run

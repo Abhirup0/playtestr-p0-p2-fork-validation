@@ -460,8 +460,11 @@ func TestHelperProcess(t *testing.T) {
 		fmt.Print("self running\r\n")
 		time.Sleep(10 * time.Second)
 		os.Exit(0)
-	case "flood":
+	case "flood", "wide-flood":
 		chunk := strings.Repeat("x", 1024)
+		if mode == "wide-flood" {
+			chunk = strings.Repeat("雪", 1024)
+		}
 		for {
 			fmt.Print(chunk)
 		}
@@ -718,11 +721,15 @@ func TestCancellation(t *testing.T) {
 }
 
 func TestOutputLimit(t *testing.T) {
-	err := runConfiguredHelperSpec(t, "flood", []Step{{Expect: "never"}}, func(spec *Spec) {
-		spec.MaxOutputBytes = 4096
-	})
-	if err == nil || !strings.Contains(err.Error(), "exceeded max_output_bytes") {
-		t.Fatalf("got %v", err)
+	for _, mode := range []string{"flood", "wide-flood"} {
+		t.Run(mode, func(t *testing.T) {
+			err := runConfiguredHelperSpec(t, mode, []Step{{Expect: "never"}}, func(spec *Spec) {
+				spec.MaxOutputBytes = 4096
+			})
+			if err == nil || !strings.Contains(err.Error(), "exceeded max_output_bytes") {
+				t.Fatalf("got %v", err)
+			}
+		})
 	}
 }
 
