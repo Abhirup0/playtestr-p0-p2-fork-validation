@@ -24,11 +24,19 @@ jobs:
         run: |
           mkdir -p artifacts/macos-output
           set +e
+          before=null
+          if [[ "$RUNNER_OS" == macOS ]]; then
+            cp internal/runner/pty_darwin.go artifacts/macos-output/pty-darwin.saved
+            git show 897bc939ce4d29f71dcb1901672b9e1f568ea506:internal/runner/pty_unix.go > internal/runner/pty_darwin.go
+            go test -timeout 60s -count=1 -json -run '^TestTerminalPreservesOutputBeforeReaderStarts$' ./internal/runner > artifacts/macos-output/before-delayed-reader.jsonl
+            before=$?
+            mv artifacts/macos-output/pty-darwin.saved internal/runner/pty_darwin.go
+          fi
           go test -timeout 60s -count=1 -json -run '^TestTerminalPreservesOutputBeforeReaderStarts$' ./internal/runner > artifacts/macos-output/delayed-reader.jsonl
           first=$?
           go test -timeout 60s -count=20 -json -run '^TestWorkspaceLifecycleOutcomesCleanOwnedState/expected_nonzero$' ./internal/runner > artifacts/macos-output/immediate-exit.jsonl
           repeated=$?
-          printf '{"delayed_reader_exit":%s,"immediate_exit_exit":%s}\n' "$first" "$repeated" > artifacts/macos-output/status.json
+          printf '{"before_delayed_reader_exit":%s,"delayed_reader_exit":%s,"immediate_exit_exit":%s}\n' "$before" "$first" "$repeated" > artifacts/macos-output/status.json
           exit 0
       - uses: actions/upload-artifact@v6
         if: always()
