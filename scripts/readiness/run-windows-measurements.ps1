@@ -4,7 +4,8 @@ param(
     [int[]]$Sizes = @(1,10,50),
     [switch]$ObserveTree,
     [string]$Runner = 'artifacts/qualified candidate extracted/playtestr_0.4.0-rc.1_windows_amd64/playtestr.exe',
-    [string]$ExpectedSHA256 = '7a73b598613d34e8a05831d12f2ab26d4abae3e6ce05e63c7d80c316bcc80fc2'
+    [string]$ExpectedSHA256 = '7a73b598613d34e8a05831d12f2ab26d4abae3e6ce05e63c7d80c316bcc80fc2',
+    [string]$InputsRoot = 'artifacts/readiness-2026-09-26/serial'
 )
 $ErrorActionPreference = 'Stop'
 if ($Samples -lt 1 -or $Samples -gt 100) { throw 'Samples must be 1..100' }
@@ -21,7 +22,7 @@ if ($ObserveTree) { Get-CimInstance Win32_Process -Filter "ProcessId=$PID" | Out
 $inputs = @{}
 $pins = @()
 foreach ($size in $Sizes) {
-    $inputs[$size] = @(Get-ChildItem -LiteralPath 'artifacts/readiness-2026-09-26/serial' -Filter "size-$size-repeat-*.json" -File | Sort-Object Name | Select-Object -ExpandProperty FullName)
+    $inputs[$size] = @(Get-ChildItem -LiteralPath $InputsRoot -Filter "size-$size-repeat-*.json" -File | Sort-Object Name | Select-Object -ExpandProperty FullName)
     if ($inputs[$size].Count -ne $size) { throw "Missing prepared size-$size inputs" }
     foreach ($file in $inputs[$size]) { $pins += [ordered]@{path=$file;sha256=(Get-FileHash -LiteralPath $file -Algorithm SHA256).Hash.ToLower()} }
 }

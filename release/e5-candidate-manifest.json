@@ -36,7 +36,9 @@
       "archive_sha256": "7dab72ab263b34f3e1a4958b6c6f6f8aa374633320531e9ebeaf11317006a9f4",
       "route": "Source installer local verified archive seam; unpublished",
       "source_commit": "ae97c62022966cde9699b26169b4dc6ef0a12439"
-    }
+    },
+    "qualification_status": "qualified within explicit E5 support/accessibility scope; unpublished",
+    "qualification_run_id": 36330814511
   },
   {
     "schema_version": 1,
@@ -75,7 +77,9 @@
       "archive_sha256": "e442710e1cc851d134cde7ccc9441be8503c65e210d35318f0106ed5ab54ce55",
       "route": "Source installer local verified archive seam; unpublished",
       "version": "v0.4.0-rc.2"
-    }
+    },
+    "qualification_status": "qualified within explicit E5 support/accessibility scope; unpublished",
+    "qualification_run_id": 36330814511
   },
   {
     "schema_version": 1,
@@ -114,6 +118,8 @@
       "binary_sha256": "b09f8daea6211ae24ca15aeb4b7f15f5daac277c920a02cb28feb6b99eb3aa8b",
       "version": "v0.4.0-rc.2",
       "source_commit": "ae97c62022966cde9699b26169b4dc6ef0a12439"
-    }
+    },
+    "qualification_status": "qualified within explicit E5 support/accessibility scope; unpublished",
+    "qualification_run_id": 36330814511
   }
 ]

@@ -1,7 +1,9 @@
 # E4 operator execution record — 27 September 2026
 
 Status: **E4 accepted within the familiar-operator and scoped accessibility
-boundary**. No final candidate is qualified. E3 closed through its
+boundary**. At this E4 checkpoint no final candidate was qualified; the subsequent
+[E5 record](e5-qualified-readiness-2026-09-27.md) closes private qualification.
+E3 closed through its
 [investigated fidelity boundary](e3-fidelity-boundary-2026-09-27.md).
 
 The [reproduction guide](../e4-operator-walkthroughs.md) and

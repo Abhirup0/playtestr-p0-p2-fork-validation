@@ -2,7 +2,7 @@
 
 Updated 26 September 2026. The [root roadmap](../../roadmap.md) fixes order; this register makes choices and revisit triggers visible. A proposed feature is not approved merely because it has a row.
 
-Current execution status updated 27 September: E0/E1/E2 accepted; E3-E5 unstarted. The dated decisions below retain the earlier partial states.
+Current execution status updated 27 September: E0–E5 accepted within recorded boundaries; v0.4.0-rc.2 qualified privately. Publication and outreach remain held. The dated decisions below retain the earlier partial states.
 
 ## Current sequencing override
 
@@ -52,6 +52,9 @@ D21 supersedes D01's immediate R6-to-A1 scheduling and the old fixed stop at Spr
 | D28 | Use standard GitHub-hosted native runners under explicit authorization | No physical devices or SSH hosts are needed. Actual Linux/macOS execution, artifact retrieval and testing-branch pushes are authorized; configured workflows alone remain insufficient proof. No paid runners, publication or outreach. |
 | D29 | Accept E1's admitted six-journey native scope | Five-good/source-defect/recovery on all three hosts, scheduled variations and three synthetic maintenance cases pass. Preserve wide-cell failure and unisolated Posting query editing; synthetic changes and unknown human minutes are not upstream-upgrade or independent-effort claims. |
 | D30 | Accept E2's measured Unix parent-slave ownership repair and honest tradeoffs | Same-source regression fails before/pass after on Linux; macOS baseline already reaches EOF. Matched short/real-task and paired 1/10/50 suites preserve exact state, output and cleanup. Source safeguards remain fixed. Create-vite ties Atago; Lazygit still loses with an unisolated first-assertion wait. New bytes remain unpublished and require E5 qualification. |
+| D31 | Accept E3 investigated deferral across all hosts | Reduced one-rune/one-cell behavior explains unreliable wide/combining layout; retain original failures and exact-state/basic-character workarounds, maintainer owns revisit. |
+| D32 | Accept E4 scoped operator evidence and necessary correctness repairs | Four walkthroughs, eight synthetic changes, six diagnoses, bounded installer reads and macOS final-output regression/native gates; human timing/accessibility excluded, no new convenience family. |
+| D33 | Qualify unused private v0.4.0-rc.2 and recommend scoped trial | Exact native archives, 3,000 first attempts, holdout controls, compatibility and resources accepted. Differentiation unmet; public availability, release, deployment and outreach remain held. |
 
 ## Decisions to make at explicit checkpoints
 
@@ -77,7 +80,7 @@ Do not silently pick a new format version during implementation. Document altern
 | Q11 | What causes the speed gap and can it be reduced safely? | **Closed at E2 investigation boundary** | [Native record](../validation/e1-e2-native-readiness-2026-09-27.md): Linux final drain explained and repaired; remaining RW1 readiness cost and human-effort comparison remain explicit gaps |
 | Q12 | Which fidelity family blocks a useful real task? | **Closed at E3 investigated deferral** | [Native MICRO-08 and reduced cells](../validation/e3-fidelity-boundary-2026-09-27.md); wide/combining cursor layout and query-dependent flows excluded |
 | Q13 | Does total authoring/maintenance effort beat an applicable alternative? | **Closed as unmet/unknown at E4** | [Four walkthroughs and task scorecard](../validation/e4-operator-readiness-2026-09-27.md); human total effort unknown, two meaningful advantages not demonstrated |
-| Q14 | Is evidence sufficient to resume a scoped trial? | User, E5 | Honest scorecard and exact support/release proposal; specific outreach permission still required |
+| Q14 | Is evidence sufficient to resume a scoped trial? | **Technical boundary closed at E5; user decision held** | [Qualified private recommendation](../validation/e5-qualified-readiness-2026-09-27.md); differentiation unmet, independent demand unknown. Publication and specific outreach still require separate authorization |
 
 ## Backlog admission table
 

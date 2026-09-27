@@ -1,8 +1,8 @@
 # Playtestr roadmap
 
-Updated 27 September 2026 after native E1/E2 acceptance. **This file is the authoritative status and execution order.** Detailed plans live in [docs/plans](docs/plans/README.md). Historical evidence remains in its original dated records.
+Updated 27 September 2026 after scoped E0–E5 acceptance. **This file is the authoritative status and execution order.** Detailed plans live in [docs/plans](docs/plans/README.md). Historical evidence remains in its original dated records.
 
-Product goal: a developer installs one runner, writes a short terminal interaction, catches a meaningful regression, and understands the failure quickly. Protect correctness and simplicity while increasing real-project depth. E0-E4 are accepted within their recorded boundaries: audited claims, native real tasks, measured cost, investigated fidelity deferral and operator walkthroughs. The macOS last-output and bounded installer repairs passed native gates. E5 is qualifying private changed bytes; publication and outreach remain held. [Execution checkpoint](docs/validation/e3-e5-checkpoint-2026-09-27.md).
+Product goal: a developer installs one runner, writes a short terminal interaction, catches a meaningful regression, and understands the failure quickly. Protect correctness and simplicity while increasing real-project depth. E0-E5 are accepted within their recorded boundaries: audited claims, native real tasks, measured cost, investigated fidelity deferral and operator walkthroughs. The macOS last-output and bounded installer repairs passed native gates. E5 qualified exact private v0.4.0-rc.2 bytes and recommends a scoped trial; publication and outreach remain held. [Execution checkpoint](docs/validation/e3-e5-checkpoint-2026-09-27.md).
 
 ## Read the status correctly
 
@@ -67,7 +67,7 @@ Sprint numbers are durable identifiers, not chronology: 7 shipped before 6, and 
 
 ## How much is done?
 
-The original MVP and the accepted subsequent engineering batch are complete through **R6-V**. Three optional branches (S10, S12-B and the S6 manifest) were closed by evidence-backed deferral, not implementation. New engineering readiness is **3/6 milestones complete (E0/E1/E2)**. Independent adoption and commercial validation remain unproven; an overall product-completion percentage would hide those differences.
+The original MVP and the accepted subsequent engineering batch are complete through **R6-V**. Three optional branches (S10, S12-B and the S6 manifest) were closed by evidence-backed deferral, not implementation. New engineering readiness is **6/6 milestones complete within explicit acceptance boundaries**. Independent adoption and commercial validation remain unproven; an overall product-completion percentage would hide those differences.
 
 Recorded depth is 15 projects / 120 workflows; 3,000 repetitions cover ten selected workflows on three hosts. Full application depth is not a 120-workflow three-host matrix. The 300 focused risk-map rows point to 41 distinct references and are not automatically 300 independent executed tests. See the [weekly audit](docs/plans/weekly-review-2026-09-26.md) and [exact host coverage](docs/qualified-compatibility-v0.4.0-rc.1.md).
 
@@ -84,7 +84,7 @@ The user subsequently authorized E0 through E2 implementation and verification, 
 | E2: runtime and resource cost | Explain and safely reduce measured overhead; compare real suites and total effort | E0 plus two valid E1 journeys; matched before/after, real-task comparison and lifecycle controls | **Complete at engineering boundary**: causal EOF proof, matched short/real tasks, paired 1/10/50 resource suites and lifecycle/race controls; remaining runtime/effort losses explicit; [record](docs/validation/e1-e2-native-readiness-2026-09-27.md) |
 | E3: targeted terminal fidelity | Native reduced cell/input/redraw investigation | [Explicit wide-cell/query exclusions](docs/validation/e3-fidelity-boundary-2026-09-27.md) | Accepted deferral |
 | E4: authoring, diagnosis and maintenance | Four walkthroughs, eight maintenance changes, six diagnoses and native correctness repairs | [Operator and accessibility boundaries](docs/validation/e4-operator-readiness-2026-09-27.md) | Accepted |
-| E5: final qualification and readiness decision | Exact-byte evidence, two held-out journeys, honest competitive scorecard | E0-E4 accepted; qualify private v0.4.0-rc.2 under R6 policy | In progress |
+| E5: final qualification and readiness decision | Exact-byte evidence, two held-out definitions, honest competitive scorecard | [Qualified private v0.4.0-rc.2](docs/validation/e5-qualified-readiness-2026-09-27.md); 3,000 first attempts on three native hosts, support/accessibility exclusions | **Complete; scoped trial recommended; unpublished** |
 | A1: independent adoption | Consenting maintainer first use, participant CI and voluntary later use | E5 readiness review plus explicit permission for each outreach action | **Held** |
 | A2: commercial discovery | Evidence about paid value and support cost, or a no-build decision | Independent repeat use; no cloud/accounts/billing assumption | Preparation only; gate closed |
 
@@ -98,7 +98,7 @@ E5 produces a concrete recommendation for the user. Technical readiness can be e
 
 ## Release strategy
 
-Stable v0.1.0 and qualified prerelease v0.4.0-rc.1 remain the recorded channels. No next version or release date is selected by this planning pass. Keep published tags/assets immutable. A necessary correctness hotfix may interrupt planned work with narrow acceptance and its own qualification.
+Stable v0.1.0 and qualified prerelease v0.4.0-rc.1 remain the recorded channels. Private v0.4.0-rc.2 is qualified for a separate release decision; no publication date is selected. Keep published tags/assets immutable. A necessary correctness hotfix may interrupt planned work with narrow acceptance and its own qualification.
 
 Any runner source, version, compiler/dependency or build-flag change creates new bytes and requires affected native and final qualification. Unchanged-byte evidence may be reused under the [invalidation policy](docs/plans/execution-contract.md). A new stable version is not qualified by relabeling prerelease results. Publication and downloaded-byte verification remain separate explicit actions under [R6](docs/plans/release/06-qualified-release.md).
 
@@ -110,12 +110,16 @@ Keep one implementation behavior active, with one supporting validation activity
 
 Every checkpoint ends with exact evidence, retained failures, exclusions, actual cost and a next decision. Missed speed/usability targets stay visible; false passes, destructive cleanup and unbounded behavior cannot be waved through. A good benchmark cannot compensate for a broken real workflow.
 
-## Immediate next task
+## Immediate next decision
+
+**E0–E5 complete at their scoped boundaries.** Review the
+[private readiness decision and kit](docs/validation/e5-qualified-readiness-2026-09-27.md).
+Publication and specific outreach need separate authorization.
 
 **E3 closed through investigated deferral.** Native MICRO-08 and fixed-cell reductions establish the exact wide/combining cursor gap; fzf companions passed. [The record](docs/validation/e3-fidelity-boundary-2026-09-27.md) preserves unsupported cells and persistence evidence separately. The later user instruction authorized E3-E5; historical E0-E2 authorization did not.
 
 GitHub-hosted native jobs resolved the missing-device dependency. E0-E2 acceptance
 and the completed push preserve first failures, source/runner/target hashes,
 unknown human effort and the remaining Lazygit readiness cost. The published
-v0.4.0-rc.1 assets are unchanged. Held-out tasks and changed-byte qualification
-remain E5 work; no release or outreach follows automatically.
+v0.4.0-rc.1 assets are unchanged. Held-out tasks and exact changed-byte qualification
+are complete within the E5 record; no release or outreach follows automatically.

@@ -20,7 +20,8 @@ The current vt10x emulator retains control-sequence parser state between writes.
 ## Known limits
 
 The [E3 native investigation](validation/e3-fidelity-boundary-2026-09-27.md)
-reproduces micro's Snow/stale-cell failure on Linux/macOS and reduces incorrect
+reproduces micro's Snow/stale-cell failure on Linux/macOS, retains an intermittent
+Windows failure, and reduces incorrect
 wide/combining cursor positions. The separately passing file-save and fzf probes
 do not expand this contract. Terminal replies are not forwarded to target input;
 query-dependent tasks and bracketed-paste behavior remain unsupported.

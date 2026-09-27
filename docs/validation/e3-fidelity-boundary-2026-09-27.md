@@ -49,7 +49,18 @@ in an adapter would mishandle erase, addressed redraw, wrapping and cell replace
 A replacement needs its own ADR and native migration evidence. Workaround: use
 exercised basic-character rendered assertions or a separately qualified app route
 with exact persisted-state oracle; incorrect wide snapshots remain untrustworthy.
-Impact/exclusion: MICRO-08 wide fidelity on Linux/macOS. Owner: maintainer. Revisit
+Impact/exclusion: reliable MICRO-08 wide fidelity on every host. Initial Linux/macOS
+failures were deterministic. During E5's local Windows 50-test instrumented
+suite, repeat 46 failed at the same step with `雪a alpha marker`; the unchanged
+uninstrumented suite passed 50/50. Both first results are retained at
+`artifacts/e5-windows-tree` and `artifacts/e5-windows-plain`. The Windows 120-cell
+first pass remains an observation, not qualification of reliable wide rendering.
+The already reduced one-rune/one-cell mechanism is platform independent; sampler
+load is not a proved cause. The support claim excludes this cell even on Windows,
+where intermittent ConPTY output can make the rendered text look correct.
+Separately scoped resource suites use the previously frozen basic café/λ control,
+with exact file oracle, and retain original inputs/failure. No wide assertion
+was relaxed or promoted into a supported pass. Owner: maintainer. Revisit
 when an adopter needs this exact task, starting with retained reduced cells. No
 previously supported native behavior is silently removed.
 

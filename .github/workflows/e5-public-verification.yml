@@ -1,0 +1,77 @@
+name: Proposed E5 public verification after authorized publication
+on:
+  push:
+    branches: [readiness/e3-e5]
+    paths: ['.github/workflows/e5-public-verification.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    if: github.event_name == 'workflow_dispatch'
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { runner: ubuntu-24.04, os: linux, arch: amd64, family: unix }
+          - { runner: macos-15, os: darwin, arch: arm64, family: unix }
+          - { runner: windows-latest, os: windows, arch: amd64, family: windows }
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v6
+      - name: Checkout immutable setup-action source
+        uses: actions/checkout@v6
+        with:
+          repository: Wyrcan-io/playtestr
+          ref: ae97c62022966cde9699b26169b4dc6ef0a12439
+          path: .setup-action
+      - name: Install published candidate through immutable action
+        id: setup
+        uses: ./.setup-action/setup-playtestr
+        with:
+          version: v0.4.0-rc.2
+      - name: Verify public installed identities and behavior without Go
+        shell: bash
+        env:
+          BINARY_PATH: ${{ steps.setup.outputs.binary-path }}
+          BINARY_SHA256: ${{ steps.setup.outputs.binary-sha256 }}
+          ARCHIVE_SHA256: ${{ steps.setup.outputs.archive-sha256 }}
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/e5-public
+          python - <<'PY'
+          import json,os,pathlib,hashlib
+          records=json.loads(pathlib.Path('release/e5-candidate-manifest.json').read_text())
+          record=next(r for r in records if '${{ matrix.os }}_${{ matrix.arch }}' in r['archive'])
+          assert os.environ['BINARY_SHA256']==record['executable_sha256']
+          assert os.environ['ARCHIVE_SHA256']==record['archive_sha256']
+          assert hashlib.sha256(pathlib.Path(os.environ['BINARY_PATH']).read_bytes()).hexdigest()==record['executable_sha256']
+          pathlib.Path('artifacts/e5-public/identity.json').write_text(json.dumps(record,indent=2))
+          PY
+          binary="$BINARY_PATH"
+          if [[ "$RUNNER_OS" == Windows ]]; then binary="$(cygpath -u "$binary")"; fi
+          test "$("$binary" version)" = 'playtestr v0.4.0-rc.2'
+          test "$(playtestr version)" = 'playtestr v0.4.0-rc.2'
+          "$binary" help > artifacts/e5-public/help.txt
+          "$binary" test --report artifacts/e5-public/good.json testdata/install-smoke/${{ matrix.family }}/good.json > artifacts/e5-public/good.log
+          set +e
+          "$binary" test --report artifacts/e5-public/bad.json --artifacts-dir artifacts/e5-public/evidence testdata/install-smoke/${{ matrix.family }}/bad.json > artifacts/e5-public/bad.log 2>&1
+          code=$?
+          set -e
+          test "$code" -eq 1
+          "$binary" test --report artifacts/e5-public/recovery.json testdata/install-smoke/${{ matrix.family }}/good.json > artifacts/e5-public/recovery.log
+          "$binary" report --input artifacts/e5-public/bad.json --evidence-root artifacts --output artifacts/e5-public/report.html
+          python - <<'PY'
+          import json,pathlib
+          root=pathlib.Path('artifacts/e5-public')
+          for name in ['good','recovery']:
+              r=json.loads((root/(name+'.json')).read_text()); assert r['summary']['passed']==1 and r['results'][0]['cleanup']['confirmed_exited']
+          r=json.loads((root/'bad.json').read_text()); assert r['results'][0]['failure']['category']=='assertion_timeout' and r['results'][0]['cleanup']['confirmed_exited']
+          PY
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: proposed-e5-public-${{ matrix.os }}-${{ matrix.arch }}
+          path: artifacts/e5-public
+          retention-days: 14

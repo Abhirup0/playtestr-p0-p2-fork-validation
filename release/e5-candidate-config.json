@@ -1,17 +1,28 @@
 {
   "schema_version": 1,
   "version": "v0.4.0-rc.2",
-  "status": "private candidate configuration; qualification pending; publication unauthorized",
+  "status": "qualified private candidate; publication unauthorized",
   "version_novelty_checked_on": "2026-09-27",
   "version_reason": "Second prerelease in the existing v0.4 line for bounded installer reads, Linux EOF optimization and macOS final-output preservation; no format change.",
   "toolchain": "go1.26.0",
   "flags": "-trimpath -ldflags '-s -w -X github.com/Wyrcan-io/playtestr/internal/buildinfo.Version=v0.4.0-rc.2'",
-  "hosts": ["linux/amd64", "darwin/arm64", "windows/amd64"],
+  "hosts": [
+    "linux/amd64",
+    "darwin/arm64",
+    "windows/amd64"
+  ],
   "source_identity": "Exact immutable checkout SHA recorded by native candidate-evidence manifests; tracked shipping inputs only, unrelated local user edits excluded.",
   "invalidation": "New source affecting execution, dependency, compiler, flags or embedded version requires new bytes and qualification. Documentation-only follow-up retains identical frozen bytes.",
   "qualification": "release/qualification-plan.json",
   "corpus_scope": "120 existing admitted Windows-runner workflows; tig and taskwarrior targets are WSL lanes. Ten selected workflows on each of three native runner hosts, 100 first attempts each, are one separate 3000-attempt qualification.",
-  "controls": {"executable_code_defects": 12, "altered_input_or_fixture": 3},
-  "contracts": {"preserved_default": 1, "opt_in": 2},
-  "public_routes": "Existing v0.4.0-rc.1 routes remain attributed to old bytes. New public download and immutable action gates wait for separately authorized publication."
+  "controls": {
+    "executable_code_defects": 12,
+    "altered_input_or_fixture": 3
+  },
+  "contracts": {
+    "preserved_default": 1,
+    "opt_in": 2
+  },
+  "public_routes": "Existing v0.4.0-rc.1 routes remain attributed to old bytes. New public download and immutable action gates wait for separately authorized publication.",
+  "qualified_record": "docs/validation/e5-qualified-readiness-2026-09-27.md"
 }

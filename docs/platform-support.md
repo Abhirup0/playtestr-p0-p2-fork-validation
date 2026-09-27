@@ -5,8 +5,10 @@ E4 source tests/vet/race and required non-skipped installer/lifecycle events
 passed on native Linux amd64, macOS arm64 and Windows amd64. macOS 15/26
 before/after reductions prove the final-output repair; Linux retains immediate
 EOF and macOS retains the slave through bounded drain/cleanup. These source
-results do not qualify final release bytes. Private v0.4.0-rc.2 qualification
-is in progress; no new public release is available from this phase. Wide-cell
+results are distinct from final release-byte qualification. Private v0.4.0-rc.2
+completed its exact-byte three-host qualification;
+[readiness and scope](validation/e5-qualified-readiness-2026-09-27.md).
+No new public release is available from this phase. Wide-cell
 cursor layout and terminal-query-dependent flows remain explicitly unsupported;
 [exact fidelity boundary](validation/e3-fidelity-boundary-2026-09-27.md).
 
@@ -65,8 +67,8 @@ Downloaded rc.2 passed natural exit, cancellation, total timeout, output limit, 
 
 The later [R3c operator campaign](trials/cross-stack-validation-2026-09.md) used the extracted public rc.2 binaries with Posting, litecli, mitmproxy, bottom, GitUI, television, npkill, create-vite, and ipm-cli. All 18 intended Windows amd64 and WSL Linux amd64 cells completed, with 54/54 frozen primary attempts plus independent oracles, controlled failure/recovery, application and runner cancellation, confirmed cleanup, and second sessions. These results apply only to the pinned versions and workflows in that record. WSL Linux is not native Windows and is not a claim for every Linux distribution.
 
-Windows amd64 also passes the race detector locally with the project compiler. Race-detector coverage has not been recorded for Linux or macOS.
+At this historical checkpoint Windows amd64 passed the local race detector; Linux/macOS race coverage had not yet been recorded. The current E4/E5 native source records above now include actual race runs on all three hosts.
 
-Current source passed the complete [three-host Terminal tests run](https://github.com/Wyrcan-io/playtestr/actions/runs/34331447263) at commit `6c378a5cc34efb481bc61bd4ce1cad2862a82ef9`. The immediately preceding [failed run](https://github.com/Wyrcan-io/playtestr/actions/runs/34330189067) is retained: it exposed a macOS cleanup exit race and a cold-start budget issue in the external Gum sample. Both causes were corrected before the green run.
+Source at that historical checkpoint passed the complete [three-host Terminal tests run](https://github.com/Wyrcan-io/playtestr/actions/runs/34331447263) at commit `6c378a5cc34efb481bc61bd4ce1cad2862a82ef9`. The immediately preceding [failed run](https://github.com/Wyrcan-io/playtestr/actions/runs/34330189067) is retained: it exposed a macOS cleanup exit race and a cold-start budget issue in the external Gum sample. Both causes were corrected before the green run.
 
 This evidence supports only the targets in the table and the terminal behavior described in [Terminal compatibility](terminal-compatibility.md). It does not imply support for other architectures, every OS version or distribution, every CLI/TUI framework, or macOS real-application compatibility.
