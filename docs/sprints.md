@@ -30,7 +30,9 @@ complete authoring recipes and audited ten diagnostic cases; 12-B then deferred
 both optional extensions because no pair of workflows met the entry gate. The
 Sprint 6 then proved an ordinary pinned-input handoff sufficient and deferred
 its optional manifest. Status is **R6-V complete**. The 26 September weekly
-review makes [E0-E5 readiness](plans/engineering-readiness.md) the next phase;
+review selected [E0-E5 readiness](plans/engineering-readiness.md), subsequently
+completed within recorded scope with rc.2 publication. The later selected
+[CJK repair](validation/wide-character-2026-09-28.md) passed native development checks;
 further A1 outreach is held. The interactive screen-reader audit remains open. The root
 roadmap owns exact checkpoint order; [planning documents](plans/README.md)
 define execution details. Completed counts link to dated evidence; no adoption
@@ -171,6 +173,6 @@ case but is not independent adoption. Maintainer adoption/outside feedback remai
 
 ## Current development plans
 
-The [26 September weekly review](plans/weekly-review-2026-09-26.md) supersedes the previous immediate R6-to-A1 sequence. Next: [E0-E5 engineering readiness](plans/engineering-readiness.md), with [real-world scenario and maintenance evidence](plans/real-world-scenarios.md), then a user decision about renewed outreach. A1 and A2 retain their independent-use and commercial gates.
+The [root roadmap](../roadmap.md) records completed scoped E0-E5 readiness and rc.2 publication. The user then requested the [wide-character repair](plans/wide-character-next-steps-prompt.md); [native development evidence](validation/wide-character-2026-09-28.md) records its outcome. A1/A2, outreach and marketing remain held. A later release requires fresh qualification of its own frozen bytes.
 
 Sprints 5-14 and R6 remain completed accepted scope or explicitly deferred branches as recorded above; they are not a new implementation backlog. The [planning index](plans/README.md) links historical plans and current protocols. Do not infer participant adoption from corpus or operator results.

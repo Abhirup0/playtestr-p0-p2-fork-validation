@@ -5,7 +5,7 @@
 │> alpha ordinary.txt                                                          │
 │  beta record one.txt                                                         │
 │  beta record two.txt                                                         │
-│  gamma-unicode-雪.txt                                                         │
+│  gamma-unicode-雪.txt                                                        │
 │  path with spaces.txt                                                        │
 │                                                                              │
 │                                                                              │

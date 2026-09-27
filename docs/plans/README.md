@@ -1,12 +1,13 @@
 # Planning guide
 
-Updated 27 September 2026. The **[root roadmap](../../roadmap.md)** is authoritative for status and order. The previous batch through R6-V is complete. E0-E2 are now accepted: [E0 audit](../validation/e0-evidence-reconciliation-2026-09-26.md) and [native E1/E2 record](../validation/e1-e2-native-readiness-2026-09-27.md) preserve counts, failures, exact identities and tradeoffs. E3-E5 are unstarted; further outreach and publication are held. The original planning pass itself authorized no execution; subsequent user instructions authorized this bounded work and push.
+Updated 28 September 2026. The **[root roadmap](../../roadmap.md)** is authoritative for status and order. E0-E5 are accepted within their recorded scope; v0.4.0-rc.2 is published and download-verified. The later [wide-character prompt](wide-character-next-steps-prompt.md) covers a scoped development repair and native checks. Outreach and marketing remain held. Each release needs its own frozen-byte qualification; development results do not extend existing release assets.
 
 ## Current planning set
 
 | Document | Owns |
 | --- | --- |
 | [Root roadmap](../../roadmap.md) | Completed work, current checkpoint, dependency order and outreach status |
+| [Wide-character next steps](wide-character-next-steps-prompt.md) | Reproduce, repair, validate selected two-column CJK rendering without outreach |
 | [Weekly review, 26 September](weekly-review-2026-09-26.md) | Status audit, decisions, next-week allocation and recurring review procedure |
 | [Engineering readiness](engineering-readiness.md) | E0-E5 milestones, scorecard, acceptance gates, estimates and stop rules |
 | [Real-world scenarios](real-world-scenarios.md) | Useful tasks, state oracles, target defects, variations, upgrades and holdouts |

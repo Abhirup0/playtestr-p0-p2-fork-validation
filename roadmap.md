@@ -1,10 +1,14 @@
 # Playtestr roadmap
 
-Updated 27 September 2026 after scoped E0–E5 acceptance. **This file is the authoritative status and execution order.** Detailed plans live in [docs/plans](docs/plans/README.md). Historical evidence remains in its original dated records.
+Updated 28 September 2026 after scoped E0–E5 acceptance, rc.2 publication and the development wide-character repair. **This file is the authoritative status and execution order.** Detailed plans live in [docs/plans](docs/plans/README.md). Historical evidence remains in its original dated records.
 
 Product goal: a developer installs one runner, writes a short terminal interaction, catches a meaningful regression, and understands the failure quickly. Protect correctness and simplicity while increasing real-project depth. E0-E5 are accepted within their recorded boundaries: audited claims, native real tasks, measured cost, investigated fidelity deferral and operator walkthroughs. The macOS last-output and bounded installer repairs passed native gates. E5 qualified exact private v0.4.0-rc.2 bytes and recommends a scoped trial; publication subsequently completed with verified downloads; outreach and marketing remain held. [Execution checkpoint](docs/validation/e3-e5-checkpoint-2026-09-27.md).
 
 ## Read the status correctly
+
+The later [wide-character task](docs/plans/wide-character-next-steps-prompt.md)
+is complete as a native-validated development repair. It is not included in
+the downloadable rc.2 binary; [evidence and remaining boundaries](docs/validation/wide-character-2026-09-28.md).
 
 | Label | Meaning |
 | --- | --- |
@@ -45,7 +49,7 @@ Exact hashes and run links belong to the cited records. Local tags corroborate i
 | 7 | Offline failure diagnosis | Implemented, natively/publicly verified in v0.3.0-rc.1; [record](docs/validation/sprint-7-engineering-2026-09-18.md) | Independent diagnosis timing in A1 |
 | 8 | Setup-only exact-version GitHub Action | Implemented, source-qualified, repaired for both checksum contracts, and publicly verified on three native hosts; [record](docs/validation/r6-publication-and-blocker-2026-09-25.md) | Independent participant CI use in A1 |
 | 9 | Fresh bounded workspaces, spec/report v2, v2 HTML rendering | Implemented, qualified and publicly verified in frozen bytes on three native hosts; [record](docs/validation/sprint-9-engineering-2026-09-19.md), [R6-V](docs/validation/r6-publication-and-blocker-2026-09-25.md) | Independent participant use in A1 |
-| 10 | One evidence-selected terminal compatibility improvement | **Deferred at evidence gate**; [decision](docs/validation/sprint-10-decision-2026-09-21.md), [plan](docs/plans/sprints/10-terminal-compatibility.md) | Reopen only for a reduced real-app terminal blocker; no universal Unicode promise |
+| 10 | One evidence-selected terminal compatibility improvement | Original deferral reopened for the reduced MICRO-08 CJK failure; selected two-column repair natively verified in development; [record](docs/validation/wide-character-2026-09-28.md) | Fresh release qualification; combining clusters/query round trips remain excluded |
 | 11 | Deep real-project validation corpus | **A0/A1/B/C and R6-V complete**; [checkpoint](corpus/README.md), [B evidence](docs/validation/sprint-11-b-corpus-depth-2026-09-24.md), [R6-V](docs/validation/r6-publication-and-blocker-2026-09-25.md) | Independent adoption remains A1 |
 | 12 | Easier first-test authoring | **A complete; B deferred at its evidence gate**; [A record](docs/validation/sprint-12-a-authoring-2026-09-21.md), [B decision](docs/validation/sprint-12-b-decision-2026-09-21.md) | Reopen B only for two reduced workflow failures with the same missing input/assertion family |
 | 13 | Native evidence, integrated hardening and fair comparison | **A0/A1/B/C/D and R6 complete**; [A0](docs/validation/sprint-13-a0-native-gaps-2026-09-20.md), [A1](docs/validation/sprint-13-a1-integrated-hardening-2026-09-21.md), [B](docs/validation/sprint-13-b-setup-action-2026-09-21.md), [C](docs/validation/sprint-13-c-competitive-2026-09-22.md), [D](docs/validation/sprint-13-d-rehearsal-2026-09-24.md), [R6-V](docs/validation/r6-publication-and-blocker-2026-09-25.md) | Preserve regressions through E0-E5; A1 is held |
@@ -68,7 +72,7 @@ Sprint numbers are durable identifiers, not chronology: 7 shipped before 6, and 
 
 ## How much is done?
 
-The original MVP and the accepted subsequent engineering batch are complete through **R6-V**. Three optional branches (S10, S12-B and the S6 manifest) were closed by evidence-backed deferral, not implementation. New engineering readiness is **6/6 milestones complete within explicit acceptance boundaries**. Independent adoption and commercial validation remain unproven; an overall product-completion percentage would hide those differences.
+The original MVP and the accepted subsequent engineering batch are complete through **R6-V**. S12-B and the S6 manifest remain evidence-backed deferrals. S10 was later reopened for the selected CJK failure and its development repair passed native checks. Engineering readiness is **6/6 milestones complete within explicit acceptance boundaries**. Independent adoption and commercial validation remain unproven; an overall product-completion percentage would hide those differences.
 
 Recorded depth is 15 projects / 120 workflows; 3,000 repetitions cover ten selected workflows on three hosts. Full application depth is not a 120-workflow three-host matrix. The 300 focused risk-map rows point to 41 distinct references and are not automatically 300 independent executed tests. See the [weekly audit](docs/plans/weekly-review-2026-09-26.md) and [exact host coverage](docs/qualified-compatibility-v0.4.0-rc.1.md).
 
@@ -76,14 +80,14 @@ The historical Linux comparison found equal selected detection and a Playtestr s
 
 ## Execute next, in this order
 
-The user subsequently authorized E0 through E2 implementation and verification, hosted native CI, testing-branch pushes and the completed push. Publication, outreach and PR/issue/discussion mutations remain unauthorized. Read the [detailed milestones and scorecard](docs/plans/engineering-readiness.md), [real-world scenario protocol](docs/plans/real-world-scenarios.md), and [execution contract](docs/plans/execution-contract.md). Completed sprint IDs remain historical; do not rebuild shipped capabilities.
+Subsequent user instructions authorized E0-E5 execution, native hosted validation, source pushes and exact rc.2 publication. The later [wide-character prompt](docs/plans/wide-character-next-steps-prompt.md) authorizes a scoped development repair and verification. Outreach, marketing and PR/issue/discussion mutations remain held. Completed sprint IDs remain historical; do not rebuild shipped capabilities.
 
 | Checkpoint | Concrete outcome | Acceptance / dependency | Status |
 | --- | --- | --- | --- |
 | E0: evidence reconciliation | Auditable claims, counts, artifact availability and frozen experiment questions | Map risk rows to actual tests; classify controls; select scenarios, hosts and comparison pins | **Complete with scoped evidence gaps**; [ledger](docs/validation/e0-evidence-reconciliation-2026-09-26.md), [freeze](docs/validation/e0-experiment-freeze-2026-09-26.md) |
 | E1: real-world effectiveness | Six useful primary journeys with state checks, target defects and maintenance exercises | E0; good/defect/recovery on two native hosts per primary journey, all three runner hosts represented; two holdouts reserved | **Complete at admitted scope**: six journeys on all three hosts, scheduled variations and three synthetic maintenance exercises; human authoring time remains unknown; [record](docs/validation/e1-e2-native-readiness-2026-09-27.md) |
 | E2: runtime and resource cost | Explain and safely reduce measured overhead; compare real suites and total effort | E0 plus two valid E1 journeys; matched before/after, real-task comparison and lifecycle controls | **Complete at engineering boundary**: causal EOF proof, matched short/real tasks, paired 1/10/50 resource suites and lifecycle/race controls; remaining runtime/effort losses explicit; [record](docs/validation/e1-e2-native-readiness-2026-09-27.md) |
-| E3: targeted terminal fidelity | Native reduced cell/input/redraw investigation | [Explicit wide-cell/query exclusions](docs/validation/e3-fidelity-boundary-2026-09-27.md) | Accepted deferral |
+| E3: targeted terminal fidelity | Original native investigation; later selected CJK repair | [Original exclusions](docs/validation/e3-fidelity-boundary-2026-09-27.md), [development repair](docs/validation/wide-character-2026-09-28.md) | Historical deferral retained; selected wide-cell repair natively verified, not yet released |
 | E4: authoring, diagnosis and maintenance | Four walkthroughs, eight maintenance changes, six diagnoses and native correctness repairs | [Operator and accessibility boundaries](docs/validation/e4-operator-readiness-2026-09-27.md) | Accepted |
 | E5: final qualification and readiness decision | Exact-byte evidence, two held-out definitions, honest competitive scorecard | [Qualified private v0.4.0-rc.2](docs/validation/e5-qualified-readiness-2026-09-27.md); 3,000 first attempts on three native hosts, support/accessibility exclusions | **Complete; published downloads verified; outreach held** |
 | A1: independent adoption | Consenting maintainer first use, participant CI and voluntary later use | E5 readiness review plus explicit permission for each outreach action | **Held** |
@@ -117,10 +121,12 @@ Every checkpoint ends with exact evidence, retained failures, exclusions, actual
 [private readiness decision and kit](docs/validation/e5-qualified-readiness-2026-09-27.md).
 Publication and native download/install verification completed under the later user instruction.
 **No outreach or marketing now:** A1/A2 remain held until a later explicit instruction.
-Use the verified download and existing examples locally; further engineering needs
-a concrete observed defect or separately requested task.
+Use the verified download and existing examples locally. The requested
+[three-step wide-character task](docs/plans/wide-character-next-steps-prompt.md)
+is complete as a scoped development repair. A next release needs a new unused
+candidate version, frozen builds and its own qualification before publication.
 
-**E3 closed through investigated deferral.** Native MICRO-08 and fixed-cell reductions establish the exact wide/combining cursor gap; fzf companions passed. [The record](docs/validation/e3-fidelity-boundary-2026-09-27.md) preserves unsupported cells and persistence evidence separately. The later user instruction authorized E3-E5; historical E0-E2 authorization did not.
+**E3's original investigated deferral remains historical evidence.** Later development corrects the selected MICRO-08 wide-cell gap on all three native hosts; [the repair record](docs/validation/wide-character-2026-09-28.md) preserves first failures and reviewed snapshot migration. Combining clusters and query-dependent flows remain excluded. The published rc.2 runner retains its original boundary.
 
 GitHub-hosted native jobs resolved the missing-device dependency. E0-E2 acceptance
 and the completed push preserve first failures, source/runner/target hashes,

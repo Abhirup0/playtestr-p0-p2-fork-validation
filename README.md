@@ -186,12 +186,12 @@ Windows uses a Job Object and Unix uses a dedicated process group to terminate m
 The GitHub Actions matrix runs native tests on Linux, macOS, and Windows and retains machine reports, screens, and diffs from its deliberate-failure check. Native and published-release results are recorded in [Platform support](docs/platform-support.md). Releases are packaged by a separate workflow; the process is documented in [Releasing](docs/releasing.md).
 
 The repository also contains a setup-only GitHub Action for installing one
-exact checksum-verified release. Its first immutable public revision is still
-pending; see [CI installation](docs/ci-installation.md) for the pinning contract,
+exact checksum-verified release. See [CI installation](docs/ci-installation.md) for the verified immutable revision, pinning contract,
 supported hosts, adopter workflow, archive fallback, and maintenance boundary.
 
 Recording, replay, exact-failure minimization, and styled snapshots remain post-MVP work.
 
-Built on [Charm's xpty](https://github.com/charmbracelet/x/tree/main/xpty) and [vt10x](https://github.com/hinshun/vt10x).
+Built on [Charm's xpty](https://github.com/charmbracelet/x/tree/main/xpty) and a [locally maintained vt10x renderer](internal/terminal/vt10x/README.md).
+The [development wide-character repair](docs/validation/wide-character-2026-09-28.md) is not yet in the downloadable v0.4.0-rc.2 release.
 
 For completed releases, engineering status and the next implementation steps, see the [project roadmap](roadmap.md). Plans describe future work separately from the released capabilities above.

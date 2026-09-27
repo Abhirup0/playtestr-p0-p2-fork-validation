@@ -1,0 +1,3157 @@
+{
+  "version": 1,
+  "classification": "scoped development validation; no new release",
+  "source": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+  "prompt": "docs/plans/wide-character-next-steps-prompt.md",
+  "native_source": [
+    {
+      "environment": {
+        "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+        "dirty": false,
+        "os_architecture": "darwin/arm64",
+        "os_description": "macOS 15.7.9",
+        "toolchain": "go version go1.26.0 darwin/arm64",
+        "powershell": "7.6.5",
+        "race_compiler": "/usr/bin/cc",
+        "generated_utc": "2026-09-27T21:09:03.9084780+00:00"
+      },
+      "commands": [
+        {
+          "name": "full-tests",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "darwin/arm64",
+          "os_description": "macOS 15.7.9",
+          "toolchain": "go version go1.26.0 darwin/arm64",
+          "powershell": "7.6.5",
+          "command": "go test -count=1 -json ./...",
+          "expected_result": "Every package passes without the Go test cache.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:05:57.4327320+00:00",
+          "elapsed_milliseconds": 36457,
+          "artifact_location": "artifacts/wide-source/full-tests.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "vet",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "darwin/arm64",
+          "os_description": "macOS 15.7.9",
+          "toolchain": "go version go1.26.0 darwin/arm64",
+          "powershell": "7.6.5",
+          "command": "go vet ./...",
+          "expected_result": "Static analysis exits successfully.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:06:34.0816550+00:00",
+          "elapsed_milliseconds": 4965,
+          "artifact_location": "artifacts/wide-source/vet.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "race",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "darwin/arm64",
+          "os_description": "macOS 15.7.9",
+          "toolchain": "go version go1.26.0 darwin/arm64",
+          "powershell": "7.6.5",
+          "command": "go test -race -count=1 ./...",
+          "expected_result": "Every package passes with the race detector.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:06:39.0981830+00:00",
+          "elapsed_milliseconds": 108927,
+          "artifact_location": "artifacts/wide-source/race.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "focused-native-gaps",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "darwin/arm64",
+          "os_description": "macOS 15.7.9",
+          "toolchain": "go version go1.26.0 darwin/arm64",
+          "powershell": "7.6.5",
+          "command": "/Users/runner/work/playtestr/playtestr/scripts/test-native-gaps.ps1 /Users/runner/work/playtestr/playtestr/artifacts/wide-source/focused",
+          "expected_result": "All required installer, workspace, report, lifecycle, and native filesystem events pass without unexpected skips.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:08:28.0376370+00:00",
+          "elapsed_milliseconds": 27859,
+          "artifact_location": "artifacts/wide-source/focused-native-gaps.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "build-demo",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "darwin/arm64",
+          "os_description": "macOS 15.7.9",
+          "toolchain": "go version go1.26.0 darwin/arm64",
+          "powershell": "7.6.5",
+          "command": "go build -trimpath -o /Users/runner/work/playtestr/playtestr/bin/demo ./cmd/demo",
+          "expected_result": "The real-PTY demo target builds for the native host.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:08:55.8974460+00:00",
+          "elapsed_milliseconds": 4196,
+          "artifact_location": "artifacts/wide-source/build-demo.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "build-fixture",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "darwin/arm64",
+          "os_description": "macOS 15.7.9",
+          "toolchain": "go version go1.26.0 darwin/arm64",
+          "powershell": "7.6.5",
+          "command": "go build -trimpath -o /Users/runner/work/playtestr/playtestr/bin/fixture ./cmd/fixture",
+          "expected_result": "The workspace fixture target builds for the native host.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:09:00.0946210+00:00",
+          "elapsed_milliseconds": 340,
+          "artifact_location": "artifacts/wide-source/build-fixture.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "build-runner",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "darwin/arm64",
+          "os_description": "macOS 15.7.9",
+          "toolchain": "go version go1.26.0 darwin/arm64",
+          "powershell": "7.6.5",
+          "command": "go build -trimpath -o /Users/runner/work/playtestr/playtestr/artifacts/wide-source/playtestr ./cmd/playtestr",
+          "expected_result": "The current-source runner builds for the native host.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:09:00.4356530+00:00",
+          "elapsed_milliseconds": 2086,
+          "artifact_location": "artifacts/wide-source/build-runner.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "mixed-v1-v2",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "darwin/arm64",
+          "os_description": "macOS 15.7.9",
+          "toolchain": "go version go1.26.0 darwin/arm64",
+          "powershell": "7.6.5",
+          "command": "/Users/runner/work/playtestr/playtestr/artifacts/wide-source/playtestr test --artifacts-dir artifacts/wide-source/manual-artifacts --report artifacts/wide-source/mixed-v1-v2.json examples/menu.json examples/workspace.json",
+          "expected_result": "A mixed spec-v1/spec-v2 suite passes and emits report v2 with successful workspace cleanup.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:09:02.5233250+00:00",
+          "elapsed_milliseconds": 618,
+          "artifact_location": "artifacts/wide-source/mixed-v1-v2.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "mixed-v1-v2-contract",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "darwin/arm64",
+          "os_description": "macOS 15.7.9",
+          "toolchain": "go version go1.26.0 darwin/arm64",
+          "powershell": "7.6.5",
+          "command": "inspect artifacts/wide-source/mixed-v1-v2.json for report-v2, two passes, spec-v1/spec-v2, and prepared/cleaned workspace",
+          "expected_result": "The report proves both contract versions passed and the v2 workspace was prepared and cleaned.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:09:03.1472940+00:00",
+          "elapsed_milliseconds": 11,
+          "artifact_location": "artifacts/wide-source/mixed-v1-v2-contract.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "mixed-v1-v2-html",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "darwin/arm64",
+          "os_description": "macOS 15.7.9",
+          "toolchain": "go version go1.26.0 darwin/arm64",
+          "powershell": "7.6.5",
+          "command": "/Users/runner/work/playtestr/playtestr/artifacts/wide-source/playtestr report --input artifacts/wide-source/mixed-v1-v2.json --evidence-root . --output artifacts/wide-source/mixed-v1-v2.html",
+          "expected_result": "The mixed report renders to bounded offline HTML.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:09:03.1599500+00:00",
+          "elapsed_milliseconds": 25,
+          "artifact_location": "artifacts/wide-source/mixed-v1-v2-html.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "deliberate-failure",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "darwin/arm64",
+          "os_description": "macOS 15.7.9",
+          "toolchain": "go version go1.26.0 darwin/arm64",
+          "powershell": "7.6.5",
+          "command": "/Users/runner/work/playtestr/playtestr/artifacts/wide-source/playtestr test --artifacts-dir artifacts/wide-source/manual-artifacts --report artifacts/wide-source/deliberate-failure.json examples/snapshot-mismatch.json",
+          "expected_result": "The deliberate snapshot mismatch exits 1 and retains evidence.",
+          "expected_exit_status": 1,
+          "observed_result": "passed",
+          "exit_status": 1,
+          "started_utc": "2026-09-27T21:09:03.1868370+00:00",
+          "elapsed_milliseconds": 302,
+          "artifact_location": "artifacts/wide-source/deliberate-failure.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "deliberate-failure-contract",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "darwin/arm64",
+          "os_description": "macOS 15.7.9",
+          "toolchain": "go version go1.26.0 darwin/arm64",
+          "powershell": "7.6.5",
+          "command": "inspect artifacts/wide-source/deliberate-failure.json for snapshot_mismatch, exited target, and retained screen/diff evidence",
+          "expected_result": "The nonzero result is the intended snapshot mismatch, not an unrelated launch or harness failure.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:09:03.5082160+00:00",
+          "elapsed_milliseconds": 5,
+          "artifact_location": "artifacts/wide-source/deliberate-failure-contract.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "deliberate-failure-html",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "darwin/arm64",
+          "os_description": "macOS 15.7.9",
+          "toolchain": "go version go1.26.0 darwin/arm64",
+          "powershell": "7.6.5",
+          "command": "/Users/runner/work/playtestr/playtestr/artifacts/wide-source/playtestr report --input artifacts/wide-source/deliberate-failure.json --evidence-root . --output artifacts/wide-source/deliberate-failure.html",
+          "expected_result": "The retained deliberate failure renders to offline HTML.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:09:03.5147880+00:00",
+          "elapsed_milliseconds": 55,
+          "artifact_location": "artifacts/wide-source/deliberate-failure-html.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "recovery",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "darwin/arm64",
+          "os_description": "macOS 15.7.9",
+          "toolchain": "go version go1.26.0 darwin/arm64",
+          "powershell": "7.6.5",
+          "command": "/Users/runner/work/playtestr/playtestr/artifacts/wide-source/playtestr test --artifacts-dir artifacts/wide-source/manual-artifacts --report artifacts/wide-source/recovery.json examples/menu.json",
+          "expected_result": "The corrected recovery run passes after the deliberate failure.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:09:03.5712280+00:00",
+          "elapsed_milliseconds": 313,
+          "artifact_location": "artifacts/wide-source/recovery.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "recovery-contract",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "darwin/arm64",
+          "os_description": "macOS 15.7.9",
+          "toolchain": "go version go1.26.0 darwin/arm64",
+          "powershell": "7.6.5",
+          "command": "inspect artifacts/wide-source/recovery.json for one pass and no stale evidence references",
+          "expected_result": "Recovery positively passes and does not reuse retained failure evidence.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:09:03.8872400+00:00",
+          "elapsed_milliseconds": 19,
+          "artifact_location": "artifacts/wide-source/recovery-contract.log",
+          "remaining_limitation": "None"
+        }
+      ],
+      "wide_cases": 15,
+      "byte_cap_wide_flood_passed": true
+    },
+    {
+      "environment": {
+        "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+        "dirty": false,
+        "os_architecture": "linux/amd64",
+        "os_description": "Ubuntu 24.04.5 LTS",
+        "toolchain": "go version go1.26.0 linux/amd64",
+        "powershell": "7.6.6",
+        "race_compiler": "/usr/bin/cc",
+        "generated_utc": "2026-09-27T21:09:41.5623064+00:00"
+      },
+      "commands": [
+        {
+          "name": "full-tests",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "linux/amd64",
+          "os_description": "Ubuntu 24.04.5 LTS",
+          "toolchain": "go version go1.26.0 linux/amd64",
+          "powershell": "7.6.6",
+          "command": "go test -count=1 -json ./...",
+          "expected_result": "Every package passes without the Go test cache.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:06:24.9705760+00:00",
+          "elapsed_milliseconds": 36137,
+          "artifact_location": "artifacts/wide-source/full-tests.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "vet",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "linux/amd64",
+          "os_description": "Ubuntu 24.04.5 LTS",
+          "toolchain": "go version go1.26.0 linux/amd64",
+          "powershell": "7.6.6",
+          "command": "go vet ./...",
+          "expected_result": "Static analysis exits successfully.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:07:01.2484189+00:00",
+          "elapsed_milliseconds": 3205,
+          "artifact_location": "artifacts/wide-source/vet.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "race",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "linux/amd64",
+          "os_description": "Ubuntu 24.04.5 LTS",
+          "toolchain": "go version go1.26.0 linux/amd64",
+          "powershell": "7.6.6",
+          "command": "go test -race -count=1 ./...",
+          "expected_result": "Every package passes with the race detector.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:07:04.4858174+00:00",
+          "elapsed_milliseconds": 121634,
+          "artifact_location": "artifacts/wide-source/race.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "focused-native-gaps",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "linux/amd64",
+          "os_description": "Ubuntu 24.04.5 LTS",
+          "toolchain": "go version go1.26.0 linux/amd64",
+          "powershell": "7.6.6",
+          "command": "/home/runner/work/playtestr/playtestr/scripts/test-native-gaps.ps1 /home/runner/work/playtestr/playtestr/artifacts/wide-source/focused",
+          "expected_result": "All required installer, workspace, report, lifecycle, and native filesystem events pass without unexpected skips.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:09:06.1229864+00:00",
+          "elapsed_milliseconds": 26970,
+          "artifact_location": "artifacts/wide-source/focused-native-gaps.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "build-demo",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "linux/amd64",
+          "os_description": "Ubuntu 24.04.5 LTS",
+          "toolchain": "go version go1.26.0 linux/amd64",
+          "powershell": "7.6.6",
+          "command": "go build -trimpath -o /home/runner/work/playtestr/playtestr/bin/demo ./cmd/demo",
+          "expected_result": "The real-PTY demo target builds for the native host.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:09:33.0947606+00:00",
+          "elapsed_milliseconds": 5092,
+          "artifact_location": "artifacts/wide-source/build-demo.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "build-fixture",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "linux/amd64",
+          "os_description": "Ubuntu 24.04.5 LTS",
+          "toolchain": "go version go1.26.0 linux/amd64",
+          "powershell": "7.6.6",
+          "command": "go build -trimpath -o /home/runner/work/playtestr/playtestr/bin/fixture ./cmd/fixture",
+          "expected_result": "The workspace fixture target builds for the native host.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:09:38.1880570+00:00",
+          "elapsed_milliseconds": 319,
+          "artifact_location": "artifacts/wide-source/build-fixture.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "build-runner",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "linux/amd64",
+          "os_description": "Ubuntu 24.04.5 LTS",
+          "toolchain": "go version go1.26.0 linux/amd64",
+          "powershell": "7.6.6",
+          "command": "go build -trimpath -o /home/runner/work/playtestr/playtestr/artifacts/wide-source/playtestr ./cmd/playtestr",
+          "expected_result": "The current-source runner builds for the native host.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:09:38.5086089+00:00",
+          "elapsed_milliseconds": 2464,
+          "artifact_location": "artifacts/wide-source/build-runner.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "mixed-v1-v2",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "linux/amd64",
+          "os_description": "Ubuntu 24.04.5 LTS",
+          "toolchain": "go version go1.26.0 linux/amd64",
+          "powershell": "7.6.6",
+          "command": "/home/runner/work/playtestr/playtestr/artifacts/wide-source/playtestr test --artifacts-dir artifacts/wide-source/manual-artifacts --report artifacts/wide-source/mixed-v1-v2.json examples/menu.json examples/workspace.json",
+          "expected_result": "A mixed spec-v1/spec-v2 suite passes and emits report v2 with successful workspace cleanup.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:09:40.9739666+00:00",
+          "elapsed_milliseconds": 192,
+          "artifact_location": "artifacts/wide-source/mixed-v1-v2.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "mixed-v1-v2-contract",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "linux/amd64",
+          "os_description": "Ubuntu 24.04.5 LTS",
+          "toolchain": "go version go1.26.0 linux/amd64",
+          "powershell": "7.6.6",
+          "command": "inspect artifacts/wide-source/mixed-v1-v2.json for report-v2, two passes, spec-v1/spec-v2, and prepared/cleaned workspace",
+          "expected_result": "The report proves both contract versions passed and the v2 workspace was prepared and cleaned.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:09:41.1712138+00:00",
+          "elapsed_milliseconds": 11,
+          "artifact_location": "artifacts/wide-source/mixed-v1-v2-contract.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "mixed-v1-v2-html",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "linux/amd64",
+          "os_description": "Ubuntu 24.04.5 LTS",
+          "toolchain": "go version go1.26.0 linux/amd64",
+          "powershell": "7.6.6",
+          "command": "/home/runner/work/playtestr/playtestr/artifacts/wide-source/playtestr report --input artifacts/wide-source/mixed-v1-v2.json --evidence-root . --output artifacts/wide-source/mixed-v1-v2.html",
+          "expected_result": "The mixed report renders to bounded offline HTML.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:09:41.1835839+00:00",
+          "elapsed_milliseconds": 4,
+          "artifact_location": "artifacts/wide-source/mixed-v1-v2-html.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "deliberate-failure",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "linux/amd64",
+          "os_description": "Ubuntu 24.04.5 LTS",
+          "toolchain": "go version go1.26.0 linux/amd64",
+          "powershell": "7.6.6",
+          "command": "/home/runner/work/playtestr/playtestr/artifacts/wide-source/playtestr test --artifacts-dir artifacts/wide-source/manual-artifacts --report artifacts/wide-source/deliberate-failure.json examples/snapshot-mismatch.json",
+          "expected_result": "The deliberate snapshot mismatch exits 1 and retains evidence.",
+          "expected_exit_status": 1,
+          "observed_result": "passed",
+          "exit_status": 1,
+          "started_utc": "2026-09-27T21:09:41.1887929+00:00",
+          "elapsed_milliseconds": 167,
+          "artifact_location": "artifacts/wide-source/deliberate-failure.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "deliberate-failure-contract",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "linux/amd64",
+          "os_description": "Ubuntu 24.04.5 LTS",
+          "toolchain": "go version go1.26.0 linux/amd64",
+          "powershell": "7.6.6",
+          "command": "inspect artifacts/wide-source/deliberate-failure.json for snapshot_mismatch, exited target, and retained screen/diff evidence",
+          "expected_result": "The nonzero result is the intended snapshot mismatch, not an unrelated launch or harness failure.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:09:41.3663261+00:00",
+          "elapsed_milliseconds": 6,
+          "artifact_location": "artifacts/wide-source/deliberate-failure-contract.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "deliberate-failure-html",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "linux/amd64",
+          "os_description": "Ubuntu 24.04.5 LTS",
+          "toolchain": "go version go1.26.0 linux/amd64",
+          "powershell": "7.6.6",
+          "command": "/home/runner/work/playtestr/playtestr/artifacts/wide-source/playtestr report --input artifacts/wide-source/deliberate-failure.json --evidence-root . --output artifacts/wide-source/deliberate-failure.html",
+          "expected_result": "The retained deliberate failure renders to offline HTML.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:09:41.3732266+00:00",
+          "elapsed_milliseconds": 4,
+          "artifact_location": "artifacts/wide-source/deliberate-failure-html.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "recovery",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "linux/amd64",
+          "os_description": "Ubuntu 24.04.5 LTS",
+          "toolchain": "go version go1.26.0 linux/amd64",
+          "powershell": "7.6.6",
+          "command": "/home/runner/work/playtestr/playtestr/artifacts/wide-source/playtestr test --artifacts-dir artifacts/wide-source/manual-artifacts --report artifacts/wide-source/recovery.json examples/menu.json",
+          "expected_result": "The corrected recovery run passes after the deliberate failure.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:09:41.3780722+00:00",
+          "elapsed_milliseconds": 176,
+          "artifact_location": "artifacts/wide-source/recovery.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "recovery-contract",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "linux/amd64",
+          "os_description": "Ubuntu 24.04.5 LTS",
+          "toolchain": "go version go1.26.0 linux/amd64",
+          "powershell": "7.6.6",
+          "command": "inspect artifacts/wide-source/recovery.json for one pass and no stale evidence references",
+          "expected_result": "Recovery positively passes and does not reuse retained failure evidence.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:09:41.5556009+00:00",
+          "elapsed_milliseconds": 6,
+          "artifact_location": "artifacts/wide-source/recovery-contract.log",
+          "remaining_limitation": "None"
+        }
+      ],
+      "wide_cases": 15,
+      "byte_cap_wide_flood_passed": true
+    },
+    {
+      "environment": {
+        "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+        "dirty": false,
+        "os_architecture": "windows/amd64",
+        "os_description": "Microsoft Windows 10.0.26100",
+        "toolchain": "go version go1.26.0 windows/amd64",
+        "powershell": "7.6.6",
+        "race_compiler": "C:\\mingw64\\bin\\gcc.exe",
+        "generated_utc": "2026-09-27T21:10:28.6688676+00:00"
+      },
+      "commands": [
+        {
+          "name": "full-tests",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "windows/amd64",
+          "os_description": "Microsoft Windows 10.0.26100",
+          "toolchain": "go version go1.26.0 windows/amd64",
+          "powershell": "7.6.6",
+          "command": "go test -count=1 -json ./...",
+          "expected_result": "Every package passes without the Go test cache.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:06:10.5255163+00:00",
+          "elapsed_milliseconds": 54544,
+          "artifact_location": "artifacts/wide-source/full-tests.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "vet",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "windows/amd64",
+          "os_description": "Microsoft Windows 10.0.26100",
+          "toolchain": "go version go1.26.0 windows/amd64",
+          "powershell": "7.6.6",
+          "command": "go vet ./...",
+          "expected_result": "Static analysis exits successfully.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:07:05.2114851+00:00",
+          "elapsed_milliseconds": 6051,
+          "artifact_location": "artifacts/wide-source/vet.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "race",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "windows/amd64",
+          "os_description": "Microsoft Windows 10.0.26100",
+          "toolchain": "go version go1.26.0 windows/amd64",
+          "powershell": "7.6.6",
+          "command": "go test -race -count=1 ./...",
+          "expected_result": "Every package passes with the race detector.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:07:11.2791911+00:00",
+          "elapsed_milliseconds": 133706,
+          "artifact_location": "artifacts/wide-source/race.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "focused-native-gaps",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "windows/amd64",
+          "os_description": "Microsoft Windows 10.0.26100",
+          "toolchain": "go version go1.26.0 windows/amd64",
+          "powershell": "7.6.6",
+          "command": "D:\\a\\playtestr\\playtestr\\scripts\\test-native-gaps.ps1 D:\\a\\playtestr\\playtestr\\artifacts\\wide-source\\focused",
+          "expected_result": "All required installer, workspace, report, lifecycle, and native filesystem events pass without unexpected skips.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:09:24.9926050+00:00",
+          "elapsed_milliseconds": 45889,
+          "artifact_location": "artifacts/wide-source/focused-native-gaps.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "build-demo",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "windows/amd64",
+          "os_description": "Microsoft Windows 10.0.26100",
+          "toolchain": "go version go1.26.0 windows/amd64",
+          "powershell": "7.6.6",
+          "command": "go build -trimpath -o D:\\a\\playtestr\\playtestr\\bin\\demo.exe ./cmd/demo",
+          "expected_result": "The real-PTY demo target builds for the native host.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:10:10.8840764+00:00",
+          "elapsed_milliseconds": 10818,
+          "artifact_location": "artifacts/wide-source/build-demo.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "build-fixture",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "windows/amd64",
+          "os_description": "Microsoft Windows 10.0.26100",
+          "toolchain": "go version go1.26.0 windows/amd64",
+          "powershell": "7.6.6",
+          "command": "go build -trimpath -o D:\\a\\playtestr\\playtestr\\bin\\fixture.exe ./cmd/fixture",
+          "expected_result": "The workspace fixture target builds for the native host.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:10:21.7032086+00:00",
+          "elapsed_milliseconds": 1049,
+          "artifact_location": "artifacts/wide-source/build-fixture.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "build-runner",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "windows/amd64",
+          "os_description": "Microsoft Windows 10.0.26100",
+          "toolchain": "go version go1.26.0 windows/amd64",
+          "powershell": "7.6.6",
+          "command": "go build -trimpath -o D:\\a\\playtestr\\playtestr\\artifacts\\wide-source\\playtestr.exe ./cmd/playtestr",
+          "expected_result": "The current-source runner builds for the native host.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:10:22.7541974+00:00",
+          "elapsed_milliseconds": 4802,
+          "artifact_location": "artifacts/wide-source/build-runner.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "mixed-v1-v2",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "windows/amd64",
+          "os_description": "Microsoft Windows 10.0.26100",
+          "toolchain": "go version go1.26.0 windows/amd64",
+          "powershell": "7.6.6",
+          "command": "D:\\a\\playtestr\\playtestr\\artifacts\\wide-source\\playtestr.exe test --artifacts-dir artifacts\\wide-source\\manual-artifacts --report artifacts\\wide-source\\mixed-v1-v2.json examples/menu.json examples/workspace.json",
+          "expected_result": "A mixed spec-v1/spec-v2 suite passes and emits report v2 with successful workspace cleanup.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:10:27.5575967+00:00",
+          "elapsed_milliseconds": 541,
+          "artifact_location": "artifacts/wide-source/mixed-v1-v2.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "mixed-v1-v2-contract",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "windows/amd64",
+          "os_description": "Microsoft Windows 10.0.26100",
+          "toolchain": "go version go1.26.0 windows/amd64",
+          "powershell": "7.6.6",
+          "command": "inspect artifacts\\wide-source\\mixed-v1-v2.json for report-v2, two passes, spec-v1/spec-v2, and prepared/cleaned workspace",
+          "expected_result": "The report proves both contract versions passed and the v2 workspace was prepared and cleaned.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:10:28.1048010+00:00",
+          "elapsed_milliseconds": 14,
+          "artifact_location": "artifacts/wide-source/mixed-v1-v2-contract.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "mixed-v1-v2-html",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "windows/amd64",
+          "os_description": "Microsoft Windows 10.0.26100",
+          "toolchain": "go version go1.26.0 windows/amd64",
+          "powershell": "7.6.6",
+          "command": "D:\\a\\playtestr\\playtestr\\artifacts\\wide-source\\playtestr.exe report --input artifacts\\wide-source\\mixed-v1-v2.json --evidence-root . --output artifacts\\wide-source\\mixed-v1-v2.html",
+          "expected_result": "The mixed report renders to bounded offline HTML.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:10:28.1205460+00:00",
+          "elapsed_milliseconds": 17,
+          "artifact_location": "artifacts/wide-source/mixed-v1-v2-html.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "deliberate-failure",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "windows/amd64",
+          "os_description": "Microsoft Windows 10.0.26100",
+          "toolchain": "go version go1.26.0 windows/amd64",
+          "powershell": "7.6.6",
+          "command": "D:\\a\\playtestr\\playtestr\\artifacts\\wide-source\\playtestr.exe test --artifacts-dir artifacts\\wide-source\\manual-artifacts --report artifacts\\wide-source\\deliberate-failure.json examples/snapshot-mismatch.json",
+          "expected_result": "The deliberate snapshot mismatch exits 1 and retains evidence.",
+          "expected_exit_status": 1,
+          "observed_result": "passed",
+          "exit_status": 1,
+          "started_utc": "2026-09-27T21:10:28.1389431+00:00",
+          "elapsed_milliseconds": 229,
+          "artifact_location": "artifacts/wide-source/deliberate-failure.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "deliberate-failure-contract",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "windows/amd64",
+          "os_description": "Microsoft Windows 10.0.26100",
+          "toolchain": "go version go1.26.0 windows/amd64",
+          "powershell": "7.6.6",
+          "command": "inspect artifacts\\wide-source\\deliberate-failure.json for snapshot_mismatch, exited target, and retained screen/diff evidence",
+          "expected_result": "The nonzero result is the intended snapshot mismatch, not an unrelated launch or harness failure.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:10:28.3805809+00:00",
+          "elapsed_milliseconds": 7,
+          "artifact_location": "artifacts/wide-source/deliberate-failure-contract.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "deliberate-failure-html",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "windows/amd64",
+          "os_description": "Microsoft Windows 10.0.26100",
+          "toolchain": "go version go1.26.0 windows/amd64",
+          "powershell": "7.6.6",
+          "command": "D:\\a\\playtestr\\playtestr\\artifacts\\wide-source\\playtestr.exe report --input artifacts\\wide-source\\deliberate-failure.json --evidence-root . --output artifacts\\wide-source\\deliberate-failure.html",
+          "expected_result": "The retained deliberate failure renders to offline HTML.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:10:28.3884586+00:00",
+          "elapsed_milliseconds": 18,
+          "artifact_location": "artifacts/wide-source/deliberate-failure-html.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "recovery",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "windows/amd64",
+          "os_description": "Microsoft Windows 10.0.26100",
+          "toolchain": "go version go1.26.0 windows/amd64",
+          "powershell": "7.6.6",
+          "command": "D:\\a\\playtestr\\playtestr\\artifacts\\wide-source\\playtestr.exe test --artifacts-dir artifacts\\wide-source\\manual-artifacts --report artifacts\\wide-source\\recovery.json examples/menu.json",
+          "expected_result": "The corrected recovery run passes after the deliberate failure.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:10:28.4078531+00:00",
+          "elapsed_milliseconds": 250,
+          "artifact_location": "artifacts/wide-source/recovery.log",
+          "remaining_limitation": "None"
+        },
+        {
+          "name": "recovery-contract",
+          "commit": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "dirty": false,
+          "os_architecture": "windows/amd64",
+          "os_description": "Microsoft Windows 10.0.26100",
+          "toolchain": "go version go1.26.0 windows/amd64",
+          "powershell": "7.6.6",
+          "command": "inspect artifacts\\wide-source\\recovery.json for one pass and no stale evidence references",
+          "expected_result": "Recovery positively passes and does not reuse retained failure evidence.",
+          "expected_exit_status": 0,
+          "observed_result": "passed",
+          "exit_status": 0,
+          "started_utc": "2026-09-27T21:10:28.6592114+00:00",
+          "elapsed_milliseconds": 8,
+          "artifact_location": "artifacts/wide-source/recovery-contract.log",
+          "remaining_limitation": "None"
+        }
+      ],
+      "wide_cases": 15,
+      "byte_cap_wide_flood_passed": true
+    }
+  ],
+  "native_real": [
+    {
+      "identities": {
+        "source": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+        "runner_sha256": "79fa5e40a8fe4c515e57d21f622b65d315b2c92f37f9e159a5a93f26a02f888c",
+        "toolchain": "go version go1.26.0 darwin/arm64",
+        "host": "macOS-15.7.9-arm64-arm-64bit",
+        "architecture": "arm64",
+        "flags": [
+          "-trimpath"
+        ],
+        "targets": {
+          "micro.exe": "c95a587727f083b08ef4d5a605ff9c4a7ace293615c2bad0732125449b617a53",
+          "fzf": "cdc14355a9dcd0c9e00985cfa2f174318dca59504d104a9039c826b9893d8777",
+          "micro-oracle": "fb06f73854309e656b65f034beacc08e0f465e7675609acaf3b9c34845a9a915"
+        }
+      },
+      "attempts": [
+        {
+          "case": "micro-wide-original",
+          "derived": false,
+          "start_utc": "2026-09-27T21:06:11.329399+00:00",
+          "end_utc": "2026-09-27T21:06:12.843861+00:00",
+          "elapsed_ms": 1514.2721670000583,
+          "exit": 0,
+          "result": {
+            "spec_version": 2,
+            "name": "MICRO-08 resize and save supported Unicode text",
+            "spec_path": "/Users/runner/work/playtestr/playtestr/corpus/workflows/micro/e3-micro-wide-original.control",
+            "status": "passed",
+            "duration_ms": 1465,
+            "viewport": {
+              "width": 70,
+              "height": 16
+            },
+            "resizes": [
+              {
+                "width": 84,
+                "height": 22
+              }
+            ],
+            "steps": [
+              {
+                "number": 1,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 30
+              },
+              {
+                "number": 2,
+                "action": "text",
+                "status": "passed",
+                "duration_ms": 61
+              },
+              {
+                "number": 3,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 10
+              },
+              {
+                "number": 4,
+                "action": "resize",
+                "status": "passed",
+                "duration_ms": 0,
+                "resize": {
+                  "width": 84,
+                  "height": 22
+                }
+              },
+              {
+                "number": 5,
+                "action": "wait_for_redraw",
+                "status": "passed",
+                "duration_ms": 1002
+              },
+              {
+                "number": 6,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 7,
+                "action": "key",
+                "status": "passed",
+                "duration_ms": 38
+              },
+              {
+                "number": 8,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 12
+              },
+              {
+                "number": 9,
+                "action": "key",
+                "status": "passed",
+                "duration_ms": 44
+              },
+              {
+                "number": 10,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 12
+              },
+              {
+                "number": 11,
+                "action": "exit",
+                "status": "passed",
+                "duration_ms": 251
+              }
+            ],
+            "target": {
+              "exited": true,
+              "exit_code": 0
+            },
+            "cleanup": {
+              "attempted": true,
+              "graceful": true,
+              "forced": false,
+              "confirmed_exited": true,
+              "mechanism": "unix-process-group"
+            },
+            "evidence": {},
+            "workspace": {
+              "attempted": true,
+              "fixture": "fixture",
+              "prepared": true,
+              "cleanup_attempted": true,
+              "cleaned": true,
+              "retained": false
+            }
+          },
+          "original_spec_sha256": "28a0cf1b999593d9a3293fbf777e5937b4760899b8f1e1ae74ea190b924900e1",
+          "executed_spec_sha256": "318711b2b4c19543411c78bf9d45a793a092d6a984fd9c29ab4b05e3f423ea86",
+          "input_hex": [
+            "e99baa20"
+          ],
+          "source": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "runner_sha256": "79fa5e40a8fe4c515e57d21f622b65d315b2c92f37f9e159a5a93f26a02f888c",
+          "toolchain": "go version go1.26.0 darwin/arm64",
+          "host": "macOS-15.7.9-arm64-arm-64bit",
+          "architecture": "arm64",
+          "flags": [
+            "-trimpath"
+          ],
+          "targets": {
+            "micro.exe": "c95a587727f083b08ef4d5a605ff9c4a7ace293615c2bad0732125449b617a53",
+            "fzf": "cdc14355a9dcd0c9e00985cfa2f174318dca59504d104a9039c826b9893d8777",
+            "micro-oracle": "fb06f73854309e656b65f034beacc08e0f465e7675609acaf3b9c34845a9a915"
+          }
+        },
+        {
+          "case": "micro-basic-control",
+          "derived": false,
+          "start_utc": "2026-09-27T21:06:12.844890+00:00",
+          "end_utc": "2026-09-27T21:06:14.380035+00:00",
+          "elapsed_ms": 1535.162208000088,
+          "exit": 0,
+          "result": {
+            "spec_version": 2,
+            "name": "RW2 basic Unicode resize and exact save",
+            "spec_path": "/Users/runner/work/playtestr/playtestr/corpus/workflows/micro/e3-micro-basic-control.control",
+            "status": "passed",
+            "duration_ms": 1463,
+            "viewport": {
+              "width": 70,
+              "height": 16
+            },
+            "resizes": [
+              {
+                "width": 84,
+                "height": 22
+              }
+            ],
+            "steps": [
+              {
+                "number": 1,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 30
+              },
+              {
+                "number": 2,
+                "action": "text",
+                "status": "passed",
+                "duration_ms": 46
+              },
+              {
+                "number": 3,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 12
+              },
+              {
+                "number": 4,
+                "action": "resize",
+                "status": "passed",
+                "duration_ms": 0,
+                "resize": {
+                  "width": 84,
+                  "height": 22
+                }
+              },
+              {
+                "number": 5,
+                "action": "wait_for_redraw",
+                "status": "passed",
+                "duration_ms": 1002
+              },
+              {
+                "number": 6,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 7,
+                "action": "key",
+                "status": "passed",
+                "duration_ms": 49
+              },
+              {
+                "number": 8,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 10
+              },
+              {
+                "number": 9,
+                "action": "key",
+                "status": "passed",
+                "duration_ms": 47
+              },
+              {
+                "number": 10,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 10
+              },
+              {
+                "number": 11,
+                "action": "exit",
+                "status": "passed",
+                "duration_ms": 251
+              }
+            ],
+            "target": {
+              "exited": true,
+              "exit_code": 0
+            },
+            "cleanup": {
+              "attempted": true,
+              "graceful": true,
+              "forced": false,
+              "confirmed_exited": true,
+              "mechanism": "unix-process-group"
+            },
+            "evidence": {},
+            "workspace": {
+              "attempted": true,
+              "fixture": "supported-unicode-fixture",
+              "prepared": true,
+              "cleanup_attempted": true,
+              "cleaned": true,
+              "retained": false
+            }
+          },
+          "original_spec_sha256": "dae63ffe710bdcb19dfba7ffad020208d32090b0499f58258052653777abc562",
+          "executed_spec_sha256": "3c3268b9484c17f21162126c14fce56afd9d9ee1b6fd65a182a3e2a1d2046900",
+          "input_hex": [
+            "636166c3a920cebb20"
+          ],
+          "source": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "runner_sha256": "79fa5e40a8fe4c515e57d21f622b65d315b2c92f37f9e159a5a93f26a02f888c",
+          "toolchain": "go version go1.26.0 darwin/arm64",
+          "host": "macOS-15.7.9-arm64-arm-64bit",
+          "architecture": "arm64",
+          "flags": [
+            "-trimpath"
+          ],
+          "targets": {
+            "micro.exe": "c95a587727f083b08ef4d5a605ff9c4a7ace293615c2bad0732125449b617a53",
+            "fzf": "cdc14355a9dcd0c9e00985cfa2f174318dca59504d104a9039c826b9893d8777",
+            "micro-oracle": "fb06f73854309e656b65f034beacc08e0f465e7675609acaf3b9c34845a9a915"
+          }
+        },
+        {
+          "case": "fzf-wide-resize",
+          "derived": true,
+          "start_utc": "2026-09-27T21:06:14.381537+00:00",
+          "end_utc": "2026-09-27T21:06:18.399186+00:00",
+          "elapsed_ms": 4017.670750000093,
+          "exit": 0,
+          "result": {
+            "spec_version": 2,
+            "name": "FZF-08 resize then accept current match",
+            "spec_path": "/Users/runner/work/playtestr/playtestr/corpus/workflows/fzf/e3-fzf-wide-resize.control",
+            "status": "passed",
+            "duration_ms": 3978,
+            "viewport": {
+              "width": 60,
+              "height": 12
+            },
+            "resizes": [
+              {
+                "width": 45,
+                "height": 12
+              },
+              {
+                "width": 60,
+                "height": 16
+              },
+              {
+                "width": 80,
+                "height": 20
+              }
+            ],
+            "steps": [
+              {
+                "number": 1,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 600
+              },
+              {
+                "number": 2,
+                "action": "text",
+                "status": "passed",
+                "duration_ms": 47
+              },
+              {
+                "number": 3,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 10
+              },
+              {
+                "number": 4,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 5,
+                "action": "resize",
+                "status": "passed",
+                "duration_ms": 0,
+                "resize": {
+                  "width": 45,
+                  "height": 12
+                }
+              },
+              {
+                "number": 6,
+                "action": "wait_for_redraw",
+                "status": "passed",
+                "duration_ms": 1002
+              },
+              {
+                "number": 7,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 8,
+                "action": "resize",
+                "status": "passed",
+                "duration_ms": 0,
+                "resize": {
+                  "width": 60,
+                  "height": 16
+                }
+              },
+              {
+                "number": 9,
+                "action": "wait_for_redraw",
+                "status": "passed",
+                "duration_ms": 1002
+              },
+              {
+                "number": 10,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 11,
+                "action": "resize",
+                "status": "passed",
+                "duration_ms": 0,
+                "resize": {
+                  "width": 80,
+                  "height": 20
+                }
+              },
+              {
+                "number": 12,
+                "action": "wait_for_redraw",
+                "status": "passed",
+                "duration_ms": 1002
+              },
+              {
+                "number": 13,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 14,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 15,
+                "action": "key",
+                "status": "passed",
+                "duration_ms": 55
+              },
+              {
+                "number": 16,
+                "action": "exit",
+                "status": "passed",
+                "duration_ms": 251
+              },
+              {
+                "number": 17,
+                "action": "snapshot",
+                "status": "passed",
+                "duration_ms": 0
+              }
+            ],
+            "target": {
+              "exited": true,
+              "exit_code": 0
+            },
+            "cleanup": {
+              "attempted": true,
+              "graceful": true,
+              "forced": false,
+              "confirmed_exited": true,
+              "mechanism": "unix-process-group"
+            },
+            "evidence": {},
+            "workspace": {
+              "attempted": true,
+              "fixture": "fixture",
+              "prepared": true,
+              "cleanup_attempted": true,
+              "cleaned": true,
+              "retained": false
+            }
+          },
+          "original_spec_sha256": "d302b9ddc41022f1c1b67c342bff62eca18cf64ee7ff7f668b44be5960ad6eae",
+          "executed_spec_sha256": "5c5272619fa88ceef3db729ec9ade259cf4ceaef52aa3a4658ea7ef253339503",
+          "input_hex": [
+            "67616d6d61"
+          ],
+          "source": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "runner_sha256": "79fa5e40a8fe4c515e57d21f622b65d315b2c92f37f9e159a5a93f26a02f888c",
+          "toolchain": "go version go1.26.0 darwin/arm64",
+          "host": "macOS-15.7.9-arm64-arm-64bit",
+          "architecture": "arm64",
+          "flags": [
+            "-trimpath"
+          ],
+          "targets": {
+            "micro.exe": "c95a587727f083b08ef4d5a605ff9c4a7ace293615c2bad0732125449b617a53",
+            "fzf": "cdc14355a9dcd0c9e00985cfa2f174318dca59504d104a9039c826b9893d8777",
+            "micro-oracle": "fb06f73854309e656b65f034beacc08e0f465e7675609acaf3b9c34845a9a915"
+          }
+        },
+        {
+          "case": "fzf-combining",
+          "derived": false,
+          "start_utc": "2026-09-27T21:06:18.399974+00:00",
+          "end_utc": "2026-09-27T21:06:19.580045+00:00",
+          "elapsed_ms": 1180.0900839999713,
+          "exit": 0,
+          "result": {
+            "spec_version": 2,
+            "name": "RW4 combining candidate under declared locale",
+            "spec_path": "/Users/runner/work/playtestr/playtestr/corpus/workflows/fzf/e3-fzf-combining.control",
+            "status": "passed",
+            "duration_ms": 1025,
+            "viewport": {
+              "width": 60,
+              "height": 12
+            },
+            "steps": [
+              {
+                "number": 1,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 670
+              },
+              {
+                "number": 2,
+                "action": "text",
+                "status": "passed",
+                "duration_ms": 45
+              },
+              {
+                "number": 3,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 10
+              },
+              {
+                "number": 4,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 5,
+                "action": "key",
+                "status": "passed",
+                "duration_ms": 43
+              },
+              {
+                "number": 6,
+                "action": "exit",
+                "status": "passed",
+                "duration_ms": 251
+              },
+              {
+                "number": 7,
+                "action": "snapshot",
+                "status": "passed",
+                "duration_ms": 0
+              }
+            ],
+            "target": {
+              "exited": true,
+              "exit_code": 0
+            },
+            "cleanup": {
+              "attempted": true,
+              "graceful": true,
+              "forced": false,
+              "confirmed_exited": true,
+              "mechanism": "unix-process-group"
+            },
+            "evidence": {},
+            "workspace": {
+              "attempted": true,
+              "fixture": "locale-fixture",
+              "prepared": true,
+              "cleanup_attempted": true,
+              "cleaned": true,
+              "retained": false
+            }
+          },
+          "original_spec_sha256": "a3429cb9658ebaebe7024cf0bcb62a569a1dfeffbcf304ae50f17c0872ffc50e",
+          "executed_spec_sha256": "88c84f3f4c44a6aaea1146898f7797584d4a17759861b2425ccbf29535a0c29e",
+          "input_hex": [
+            "63616665"
+          ],
+          "source": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "runner_sha256": "79fa5e40a8fe4c515e57d21f622b65d315b2c92f37f9e159a5a93f26a02f888c",
+          "toolchain": "go version go1.26.0 darwin/arm64",
+          "host": "macOS-15.7.9-arm64-arm-64bit",
+          "architecture": "arm64",
+          "flags": [
+            "-trimpath"
+          ],
+          "targets": {
+            "micro.exe": "c95a587727f083b08ef4d5a605ff9c4a7ace293615c2bad0732125449b617a53",
+            "fzf": "cdc14355a9dcd0c9e00985cfa2f174318dca59504d104a9039c826b9893d8777",
+            "micro-oracle": "fb06f73854309e656b65f034beacc08e0f465e7675609acaf3b9c34845a9a915"
+          }
+        },
+        {
+          "case": "micro-wide-persistence",
+          "derived": true,
+          "start_utc": "2026-09-27T21:06:19.581267+00:00",
+          "end_utc": "2026-09-27T21:06:21.080100+00:00",
+          "elapsed_ms": 1498.851125000101,
+          "exit": 0,
+          "result": {
+            "spec_version": 2,
+            "name": "MICRO-08 resize and save supported Unicode text",
+            "spec_path": "/Users/runner/work/playtestr/playtestr/corpus/workflows/micro/e3-micro-wide-persistence.control",
+            "status": "passed",
+            "duration_ms": 1452,
+            "viewport": {
+              "width": 70,
+              "height": 16
+            },
+            "resizes": [
+              {
+                "width": 84,
+                "height": 22
+              }
+            ],
+            "steps": [
+              {
+                "number": 1,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 30
+              },
+              {
+                "number": 2,
+                "action": "text",
+                "status": "passed",
+                "duration_ms": 49
+              },
+              {
+                "number": 3,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 4,
+                "action": "resize",
+                "status": "passed",
+                "duration_ms": 0,
+                "resize": {
+                  "width": 84,
+                  "height": 22
+                }
+              },
+              {
+                "number": 5,
+                "action": "wait_for_redraw",
+                "status": "passed",
+                "duration_ms": 1002
+              },
+              {
+                "number": 6,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 7,
+                "action": "key",
+                "status": "passed",
+                "duration_ms": 47
+              },
+              {
+                "number": 8,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 10
+              },
+              {
+                "number": 9,
+                "action": "key",
+                "status": "passed",
+                "duration_ms": 47
+              },
+              {
+                "number": 10,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 10
+              },
+              {
+                "number": 11,
+                "action": "exit",
+                "status": "passed",
+                "duration_ms": 250
+              }
+            ],
+            "target": {
+              "exited": true,
+              "exit_code": 0
+            },
+            "cleanup": {
+              "attempted": true,
+              "graceful": true,
+              "forced": false,
+              "confirmed_exited": true,
+              "mechanism": "unix-process-group"
+            },
+            "evidence": {},
+            "workspace": {
+              "attempted": true,
+              "fixture": "fixture",
+              "prepared": true,
+              "cleanup_attempted": true,
+              "cleaned": true,
+              "retained": false
+            }
+          },
+          "original_spec_sha256": "28a0cf1b999593d9a3293fbf777e5937b4760899b8f1e1ae74ea190b924900e1",
+          "executed_spec_sha256": "afb11b075e5a0cf5bf8b937e81e47cff3d753c6822de29f84cb878026988ab48",
+          "input_hex": [
+            "e99baa20"
+          ],
+          "source": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "runner_sha256": "79fa5e40a8fe4c515e57d21f622b65d315b2c92f37f9e159a5a93f26a02f888c",
+          "toolchain": "go version go1.26.0 darwin/arm64",
+          "host": "macOS-15.7.9-arm64-arm-64bit",
+          "architecture": "arm64",
+          "flags": [
+            "-trimpath"
+          ],
+          "targets": {
+            "micro.exe": "c95a587727f083b08ef4d5a605ff9c4a7ace293615c2bad0732125449b617a53",
+            "fzf": "cdc14355a9dcd0c9e00985cfa2f174318dca59504d104a9039c826b9893d8777",
+            "micro-oracle": "fb06f73854309e656b65f034beacc08e0f465e7675609acaf3b9c34845a9a915"
+          }
+        }
+      ]
+    },
+    {
+      "identities": {
+        "source": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+        "runner_sha256": "3bf9d9157770c46d8a7d19bc2d66a01a88ab258d5645ed89ec0066d876558f5d",
+        "toolchain": "go version go1.26.0 linux/amd64",
+        "host": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+        "architecture": "x86_64",
+        "flags": [
+          "-trimpath"
+        ],
+        "targets": {
+          "micro.exe": "4b40128000e64bc706e35a64e3b11c5649a279d131e785b4fc9c7df9e7043573",
+          "fzf": "7a0fa8dd6027e00961aa69d83bf30869b06af02c5fd4ba25da355ea101382e53",
+          "micro-oracle": "c74d2e847809019378902537e35d2525cb34ba6c492f643627d980017705d152"
+        }
+      },
+      "attempts": [
+        {
+          "case": "micro-wide-original",
+          "derived": false,
+          "start_utc": "2026-09-27T21:06:09.068638+00:00",
+          "end_utc": "2026-09-27T21:06:10.134929+00:00",
+          "elapsed_ms": 1066.2913749999987,
+          "exit": 0,
+          "result": {
+            "spec_version": 2,
+            "name": "MICRO-08 resize and save supported Unicode text",
+            "spec_path": "/home/runner/work/playtestr/playtestr/corpus/workflows/micro/e3-micro-wide-original.control",
+            "status": "passed",
+            "duration_ms": 1056,
+            "viewport": {
+              "width": 70,
+              "height": 16
+            },
+            "resizes": [
+              {
+                "width": 84,
+                "height": 22
+              }
+            ],
+            "steps": [
+              {
+                "number": 1,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 10
+              },
+              {
+                "number": 2,
+                "action": "text",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 3,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 10
+              },
+              {
+                "number": 4,
+                "action": "resize",
+                "status": "passed",
+                "duration_ms": 0,
+                "resize": {
+                  "width": 84,
+                  "height": 22
+                }
+              },
+              {
+                "number": 5,
+                "action": "wait_for_redraw",
+                "status": "passed",
+                "duration_ms": 1000
+              },
+              {
+                "number": 6,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 7,
+                "action": "key",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 8,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 20
+              },
+              {
+                "number": 9,
+                "action": "key",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 10,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 10
+              },
+              {
+                "number": 11,
+                "action": "exit",
+                "status": "passed",
+                "duration_ms": 0
+              }
+            ],
+            "target": {
+              "exited": true,
+              "exit_code": 0
+            },
+            "cleanup": {
+              "attempted": true,
+              "graceful": true,
+              "forced": false,
+              "confirmed_exited": true,
+              "mechanism": "unix-process-group"
+            },
+            "evidence": {},
+            "workspace": {
+              "attempted": true,
+              "fixture": "fixture",
+              "prepared": true,
+              "cleanup_attempted": true,
+              "cleaned": true,
+              "retained": false
+            }
+          },
+          "original_spec_sha256": "28a0cf1b999593d9a3293fbf777e5937b4760899b8f1e1ae74ea190b924900e1",
+          "executed_spec_sha256": "318711b2b4c19543411c78bf9d45a793a092d6a984fd9c29ab4b05e3f423ea86",
+          "input_hex": [
+            "e99baa20"
+          ],
+          "source": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "runner_sha256": "3bf9d9157770c46d8a7d19bc2d66a01a88ab258d5645ed89ec0066d876558f5d",
+          "toolchain": "go version go1.26.0 linux/amd64",
+          "host": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+          "architecture": "x86_64",
+          "flags": [
+            "-trimpath"
+          ],
+          "targets": {
+            "micro.exe": "4b40128000e64bc706e35a64e3b11c5649a279d131e785b4fc9c7df9e7043573",
+            "fzf": "7a0fa8dd6027e00961aa69d83bf30869b06af02c5fd4ba25da355ea101382e53",
+            "micro-oracle": "c74d2e847809019378902537e35d2525cb34ba6c492f643627d980017705d152"
+          }
+        },
+        {
+          "case": "micro-basic-control",
+          "derived": false,
+          "start_utc": "2026-09-27T21:06:10.135500+00:00",
+          "end_utc": "2026-09-27T21:06:11.201740+00:00",
+          "elapsed_ms": 1066.2510510000018,
+          "exit": 0,
+          "result": {
+            "spec_version": 2,
+            "name": "RW2 basic Unicode resize and exact save",
+            "spec_path": "/home/runner/work/playtestr/playtestr/corpus/workflows/micro/e3-micro-basic-control.control",
+            "status": "passed",
+            "duration_ms": 1045,
+            "viewport": {
+              "width": 70,
+              "height": 16
+            },
+            "resizes": [
+              {
+                "width": 84,
+                "height": 22
+              }
+            ],
+            "steps": [
+              {
+                "number": 1,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 10
+              },
+              {
+                "number": 2,
+                "action": "text",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 3,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 11
+              },
+              {
+                "number": 4,
+                "action": "resize",
+                "status": "passed",
+                "duration_ms": 0,
+                "resize": {
+                  "width": 84,
+                  "height": 22
+                }
+              },
+              {
+                "number": 5,
+                "action": "wait_for_redraw",
+                "status": "passed",
+                "duration_ms": 1000
+              },
+              {
+                "number": 6,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 7,
+                "action": "key",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 8,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 10
+              },
+              {
+                "number": 9,
+                "action": "key",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 10,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 10
+              },
+              {
+                "number": 11,
+                "action": "exit",
+                "status": "passed",
+                "duration_ms": 0
+              }
+            ],
+            "target": {
+              "exited": true,
+              "exit_code": 0
+            },
+            "cleanup": {
+              "attempted": true,
+              "graceful": true,
+              "forced": false,
+              "confirmed_exited": true,
+              "mechanism": "unix-process-group"
+            },
+            "evidence": {},
+            "workspace": {
+              "attempted": true,
+              "fixture": "supported-unicode-fixture",
+              "prepared": true,
+              "cleanup_attempted": true,
+              "cleaned": true,
+              "retained": false
+            }
+          },
+          "original_spec_sha256": "dae63ffe710bdcb19dfba7ffad020208d32090b0499f58258052653777abc562",
+          "executed_spec_sha256": "3c3268b9484c17f21162126c14fce56afd9d9ee1b6fd65a182a3e2a1d2046900",
+          "input_hex": [
+            "636166c3a920cebb20"
+          ],
+          "source": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "runner_sha256": "3bf9d9157770c46d8a7d19bc2d66a01a88ab258d5645ed89ec0066d876558f5d",
+          "toolchain": "go version go1.26.0 linux/amd64",
+          "host": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+          "architecture": "x86_64",
+          "flags": [
+            "-trimpath"
+          ],
+          "targets": {
+            "micro.exe": "4b40128000e64bc706e35a64e3b11c5649a279d131e785b4fc9c7df9e7043573",
+            "fzf": "7a0fa8dd6027e00961aa69d83bf30869b06af02c5fd4ba25da355ea101382e53",
+            "micro-oracle": "c74d2e847809019378902537e35d2525cb34ba6c492f643627d980017705d152"
+          }
+        },
+        {
+          "case": "fzf-wide-resize",
+          "derived": true,
+          "start_utc": "2026-09-27T21:06:11.203034+00:00",
+          "end_utc": "2026-09-27T21:06:14.925045+00:00",
+          "elapsed_ms": 3722.020608000001,
+          "exit": 0,
+          "result": {
+            "spec_version": 2,
+            "name": "FZF-08 resize then accept current match",
+            "spec_path": "/home/runner/work/playtestr/playtestr/corpus/workflows/fzf/e3-fzf-wide-resize.control",
+            "status": "passed",
+            "duration_ms": 3686,
+            "viewport": {
+              "width": 60,
+              "height": 12
+            },
+            "resizes": [
+              {
+                "width": 45,
+                "height": 12
+              },
+              {
+                "width": 60,
+                "height": 16
+              },
+              {
+                "width": 80,
+                "height": 20
+              }
+            ],
+            "steps": [
+              {
+                "number": 1,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 520
+              },
+              {
+                "number": 2,
+                "action": "text",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 3,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 10
+              },
+              {
+                "number": 4,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 5,
+                "action": "resize",
+                "status": "passed",
+                "duration_ms": 0,
+                "resize": {
+                  "width": 45,
+                  "height": 12
+                }
+              },
+              {
+                "number": 6,
+                "action": "wait_for_redraw",
+                "status": "passed",
+                "duration_ms": 1000
+              },
+              {
+                "number": 7,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 8,
+                "action": "resize",
+                "status": "passed",
+                "duration_ms": 0,
+                "resize": {
+                  "width": 60,
+                  "height": 16
+                }
+              },
+              {
+                "number": 9,
+                "action": "wait_for_redraw",
+                "status": "passed",
+                "duration_ms": 1000
+              },
+              {
+                "number": 10,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 11,
+                "action": "resize",
+                "status": "passed",
+                "duration_ms": 0,
+                "resize": {
+                  "width": 80,
+                  "height": 20
+                }
+              },
+              {
+                "number": 12,
+                "action": "wait_for_redraw",
+                "status": "passed",
+                "duration_ms": 1000
+              },
+              {
+                "number": 13,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 14,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 15,
+                "action": "key",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 16,
+                "action": "exit",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 17,
+                "action": "snapshot",
+                "status": "passed",
+                "duration_ms": 150
+              }
+            ],
+            "target": {
+              "exited": true,
+              "exit_code": 0
+            },
+            "cleanup": {
+              "attempted": true,
+              "graceful": true,
+              "forced": false,
+              "confirmed_exited": true,
+              "mechanism": "unix-process-group"
+            },
+            "evidence": {},
+            "workspace": {
+              "attempted": true,
+              "fixture": "fixture",
+              "prepared": true,
+              "cleanup_attempted": true,
+              "cleaned": true,
+              "retained": false
+            }
+          },
+          "original_spec_sha256": "d302b9ddc41022f1c1b67c342bff62eca18cf64ee7ff7f668b44be5960ad6eae",
+          "executed_spec_sha256": "5c5272619fa88ceef3db729ec9ade259cf4ceaef52aa3a4658ea7ef253339503",
+          "input_hex": [
+            "67616d6d61"
+          ],
+          "source": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "runner_sha256": "3bf9d9157770c46d8a7d19bc2d66a01a88ab258d5645ed89ec0066d876558f5d",
+          "toolchain": "go version go1.26.0 linux/amd64",
+          "host": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+          "architecture": "x86_64",
+          "flags": [
+            "-trimpath"
+          ],
+          "targets": {
+            "micro.exe": "4b40128000e64bc706e35a64e3b11c5649a279d131e785b4fc9c7df9e7043573",
+            "fzf": "7a0fa8dd6027e00961aa69d83bf30869b06af02c5fd4ba25da355ea101382e53",
+            "micro-oracle": "c74d2e847809019378902537e35d2525cb34ba6c492f643627d980017705d152"
+          }
+        },
+        {
+          "case": "fzf-combining",
+          "derived": false,
+          "start_utc": "2026-09-27T21:06:14.926117+00:00",
+          "end_utc": "2026-09-27T21:06:15.641464+00:00",
+          "elapsed_ms": 715.3559300000012,
+          "exit": 0,
+          "result": {
+            "spec_version": 2,
+            "name": "RW4 combining candidate under declared locale",
+            "spec_path": "/home/runner/work/playtestr/playtestr/corpus/workflows/fzf/e3-fzf-combining.control",
+            "status": "passed",
+            "duration_ms": 684,
+            "viewport": {
+              "width": 60,
+              "height": 12
+            },
+            "steps": [
+              {
+                "number": 1,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 520
+              },
+              {
+                "number": 2,
+                "action": "text",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 3,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 10
+              },
+              {
+                "number": 4,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 5,
+                "action": "key",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 6,
+                "action": "exit",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 7,
+                "action": "snapshot",
+                "status": "passed",
+                "duration_ms": 150
+              }
+            ],
+            "target": {
+              "exited": true,
+              "exit_code": 0
+            },
+            "cleanup": {
+              "attempted": true,
+              "graceful": true,
+              "forced": false,
+              "confirmed_exited": true,
+              "mechanism": "unix-process-group"
+            },
+            "evidence": {},
+            "workspace": {
+              "attempted": true,
+              "fixture": "locale-fixture",
+              "prepared": true,
+              "cleanup_attempted": true,
+              "cleaned": true,
+              "retained": false
+            }
+          },
+          "original_spec_sha256": "a3429cb9658ebaebe7024cf0bcb62a569a1dfeffbcf304ae50f17c0872ffc50e",
+          "executed_spec_sha256": "88c84f3f4c44a6aaea1146898f7797584d4a17759861b2425ccbf29535a0c29e",
+          "input_hex": [
+            "63616665"
+          ],
+          "source": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "runner_sha256": "3bf9d9157770c46d8a7d19bc2d66a01a88ab258d5645ed89ec0066d876558f5d",
+          "toolchain": "go version go1.26.0 linux/amd64",
+          "host": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+          "architecture": "x86_64",
+          "flags": [
+            "-trimpath"
+          ],
+          "targets": {
+            "micro.exe": "4b40128000e64bc706e35a64e3b11c5649a279d131e785b4fc9c7df9e7043573",
+            "fzf": "7a0fa8dd6027e00961aa69d83bf30869b06af02c5fd4ba25da355ea101382e53",
+            "micro-oracle": "c74d2e847809019378902537e35d2525cb34ba6c492f643627d980017705d152"
+          }
+        },
+        {
+          "case": "micro-wide-persistence",
+          "derived": true,
+          "start_utc": "2026-09-27T21:06:15.642605+00:00",
+          "end_utc": "2026-09-27T21:06:16.708875+00:00",
+          "elapsed_ms": 1066.2795530000012,
+          "exit": 0,
+          "result": {
+            "spec_version": 2,
+            "name": "MICRO-08 resize and save supported Unicode text",
+            "spec_path": "/home/runner/work/playtestr/playtestr/corpus/workflows/micro/e3-micro-wide-persistence.control",
+            "status": "passed",
+            "duration_ms": 1034,
+            "viewport": {
+              "width": 70,
+              "height": 16
+            },
+            "resizes": [
+              {
+                "width": 84,
+                "height": 22
+              }
+            ],
+            "steps": [
+              {
+                "number": 1,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 10
+              },
+              {
+                "number": 2,
+                "action": "text",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 3,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 4,
+                "action": "resize",
+                "status": "passed",
+                "duration_ms": 0,
+                "resize": {
+                  "width": 84,
+                  "height": 22
+                }
+              },
+              {
+                "number": 5,
+                "action": "wait_for_redraw",
+                "status": "passed",
+                "duration_ms": 1000
+              },
+              {
+                "number": 6,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 7,
+                "action": "key",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 8,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 10
+              },
+              {
+                "number": 9,
+                "action": "key",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 10,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 10
+              },
+              {
+                "number": 11,
+                "action": "exit",
+                "status": "passed",
+                "duration_ms": 0
+              }
+            ],
+            "target": {
+              "exited": true,
+              "exit_code": 0
+            },
+            "cleanup": {
+              "attempted": true,
+              "graceful": true,
+              "forced": false,
+              "confirmed_exited": true,
+              "mechanism": "unix-process-group"
+            },
+            "evidence": {},
+            "workspace": {
+              "attempted": true,
+              "fixture": "fixture",
+              "prepared": true,
+              "cleanup_attempted": true,
+              "cleaned": true,
+              "retained": false
+            }
+          },
+          "original_spec_sha256": "28a0cf1b999593d9a3293fbf777e5937b4760899b8f1e1ae74ea190b924900e1",
+          "executed_spec_sha256": "afb11b075e5a0cf5bf8b937e81e47cff3d753c6822de29f84cb878026988ab48",
+          "input_hex": [
+            "e99baa20"
+          ],
+          "source": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "runner_sha256": "3bf9d9157770c46d8a7d19bc2d66a01a88ab258d5645ed89ec0066d876558f5d",
+          "toolchain": "go version go1.26.0 linux/amd64",
+          "host": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+          "architecture": "x86_64",
+          "flags": [
+            "-trimpath"
+          ],
+          "targets": {
+            "micro.exe": "4b40128000e64bc706e35a64e3b11c5649a279d131e785b4fc9c7df9e7043573",
+            "fzf": "7a0fa8dd6027e00961aa69d83bf30869b06af02c5fd4ba25da355ea101382e53",
+            "micro-oracle": "c74d2e847809019378902537e35d2525cb34ba6c492f643627d980017705d152"
+          }
+        }
+      ]
+    },
+    {
+      "identities": {
+        "source": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+        "runner_sha256": "59a46d7ee396fae4b7de2aafb16ee4467adc8802fd866a7e4b30ccb11b37bf80",
+        "toolchain": "go version go1.26.0 windows/amd64",
+        "host": "Windows-2025Server-10.0.26100-SP0",
+        "architecture": "AMD64",
+        "flags": [
+          "-trimpath"
+        ],
+        "targets": {
+          "micro.exe": "2cadf36ca99b54dc47931057560ff6ec2f34f512738cafd0e0bf21ccfc0a9836",
+          "fzf.exe": "41c8eef0c7983121c54a59d87b867e1a1722692283594c6161f72fdbcf7349f7",
+          "micro-oracle.exe": "1175298457878ed3bdf62835aee03376a4cefc57717bc01472cfa8b83581eba6"
+        }
+      },
+      "attempts": [
+        {
+          "case": "micro-wide-original",
+          "derived": false,
+          "start_utc": "2026-09-27T21:06:42.249750+00:00",
+          "end_utc": "2026-09-27T21:06:43.705944+00:00",
+          "elapsed_ms": 1453.000000000003,
+          "exit": 0,
+          "result": {
+            "spec_version": 2,
+            "name": "MICRO-08 resize and save supported Unicode text",
+            "spec_path": "D:\\a\\playtestr\\playtestr\\corpus\\workflows\\micro\\e3-micro-wide-original.control",
+            "status": "passed",
+            "duration_ms": 1426,
+            "viewport": {
+              "width": 70,
+              "height": 16
+            },
+            "resizes": [
+              {
+                "width": 84,
+                "height": 22
+              }
+            ],
+            "steps": [
+              {
+                "number": 1,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 90
+              },
+              {
+                "number": 2,
+                "action": "text",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 3,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 10
+              },
+              {
+                "number": 4,
+                "action": "resize",
+                "status": "passed",
+                "duration_ms": 0,
+                "resize": {
+                  "width": 84,
+                  "height": 22
+                }
+              },
+              {
+                "number": 5,
+                "action": "wait_for_redraw",
+                "status": "passed",
+                "duration_ms": 1000
+              },
+              {
+                "number": 6,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 7,
+                "action": "key",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 8,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 20
+              },
+              {
+                "number": 9,
+                "action": "key",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 10,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 35
+              },
+              {
+                "number": 11,
+                "action": "exit",
+                "status": "passed",
+                "duration_ms": 250
+              }
+            ],
+            "target": {
+              "exited": true,
+              "exit_code": 0
+            },
+            "cleanup": {
+              "attempted": true,
+              "graceful": true,
+              "forced": false,
+              "confirmed_exited": true,
+              "mechanism": "windows-job-object"
+            },
+            "evidence": {},
+            "workspace": {
+              "attempted": true,
+              "fixture": "fixture",
+              "prepared": true,
+              "cleanup_attempted": true,
+              "cleaned": true,
+              "retained": false
+            }
+          },
+          "original_spec_sha256": "1a2296d7d136af355d58b3e539bc5230d40e03dff68b3302910abe1d7f2b5a3c",
+          "executed_spec_sha256": "47ee4cff235926031d07dec3bf0ac7d940a2805af02007c2017e846e6108976c",
+          "input_hex": [
+            "e99baa20"
+          ],
+          "source": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "runner_sha256": "59a46d7ee396fae4b7de2aafb16ee4467adc8802fd866a7e4b30ccb11b37bf80",
+          "toolchain": "go version go1.26.0 windows/amd64",
+          "host": "Windows-2025Server-10.0.26100-SP0",
+          "architecture": "AMD64",
+          "flags": [
+            "-trimpath"
+          ],
+          "targets": {
+            "micro.exe": "2cadf36ca99b54dc47931057560ff6ec2f34f512738cafd0e0bf21ccfc0a9836",
+            "fzf.exe": "41c8eef0c7983121c54a59d87b867e1a1722692283594c6161f72fdbcf7349f7",
+            "micro-oracle.exe": "1175298457878ed3bdf62835aee03376a4cefc57717bc01472cfa8b83581eba6"
+          }
+        },
+        {
+          "case": "micro-basic-control",
+          "derived": false,
+          "start_utc": "2026-09-27T21:06:43.706787+00:00",
+          "end_utc": "2026-09-27T21:06:45.137730+00:00",
+          "elapsed_ms": 1436.9999999999834,
+          "exit": 0,
+          "result": {
+            "spec_version": 2,
+            "name": "RW2 basic Unicode resize and exact save",
+            "spec_path": "D:\\a\\playtestr\\playtestr\\corpus\\workflows\\micro\\e3-micro-basic-control.control",
+            "status": "passed",
+            "duration_ms": 1414,
+            "viewport": {
+              "width": 70,
+              "height": 16
+            },
+            "resizes": [
+              {
+                "width": 84,
+                "height": 22
+              }
+            ],
+            "steps": [
+              {
+                "number": 1,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 60
+              },
+              {
+                "number": 2,
+                "action": "text",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 3,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 30
+              },
+              {
+                "number": 4,
+                "action": "resize",
+                "status": "passed",
+                "duration_ms": 0,
+                "resize": {
+                  "width": 84,
+                  "height": 22
+                }
+              },
+              {
+                "number": 5,
+                "action": "wait_for_redraw",
+                "status": "passed",
+                "duration_ms": 1000
+              },
+              {
+                "number": 6,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 7,
+                "action": "key",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 8,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 20
+              },
+              {
+                "number": 9,
+                "action": "key",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 10,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 41
+              },
+              {
+                "number": 11,
+                "action": "exit",
+                "status": "passed",
+                "duration_ms": 250
+              }
+            ],
+            "target": {
+              "exited": true,
+              "exit_code": 0
+            },
+            "cleanup": {
+              "attempted": true,
+              "graceful": true,
+              "forced": false,
+              "confirmed_exited": true,
+              "mechanism": "windows-job-object"
+            },
+            "evidence": {},
+            "workspace": {
+              "attempted": true,
+              "fixture": "supported-unicode-fixture",
+              "prepared": true,
+              "cleanup_attempted": true,
+              "cleaned": true,
+              "retained": false
+            }
+          },
+          "original_spec_sha256": "bd711286eee84a7cba9a67731fa482570ca4eaa9e12fa1fd62d9c2711d9c81ee",
+          "executed_spec_sha256": "86364675091231fdd445d933c0c66ebdd4a03312ff8b99e60718e85361c17c57",
+          "input_hex": [
+            "636166c3a920cebb20"
+          ],
+          "source": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "runner_sha256": "59a46d7ee396fae4b7de2aafb16ee4467adc8802fd866a7e4b30ccb11b37bf80",
+          "toolchain": "go version go1.26.0 windows/amd64",
+          "host": "Windows-2025Server-10.0.26100-SP0",
+          "architecture": "AMD64",
+          "flags": [
+            "-trimpath"
+          ],
+          "targets": {
+            "micro.exe": "2cadf36ca99b54dc47931057560ff6ec2f34f512738cafd0e0bf21ccfc0a9836",
+            "fzf.exe": "41c8eef0c7983121c54a59d87b867e1a1722692283594c6161f72fdbcf7349f7",
+            "micro-oracle.exe": "1175298457878ed3bdf62835aee03376a4cefc57717bc01472cfa8b83581eba6"
+          }
+        },
+        {
+          "case": "fzf-wide-resize",
+          "derived": true,
+          "start_utc": "2026-09-27T21:06:45.145781+00:00",
+          "end_utc": "2026-09-27T21:06:48.436688+00:00",
+          "elapsed_ms": 3296.9999999999973,
+          "exit": 0,
+          "result": {
+            "spec_version": 2,
+            "name": "FZF-08 resize then accept current match",
+            "spec_path": "D:\\a\\playtestr\\playtestr\\corpus\\workflows\\fzf\\e3-fzf-wide-resize.control",
+            "status": "passed",
+            "duration_ms": 3275,
+            "viewport": {
+              "width": 60,
+              "height": 12
+            },
+            "resizes": [
+              {
+                "width": 45,
+                "height": 12
+              },
+              {
+                "width": 60,
+                "height": 16
+              },
+              {
+                "width": 80,
+                "height": 20
+              }
+            ],
+            "steps": [
+              {
+                "number": 1,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 40
+              },
+              {
+                "number": 2,
+                "action": "text",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 3,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 30
+              },
+              {
+                "number": 4,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 5,
+                "action": "resize",
+                "status": "passed",
+                "duration_ms": 0,
+                "resize": {
+                  "width": 45,
+                  "height": 12
+                }
+              },
+              {
+                "number": 6,
+                "action": "wait_for_redraw",
+                "status": "passed",
+                "duration_ms": 1000
+              },
+              {
+                "number": 7,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 8,
+                "action": "resize",
+                "status": "passed",
+                "duration_ms": 0,
+                "resize": {
+                  "width": 60,
+                  "height": 16
+                }
+              },
+              {
+                "number": 9,
+                "action": "wait_for_redraw",
+                "status": "passed",
+                "duration_ms": 1000
+              },
+              {
+                "number": 10,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 11,
+                "action": "resize",
+                "status": "passed",
+                "duration_ms": 0,
+                "resize": {
+                  "width": 80,
+                  "height": 20
+                }
+              },
+              {
+                "number": 12,
+                "action": "wait_for_redraw",
+                "status": "passed",
+                "duration_ms": 1000
+              },
+              {
+                "number": 13,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 14,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 15,
+                "action": "key",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 16,
+                "action": "exit",
+                "status": "passed",
+                "duration_ms": 48
+              },
+              {
+                "number": 17,
+                "action": "snapshot",
+                "status": "passed",
+                "duration_ms": 130
+              }
+            ],
+            "target": {
+              "exited": true,
+              "exit_code": 0
+            },
+            "cleanup": {
+              "attempted": true,
+              "graceful": true,
+              "forced": false,
+              "confirmed_exited": true,
+              "mechanism": "windows-job-object"
+            },
+            "evidence": {},
+            "workspace": {
+              "attempted": true,
+              "fixture": "fixture",
+              "prepared": true,
+              "cleanup_attempted": true,
+              "cleaned": true,
+              "retained": false
+            }
+          },
+          "original_spec_sha256": "15dcd998ba46f6afe311fd1c32e143b75992549bbcf79a91b0ff6466dcef2670",
+          "executed_spec_sha256": "4482baa000ee9e410d05ff90aa469dbf70e316e8263fabdba20314885cdaca0c",
+          "input_hex": [
+            "67616d6d61"
+          ],
+          "source": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "runner_sha256": "59a46d7ee396fae4b7de2aafb16ee4467adc8802fd866a7e4b30ccb11b37bf80",
+          "toolchain": "go version go1.26.0 windows/amd64",
+          "host": "Windows-2025Server-10.0.26100-SP0",
+          "architecture": "AMD64",
+          "flags": [
+            "-trimpath"
+          ],
+          "targets": {
+            "micro.exe": "2cadf36ca99b54dc47931057560ff6ec2f34f512738cafd0e0bf21ccfc0a9836",
+            "fzf.exe": "41c8eef0c7983121c54a59d87b867e1a1722692283594c6161f72fdbcf7349f7",
+            "micro-oracle.exe": "1175298457878ed3bdf62835aee03376a4cefc57717bc01472cfa8b83581eba6"
+          }
+        },
+        {
+          "case": "fzf-combining",
+          "derived": false,
+          "start_utc": "2026-09-27T21:06:48.438706+00:00",
+          "end_utc": "2026-09-27T21:06:48.695149+00:00",
+          "elapsed_ms": 266.00000000001955,
+          "exit": 0,
+          "result": {
+            "spec_version": 2,
+            "name": "RW4 combining candidate under declared locale",
+            "spec_path": "D:\\a\\playtestr\\playtestr\\corpus\\workflows\\fzf\\e3-fzf-combining.control",
+            "status": "passed",
+            "duration_ms": 240,
+            "viewport": {
+              "width": 60,
+              "height": 12
+            },
+            "steps": [
+              {
+                "number": 1,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 40
+              },
+              {
+                "number": 2,
+                "action": "text",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 3,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 20
+              },
+              {
+                "number": 4,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 5,
+                "action": "key",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 6,
+                "action": "exit",
+                "status": "passed",
+                "duration_ms": 43
+              },
+              {
+                "number": 7,
+                "action": "snapshot",
+                "status": "passed",
+                "duration_ms": 120
+              }
+            ],
+            "target": {
+              "exited": true,
+              "exit_code": 0
+            },
+            "cleanup": {
+              "attempted": true,
+              "graceful": true,
+              "forced": false,
+              "confirmed_exited": true,
+              "mechanism": "windows-job-object"
+            },
+            "evidence": {},
+            "workspace": {
+              "attempted": true,
+              "fixture": "locale-fixture",
+              "prepared": true,
+              "cleanup_attempted": true,
+              "cleaned": true,
+              "retained": false
+            }
+          },
+          "original_spec_sha256": "1fde4e6a16cf9dd36e43d7749c8fcdc6fdadcb8ded0673536601e1891a09c34e",
+          "executed_spec_sha256": "85fcbbdfcd36d953d4247cd34f05b33d5a21e2dcd50fe208c0ca5154bba421a7",
+          "input_hex": [
+            "63616665"
+          ],
+          "source": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "runner_sha256": "59a46d7ee396fae4b7de2aafb16ee4467adc8802fd866a7e4b30ccb11b37bf80",
+          "toolchain": "go version go1.26.0 windows/amd64",
+          "host": "Windows-2025Server-10.0.26100-SP0",
+          "architecture": "AMD64",
+          "flags": [
+            "-trimpath"
+          ],
+          "targets": {
+            "micro.exe": "2cadf36ca99b54dc47931057560ff6ec2f34f512738cafd0e0bf21ccfc0a9836",
+            "fzf.exe": "41c8eef0c7983121c54a59d87b867e1a1722692283594c6161f72fdbcf7349f7",
+            "micro-oracle.exe": "1175298457878ed3bdf62835aee03376a4cefc57717bc01472cfa8b83581eba6"
+          }
+        },
+        {
+          "case": "micro-wide-persistence",
+          "derived": true,
+          "start_utc": "2026-09-27T21:06:48.696915+00:00",
+          "end_utc": "2026-09-27T21:06:50.112240+00:00",
+          "elapsed_ms": 1406.000000000006,
+          "exit": 0,
+          "result": {
+            "spec_version": 2,
+            "name": "MICRO-08 resize and save supported Unicode text",
+            "spec_path": "D:\\a\\playtestr\\playtestr\\corpus\\workflows\\micro\\e3-micro-wide-persistence.control",
+            "status": "passed",
+            "duration_ms": 1399,
+            "viewport": {
+              "width": 70,
+              "height": 16
+            },
+            "resizes": [
+              {
+                "width": 84,
+                "height": 22
+              }
+            ],
+            "steps": [
+              {
+                "number": 1,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 60
+              },
+              {
+                "number": 2,
+                "action": "text",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 3,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 4,
+                "action": "resize",
+                "status": "passed",
+                "duration_ms": 0,
+                "resize": {
+                  "width": 84,
+                  "height": 22
+                }
+              },
+              {
+                "number": 5,
+                "action": "wait_for_redraw",
+                "status": "passed",
+                "duration_ms": 1000
+              },
+              {
+                "number": 6,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 7,
+                "action": "key",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 8,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 30
+              },
+              {
+                "number": 9,
+                "action": "key",
+                "status": "passed",
+                "duration_ms": 0
+              },
+              {
+                "number": 10,
+                "action": "expect",
+                "status": "passed",
+                "duration_ms": 41
+              },
+              {
+                "number": 11,
+                "action": "exit",
+                "status": "passed",
+                "duration_ms": 250
+              }
+            ],
+            "target": {
+              "exited": true,
+              "exit_code": 0
+            },
+            "cleanup": {
+              "attempted": true,
+              "graceful": true,
+              "forced": false,
+              "confirmed_exited": true,
+              "mechanism": "windows-job-object"
+            },
+            "evidence": {},
+            "workspace": {
+              "attempted": true,
+              "fixture": "fixture",
+              "prepared": true,
+              "cleanup_attempted": true,
+              "cleaned": true,
+              "retained": false
+            }
+          },
+          "original_spec_sha256": "1a2296d7d136af355d58b3e539bc5230d40e03dff68b3302910abe1d7f2b5a3c",
+          "executed_spec_sha256": "2c5edf80078e6d803b904e4cae2e837aa751bea5ca2faf0d4e2a6d683ae87fad",
+          "input_hex": [
+            "e99baa20"
+          ],
+          "source": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+          "runner_sha256": "59a46d7ee396fae4b7de2aafb16ee4467adc8802fd866a7e4b30ccb11b37bf80",
+          "toolchain": "go version go1.26.0 windows/amd64",
+          "host": "Windows-2025Server-10.0.26100-SP0",
+          "architecture": "AMD64",
+          "flags": [
+            "-trimpath"
+          ],
+          "targets": {
+            "micro.exe": "2cadf36ca99b54dc47931057560ff6ec2f34f512738cafd0e0bf21ccfc0a9836",
+            "fzf.exe": "41c8eef0c7983121c54a59d87b867e1a1722692283594c6161f72fdbcf7349f7",
+            "micro-oracle.exe": "1175298457878ed3bdf62835aee03376a4cefc57717bc01472cfa8b83581eba6"
+          }
+        }
+      ]
+    }
+  ],
+  "native_journeys": [
+    {
+      "path": "artifacts\\wide-character-2026-09-28\\native-final\\wide-journeys-macos-15\\wide-journeys\\summary.json",
+      "summary": {
+        "host": "darwin_arm64",
+        "runner_sha256": "79fa5e40a8fe4c515e57d21f622b65d315b2c92f37f9e159a5a93f26a02f888c",
+        "attempts": 48,
+        "accepted": 48,
+        "pilot_accepted": true,
+        "scope": "Six frozen primary journeys: six pilots plus five good/defect/recovery per journey; development controls, not extra qualification repeats"
+      }
+    },
+    {
+      "path": "artifacts\\wide-character-2026-09-28\\native-final\\wide-journeys-ubuntu-24.04\\wide-journeys\\summary.json",
+      "summary": {
+        "host": "linux_x86_64",
+        "runner_sha256": "3bf9d9157770c46d8a7d19bc2d66a01a88ab258d5645ed89ec0066d876558f5d",
+        "attempts": 48,
+        "accepted": 48,
+        "pilot_accepted": true,
+        "scope": "Six frozen primary journeys: six pilots plus five good/defect/recovery per journey; development controls, not extra qualification repeats"
+      }
+    }
+  ],
+  "corpus_first": {
+    "attempts": 150,
+    "good": 120,
+    "controls": 15,
+    "recoveries": 15,
+    "accepted": 144,
+    "unexpected": [
+      "FZF-06",
+      "IPM-01",
+      "POST-05",
+      "TV-03",
+      "TV-05",
+      "TV-06"
+    ],
+    "changed_original_inputs": [],
+    "runner_sha256": "806f2f9493287b7833735ecae9b0de5664685d0f8024ad79f0ec41fb2e6d0d4b"
+  },
+  "corpus_final": {
+    "attempts": 150,
+    "good": 120,
+    "controls": 15,
+    "recoveries": 15,
+    "accepted": 150,
+    "unexpected": [],
+    "changed_original_inputs": [],
+    "runner_sha256": "938e01dab2d8542204d3a5f2ffdd5c5cadc48a2ac369db5f13823da5ec7fbd78"
+  },
+  "diagnostic_attempts": 18,
+  "diagnostic_passes": 18,
+  "first_transient_causes": "not reproduced; no deterministic cause established",
+  "snapshot_review": [
+    {
+      "path": "corpus\\workflows\\television\\snapshots\\television-03.txt",
+      "reviewed_lines": [
+        2,
+        5
+      ],
+      "old_sha256": "f0499d12e5046911fcf31f9283993a05f6cf8cb7b80409776eb62b97da7155f1",
+      "new_sha256": "c958385371e9201fdcbf414895840d75f0177ca7823464f230d229efdfbcb3fd",
+      "reason": "Snow is two cells; 80-cell borders; correct fixture filename .txt; independently edited text matches capture"
+    },
+    {
+      "path": "corpus\\workflows\\television\\snapshots\\television-05.txt",
+      "reviewed_lines": [
+        8
+      ],
+      "old_sha256": "ea5b22a5b5be66c7c0654f9994f80df9e7f7edb3fc6185c4a4bc32fdfc7f094b",
+      "new_sha256": "868fb57993e73209cce9811de8f53f172f4788b83a9eaa9e13f93299719db383",
+      "reason": "Snow is two cells; 80-cell borders; correct fixture filename .txt; independently edited text matches capture"
+    },
+    {
+      "path": "corpus\\workflows\\television\\snapshots\\television-06.txt",
+      "reviewed_lines": [
+        2,
+        5
+      ],
+      "old_sha256": "f0499d12e5046911fcf31f9283993a05f6cf8cb7b80409776eb62b97da7155f1",
+      "new_sha256": "c958385371e9201fdcbf414895840d75f0177ca7823464f230d229efdfbcb3fd",
+      "reason": "Snow is two cells; 80-cell borders; correct fixture filename .txt; independently edited text matches capture"
+    }
+  ],
+  "runs": [
+    {
+      "id": 36350174975,
+      "name": "Terminal tests",
+      "source": "1859c6bfc9874d80efc2c89ac86d6b2b7518fa2a",
+      "jobs": 3,
+      "seconds": 324.0,
+      "conclusion": "success"
+    },
+    {
+      "id": 36350175057,
+      "name": "Wide character native development validation",
+      "source": "1859c6bfc9874d80efc2c89ac86d6b2b7518fa2a",
+      "jobs": 8,
+      "seconds": 1352.0,
+      "conclusion": "success"
+    },
+    {
+      "id": 36350415210,
+      "name": "Terminal tests",
+      "source": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+      "jobs": 3,
+      "seconds": 327.0,
+      "conclusion": "success"
+    },
+    {
+      "id": 36350415225,
+      "name": "Wide character native development validation",
+      "source": "c87e477e4c96b8402b5719149759029bfa9e4c1a",
+      "jobs": 8,
+      "seconds": 1330.0,
+      "conclusion": "success"
+    }
+  ],
+  "runner_hours": 0.9258333333333333,
+  "local_final_binary": {
+    "path": "bin/playtestr-wide-v2.exe",
+    "sha256": "938e01dab2d8542204d3a5f2ffdd5c5cadc48a2ac369db5f13823da5ec7fbd78",
+    "toolchain": "go1.27.0 windows/amd64",
+    "flags": [
+      "-trimpath"
+    ]
+  },
+  "manual_suite": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0,
+    "cancelled": 0,
+    "not_run": 0
+  },
+  "unsupported": [
+    "combining clusters",
+    "emoji/ZWJ sequences",
+    "ambiguous-width variants",
+    "terminal query round trips"
+  ],
+  "published_assets_changed": false,
+  "outreach": false,
+  "marketing": false,
+  "website_deployment": false,
+  "private_archive": {
+    "path": ".trial-private\\playtestr-wide-character-evidence-2026-09-28.zip",
+    "sha256": "5bc8b3f58893877cb1d2947afce1b29abf0e4622d708469c9dc5987fee542548",
+    "bytes": 98623462,
+    "members": 1658,
+    "crc_verified": true,
+    "member_hashes_verified": true
+  }
+}

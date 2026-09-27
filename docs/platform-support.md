@@ -14,6 +14,12 @@ checks on Linux amd64, macOS arm64 and Windows amd64;
 cursor layout and terminal-query-dependent flows remain explicitly unsupported;
 [exact fidelity boundary](validation/e3-fidelity-boundary-2026-09-27.md).
 
+Later development source corrects the selected two-column CJK rendering cases,
+with unchanged MICRO-08 and full tests/vet/race on native Linux amd64,
+macOS arm64 and Windows amd64. [Development evidence](validation/wide-character-2026-09-28.md)
+does not extend the published rc.2 bytes. Combining clusters and terminal query
+round trips remain outside the rendering contract.
+
 Stable `v0.1.0` is verified on these native GitHub-hosted runners:
 
 | Release target | Native runner | Terminal tests | Release package |

@@ -2,7 +2,7 @@
 
 Updated 26 September 2026. The [root roadmap](../../roadmap.md) fixes order; this register makes choices and revisit triggers visible. A proposed feature is not approved merely because it has a row.
 
-Current execution status updated 27 September: E0–E5 accepted within recorded boundaries; v0.4.0-rc.2 qualified privately. Publication and outreach remain held. The dated decisions below retain the earlier partial states.
+Current execution status updated 28 September: E0–E5 accepted within recorded boundaries; v0.4.0-rc.2 published and verified. The selected CJK cell repair is natively verified development work, not a new released version. Outreach and marketing remain held. The dated decisions below retain earlier partial states.
 
 28 September override: the user authorized exact-byte download publication and
 public verification, now complete. Outreach and marketing are explicitly
@@ -61,6 +61,13 @@ D21 supersedes D01's immediate R6-to-A1 scheduling and the old fixed stop at Spr
 | D33 | Qualify unused private v0.4.0-rc.2 and recommend scoped trial | Exact native archives, 3,000 first attempts, holdout controls, compatibility and resources accepted. Differentiation unmet; public availability, release, deployment and outreach remain held. |
 
 ## Decisions to make at explicit checkpoints
+
+28 September development decision: maintain the bounded internal vt10x copy
+with fixed Unicode width tables after the alternative emulator lost a wide
+glyph on wrap. [ADR](../wide-character-decision.md) and
+[native evidence](../validation/wide-character-2026-09-28.md) define the exact
+repair, reviewed snapshots and remaining combining/query boundaries. Do not
+apply rc.2's frozen-byte qualification to this changed runner.
 
 | ID | Question | Owner / deadline | Evidence needed / default |
 | --- | --- | --- | --- |

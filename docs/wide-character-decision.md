@@ -71,7 +71,7 @@ unchanged; CSI insert/delete cells have dedicated wide-pair regression tests.
 
 ## Validation and migration
 
-See the linked development validation record for actual native results,
+See the [development validation record](validation/wide-character-2026-09-28.md) for actual native results,
 first failures, target identities, full tests/vet/race, existing corpus and
 defect/recovery evidence. Published rc.2 assets and qualification records
 remain immutable. This change must be separately frozen and qualified before
