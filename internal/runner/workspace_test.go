@@ -87,7 +87,7 @@ func TestWorkspaceFailureCleanupAndExplicitRetention(t *testing.T) {
 			path := writeWorkspaceSpecAt(t, root, spec)
 			result := RunDetailedContext(context.Background(), path, RunOptions{KeepWorkspaceOnFailure: keep}, &bytes.Buffer{})
 			if result.Failure == nil || result.Failure.Category != FailureAssertionTimeout || result.Workspace == nil {
-				t.Fatalf("result = %+v", result)
+				t.Fatalf("result = %+v, error = %v", result, result.Err())
 			}
 			if result.Evidence.ScreenPath == "" {
 				t.Fatal("failure screen was not written")

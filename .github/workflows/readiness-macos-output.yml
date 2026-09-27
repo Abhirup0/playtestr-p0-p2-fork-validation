@@ -2,7 +2,7 @@ name: Reduce native macOS final output failure
 on:
   push:
     branches: [readiness/e3-e5]
-    paths: ['.github/workflows/readiness-macos-output.yml']
+    paths: ['.github/workflows/readiness-macos-output.yml', 'internal/runner/pty_*.go']
   workflow_dispatch:
 permissions:
   contents: read

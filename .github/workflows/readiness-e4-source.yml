@@ -2,7 +2,7 @@ name: E4 native source and installation gates
 on:
   push:
     branches: [readiness/e3-e5]
-    paths: ['setup-playtestr/install.ps1', 'internal/setupaction/install_integration_test.go', '.github/workflows/readiness-e4-source.yml']
+    paths: ['setup-playtestr/install.ps1', 'internal/setupaction/install_integration_test.go', 'internal/runner/**', '.github/workflows/readiness-e4-source.yml']
   workflow_dispatch:
 permissions:
   contents: read
