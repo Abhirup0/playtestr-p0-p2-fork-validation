@@ -1,0 +1,60 @@
+name: E5 frozen-byte native lifecycle and resource gates
+on:
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  gates:
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { runner: ubuntu-24.04, target: linux-amd64, executable: playtestr }
+          - { runner: macos-15, target: darwin-arm64, executable: playtestr }
+          - { runner: windows-latest, target: windows-amd64, executable: playtestr.exe }
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-go@v7
+        with:
+          go-version: '1.26.0'
+      - uses: actions/download-artifact@v6
+        with:
+          name: playtestr-${{ matrix.target }}
+          path: candidate
+          github-token: ${{ github.token }}
+          run-id: '36329978517'
+      - name: Verify frozen identities and execute bounded native gates
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib,json,pathlib,tarfile,zipfile
+          root=pathlib.Path('candidate')
+          record=json.loads(next(root.rglob('candidate-evidence-*.json')).read_text())
+          assert record['source_commit']=='ae97c62022966cde9699b26169b4dc6ef0a12439'
+          archive=root/record['archive']
+          assert hashlib.sha256(archive.read_bytes()).hexdigest()==record['archive_sha256']
+          destination=pathlib.Path('frozen candidate'); destination.mkdir()
+          if archive.suffix=='.zip':
+              with zipfile.ZipFile(archive) as z:
+                  assert sorted(z.namelist())==sorted(record['archive_members']); z.extractall(destination)
+          else:
+              with tarfile.open(archive) as t:
+                  assert sorted(t.getnames())==sorted(record['archive_members']); t.extractall(destination,filter='data')
+          binary=next(destination.rglob('${{ matrix.executable }}'))
+          assert hashlib.sha256(binary.read_bytes()).hexdigest()==record['executable_sha256']
+          with open(__import__('os').environ['GITHUB_ENV'],'a') as env: env.write('FROZEN_RUNNER='+str(binary)+'\n')
+          PY
+          suffix=''; if [[ "$RUNNER_OS" == Windows ]]; then suffix='.exe'; fi
+          # Build a helper only; never rebuild or relabel the frozen runner.
+          go build -o "artifacts/e5-fixture$suffix" ./cmd/fixture
+          python scripts/readiness/e5-native-gates.py --runner "$FROZEN_RUNNER" --fixture "artifacts/e5-fixture$suffix" --out artifacts/e5-native-bytes
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: e5-native-bytes-${{ matrix.target }}
+          path: artifacts/e5-native-bytes
+          retention-days: 14

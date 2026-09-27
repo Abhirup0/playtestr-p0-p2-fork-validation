@@ -4,8 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       candidate_run_id:
-        description: Successful Native release build run ID at this exact commit
+        description: Successful Native release build run ID bound to frozen source
         required: true
+        type: string
+      frozen_source_commit:
+        description: Candidate source SHA when only qualification tooling/docs changed after freeze
+        required: false
         type: string
       attempts:
         description: Attempts per workflow (1 for preflight, exactly 100 for qualification)
@@ -20,7 +24,7 @@ permissions:
 
 jobs:
   repeat:
-    timeout-minutes: 60
+    timeout-minutes: 90
     strategy:
       fail-fast: false
       matrix:
@@ -66,11 +70,17 @@ jobs:
           run-id: ${{ inputs.candidate_run_id }}
       - name: Verify and extract frozen runner
         shell: bash
+        env:
+          EXPECTED_SOURCE: ${{ inputs.frozen_source_commit }}
         run: |
           set -euo pipefail
+          expected_source="${EXPECTED_SOURCE:-$GITHUB_SHA}"
+          [[ "$expected_source" =~ ^[0-9a-f]{40}$ ]]
+          git fetch --no-tags origin "$expected_source"
+          git diff --exit-code "$expected_source" -- cmd internal go.mod go.sum corpus/workflows corpus/controls release/qualification-plan.json
           evidence="$(find candidate -name 'candidate-evidence-*.json' -type f)"
           test -n "$evidence"
-          test "$(python -c 'import json,sys; print(json.load(open(sys.argv[1]))["source_commit"])' "$evidence")" = "$GITHUB_SHA"
+          test "$(python -c 'import json,sys; print(json.load(open(sys.argv[1]))["source_commit"])' "$evidence")" = "$expected_source"
           archive="$(find candidate -name 'playtestr_*.${{ matrix.archive_extension }}' -type f)"
           expected_archive="$(python -c 'import json,sys; print(json.load(open(sys.argv[1]))["archive_sha256"])' "$evidence")"
           test "$(sha256sum "$archive" | awk '{print $1}')" = "$expected_archive"

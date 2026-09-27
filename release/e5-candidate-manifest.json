@@ -1,0 +1,119 @@
+[
+  {
+    "schema_version": 1,
+    "status": "candidate frozen; qualification pending",
+    "source_commit": "ae97c62022966cde9699b26169b4dc6ef0a12439",
+    "version": "v0.4.0-rc.2",
+    "host": {
+      "runner_os": "macOS",
+      "runner_arch": "ARM64",
+      "image_os": "macos26",
+      "image_version": "20260907.0351.1"
+    },
+    "toolchain": "go version go1.26.0 darwin/arm64",
+    "build_command": "go build -trimpath -ldflags '-s -w -X github.com/Wyrcan-io/playtestr/internal/buildinfo.Version=$VERSION' -o bin/<native-name> ./cmd/playtestr",
+    "executable_sha256": "a6b806e38bf6818fcf2405f8fff2ccb83be3565e18ca444714c9886b2593c527",
+    "version_output": "playtestr v0.4.0-rc.2",
+    "archive": "dist/playtestr_0.4.0-rc.2_darwin_arm64.tar.gz",
+    "archive_sha256": "7dab72ab263b34f3e1a4958b6c6f6f8aa374633320531e9ebeaf11317006a9f4",
+    "archive_members": [
+      "playtestr_0.4.0-rc.2_darwin_arm64/LICENSE",
+      "playtestr_0.4.0-rc.2_darwin_arm64/README.md",
+      "playtestr_0.4.0-rc.2_darwin_arm64/THIRD_PARTY_NOTICES.md",
+      "playtestr_0.4.0-rc.2_darwin_arm64/playtestr"
+    ],
+    "extraction_path": "release verification",
+    "extracted_executable_sha256": "a6b806e38bf6818fcf2405f8fff2ccb83be3565e18ca444714c9886b2593c527",
+    "smoke_exit_status": 0,
+    "limitations": [
+      "hosted native build evidence; application compatibility requires R6-Q",
+      "candidate is not published or qualified"
+    ],
+    "local_retained_archive_verified": true,
+    "source_installer": {
+      "binary_sha256": "a6b806e38bf6818fcf2405f8fff2ccb83be3565e18ca444714c9886b2593c527",
+      "version": "v0.4.0-rc.2",
+      "archive_sha256": "7dab72ab263b34f3e1a4958b6c6f6f8aa374633320531e9ebeaf11317006a9f4",
+      "route": "Source installer local verified archive seam; unpublished",
+      "source_commit": "ae97c62022966cde9699b26169b4dc6ef0a12439"
+    }
+  },
+  {
+    "schema_version": 1,
+    "status": "candidate frozen; qualification pending",
+    "source_commit": "ae97c62022966cde9699b26169b4dc6ef0a12439",
+    "version": "v0.4.0-rc.2",
+    "host": {
+      "runner_os": "Linux",
+      "runner_arch": "X64",
+      "image_os": "ubuntu24",
+      "image_version": "20260920.314.1"
+    },
+    "toolchain": "go version go1.26.0 linux/amd64",
+    "build_command": "go build -trimpath -ldflags '-s -w -X github.com/Wyrcan-io/playtestr/internal/buildinfo.Version=$VERSION' -o bin/<native-name> ./cmd/playtestr",
+    "executable_sha256": "543f56353cfa77e6270e8ae0ce4ab018fe58fc0a990a9b4a942e33a2f9ed0c03",
+    "version_output": "playtestr v0.4.0-rc.2",
+    "archive": "dist/playtestr_0.4.0-rc.2_linux_amd64.tar.gz",
+    "archive_sha256": "e442710e1cc851d134cde7ccc9441be8503c65e210d35318f0106ed5ab54ce55",
+    "archive_members": [
+      "playtestr_0.4.0-rc.2_linux_amd64/LICENSE",
+      "playtestr_0.4.0-rc.2_linux_amd64/README.md",
+      "playtestr_0.4.0-rc.2_linux_amd64/THIRD_PARTY_NOTICES.md",
+      "playtestr_0.4.0-rc.2_linux_amd64/playtestr"
+    ],
+    "extraction_path": "release verification",
+    "extracted_executable_sha256": "543f56353cfa77e6270e8ae0ce4ab018fe58fc0a990a9b4a942e33a2f9ed0c03",
+    "smoke_exit_status": 0,
+    "limitations": [
+      "hosted native build evidence; application compatibility requires R6-Q",
+      "candidate is not published or qualified"
+    ],
+    "local_retained_archive_verified": true,
+    "source_installer": {
+      "source_commit": "ae97c62022966cde9699b26169b4dc6ef0a12439",
+      "binary_sha256": "543f56353cfa77e6270e8ae0ce4ab018fe58fc0a990a9b4a942e33a2f9ed0c03",
+      "archive_sha256": "e442710e1cc851d134cde7ccc9441be8503c65e210d35318f0106ed5ab54ce55",
+      "route": "Source installer local verified archive seam; unpublished",
+      "version": "v0.4.0-rc.2"
+    }
+  },
+  {
+    "schema_version": 1,
+    "status": "candidate frozen; qualification pending",
+    "source_commit": "ae97c62022966cde9699b26169b4dc6ef0a12439",
+    "version": "v0.4.0-rc.2",
+    "host": {
+      "runner_os": "Windows",
+      "runner_arch": "X64",
+      "image_os": "win25-vs2026",
+      "image_version": "20260922.246.2"
+    },
+    "toolchain": "go version go1.26.0 windows/amd64",
+    "build_command": "go build -trimpath -ldflags '-s -w -X github.com/Wyrcan-io/playtestr/internal/buildinfo.Version=$VERSION' -o bin/<native-name> ./cmd/playtestr",
+    "executable_sha256": "b09f8daea6211ae24ca15aeb4b7f15f5daac277c920a02cb28feb6b99eb3aa8b",
+    "version_output": "playtestr v0.4.0-rc.2",
+    "archive": "dist/playtestr_0.4.0-rc.2_windows_amd64.zip",
+    "archive_sha256": "27284f5e994dc7e7122bdca83a52819aec55fa420e9dbd78cdc2bdde70c7eff4",
+    "archive_members": [
+      "playtestr_0.4.0-rc.2_windows_amd64/LICENSE",
+      "playtestr_0.4.0-rc.2_windows_amd64/README.md",
+      "playtestr_0.4.0-rc.2_windows_amd64/THIRD_PARTY_NOTICES.md",
+      "playtestr_0.4.0-rc.2_windows_amd64/playtestr.exe"
+    ],
+    "extraction_path": "release verification",
+    "extracted_executable_sha256": "b09f8daea6211ae24ca15aeb4b7f15f5daac277c920a02cb28feb6b99eb3aa8b",
+    "smoke_exit_status": 0,
+    "limitations": [
+      "hosted native build evidence; application compatibility requires R6-Q",
+      "candidate is not published or qualified"
+    ],
+    "local_retained_archive_verified": true,
+    "source_installer": {
+      "route": "Source installer local verified archive seam; unpublished",
+      "archive_sha256": "27284f5e994dc7e7122bdca83a52819aec55fa420e9dbd78cdc2bdde70c7eff4",
+      "binary_sha256": "b09f8daea6211ae24ca15aeb4b7f15f5daac277c920a02cb28feb6b99eb3aa8b",
+      "version": "v0.4.0-rc.2",
+      "source_commit": "ae97c62022966cde9699b26169b4dc6ef0a12439"
+    }
+  }
+]
