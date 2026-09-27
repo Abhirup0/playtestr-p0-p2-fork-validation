@@ -54,20 +54,24 @@ jobs:
           test "$("$binary" version)" = 'playtestr v0.4.0-rc.2'
           test "$(playtestr version)" = 'playtestr v0.4.0-rc.2'
           "$binary" help > artifacts/e5-public/help.txt
-          "$binary" test --report artifacts/e5-public/good.json testdata/install-smoke/${{ matrix.family }}/good.json > artifacts/e5-public/good.log
+          # Greeting targets resolve their script relative to invocation cwd.
+          # Copy the documented fixture to an owned directory and run there.
+          cp -R testdata/install-smoke/${{ matrix.family }}/. artifacts/e5-public/
+          cd artifacts/e5-public
+          "$binary" test --report good-result.json good.json > good.log
           set +e
-          "$binary" test --report artifacts/e5-public/bad.json --artifacts-dir artifacts/e5-public/evidence testdata/install-smoke/${{ matrix.family }}/bad.json > artifacts/e5-public/bad.log 2>&1
+          "$binary" test --report bad-result.json --artifacts-dir evidence bad.json > bad.log 2>&1
           code=$?
           set -e
           test "$code" -eq 1
-          "$binary" test --report artifacts/e5-public/recovery.json testdata/install-smoke/${{ matrix.family }}/good.json > artifacts/e5-public/recovery.log
-          "$binary" report --input artifacts/e5-public/bad.json --evidence-root artifacts --output artifacts/e5-public/report.html
+          "$binary" test --report recovery-result.json good.json > recovery.log
+          "$binary" report --input bad-result.json --evidence-root . --output report.html
           python - <<'PY'
           import json,pathlib
-          root=pathlib.Path('artifacts/e5-public')
+          root=pathlib.Path('.')
           for name in ['good','recovery']:
-              r=json.loads((root/(name+'.json')).read_text()); assert r['summary']['passed']==1 and r['results'][0]['cleanup']['confirmed_exited']
-          r=json.loads((root/'bad.json').read_text()); assert r['results'][0]['failure']['category']=='assertion_timeout' and r['results'][0]['cleanup']['confirmed_exited']
+              r=json.loads((root/(name+'-result.json')).read_text()); assert r['summary']['passed']==1 and r['results'][0]['cleanup']['confirmed_exited']
+          r=json.loads((root/'bad-result.json').read_text()); assert r['results'][0]['failure']['category']=='assertion_timeout' and r['results'][0]['cleanup']['confirmed_exited']
           PY
       - uses: actions/upload-artifact@v6
         if: always()
