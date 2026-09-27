@@ -14,6 +14,7 @@ ROOT=Path(__file__).resolve().parents[2]
 p=argparse.ArgumentParser()
 p.add_argument('--runner',required=True)
 p.add_argument('--atago',required=True)
+p.add_argument('--baseline')
 p.add_argument('--samples',type=int,default=30)
 p.add_argument('--out',default='artifacts/readiness-native/real-comparison')
 a=p.parse_args()
@@ -22,6 +23,7 @@ out=ROOT/a.out;out.mkdir(parents=True,exist_ok=False)
 launcher=ROOT/'.trial-private/corpus-tools/workspace-launch'
 subprocess.run(['go','build','-trimpath','-o',str(launcher),'./scripts/readiness/workspace-launch'],cwd=ROOT,check=True)
 pins=[Path(a.runner).resolve(),Path(a.atago).resolve(),launcher]
+if a.baseline:pins.append(Path(a.baseline).resolve())
 (out/'adapter-pins.json').write_text(json.dumps([{'path':str(x),'sha256':hashlib.sha256(x.read_bytes()).hexdigest()} for x in pins],indent=2)+'\n')
 rows=[]
 manifest=ROOT/'benchmarks/competitive/c1/termlens/Cargo.toml'
@@ -42,11 +44,11 @@ def attempt(journey,tool,phase,number,variant):
         # unchanged neighbor, rather than the transient staged-pane heading.
         steps=[step for step in steps if step.get('expect')!='Staged changes']
     evidence=out/(identity+'-evidence')
-    if tool=='playtestr':
+    if tool in ('playtestr','baseline'):
         spec={k:v for k,v in source.items() if k not in ('workspace','env','command')}
         spec.update(version=1,command=command,steps=steps)
         definition=out/(identity+'.json');definition.write_text(json.dumps(spec,indent=2)+'\n')
-        argv=[a.runner,'test','--report',str(out/(identity+'-report.json')),'--artifacts-dir',str(evidence),str(definition)]
+        argv=[a.baseline if tool=='baseline' else a.runner,'test','--report',str(out/(identity+'-report.json')),'--artifacts-dir',str(evidence),str(definition)]
     elif tool=='atago':
         actions=[]
         keys={'ArrowDown':'down','ArrowRight':'right','Enter':'enter'}
@@ -80,12 +82,15 @@ def attempt(journey,tool,phase,number,variant):
     return accepted
 
 controls=[]
+comparison_tools=['playtestr','baseline','atago','termlens'] if a.baseline else ['playtestr','atago','termlens']
 for journey in ['RW1','RW3']:
-    for tool in ['playtestr','atago','termlens']:
+    for tool in comparison_tools:
         for phase,variant in [('pilot','good'),('defect','defect'),('recovery','good')]: controls.append(attempt(journey,tool,phase,0,variant))
 if all(controls):
     for number in range(1,a.samples+1):
         orders=[['playtestr','atago','termlens'],['termlens','atago','playtestr'],['atago','playtestr','termlens'],['termlens','playtestr','atago'],['atago','termlens','playtestr'],['playtestr','termlens','atago']]
+        if a.baseline:
+            orders=[['playtestr','baseline','atago','termlens'],['termlens','atago','baseline','playtestr'],['baseline','atago','termlens','playtestr'],['playtestr','termlens','atago','baseline'],['atago','termlens','playtestr','baseline'],['baseline','playtestr','termlens','atago'],['termlens','playtestr','baseline','atago'],['atago','baseline','playtestr','termlens']]
         order=orders[(number-1)%len(orders)]
         for journey in ['RW1','RW3']:
             for tool in order:attempt(journey,tool,'measurement',number,'good')

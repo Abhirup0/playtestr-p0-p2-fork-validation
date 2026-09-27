@@ -1,0 +1,60 @@
+name: E2 matched real-task candidate
+
+on:
+  push:
+    branches: [readiness/e1-e2-real]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  matched-real:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-go@v7
+        with:
+          go-version: '1.26.0'
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24.7.0'
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Prepare same pinned targets and source defects
+        run: python scripts/readiness/setup-native.py
+      - name: Build original baseline and pinned alternatives
+        shell: bash
+        run: |
+          set -euo pipefail
+          rustup toolchain install 1.85.0 --profile minimal
+          bash scripts/competitive/install-c1-tools.sh
+          python -m pip install PyYAML==6.0.3
+          mkdir -p artifacts/readiness-real
+          git worktree add --detach .trial-private/readiness-real-baseline adee5bf6554ffceb3eeed78752a708a5e8e052ea
+          go build -C .trial-private/readiness-real-baseline -trimpath -o "$PWD/artifacts/readiness-real/before-playtestr" ./cmd/playtestr
+          python - <<'PY'
+          import hashlib,json,subprocess
+          from pathlib import Path
+          paths=[Path('artifacts/readiness-real/before-playtestr'),Path('artifacts/competitive/bin/playtestr')]
+          record={'baseline_commit':'adee5bf6554ffceb3eeed78752a708a5e8e052ea','candidate_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'go':subprocess.check_output(['go','version'],text=True).strip(),'binaries':[{'path':str(p),'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in paths]}
+          Path('artifacts/readiness-real/identities.json').write_text(json.dumps(record,indent=2)+'\n')
+          PY
+      - name: Good defect recovery then thirty matched real-task samples
+        run: python scripts/readiness/compare-real.py --runner "$PWD/artifacts/competitive/bin/playtestr" --baseline "$PWD/artifacts/readiness-real/before-playtestr" --atago "$PWD/artifacts/competitive/tools/atago" --out artifacts/readiness-real/comparison
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: readiness-matched-real-${{ github.run_attempt }}
+          path: |
+            artifacts/readiness-real/**
+            artifacts/competitive/versions.txt
+            artifacts/competitive/install.jsonl
+            artifacts/readiness-native/target-pins.json
+            artifacts/readiness-native/setup-operations.json
+          retention-days: 14
+          if-no-files-found: warn
