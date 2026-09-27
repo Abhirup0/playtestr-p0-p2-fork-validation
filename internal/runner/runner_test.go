@@ -381,6 +381,11 @@ func TestHelperProcess(t *testing.T) {
 	switch mode {
 	case "exit-zero":
 		fmt.Print("finished cleanly\r\n")
+		if marker := os.Getenv("PLAYTESTR_OUTPUT_MARKER"); marker != "" {
+			if err := os.WriteFile(marker, []byte("written"), 0600); err != nil {
+				os.Exit(2)
+			}
+		}
 		os.Exit(0)
 	case "exit-seven":
 		fmt.Print("about to crash\r\n")

@@ -6,6 +6,7 @@ import (
 	"context"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"runtime"
 	"strings"
 	"testing"
@@ -23,14 +24,38 @@ func TestTerminalPreservesOutputBeforeReaderStarts(t *testing.T) {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 	cmd := exec.CommandContext(ctx, os.Args[0], "-test.run=TestHelperProcess", "--", "exit-zero")
-	cmd.Env = targetEnvironment(Spec{Version: SpecVersion, Env: map[string]string{"PLAYTESTR_HELPER_PROCESS": "1"}})
+	marker := filepath.Join(t.TempDir(), "output-written")
+	cmd.Env = targetEnvironment(Spec{Version: SpecVersion, Env: map[string]string{"PLAYTESTR_HELPER_PROCESS": "1", "PLAYTESTR_OUTPUT_MARKER": marker}})
 	configureProcess(cmd)
 	if err := p.Start(cmd); err != nil {
 		t.Fatal(err)
 	}
-	if err := cmd.Wait(); err != nil {
-		t.Fatal(err)
+	// Darwin may wait in target exit until queued tty output is consumed.
+	// Observe a side-channel written after stdout, then deliberately delay the
+	// reader, rather than requiring process reaping before any output read.
+	exited := make(chan struct{})
+	var waitErr error
+	go func() { waitErr = cmd.Wait(); close(exited) }()
+	t.Cleanup(func() {
+		cancel()
+		_ = p.Close()
+		select {
+		case <-exited:
+		case <-time.After(time.Second):
+			t.Error("target wait did not stop after cleanup")
+		}
+	})
+	for {
+		if _, err := os.Stat(marker); err == nil {
+			break
+		}
+		select {
+		case <-ctx.Done():
+			t.Fatal("helper did not confirm final output write")
+		case <-time.After(time.Millisecond):
+		}
 	}
+	time.Sleep(100 * time.Millisecond)
 	type readResult struct {
 		data string
 		err  error
@@ -54,6 +79,14 @@ func TestTerminalPreservesOutputBeforeReaderStarts(t *testing.T) {
 			t.Error("reader did not stop after master close")
 		}
 		t.Fatal("final output read timed out")
+	}
+	select {
+	case <-exited:
+		if waitErr != nil {
+			t.Fatal(waitErr)
+		}
+	case <-ctx.Done():
+		t.Fatal("target did not exit after final output read")
 	}
 }
 
