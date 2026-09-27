@@ -19,6 +19,12 @@ The current vt10x emulator retains control-sequence parser state between writes.
 
 ## Known limits
 
+The [E3 native investigation](validation/e3-fidelity-boundary-2026-09-27.md)
+reproduces micro's Snow/stale-cell failure on Linux/macOS and reduces incorrect
+wide/combining cursor positions. The separately passing file-save and fzf probes
+do not expand this contract. Terminal replies are not forwarded to target input;
+query-dependent tasks and bracketed-paste behavior remain unsupported.
+
 vt10x models one Go rune as one terminal cell. It does not provide complete `wcwidth`, grapheme-cluster, combining-mark, emoji-sequence, or East Asian wide-character layout. Snapshots containing those characters may have incorrect column alignment even when the text survives. Basic Unicode code points are supported by the exercised contract; precise complex-Unicode layout is not yet supported.
 
 The fixtures do not establish support for every VT control sequence, device query, mouse protocol, hyperlink, image protocol, color, style, or application-specific terminal extension. Snapshot comparison is text-only. Compatibility with a particular TUI requires exercising that application on the claimed operating system; cross-compilation alone is not runtime evidence.

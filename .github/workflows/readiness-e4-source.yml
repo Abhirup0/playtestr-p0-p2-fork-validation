@@ -1,0 +1,36 @@
+name: E4 native source and installation gates
+on:
+  push:
+    branches: [readiness/e3-e5]
+    paths: ['setup-playtestr/install.ps1', 'internal/setupaction/install_integration_test.go', '.github/workflows/readiness-e4-source.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [ubuntu-24.04, macos-15, windows-latest]
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-go@v7
+        with:
+          go-version: '1.26.0'
+      - name: Require PowerShell
+        shell: pwsh
+        run: $PSVersionTable.PSVersion.ToString()
+      - name: Tests vet race required events and manual checks
+        shell: pwsh
+        run: ./scripts/test-integrated-hardening.ps1 -EvidenceDirectory artifacts/e4-native-source
+      - name: Reviewed cell and query probe
+        shell: bash
+        run: go run ./scripts/readiness/cell-probe > artifacts/e4-native-source/cells.json
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: e4-native-source-${{ matrix.runner }}
+          path: artifacts/e4-native-source/**
+          retention-days: 14

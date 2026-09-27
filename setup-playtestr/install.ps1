@@ -137,6 +137,7 @@ function Receive-BoundedFile {
         $client.Timeout = [System.Threading.Timeout]::InfiniteTimeSpan
         $requestCancellation = New-Object System.Threading.CancellationTokenSource
         $requestCancellation.CancelAfter([TimeSpan]::FromSeconds($RequestTimeoutSeconds))
+        $requestClock = [System.Diagnostics.Stopwatch]::StartNew()
         try {
             $response = $client.GetAsync($Uri, [System.Net.Http.HttpCompletionOption]::ResponseHeadersRead, $requestCancellation.Token).GetAwaiter().GetResult()
             if (-not $response.IsSuccessStatusCode) {
@@ -150,7 +151,19 @@ function Receive-BoundedFile {
             try {
                 $buffer = New-Object byte[] 65536
                 [long] $written = 0
-                while (($read = $inputStream.ReadAsync($buffer, 0, $buffer.Length, $requestCancellation.Token).GetAwaiter().GetResult()) -gt 0) {
+                while ($true) {
+                    # .NET Framework HTTP response streams can ignore the token
+                    # passed to ReadAsync. Bound the task wait with the remaining
+                    # whole-request allowance, then dispose the response in the
+                    # existing finally path to interrupt an unfinished read.
+                    $remainingMs = [long]($RequestTimeoutSeconds * 1000) - $requestClock.ElapsedMilliseconds
+                    if ($remainingMs -le 0) { throw 'download request timed out' }
+                    $readTask = $inputStream.ReadAsync($buffer, 0, $buffer.Length, $requestCancellation.Token)
+                    if (-not $readTask.Wait([int][Math]::Min($remainingMs, [int]::MaxValue))) {
+                        throw 'download request timed out'
+                    }
+                    $read = $readTask.GetAwaiter().GetResult()
+                    if ($read -le 0) { break }
                     $written += $read
                     if ($written -gt $Limit) {
                         throw "download exceeds the $Limit byte limit"

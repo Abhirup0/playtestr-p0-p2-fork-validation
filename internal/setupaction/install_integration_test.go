@@ -379,16 +379,42 @@ func TestSetupActionRollsBackFailedOutputPublication(t *testing.T) {
 
 func TestSetupActionBoundsNetworkTimeout(t *testing.T) {
 	requireSupportedHost(t)
+	t.Run("stalled body", func(t *testing.T) { checkRequestTimeout(t, false) })
+	t.Run("slow body keeps whole request deadline", func(t *testing.T) { checkRequestTimeout(t, true) })
+}
+
+func checkRequestTimeout(t *testing.T, drip bool) {
+	t.Helper()
+	cancelledAfter := make(chan time.Duration, 1)
 	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Content-Length", "4")
+		started := time.Now()
+		w.Header().Set("Content-Length", "20")
 		w.WriteHeader(http.StatusOK)
 		if flusher, ok := w.(http.Flusher); ok {
 			flusher.Flush()
 		}
+		if drip {
+			ticker := time.NewTicker(400 * time.Millisecond)
+			defer ticker.Stop()
+			for i := 0; i < 20; i++ {
+				select {
+				case <-ticker.C:
+					_, _ = io.WriteString(w, "x")
+					if flusher, ok := w.(http.Flusher); ok {
+						flusher.Flush()
+					}
+				case <-r.Context().Done():
+					cancelledAfter <- time.Since(started)
+					return
+				}
+			}
+			return
+		}
 		select {
-		case <-time.After(3 * time.Second):
+		case <-time.After(10 * time.Second):
 			_, _ = io.WriteString(w, "late")
 		case <-r.Context().Done():
+			cancelledAfter <- time.Since(started)
 		}
 	}))
 	defer server.Close()
@@ -403,7 +429,19 @@ func TestSetupActionBoundsNetworkTimeout(t *testing.T) {
 	if result.err == nil || !strings.Contains(result.output, "after 1 attempts") {
 		t.Fatalf("timeout error = %v, output = %q", result.err, result.output)
 	}
-	if elapsed := time.Since(started); elapsed > 5*time.Second {
+	// Measure the actual request separately from PowerShell startup, Add-Type,
+	// and teardown. Those operations exceeded five seconds on native Windows;
+	// the product request deadline remains one second.
+	select {
+	case elapsed := <-cancelledAfter:
+		t.Logf("server observed request cancellation after %s", elapsed)
+		if elapsed > 3*time.Second {
+			t.Fatalf("one-second request cancellation took %s", elapsed)
+		}
+	case <-time.After(time.Second):
+		t.Fatal("server did not observe request cancellation")
+	}
+	if elapsed := time.Since(started); elapsed > 15*time.Second {
 		t.Fatalf("bounded timeout took %s", elapsed)
 	}
 	assertNotExposed(t, root, output, pathOutput)
