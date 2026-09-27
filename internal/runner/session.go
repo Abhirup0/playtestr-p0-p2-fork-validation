@@ -72,7 +72,7 @@ type terminalSession struct {
 }
 
 func startTerminalSession(config sessionConfig) (*terminalSession, error) {
-	p, err := xpty.NewPty(config.width, config.height)
+	p, err := newTerminalPty(config.width, config.height)
 	if err != nil {
 		return nil, fmt.Errorf("create pseudoterminal: %w", err)
 	}

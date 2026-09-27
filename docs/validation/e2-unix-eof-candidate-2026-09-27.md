@@ -1,0 +1,11 @@
+# Unix natural-exit EOF candidate
+
+This is an E2 engineering experiment, not a release qualification or new compatibility claim. The published v0.4.0-rc.1 runner is unchanged. E3–E5 remain unstarted.
+
+The first native profile recorded 30 ordinary and 30 instrumented C1 runs. Their median wall times were 314.697 and 314.713 ms respectively; the median instrumented final drain was 250.815 ms. These are nested spans, not additive overhead components. Evidence is in GitHub Actions run [36300205001](https://github.com/Wyrcan-io/playtestr/actions/runs/36300205001), native Linux artifact `profile/`.
+
+Inspection of pinned `github.com/charmbracelet/x/xpty` v0.1.4 shows that Unix `Start` keeps both parent PTY handles. The child inherits the slave; retaining the parent's duplicate prevents the master reader from reaching EOF after all target processes close their handles. The candidate releases only the parent's slave after successful start and keeps the master until ordinary cleanup. A failed release is preserved as a cleanup error. Windows uses the existing ConPTY factory. No dependency, assertion allowance, quiet interval, final-drain deadline, output bound, snapshot rule or process-tree cleanup policy changes.
+
+`TestNaturalExitReachesTerminalEOF` observes the real helper's final screen and reader completion before closing the master. The campaign copies that same test into source commit `adee5bf6554ffceb3eeed78752a708a5e8e052ea` and requires its specific EOF failure, then requires the candidate to pass. It builds both sources with the same host/toolchain, counterbalances 30 attempts per mode for each C1–C3 task, and captures exact result state, cleanup, logs and hashes. Both native hosts also rerun the complete primary, variation, maintenance and real network race controls on candidate bytes. Linux repeats the unchanged-runner resource suites on the candidate with the same composition. Resource observations remain sampled lower bounds.
+
+Acceptance and timing claims remain pending until those executions are complete and reviewed. A failed candidate is retained and repaired or rejected; no result is replaced by a retry. Any accepted candidate still requires separately authorized E5 final-byte qualification before publication.
