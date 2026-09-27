@@ -1,5 +1,7 @@
 # R6: freeze, qualify, publish and verify the completed batch
 
+> Reuse after the 26 September review: R6 remains completed history. [E5](../engineering-readiness.md) applies its freeze/qualification/publication rules to any new candidate; it does not reopen or overwrite the published v0.4.0-rc.1 evidence.
+
 Status: complete through R6-V on 26 September 2026 for `v0.4.0-rc.1`. The
 first public setup-action run exposed a checksum-asset contract mismatch and
 failed safely. A narrow backward-compatible action repair at immutable commit

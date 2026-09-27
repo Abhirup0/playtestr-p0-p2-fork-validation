@@ -1,5 +1,12 @@
 # Sprint 11-B corpus depth evidence — 24 September 2026
 
+> E0 audit, 26 September: preserve this dated record, but read “300 cells” as
+> risk mappings, not distinct tests. The original POST-05 oracle did not inspect
+> the saved file, and its “Saved” assertion could match the existing request name.
+> LG-01 originally modified only alpha, so its neighboring-change claim was too
+> broad. Fresh corrected controls are recorded separately in
+> [E1 local work](e1-e2-local-readiness-2026-09-26.md).
+
 ## Conclusion
 
 Sprint 11-B is complete at the admitted depth boundary: 15 pinned projects, 120

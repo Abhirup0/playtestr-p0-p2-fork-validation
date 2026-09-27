@@ -1,8 +1,8 @@
 # Playtestr roadmap
 
-Updated 25 September 2026. **This file is the authoritative status and execution order.** Detailed plans live in [docs/plans](docs/plans/README.md). Historical evidence remains in its original dated records.
+Updated 27 September 2026 after native E1/E2 acceptance. **This file is the authoritative status and execution order.** Detailed plans live in [docs/plans](docs/plans/README.md). Historical evidence remains in its original dated records.
 
-Product goal: a developer installs one runner, writes a short terminal interaction, catches a meaningful regression, and understands the failure quickly. Protect correctness and simplicity while increasing real-project depth. Maintainer recruitment/adoption starts after the engineering batch and qualified release below.
+Product goal: a developer installs one runner, writes a short terminal interaction, catches a meaningful regression, and understands the failure quickly. Protect correctness and simplicity while increasing real-project depth. The previous engineering batch and qualified prerelease are complete. E0-E2 are accepted: audited claims, controlled real tasks on three native hosts, matched timing/resource comparisons and an engineering-validated Unix EOF repair. E3-E5 remain unstarted; the new candidate is not published or final-byte qualified.
 
 ## Read the status correctly
 
@@ -25,10 +25,10 @@ Engineering completion, publication and adoption are separate dimensions. An unc
 | [v0.1.0-rc.2](docs/releases/v0.1.0-rc.2.md) | Controlling-terminal fix, improved disappearance/redraw synchronization and failure capture | Three native package/public-install paths; source `583352a`; separate real-app evidence | Exact workflow exclusions remain in trial records |
 | [v0.1.0](docs/releases/v0.1.0.md) | First stable MVP, published 12 September | Three native package/public-install paths; source `4ed8884`; nine-app refresh separately scoped | Latest stable in reviewed records; no directory-suite, HTML-report or workspace promise from this version |
 | [v0.2.0-rc.1](docs/validation/sprint-5-engineering-2026-09-15.md) | Sprint 5 directory suites, preview, summaries and isolated evidence | Source `ea2e77f`; release run `35096743871`; public-install run `35120830130`; three native hosts | Prerelease, not stable v0.2.0; participant acceptance pending |
-| [v0.3.0-rc.1](docs/releases/v0.3.0-rc.1.md) | Sprint 7 offline HTML reports plus prior suite work, published 18 September | Source `7cf64af`; release run `35288218202`; public-install run `35288555826`; three native hosts | Latest prerelease in reviewed records; does not contain later spec-v2 workspaces |
+| [v0.3.0-rc.1](docs/releases/v0.3.0-rc.1.md) | Sprint 7 offline HTML reports plus prior suite work, published 18 September | Source `7cf64af`; release run `35288218202`; public-install run `35288555826`; three native hosts | Historical prerelease; does not contain later spec-v2 workspaces |
 | [v0.4.0-rc.1](docs/releases/v0.4.0-rc.1.md) | Opt-in workspaces, report v2, setup action and release stories, published 25 September | Frozen source `f6ffeb7`; qualified archive hashes match public assets; immutable action `1c03904`; six-lane public verification [36173075209](https://github.com/Wyrcan-io/playtestr/actions/runs/36173075209) | Verified prerelease on Windows amd64, Linux amd64 and macOS arm64; not the stable channel |
 
-Exact hashes and run links belong to the cited records. Local tags corroborate identities but do not themselves prove publication. The annotated v0.1.0 tag object differs from its peeled source commit; use the source commit above for code provenance. No stable v0.2.0/v0.3.0 or released workspace version is claimed.
+Exact hashes and run links belong to the cited records. Local tags corroborate identities but do not themselves prove publication. The annotated v0.1.0 tag object differs from its peeled source commit; use the source commit above for code provenance. No stable v0.2.0/v0.3.0/v0.4.0 is claimed; released workspaces are available in v0.4.0-rc.1.
 
 ## All sprints: completed, existing and planned
 
@@ -47,7 +47,7 @@ Exact hashes and run links belong to the cited records. Local tags corroborate i
 | 10 | One evidence-selected terminal compatibility improvement | **Deferred at evidence gate**; [decision](docs/validation/sprint-10-decision-2026-09-21.md), [plan](docs/plans/sprints/10-terminal-compatibility.md) | Reopen only for a reduced real-app terminal blocker; no universal Unicode promise |
 | 11 | Deep real-project validation corpus | **A0/A1/B/C and R6-V complete**; [checkpoint](corpus/README.md), [B evidence](docs/validation/sprint-11-b-corpus-depth-2026-09-24.md), [R6-V](docs/validation/r6-publication-and-blocker-2026-09-25.md) | Independent adoption remains A1 |
 | 12 | Easier first-test authoring | **A complete; B deferred at its evidence gate**; [A record](docs/validation/sprint-12-a-authoring-2026-09-21.md), [B decision](docs/validation/sprint-12-b-decision-2026-09-21.md) | Reopen B only for two reduced workflow failures with the same missing input/assertion family |
-| 13 | Native evidence, integrated hardening and fair comparison | **A0/A1/B/C/D and R6 complete**; [A0](docs/validation/sprint-13-a0-native-gaps-2026-09-20.md), [A1](docs/validation/sprint-13-a1-integrated-hardening-2026-09-21.md), [B](docs/validation/sprint-13-b-setup-action-2026-09-21.md), [C](docs/validation/sprint-13-c-competitive-2026-09-22.md), [D](docs/validation/sprint-13-d-rehearsal-2026-09-24.md), [R6-V](docs/validation/r6-publication-and-blocker-2026-09-25.md) | Preserve regressions while A1 begins |
+| 13 | Native evidence, integrated hardening and fair comparison | **A0/A1/B/C/D and R6 complete**; [A0](docs/validation/sprint-13-a0-native-gaps-2026-09-20.md), [A1](docs/validation/sprint-13-a1-integrated-hardening-2026-09-21.md), [B](docs/validation/sprint-13-b-setup-action-2026-09-21.md), [C](docs/validation/sprint-13-c-competitive-2026-09-22.md), [D](docs/validation/sprint-13-d-rehearsal-2026-09-24.md), [R6-V](docs/validation/r6-publication-and-blocker-2026-09-25.md) | Preserve regressions through E0-E5; A1 is held |
 | 14 | Reproducible demos and release kit | **Complete; v0.4.0-rc.1 published and publicly verified**; [plan](docs/plans/sprints/14-demos-and-release-kit.md), [R6-K record](docs/validation/sprint-14-r6-k-2026-09-25.md), [R6-V](docs/validation/r6-publication-and-blocker-2026-09-25.md) | Manual interactive screen-reader session remains open |
 
 Sprint numbers are durable identifiers, not chronology: 7 shipped before 6, and 11 discovery precedes 10 selection. Do not rebuild implemented suites, HTML reports, the setup action or report-v2 rendering.
@@ -62,67 +62,60 @@ Sprint numbers are durable identifiers, not chronology: 7 shipped before 6, and 
 | [R3b](docs/plans/release/03b-trial-findings-and-candidate-readiness.md) | Candidate repairs and rc.2 technical closure | Historical exclusions remain visible |
 | [R3c](docs/plans/release/03c-cross-stack-validation.md) | Nine-app Python/Rust/Node campaign; 18 intended Windows/WSL cells, 54 frozen primary attempts | Not 54 distinct workflows, native macOS app coverage or nine adopters |
 | [R4](docs/plans/release/04-stable-release.md) | v0.1.0 stable publication and technical verification | Human post-publication handoff now belongs to A1 |
-| [R5](docs/plans/release/05-public-presentation.md) | Website/docs implementation and local browser/build checks; [validation](docs/validation/public-presentation-2026-09-12.md) | Full deployed-route/settings audit, native written walkthrough and manual screen-reader gaps in that record are not closed by a homepage smoke; carry to 14/R6 |
+| [R5](docs/plans/release/05-public-presentation.md) | Website/docs implementation and local browser/build checks; [validation](docs/validation/public-presentation-2026-09-12.md) | R6-V records deployed browser/route checks; interactive human screen-reader work remains open for E4. Historical gaps require their own evidence |
 | [R3 independent trials](docs/plans/release/03-real-project-trials.md) | Protocol and templates only | Deferred to A1; no qualifying independent use claimed |
+
+## How much is done?
+
+The original MVP and the accepted subsequent engineering batch are complete through **R6-V**. Three optional branches (S10, S12-B and the S6 manifest) were closed by evidence-backed deferral, not implementation. New engineering readiness is **3/6 milestones complete (E0/E1/E2)**. Independent adoption and commercial validation remain unproven; an overall product-completion percentage would hide those differences.
+
+Recorded depth is 15 projects / 120 workflows; 3,000 repetitions cover ten selected workflows on three hosts. Full application depth is not a 120-workflow three-host matrix. The 300 focused risk-map rows point to 41 distinct references and are not automatically 300 independent executed tests. See the [weekly audit](docs/plans/weekly-review-2026-09-26.md) and [exact host coverage](docs/qualified-compatibility-v0.4.0-rc.1.md).
+
+The historical Linux comparison found equal selected detection and a Playtestr speed deficit; that record remains intact. The new unpublished candidate removes a measured Linux final-drain cost, improves matched short-task whole-command medians about 80%, and reduces the observed 50-test suite from 126.8 to 113.5 seconds. Create-vite now effectively ties Atago on the selected task; Lazygit remains substantially slower. [Native acceptance and measured tradeoffs](docs/validation/e1-e2-native-readiness-2026-09-27.md) retain every loss and sampling limitation; no universal ranking follows.
 
 ## Execute next, in this order
 
-The table is a dependency chain. A completed checkpoint produces the stated evidence and then stops for review; work explicitly authorized across checkpoints can continue. Read the linked plan and [execution contract](docs/plans/execution-contract.md) before implementing. Research, tests and draft assets are allowed; pushes, public releases and outreach retain their explicit-action boundaries.
+The user subsequently authorized E0 through E2 implementation and verification, hosted native CI, testing-branch pushes and the completed push. Publication, outreach and PR/issue/discussion mutations remain unauthorized. Read the [detailed milestones and scorecard](docs/plans/engineering-readiness.md), [real-world scenario protocol](docs/plans/real-world-scenarios.md), and [execution contract](docs/plans/execution-contract.md). Completed sprint IDs remain historical; do not rebuild shipped capabilities.
 
-| Step | Checkpoint | Concrete action | Exit evidence / what it unlocks |
+| Checkpoint | Concrete outcome | Acceptance / dependency | Status |
 | --- | --- | --- | --- |
-| 1 | **13-A0: existing native gaps — completed 2026-09-20** | Audited S8/S9, repaired the Unix installer diagnostic contract, and ran enforced focused checks on Windows amd64, Linux amd64 and macOS arm64 | [Current-source evidence table](docs/validation/sprint-13-a0-native-gaps-2026-09-20.md) and passing native/complete terminal runs |
-| 2 | **11-A0: five pilot workflows** | Admit five small representative flows from the [catalog](docs/plans/corpus-catalog.md), one each for selection, state change, prompt validation, resize/redraw and fresh-workspace behavior | Real commands, independent expected results, first baseline outcomes and measured setup/run cost |
-| 3 | **11-A1: corpus contract** | Freeze the 15-project candidate roster and 120 workflow intents; inventory existing focused tests; specify state checks before workspace deletion | Admission matrix, exact pins for admitted cases, 300-case coverage mapping, prioritized blockers; no requirement to implement all 120 before fixing a blocker |
-| 4 | **10: one compatibility family — deferred 2026-09-21** | Five pilots were triaged; none supplies a qualifying terminal blocker, and BT-06 redraw passes | [Evidence-backed deferral](docs/validation/sprint-10-decision-2026-09-21.md); reopen only with a reduced failing application case |
-| 5 | **12-A: authoring — completed 2026-09-21** | Added three recipes and audited ten concrete diagnostic cases | [Windows engineering evidence](docs/validation/sprint-12-a-authoring-2026-09-21.md): clean pass/bug/recovery, useful validation, measured operator friction |
-| 6 | **12-B: optional extension — deferred 2026-09-21** | No two admitted flows share a missing input or focused-assertion blocker | [Decision](docs/validation/sprint-12-b-decision-2026-09-21.md); strict public formats remain unchanged |
-| 7 | **6: handoff decision — completed/deferred 2026-09-21** | Reproduced `GUM-01` from ordinary pinned inputs; recovery passed and an absent target failed distinctly | [Experiment and decision](docs/validation/sprint-6-handoff-2026-09-21.md); no manifest or replay command added |
-| 8 | **13-B/C: integrated hardening and comparison — completed 2026-09-22** | Verified reports/action source and ran bounded fair comparisons plus adversarial checks | [Three-host hardening](docs/validation/sprint-13-a1-integrated-hardening-2026-09-21.md), [action evidence](docs/validation/sprint-13-b-setup-action-2026-09-21.md), and [comparison results](docs/validation/sprint-13-c-competitive-2026-09-22.md) |
-| 9 | **11-B: application depth â€” completed 2026-09-24** | Implemented 120 admitted workflows across 15 projects and closed the 300 focused-case map; proved 15 known-bad/recovered controls | [Full outcomes](docs/validation/sprint-11-b-corpus-depth-2026-09-24.md), postconditions, host exclusions and unchanged reviewed baselines |
-| 10 | **13-D + R6-F: completed 2026-09-25** | `v0.4.0-rc.1` frozen from `f6ffeb7`; three exact native executable/archive identities preserved | [Immutable candidate record](docs/validation/r6-f-candidate-freeze-2026-09-25.md); no publication inferred |
-| 11 | **11-C + R6-Q: completed 2026-09-25** | Full admitted matrix, 15 controls/recoveries and exactly 3,000 first attempts ran against frozen hashes | [Qualification record](docs/validation/sprint-11-c-r6-q-2026-09-25.md); candidate is qualified |
-| 12 | **14 + R6-K: completed 2026-09-25** | Three native-host pass/defect/recovery stories and the publication-pending kit are ready | [Kit record](docs/validation/sprint-14-r6-k-2026-09-25.md); public/deployed verification remains later |
-| 13 | **R6-P: publication — completed 2026-09-25** | Published the immutable runner tag and exactly three qualified archives plus the aggregate checksum file | [Publication record](docs/validation/r6-publication-and-blocker-2026-09-25.md); tag and assets remain unchanged |
-| 14 | **R6-V: downloaded verification — completed 2026-09-26** | Repaired the checksum-manifest compatibility in a new immutable action revision; verified public bytes/behavior and v0.3-to-v0.4 upgrades on all three hosts | [Record](docs/validation/r6-publication-and-blocker-2026-09-25.md), [install 36172240134](https://github.com/Wyrcan-io/playtestr/actions/runs/36172240134), [six-lane verification 36173075209](https://github.com/Wyrcan-io/playtestr/actions/runs/36173075209) |
-| 15 | **A1: independent adoption** | Now recruit five consenting maintainers, observe first use, participant CI and later reuse | Separate genuine user outcomes, timings, assistance and dropouts; no operator substitutes |
-| 16 | **A2: commercial discovery — preparation complete; gate closed** | [Interview, consent, cost, offer and hosted-history instruments](docs/plans/release/08-commercial-discovery.md) are ready; substantive interviews wait for A1 repeat use | A decision backed by payment/value/cost evidence, or explicit no-build decision |
+| E0: evidence reconciliation | Auditable claims, counts, artifact availability and frozen experiment questions | Map risk rows to actual tests; classify controls; select scenarios, hosts and comparison pins | **Complete with scoped evidence gaps**; [ledger](docs/validation/e0-evidence-reconciliation-2026-09-26.md), [freeze](docs/validation/e0-experiment-freeze-2026-09-26.md) |
+| E1: real-world effectiveness | Six useful primary journeys with state checks, target defects and maintenance exercises | E0; good/defect/recovery on two native hosts per primary journey, all three runner hosts represented; two holdouts reserved | **Complete at admitted scope**: six journeys on all three hosts, scheduled variations and three synthetic maintenance exercises; human authoring time remains unknown; [record](docs/validation/e1-e2-native-readiness-2026-09-27.md) |
+| E2: runtime and resource cost | Explain and safely reduce measured overhead; compare real suites and total effort | E0 plus two valid E1 journeys; matched before/after, real-task comparison and lifecycle controls | **Complete at engineering boundary**: causal EOF proof, matched short/real tasks, paired 1/10/50 resource suites and lifecycle/race controls; remaining runtime/effort losses explicit; [record](docs/validation/e1-e2-native-readiness-2026-09-27.md) |
+| E3: targeted terminal fidelity | Probe real Unicode/input/redraw gaps and fix one demonstrated family if justified | E1 reduced failing task and independent expected cells; otherwise explicit limited scope | Planned / conditional implementation |
+| E4: authoring, diagnosis and maintenance | Clean-directory journeys, mixed failure diagnosis, upgrade effort and accessible evidence | Relevant E1-E3 behavior settled; four walkthroughs, six diagnosis classes and screen-reader gap disposition | Planned |
+| E5: final qualification and readiness decision | Exact-byte evidence, two held-out journeys, honest competitive scorecard | E0-E4 records, no supported correctness blocker; qualify changed bytes under R6 policy | Planned |
+| A1: independent adoption | Consenting maintainer first use, participant CI and voluntary later use | E5 readiness review plus explicit permission for each outreach action | **Held** |
+| A2: commercial discovery | Evidence about paid value and support cost, or a no-build decision | Independent repeat use; no cloud/accounts/billing assumption | Preparation only; gate closed |
 
-Unavailable native hosts do not prevent independent local recipe/design work. They remain hard blockers for the associated native/release claims and must be resolved before step 10 freezes the supported release boundary. No green status is inferred from waiting or configured CI.
+Six admitted primary journeys are Lazygit, micro, create-vite, fzf, litecli and Posting; GitUI and television remain frozen holdouts. Evidence applies to the exact tested pins/workflows/hosts, not broader application or framework compatibility. Runtime benchmarks support the decision; real-task correctness, maintenance and cleanup are required separately.
 
-## Release strategy from here
+## Outreach and marketing boundary
 
-One coherent next feature release is planned; its number is selected at R6-F from the actual version/migration audit. Do not create a version for every sprint, rename already published tags, or assume prerelease publication means stable promotion. A necessary correctness hotfix to an existing release can interrupt the sequence with a narrow patch scope and its own qualification; optional features cannot.
+The [cohort record](docs/trials/cohort.md) says five invitations were posted before this review, with zero recorded responses or consents. Preserve that history. Further invitations, follow-ups and marketing are held under the user's new direction. Nothing in this plan authorizes external mutations, contact or removal of prior posts.
 
-The candidate is built before the long campaign. If source, embedded version, compiler/dependencies or build flags change, affected executable hashes and qualification are invalidated. A docs/archive-only change can retain executable evidence only if bytes match and packaging/install checks rerun. Stable promotion under a different embedded version requires a new build and the evidence policy in [R6](docs/plans/release/06-qualified-release.md); no label-based shortcut.
+E5 produces a concrete recommendation for the user. Technical readiness can be established before outreach; independent preference cannot. Aim to lead each important dimension, keep every win/tie/loss/unknown visible, and never claim universal superiority. The user decides whether the evidence is sufficient to resume specific outreach. A1 measures independent value and retention; operator campaigns cannot close it.
 
-Sprint 14 may draft stories earlier, but final captures use the qualified behavior. Public demo URLs are checked after publication. The setup action and runner are independently pinned; lack of an unrelated future release does not hold the finite adoption batch open forever. See R6 for the genuine upgrade path versus a still-open longitudinal check.
+## Release strategy
 
-## Quality and scope commitments
+Stable v0.1.0 and qualified prerelease v0.4.0-rc.1 remain the recorded channels. No next version or release date is selected by this planning pass. Keep published tags/assets immutable. A necessary correctness hotfix may interrupt planned work with narrow acceptance and its own qualification.
 
-- Completed depth totals are 15 independently maintained applications, 120 distinct meaningful workflows, 300 focused risk cells, and exactly 3,000 frozen-byte first attempts. These measures are separate. The [validation program](docs/plans/validation-program.md) defines counts, budgets and qualification.
-- Include Linux amd64, macOS arm64 and Windows amd64 evidence for claimed native paths. Application support is per version/workflow/host, not per language or framework logo.
-- A passing screen is insufficient for a state-writing task. Validate exact Git/file/DB state at the right lifecycle point; preserve original fixtures and confirm cleanup.
-- No new feature solely to match a competitor. The [feature budget](docs/plans/product-focus.md) allows one selected compatibility family and one conditional authoring/input/assertion family; failure-manifest work requires its own measured exception.
-- No recording engine, AI auto-healing, SDK collection, service orchestration, cloud dashboard, automatic retries or parallel runner in this batch.
-- Conditional deferral is a recorded scope decision, not “implemented.” False passes, destructive cleanup and unbounded execution cannot be deferred into claimed support.
-- Stop adding pre-adoption sprints at Sprint 14/R6. Optional requests go into the [decision register](docs/plans/decision-register.md); real independent validation comes next.
+Any runner source, version, compiler/dependency or build-flag change creates new bytes and requires affected native and final qualification. Unchanged-byte evidence may be reused under the [invalidation policy](docs/plans/execution-contract.md). A new stable version is not qualified by relabeling prerelease results. Publication and downloaded-byte verification remain separate explicit actions under [R6](docs/plans/release/06-qualified-release.md).
 
-## Immediate next implementation task
+## Weekly cadence and scope
 
-Sprint 12 is complete and Sprint 6's ordinary handoff proved sufficient, so its
-optional manifest remains deferred. Sprint 13-A1/B/C/D and Sprint 11-B are complete
-with exact native, action, comparison, application-depth and risk-map records.
-The engineering batch is complete through R6-V. The qualified
-`v0.4.0-rc.1` tag and assets remain unchanged, and immutable setup-action
-revision `1c03904075512e67f53b0c94a13daa17f0383f1d` passed public installation,
-public-byte behavior, and genuine v0.3-to-v0.4 upgrade checks on all three
-native hosts. The exact next checkpoint is **A1 independent adoption**:
-recruit five consenting maintainers, observe unassisted first use and CI, then
-measure repeat use without substituting operator runs for participant evidence.
-The manual interactive screen-reader audit remains an explicit presentation
-gap until an appropriate environment is available.
+The [26 September review](docs/plans/weekly-review-2026-09-26.md) owns this week's findings, proposed 20-hour allocation and review template. Next planning review: 3 October 2026. The phase estimate is roughly 6-12 weeks at that capacity, subject to E0 re-estimation and native/human-test availability; it is not a delivery commitment.
 
-The [operational checklists](docs/plans/operational-checklists.md) provide current focused test commands, required skip detection, reader/version checks and concrete responses when execution hits a blocker.
+Keep one implementation behavior active, with one supporting validation activity. Reuse the 120-workflow corpus; do not inflate counts or automatically expand to every host/tool permutation. Allow one evidence-selected terminal family and one conditional authoring/CI family. Correctness repairs outrank optional breadth. No language rewrite, autonomous game behavior, hosted platform, automatic retries or parallel runner by default.
 
-Update this file at each checkpoint with exact evidence, remaining blockers and the next action. Keep historical notes intact. [Planning audit](docs/plans/planning-audit-2026-09-19.md) explains corrections made during this deeper review.
+Every checkpoint ends with exact evidence, retained failures, exclusions, actual cost and a next decision. Missed speed/usability targets stay visible; false passes, destructive cleanup and unbounded behavior cannot be waved through. A good benchmark cannot compensate for a broken real workflow.
+
+## Immediate next task
+
+**Later E3: independently reduce the retained wide-cell editor failure.** On native Linux/macOS, reproduce MICRO-08's Snow/stale-cell result under fixed geometry and UTF-8 locale, establish authoritative expected cells/reference capture, and compare the frozen fzf wide/combining/resize companion. Choose one demonstrated cell-width family for repair or an explicit support boundary. E3 is not authorized or started by the completed E0-E2 work.
+
+GitHub-hosted native jobs resolved the missing-device dependency. E0-E2 acceptance
+and the completed push preserve first failures, source/runner/target hashes,
+unknown human effort and the remaining Lazygit readiness cost. The published
+v0.4.0-rc.1 assets are unchanged. Held-out tasks and changed-byte qualification
+remain E5 work; no release or outreach follows automatically.

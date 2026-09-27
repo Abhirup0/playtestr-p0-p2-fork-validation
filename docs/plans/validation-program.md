@@ -1,5 +1,7 @@
 # Real-application validation program
 
+> Current-status note, 26 September: this is the original campaign design. R6-Q later executed the admitted matrix and selected repetitions; see the [qualification record](../validation/sprint-11-c-r6-q-2026-09-25.md). Its 300 mapped risk rows are not automatically 300 distinct executed tests; E0 audits the mapping. New work follows [E0-E5](engineering-readiness.md), not a restart of this program.
+
 Planned 19 September 2026; none of the new counts below is an execution result. Owner: Playtestr maintainer. Sprint 11 owns corpus construction; Sprint 13 owns native runner/CI verification; R6 owns qualification of frozen release bytes. This is operator engineering work, not maintainer adoption.
 
 Read the [120-workflow intent catalog](corpus-catalog.md), [root order](../../roadmap.md), and [execution contract](execution-contract.md). Start with five pilots, not all 120 implementations. Final full-matrix and repeat evidence is collected only after R6-F freezes embedded version/build inputs/executable hashes. Sprint 11-C and R6-Q share that one qualification campaign.

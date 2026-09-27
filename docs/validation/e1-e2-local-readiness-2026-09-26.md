@@ -1,5 +1,7 @@
 # E1 local correctness and E2 diagnostic work — 26 September 2026
 
+> Historical cutoff. Subsequent authorization enabled GitHub-hosted native execution and testing-branch pushes. E0/E1/E2 are now accepted in the [27 September native record](e1-e2-native-readiness-2026-09-27.md). Statements below about missing hosts, partial status and no push describe the original cutoff; failures and exclusions remain intact.
+
 Status: **E1 partial; E2 partial and not accepted.** E0 is complete at its audit
 boundary. Six Windows core tasks have discovery controls; required second native
 hosts, remaining variation/maintenance measurements and matched comparisons are

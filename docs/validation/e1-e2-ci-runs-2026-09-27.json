@@ -1,0 +1,380 @@
+{
+  "schema_version": 1,
+  "scope": "E1/E2 experimental native jobs; no included-minute billing claim; standard root CI counted separately",
+  "records": [
+    {
+      "id": 36298926797,
+      "source_commit": "1e1362d8d1505b17ccc7fe3ddf152ccab1750d74",
+      "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36298926797",
+      "conclusion": "failure",
+      "jobs": [
+        {
+          "name": "native-tasks (ubuntu-24.04, linux_amd64, f7a4dd825fc066449265f90642a79dff0fc0318e4c1bc0918c139f69...",
+          "conclusion": "failure",
+          "status": "completed",
+          "started_utc": "2026-09-27T06:02:28Z",
+          "completed_utc": "2026-09-27T06:08:22Z",
+          "runner_seconds": 354,
+          "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36298926797/job/108562828414"
+        },
+        {
+          "name": "linux-comparison",
+          "conclusion": "success",
+          "status": "completed",
+          "started_utc": "2026-09-27T06:02:29Z",
+          "completed_utc": "2026-09-27T06:05:03Z",
+          "runner_seconds": 154,
+          "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36298926797/job/108562828469"
+        },
+        {
+          "name": "native-tasks (macos-15, darwin_arm64, d6425d4c68f67e18214706c250ee4f1452f65259747b3ba85edca7741e8...",
+          "conclusion": "success",
+          "status": "completed",
+          "started_utc": "2026-09-27T06:02:35Z",
+          "completed_utc": "2026-09-27T06:08:50Z",
+          "runner_seconds": 375,
+          "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36298926797/job/108562828556"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "readiness-linux-comparison-1",
+          "size_bytes": 612578,
+          "expired": false,
+          "digest": "sha256:11881a3e5243efccbfa67405c6cbafec90c2d5261b8de946a639119fa9ab9358",
+          "expires_utc": "2026-10-11T06:04:58Z"
+        },
+        {
+          "name": "readiness-native-darwin_arm64-1",
+          "size_bytes": 1852058,
+          "expired": false,
+          "digest": "sha256:973122b761b3f48568955168a8f3e033167e9cd90d62fbfad2787fcbdd84b050",
+          "expires_utc": "2026-10-11T06:08:30Z"
+        },
+        {
+          "name": "readiness-native-linux_amd64-1",
+          "size_bytes": 1974932,
+          "expired": false,
+          "digest": "sha256:1e4628a1aed9aa5810ed9b16a75f27cac176f069cd886cf90c0443cdff708532",
+          "expires_utc": "2026-10-11T06:08:19Z"
+        }
+      ]
+    },
+    {
+      "id": 36299542716,
+      "source_commit": "fbf4073940a70a4ef1cef28cdaa068c08be37478",
+      "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36299542716",
+      "conclusion": "failure",
+      "jobs": [
+        {
+          "name": "linux-comparison",
+          "conclusion": "success",
+          "status": "completed",
+          "started_utc": "2026-09-27T06:15:16Z",
+          "completed_utc": "2026-09-27T06:17:50Z",
+          "runner_seconds": 154,
+          "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36299542716/job/108564529170"
+        },
+        {
+          "name": "native-tasks (ubuntu-24.04, linux_amd64, f7a4dd825fc066449265f90642a79dff0fc0318e4c1bc0918c139f69...",
+          "conclusion": "failure",
+          "status": "completed",
+          "started_utc": "2026-09-27T06:15:16Z",
+          "completed_utc": "2026-09-27T06:21:47Z",
+          "runner_seconds": 391,
+          "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36299542716/job/108564529249"
+        },
+        {
+          "name": "native-tasks (macos-15, darwin_arm64, d6425d4c68f67e18214706c250ee4f1452f65259747b3ba85edca7741e8...",
+          "conclusion": "failure",
+          "status": "completed",
+          "started_utc": "2026-09-27T06:15:22Z",
+          "completed_utc": "2026-09-27T06:19:50Z",
+          "runner_seconds": 268,
+          "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36299542716/job/108564529290"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "readiness-native-linux_amd64-1",
+          "size_bytes": 1991806,
+          "expired": false,
+          "digest": "sha256:64f950cc7564c0df4d543b1e2fd8afedc1a41d64e1493fc3ff7fe692299692df",
+          "expires_utc": "2026-10-11T06:21:41Z"
+        },
+        {
+          "name": "readiness-linux-comparison-1",
+          "size_bytes": 612736,
+          "expired": false,
+          "digest": "sha256:eadcace90423f9620e82e835f313b5c46811402e36aa16267ab0fd121cfe2839",
+          "expires_utc": "2026-10-11T06:17:45Z"
+        },
+        {
+          "name": "readiness-native-darwin_arm64-1",
+          "size_bytes": 1870276,
+          "expired": false,
+          "digest": "sha256:6b7c0ef72a90e9332e444e8eddd3bbcc4c397a6b82b97fc03a43cc1fda665c4f",
+          "expires_utc": "2026-10-11T06:19:41Z"
+        }
+      ]
+    },
+    {
+      "id": 36300205001,
+      "source_commit": "85d0d2b2ca0201a984aea44077db1346209d2ed0",
+      "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36300205001",
+      "conclusion": "failure",
+      "jobs": [
+        {
+          "name": "linux-comparison",
+          "conclusion": "success",
+          "status": "completed",
+          "started_utc": "2026-09-27T06:28:46Z",
+          "completed_utc": "2026-09-27T06:31:15Z",
+          "runner_seconds": 149,
+          "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36300205001/job/108566332991"
+        },
+        {
+          "name": "native-tasks (macos-15, darwin_arm64, d6425d4c68f67e18214706c250ee4f1452f65259747b3ba85edca7741e8...",
+          "conclusion": "success",
+          "status": "completed",
+          "started_utc": "2026-09-27T06:28:51Z",
+          "completed_utc": "2026-09-27T06:32:46Z",
+          "runner_seconds": 235,
+          "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36300205001/job/108566333089"
+        },
+        {
+          "name": "native-tasks (ubuntu-24.04, linux_amd64, f7a4dd825fc066449265f90642a79dff0fc0318e4c1bc0918c139f69...",
+          "conclusion": "failure",
+          "status": "completed",
+          "started_utc": "2026-09-27T06:28:46Z",
+          "completed_utc": "2026-09-27T06:38:17Z",
+          "runner_seconds": 571,
+          "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36300205001/job/108566333112"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "readiness-native-darwin_arm64-1",
+          "size_bytes": 1868883,
+          "expired": false,
+          "digest": "sha256:86933387819638247d795fae0c94b66b5908c6ad8df706904625f0e6e40e3232",
+          "expires_utc": "2026-10-11T06:32:39Z"
+        },
+        {
+          "name": "readiness-native-linux_amd64-1",
+          "size_bytes": 5838014,
+          "expired": false,
+          "digest": "sha256:011534b053e583a3a3c3b07dbe1b6643c5737894f27560d58c02c4552ce5f54d",
+          "expires_utc": "2026-10-11T06:38:12Z"
+        },
+        {
+          "name": "readiness-linux-comparison-1",
+          "size_bytes": 612642,
+          "expired": false,
+          "digest": "sha256:2548c02cf7c0524741c1a63fd60f843ccd3f6a090918def504a6c4d136ea07a8",
+          "expires_utc": "2026-10-11T06:31:11Z"
+        }
+      ]
+    },
+    {
+      "id": 36301105572,
+      "source_commit": "adee5bf6554ffceb3eeed78752a708a5e8e052ea",
+      "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36301105572",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "name": "linux-comparison",
+          "conclusion": "success",
+          "status": "completed",
+          "started_utc": "2026-09-27T06:46:53Z",
+          "completed_utc": "2026-09-27T06:49:21Z",
+          "runner_seconds": 148,
+          "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36301105572/job/108568776566"
+        },
+        {
+          "name": "native-tasks (ubuntu-24.04, linux_amd64, f7a4dd825fc066449265f90642a79dff0fc0318e4c1bc0918c139f69...",
+          "conclusion": "success",
+          "status": "completed",
+          "started_utc": "2026-09-27T06:46:54Z",
+          "completed_utc": "2026-09-27T07:03:43Z",
+          "runner_seconds": 1009,
+          "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36301105572/job/108568776752"
+        },
+        {
+          "name": "native-tasks (macos-15, darwin_arm64, d6425d4c68f67e18214706c250ee4f1452f65259747b3ba85edca7741e8...",
+          "conclusion": "success",
+          "status": "completed",
+          "started_utc": "2026-09-27T06:47:00Z",
+          "completed_utc": "2026-09-27T06:51:50Z",
+          "runner_seconds": 290,
+          "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36301105572/job/108568776775"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "readiness-native-darwin_arm64-1",
+          "size_bytes": 1870427,
+          "expired": false,
+          "digest": "sha256:78e27e79916a04ef3ece9bd6e393a36bb695ce725c03f8a824fdf4a733649389",
+          "expires_utc": "2026-10-11T06:51:41Z"
+        },
+        {
+          "name": "readiness-linux-comparison-1",
+          "size_bytes": 612668,
+          "expired": false,
+          "digest": "sha256:9a702348262cfadbfd412e1651655959a987fac81a291db72e8e2fc78f18d0ac",
+          "expires_utc": "2026-10-11T06:49:17Z"
+        },
+        {
+          "name": "readiness-native-linux_amd64-1",
+          "size_bytes": 6253893,
+          "expired": false,
+          "digest": "sha256:8eb9cd738d3bf230fd8fd9102c2cc3c9fd0d444ad08289af87395999483adfb7",
+          "expires_utc": "2026-10-11T07:03:33Z"
+        }
+      ]
+    },
+    {
+      "id": 36301393369,
+      "source_commit": "6ece1f6748d3ce7b60d0c7d71e0fd1fd5c7cc9c0",
+      "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36301393369",
+      "conclusion": "failure",
+      "jobs": [
+        {
+          "name": "native-tasks (ubuntu-24.04, linux_amd64, f7a4dd825fc066449265f90642a79dff0fc0318e4c1bc0918c139f69...",
+          "conclusion": "success",
+          "status": "completed",
+          "started_utc": "2026-09-27T06:52:44Z",
+          "completed_utc": "2026-09-27T07:19:21Z",
+          "runner_seconds": 1597,
+          "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36301393369/job/108569562204"
+        },
+        {
+          "name": "native-tasks (macos-15, darwin_arm64, d6425d4c68f67e18214706c250ee4f1452f65259747b3ba85edca7741e8...",
+          "conclusion": "failure",
+          "status": "completed",
+          "started_utc": "2026-09-27T06:52:49Z",
+          "completed_utc": "2026-09-27T06:57:29Z",
+          "runner_seconds": 280,
+          "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36301393369/job/108569562309"
+        },
+        {
+          "name": "linux-comparison",
+          "conclusion": "success",
+          "status": "completed",
+          "started_utc": "2026-09-27T06:52:45Z",
+          "completed_utc": "2026-09-27T06:54:54Z",
+          "runner_seconds": 129,
+          "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36301393369/job/108569562327"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "readiness-native-linux_amd64-1",
+          "size_bytes": 14313489,
+          "expired": false,
+          "digest": "sha256:abddcb9ed3fa8d60bb77404c6805cd2f902ac7b3600ae480326c022740a6cac4",
+          "expires_utc": "2026-10-11T07:19:12Z"
+        },
+        {
+          "name": "readiness-linux-comparison-1",
+          "size_bytes": 612245,
+          "expired": false,
+          "digest": "sha256:3a4c5acd78e34abdc102ef7b09eebfd718aa4f772c4529b692c0019e663bdab3",
+          "expires_utc": "2026-10-11T06:54:49Z"
+        },
+        {
+          "name": "readiness-native-darwin_arm64-1",
+          "size_bytes": 1870607,
+          "expired": false,
+          "digest": "sha256:0c1c81b6996595ad8398b58acb2441abe40391e2cc5accd84d219e9c66694145",
+          "expires_utc": "2026-10-11T06:57:25Z"
+        }
+      ]
+    },
+    {
+      "id": 36301783921,
+      "source_commit": "1a25b645f7d2ce53c142b28e74653a8428fe50af",
+      "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36301783921",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "name": "native-tasks (macos-15, darwin_arm64, d6425d4c68f67e18214706c250ee4f1452f65259747b3ba85edca7741e8...",
+          "conclusion": "success",
+          "status": "completed",
+          "started_utc": "2026-09-27T07:00:44Z",
+          "completed_utc": "2026-09-27T07:08:34Z",
+          "runner_seconds": 470,
+          "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36301783921/job/108570631009"
+        },
+        {
+          "name": "native-tasks (ubuntu-24.04, linux_amd64, f7a4dd825fc066449265f90642a79dff0fc0318e4c1bc0918c139f69...",
+          "conclusion": "success",
+          "status": "completed",
+          "started_utc": "2026-09-27T07:00:39Z",
+          "completed_utc": "2026-09-27T07:34:42Z",
+          "runner_seconds": 2043,
+          "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36301783921/job/108570631105"
+        },
+        {
+          "name": "linux-comparison",
+          "conclusion": "success",
+          "status": "completed",
+          "started_utc": "2026-09-27T07:00:39Z",
+          "completed_utc": "2026-09-27T07:02:47Z",
+          "runner_seconds": 128,
+          "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36301783921/job/108570631133"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "readiness-native-linux_amd64-1",
+          "size_bytes": 14500975,
+          "expired": false,
+          "digest": "sha256:980b544b5b004fc793e42a2ffa3fc05c8fe14cfda61be8c64f596eafa5aa6c57",
+          "expires_utc": "2026-10-11T07:34:32Z"
+        },
+        {
+          "name": "readiness-native-darwin_arm64-1",
+          "size_bytes": 9117872,
+          "expired": false,
+          "digest": "sha256:534c6fe26d96a433932752d7afd786445b9a244864c06f42c8cbf8047ebce254",
+          "expires_utc": "2026-10-11T07:08:25Z"
+        },
+        {
+          "name": "readiness-linux-comparison-1",
+          "size_bytes": 612353,
+          "expired": false,
+          "digest": "sha256:061598a49f6e3454ec14ce81fadff6eb9fb1ad8afb0b2afd5bb629b3c754af3e",
+          "expires_utc": "2026-10-11T07:02:41Z"
+        }
+      ]
+    },
+    {
+      "id": 36303388321,
+      "source_commit": "356b4b91172a353d327931597c8bc29e0f25fc3d",
+      "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36303388321",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "name": "matched-real",
+          "conclusion": "success",
+          "status": "completed",
+          "started_utc": "2026-09-27T07:31:59Z",
+          "completed_utc": "2026-09-27T07:36:59Z",
+          "runner_seconds": 300,
+          "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36303388321/job/108575191554"
+        }
+      ],
+      "artifacts": [
+        {
+          "name": "readiness-matched-real-1",
+          "size_bytes": 4264039,
+          "expired": false,
+          "digest": "sha256:b80423b228e6dafa617e61af2636bfb9e43144ef9cbc76ba01173c2db58d55ac",
+          "expires_utc": "2026-10-11T07:36:50Z"
+        }
+      ]
+    }
+  ]
+}

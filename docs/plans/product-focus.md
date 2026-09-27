@@ -1,6 +1,6 @@
 # Product focus
 
-Decision date: 19 September 2026. The root [roadmap](../../roadmap.md) owns sequence; the [research survey](../research/competitive-user-survey-2026-09-19.md) records evidence and uncertainty.
+Decision update: 26 September 2026. The root [roadmap](../../roadmap.md) owns sequence; the [research refresh](../research/competitive-refresh-2026-09-26.md) records evidence and uncertainty.
 
 ## User and job
 
@@ -26,19 +26,18 @@ These are execution opportunities, not claims of invention. Reliability, usabili
 
 | Priority | Gap | Response |
 | --- | --- | --- |
-| P0 | False passes, unbounded execution, cleanup or data-loss defects | Fix immediately; never trade away for deadlines |
-| P1 | Incorrect cells or input blocks real workflows | Sprint 10, reduced application case and native evidence |
-| P1 | Current workspace/report behavior lacks full native release proof | Sprint 13 and R6 |
-| P1 | Shallow workflow and defect-detection evidence | Sprint 11 validation program |
-| P2 | First-test setup and readiness are unclear | Sprint 12-A recipes and diagnostics |
-| P2 | Dynamic data or missing input makes tests cumbersome | Sprint 12-B, one evidence-selected extension |
-| P2 | Failure context is expensive to reconstruct | Existing report first; Sprint 6 only if necessary |
-| P2 | Value takes too long to understand | Sprint 14 runnable regression stories |
-| Later | Preference, retention, willingness to pay | A1/A2 after engineering |
+| P0 | False passes, state corruption, unbounded execution, cleanup or data loss | Smallest evidence-backed repair; cannot be traded for speed |
+| P1 | Claims, mapped counts and raw evidence need reconciliation | E0 audit; no extra test-count target |
+| P1 | Real target defects, variation and upgrade maintenance underrepresented | E1 primary journeys and E5 holdouts |
+| P1 | Measured short-task latency deficit and incomplete resource data | E2 profiling and real-suite comparisons |
+| P1 | Wide cells/input may block valuable real tasks | E3 proactive probes, one reduced task before implementation |
+| P2 | Independent usability unknown; operator journey still needs hard cases | E4 installation, authoring, diagnosis and maintenance rehearsal |
+| P2 | Changed bytes need trustworthy distribution | E5 qualification using existing R6 rules |
+| Later | Preference, retention and willingness to pay | A1/A2 after readiness review and explicit outreach authorization |
 
 ## Feature budget
 
-Before adoption, allow at most two new public capability families: Sprint 10's selected compatibility behavior and Sprint 12-B's selected input or focused-assertion behavior. A reproduction manifest is a separately justified exception only if Sprint 6's gate proves it necessary. Existing-contract fixes, tests, docs, packaging, and report integration still need small acceptance boundaries.
+The new E0-E5 phase permits at most one selected terminal-compatibility family and one conditional authoring/CI convenience family. The earlier S10/S12-B/manifest deferrals remain historical decisions; new implementation needs fresh evidence and a narrow checkpoint. Existing-contract fixes, tests, docs, packaging, and report integration still need small acceptance boundaries.
 
 Every addition needs a failed workflow, evidence that current features or a recipe cannot solve it, a minimal contract, failure tests, migration cost, and maintenance owner. A competitor checkbox alone is insufficient.
 
@@ -54,7 +53,7 @@ Show a real pass, a controlled target defect, the captured failure and recovery 
 
 These are proposed targets, not achieved metrics. Record all attempts and assistance.
 
-| Outcome | Engineering proof now | Independent proof after R6 |
+| Outcome | Engineering proof target in E0-E5 | Independent proof later in A1 |
 | --- | --- | --- |
 | First value | Fresh-machine installation and three recipes without undocumented setup | 4 of 5 participants reach pass/failure/recovery within 10 minutes after prerequisites; installation timed separately |
 | Diagnosis | Correct category, step, screen/diff, and cleanup for seeded defects | 4 of 5 identify the seeded problem within 2 minutes from the report |
@@ -62,4 +61,4 @@ These are proposed targets, not achieved metrics. Record all attempts and assist
 | Reliability | Native repeated-run and lifecycle campaign | Participant-owned repeated CI use; unexplained failures investigated |
 | Maintenance | Pinned recipes, bounded costs, preserved baselines | At least 2 projects voluntarily reuse in a later session |
 
-Seek a measurable win on this workflow, disclose comparative losses, and let maintainer preference decide. Delaying adoption follows the user's chosen sequence; the risk is optimizing for our assumptions. Keep this engineering batch finite and validate those assumptions immediately afterward.
+The [readiness scorecard](engineering-readiness.md) sets measurable goals across relevant dimensions. Aim for leadership, disclose losses, and distinguish engineering evidence from independent preference. The user chose to hold further outreach until a readiness review; optimizing without users remains a risk, so E0-E5 have a finite scope, budget and decision point. No universal-best claim or automatic recruitment follows.

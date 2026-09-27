@@ -1,6 +1,6 @@
 # Engineering readiness before renewed outreach
 
-Planned 26 September 2026; E0–E2 subsequently authorized for implementation and verification. **E0 audit complete; E1 partial Windows execution; E2 diagnostic work only.** Current accepted progress: 1/6 milestones. Native gaps and remaining acceptance work are recorded in the [local execution record](../validation/e1-e2-local-readiness-2026-09-26.md). E3–E5 are unstarted; publication and outreach remain unauthorized. The [roadmap](../../roadmap.md) owns sequence; the [weekly review](weekly-review-2026-09-26.md) preserves the original planning pass.
+Planned 26 September 2026; E0–E2 subsequently authorized for implementation and verification, including hosted native CI and the completed push. **E0, E1 and E2 accepted on 27 September: 3/6 milestones complete.** The [native acceptance record](../validation/e1-e2-native-readiness-2026-09-27.md) preserves all first failures, measured gains and remaining limits. E3–E5 are unstarted; publication and outreach remain unauthorized. The candidate needs later final-byte qualification before a release. The [roadmap](../../roadmap.md) owns sequence; the [weekly review](weekly-review-2026-09-26.md) preserves the original planning pass.
 
 ## Outcome and boundary
 

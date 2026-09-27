@@ -1,8 +1,10 @@
 # Operational checklists for executing the roadmap
 
+> 26 September scheduling update: these are reusable checks from the completed batch. The next checkpoint is [E0](engineering-readiness.md), not 13-A0. Execute checks only when relevant to the authorized change; current status is in the root roadmap.
+
 Status: proposed execution instructions, 19 September 2026. These commands and checks have not been run as a new native campaign during the planning audit. The [roadmap](../../roadmap.md) owns order; the [execution contract](execution-contract.md) owns evidence and invalidation rules.
 
-## First checkpoint: 13-A0
+## Historical first checkpoint: 13-A0 (completed)
 
 Record checkout identity and modifications, host OS/architecture, Go version, PowerShell availability and applicable race compiler. Keep existing changes intact. Use native Linux amd64, macOS arm64 and Windows amd64 for their respective support cells. A developer's WSL run is labeled separately.
 

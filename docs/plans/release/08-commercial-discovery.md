@@ -1,5 +1,7 @@
 # A2: evidence-gated commercial discovery
 
+> 26 September scheduling update: further A1 outreach is held during [E0-E5](../engineering-readiness.md). This does not lower A2's independent-repeat-use gate or authorize commercial contact.
+
 Status: preparation only. Substantive discovery is gated on A1 demonstrating
 at least two voluntary later uses. As of 26 September 2026 there are no
 consenting participants, repeat uses, willingness-to-pay statements, approved

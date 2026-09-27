@@ -99,3 +99,21 @@ These replace incomplete or ambiguous local controls before any optimization.
 Earlier reports remain separate revisions, including the template-data negative.
 Supplementary reviewed-config, combining-locale and service-interruption probes
 were recorded separately. No performance threshold or native requirement changed.
+
+## 27 September native authorization and admission revision
+
+The user authorized standard hosted GitHub Actions, testing-branch pushes,
+workflow execution/artifact retrieval, E1/E2 continuation and the completed push.
+Linux amd64 and macOS arm64 execution is now available through actually executed
+Ubuntu 24.04/macOS 15 jobs. The published runner hashes and all six primary target
+pins remain frozen. Derived native fzf definitions replace Windows `type` with
+Unix `cat` for the same reviewed candidate file; their hashes are recorded.
+
+The original wide Snow editor probe failed on both hosts and remains excluded
+from advertised cell-width support. A separately named café/λ basic Unicode
+variation supplies the scoped positive cell; it does not replace or repair the
+wide result. Synthetic maintenance and unknown human-time labels remain intact.
+The measured E2 Unix ownership repair uses a separately hashed source candidate;
+its source, matching controls, costs and remaining losses are in the
+[acceptance record](e1-e2-native-readiness-2026-09-27.md). No E3–E5 work or release
+publication is authorized by this revision.

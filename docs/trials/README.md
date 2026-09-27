@@ -1,6 +1,8 @@
 # Playtestr v0.4.0-rc.1 maintainer trials
 
-Status: A1 recruitment opened 26 September 2026 after the engineering batch
+> 26 September weekly-review update: further invitations and follow-ups are held pending [E0-E5 readiness](../plans/engineering-readiness.md) and specific user authorization. The trial guide below remains available as preparation; the prior opening and invitation history is preserved in the [cohort](cohort.md).
+
+Historical opening: A1 recruitment opened 26 September 2026 after the engineering batch
 and R6-V completed. No invitation, consent, review, repeat use, or
 participant-owned CI result is counted until it actually occurs. These trials
 test whether Playtestr protects a real terminal interaction well enough that a

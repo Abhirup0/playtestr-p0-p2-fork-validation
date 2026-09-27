@@ -1,0 +1,25 @@
+{
+  "go": "go1.27.0 windows/amd64",
+  "candidate_source_commit": "6ece1f6748d3ce7b60d0c7d71e0fd1fd5c7cc9c0",
+  "published_runner_sha256": "7a73b598613d34e8a05831d12f2ab26d4abae3e6ce05e63c7d80c316bcc80fc2",
+  "files": [
+    {
+      "path": ".trial-private/corpus-tools/posting-oracle.exe",
+      "sha256": "5875986ba1049407d6be917dc254fcabee68d9dae026d49b3756efeba995a129"
+    },
+    {
+      "path": ".trial-private/corpus-tools/posting-oracle-race.exe",
+      "sha256": "d03af6780c2204c440e010053eacc11c2771746b72f309fda004379bf1fec7c1"
+    },
+    {
+      "path": ".trial-private/corpus-tools/litecli-oracle.exe",
+      "sha256": "64b7a9807599dc98dda50e9a5ebf91b855605f5eeb3859b4adf0a9280897bef0"
+    },
+    {
+      "path": "artifacts/readiness-2026-09-27/candidate-playtestr.exe",
+      "sha256": "6a5d65419e71de487a776f419e28d99af2884137b3af7553b192e3724bac5d48"
+    }
+  ],
+  "scope": "helper normal/race and candidate identities; no published release change",
+  "candidate_build_worktree": "dirty experiment-script changes; Go source matches recorded commit"
+}

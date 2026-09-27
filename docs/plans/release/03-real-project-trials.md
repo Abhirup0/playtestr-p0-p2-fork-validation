@@ -1,5 +1,7 @@
 # R3 — Trial Playtestr in three to five real projects
 
+> 26 September override: further A1 outreach is held for [E0-E5](../engineering-readiness.md) and specific user authorization. Earlier R6-to-recruitment scheduling below is historical. Preserve the [cohort's](../../trials/cohort.md) five recorded prior invitations; do not infer permission to follow up.
+
 > Scheduling update, 19 September 2026: the [current roadmap](../README.md) supersedes ordering in this historical plan. Engineering and R6 precede all maintainer recruitment/adoption; [A1](07-maintainer-adoption.md) owns that later work. Completed release evidence below remains historical evidence.
 
 Status: deferred to A1 after the complete engineering batch and R6. No independent run has been counted yet. Outreach to specific recipients still requires authorization. This plan retains the R3 identifier. Product outcome: independent maintainers use Playtestr to protect actual terminal interactions and tell us where it helps or breaks down.

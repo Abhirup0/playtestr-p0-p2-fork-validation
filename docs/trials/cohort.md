@@ -1,14 +1,16 @@
 # R3 cohort record
 
-Status: A1 recruitment opened 26 September 2026 after R6-V. No independent
-project has been counted yet; invitations and consent are not adoption.
+Status: further A1 outreach held by the 26 September weekly review pending
+[E0-E5](../plans/engineering-readiness.md) and explicit user authorization.
+Recruitment had opened earlier after R6-V; no independent project has been
+counted. Invitations and consent are not adoption.
 
 Five project-specific invitations were posted through relevant public GitHub
 Discussion channels on 26 September across Go, Python, Rust, and Node projects.
 All responses and consents are pending. Exact routes and identities are kept in
 the ignored outreach ledger so this aggregate record does not pre-assign public
-participant status or imply endorsement. Each route permits at most one polite
-follow-up unless the recipient engages.
+participant status or imply endorsement. No further contact or follow-up is authorized by this record. Prior invitations
+remain historical facts; this review does not edit or remove external posts.
 
 This file tracks completion without publishing participant details that lack consent. Store private identity/permission references outside the repository and use a stable trial ID here.
 
@@ -16,11 +18,11 @@ This file tracks completion without publishing participant details that lack con
 
 | Trial ID | Public project or private alias | Maintainer confirmed | Stack | Host | Interaction | Good/bad complete | 10 runs | Later use | CI | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| T01 | Unassigned | No | | | | No | No | No | No | Recruiting |
-| T02 | Unassigned | No | | | | No | No | No | No | Recruiting |
-| T03 | Unassigned | No | | | | No | No | No | No | Recruiting |
-| T04 | Unassigned | No | | | | No | No | No | No | Recruiting |
-| T05 | Unassigned | No | | | | No | No | No | No | Recruiting |
+| T01 | Unassigned | No | | | | No | No | No | No | Outreach held |
+| T02 | Unassigned | No | | | | No | No | No | No | Outreach held |
+| T03 | Unassigned | No | | | | No | No | No | No | Outreach held |
+| T04 | Unassigned | No | | | | No | No | No | No | Outreach held |
+| T05 | Unassigned | No | | | | No | No | No | No | Outreach held |
 
 ## Technical baselines that do not count as adoption
 
@@ -54,4 +56,4 @@ Reject or redesign a proposed trial when it needs production credentials, uncont
 
 ## Post-publication handoff
 
-Adoption A1 receives the completed cohort count, exact verified R6 version, blocker status, voluntary reuse, participant CI and consent-limited claims. Five invitations are the new cohort target; three completed projects/two stacks remain the initial value threshold. Operator trials cannot fill participant counts. Recruitment starts only after engineering and R6.
+Adoption A1 receives the completed cohort count, exact verified R6 version, blocker status, voluntary reuse, participant CI and consent-limited claims. Five invitations are the new cohort target; three completed projects/two stacks remain the initial value threshold. Operator trials cannot fill participant counts. Further recruitment waits for E5 review and explicit authorization of the specific outreach action.

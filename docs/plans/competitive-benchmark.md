@@ -1,5 +1,7 @@
 # Bounded comparative evaluation
 
+> 26 September update: the completed C1-C3 experiment used repository-owned targets. It does not satisfy the real-third-party comparison ambition below. [E2/E4](engineering-readiness.md) and the [scenario protocol](real-world-scenarios.md) add real-task, maintenance and acquisition-parity comparisons; no new results are claimed. The dated result remains unchanged.
+
 Status: completed on Linux amd64 for the admitted C1-C3 cells; see the
 [dated measurement record](../validation/sprint-13-c-competitive-2026-09-22.md).
 Owner: maintainer acting as benchmark operator. Independent preference remains

@@ -10,3 +10,4 @@
 /.trial-private/
 *.actual.txt
 *.diff.txt
+__pycache__/

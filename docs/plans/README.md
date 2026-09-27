@@ -1,44 +1,31 @@
 # Planning guide
 
-The root **[roadmap.md](../../roadmap.md)** is the single source of truth for completed releases/sprints, open verification gates, and step-by-step execution order. Do not maintain a competing sequence here. Updated 19 September 2026 after the deeper planning audit.
+Updated 27 September 2026. The **[root roadmap](../../roadmap.md)** is authoritative for status and order. The previous batch through R6-V is complete. E0-E2 are now accepted: [E0 audit](../validation/e0-evidence-reconciliation-2026-09-26.md) and [native E1/E2 record](../validation/e1-e2-native-readiness-2026-09-27.md) preserve counts, failures, exact identities and tradeoffs. E3-E5 are unstarted; further outreach and publication are held. The original planning pass itself authorized no execution; subsequent user instructions authorized this bounded work and push.
 
-## Read before implementation
+## Current planning set
 
 | Document | Owns |
 | --- | --- |
-| [Root roadmap](../../roadmap.md) | Current milestone/release status, dependency order, next action and pre-adoption finish line |
-| [Product focus](product-focus.md) | Target developer job, differentiation hypothesis, feature budget and outcome targets |
-| [Execution contract](execution-contract.md) | Checkpoint entry/exit, evidence, severity, test obligations and invalidation rules |
-| [Operational checklists](operational-checklists.md) | First native commands, skipped-test gates, reader compatibility and failure scenarios |
-| [Decision register](decision-register.md) | Chosen tradeoffs, unresolved decisions, backlog admission and risks |
-| [Competitive/user survey](../research/competitive-user-survey-2026-09-19.md) | Public-source findings, confidence and market/usage unknowns |
-| [Benchmark protocol](competitive-benchmark.md) | Matched tasks, exact metrics, fair comparisons and claim boundaries |
-| [Validation program](validation-program.md) | Case/run counting, native scope, campaign budgets, state checks and qualification |
-| [120-workflow catalog](corpus-catalog.md) | Concrete proposed tasks and expected results; not executed support claims |
-| [Planning audit](planning-audit-2026-09-19.md) | Multiple review passes, corrected flaws and remaining uncertainties |
+| [Root roadmap](../../roadmap.md) | Completed work, current checkpoint, dependency order and outreach status |
+| [Weekly review, 26 September](weekly-review-2026-09-26.md) | Status audit, decisions, next-week allocation and recurring review procedure |
+| [Engineering readiness](engineering-readiness.md) | E0-E5 milestones, scorecard, acceptance gates, estimates and stop rules |
+| [Real-world scenarios](real-world-scenarios.md) | Useful tasks, state oracles, target defects, variations, upgrades and holdouts |
+| [Competitive refresh](../research/competitive-refresh-2026-09-26.md) | Updated primary-source research, measured losses and testable hypotheses |
+| [Product focus](product-focus.md) | Product job, scope and feature budget |
+| [Execution contract](execution-contract.md) | Evidence, severity, required checks and invalidation |
+| [Decision register](decision-register.md) | Durable decisions, backlog triggers and unresolved questions |
+| [Comparison protocol](competitive-benchmark.md) | Existing fixture measurements and rules for new real-task comparisons |
 
-## Remaining engineering plans
+## Reusable protocols and completed plans
 
-- [Sprint 10](sprints/10-terminal-compatibility.md): compatibility-family gate deferred until a reduced real-project blocker exists.
-- [Sprint 11](sprints/11-real-project-corpus.md): five pilots, admission, deep application cases and frozen-byte repetition.
-- [Sprint 12](sprints/12-authoring-and-focused-assertions.md): complete recipes and diagnostics; one conditional input or focused-assertion extension.
-- [Sprint 6](sprints/06-failure-reproduction.md): ordinary handoff instructions proved sufficient; the optional manifest is deferred.
-- [Sprint 13](sprints/13-native-ci-and-release-hardening.md): early existing native gaps, integrated hardening, fair comparison and freeze preparation.
-- [Sprint 14](sprints/14-demos-and-release-kit.md): three reproducible stories, accessible watch-to-run path and release kit.
-- [R6](release/06-qualified-release.md): freeze, qualify, publish when instructed, verify public bytes.
-- [A1](release/07-maintainer-adoption.md): independent adoption after engineering/R6.
-- [A2](release/08-commercial-discovery.md): prepared interview, consent, cost, offer and hosted-history decision instruments; substantive discovery only after repeat use.
+The [validation program](validation-program.md), [corpus intent catalog](corpus-catalog.md) and [operational checklists](operational-checklists.md) preserve the previous batch's design and checks. Current implementation lives in the [corpus](../../corpus/README.md); actual counts/hosts belong in dated evidence and the [qualified table](../qualified-compatibility-v0.4.0-rc.1.md). Do not restart the five-pilot discovery or claim every original intent exactly matches an admitted workflow.
 
-Identifiers are retained for existing links; they are not a numeric execution order. Root roadmap resolves phases such as 13-A0 before 11 discovery and R6-F before 11-C repetitions. Conditional branches can close with a justified deferral, but essential correctness failures cannot.
+Sprint plans [5](sprints/05-suites-and-ci-results.md), [7](sprints/07-failure-diagnosis.md), [8](sprints/08-ci-adoption-and-installation.md), [9](sprints/09-repeatable-workspaces.md), [11](sprints/11-real-project-corpus.md), [13](sprints/13-native-ci-and-release-hardening.md), [14](sprints/14-demos-and-release-kit.md) and [R6](release/06-qualified-release.md) describe delivered scope. [Sprint 12](sprints/12-authoring-and-focused-assertions.md) delivered A; B was deferred. [Sprint 10](sprints/10-terminal-compatibility.md) and the software branch of [Sprint 6](sprints/06-failure-reproduction.md) remain evidence-gated deferrals. Reuse their criteria; do not silently reopen them.
 
-## Existing implementation and historical plans
+[A1](release/07-maintainer-adoption.md) retains the independent-use protocol but waits for E5 review and specific outreach authorization. [A2](release/08-commercial-discovery.md) is preparation only until repeat independent use. [R3 participant protocol](release/03-real-project-trials.md) supports A1; operator tests are not participants.
 
-[Original sprint record](../sprints.md) preserves Sprints 0–9 engineering history. Sprint [5](sprints/05-suites-and-ci-results.md) and [7](sprints/07-failure-diagnosis.md) are published prerelease capabilities. Sprint [8](sprints/08-ci-adoption-and-installation.md) and [9](sprints/09-repeatable-workspaces.md) are locally implemented with remaining native/publication evidence. Do not rebuild them.
-
-Historical release plans: [R1](release/01-release-candidate.md), [R2](release/02-installation-walkthrough.md), [R3 technical](release/03a-windows-linux-project-trials.md), [R3b](release/03b-trial-findings-and-candidate-readiness.md), [R3c](release/03c-cross-stack-validation.md), [R4](release/04-stable-release.md), [R5](release/05-public-presentation.md). [R3 participant protocol](release/03-real-project-trials.md) is supporting material for A1, not active recruitment.
+Historical context: [sprint delivery record](../sprints.md), [19 September audit](planning-audit-2026-09-19.md), [earlier survey](../research/competitive-user-survey-2026-09-19.md), and release plans [R1](release/01-release-candidate.md), [R2](release/02-installation-walkthrough.md), [R3 technical](release/03a-windows-linux-project-trials.md), [R3b](release/03b-trial-findings-and-candidate-readiness.md), [R3c](release/03c-cross-stack-validation.md), [R4](release/04-stable-release.md), [R5](release/05-public-presentation.md). Their original sequence is superseded by the root roadmap.
 
 ## Maintenance rule
 
-A status claim belongs in root roadmap with its evidence link. Exact run output belongs in a dated record. Public behavior belongs in its versioned contract. Research conclusions belong in the dated survey. Avoid duplicating mutable facts across these layers. At every milestone review links, minimum runner versions and next-step wording together.
-
-No push, publication, outreach or service spend is implied by a planning document. Prepare reviewable artifacts within the authorized task. Go remains the core language; real PTYs prove process/terminal behavior. Documentation-only edits use consistency/link/diff checks rather than a claimed new runtime test result.
+Status belongs in the roadmap; execution results in dated records; public behavior in versioned contracts; research in dated research notes. Preserve failed attempts and exclusions. Update links and next-step wording together. Plans never authorize pushes, releases, outreach or spend. Documentation-only work checks consistency, links and diffs and does not claim fresh runtime verification.

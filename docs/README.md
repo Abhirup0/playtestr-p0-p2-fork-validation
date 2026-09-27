@@ -18,7 +18,7 @@ Playtestr is a local runner for deterministic end-to-end tests of trusted intera
 
 - [Test specification version 1](spec-v1.md) defines every input field, action, default, and limit.
 - [Machine report version 1](report-v1.md) defines structured outcomes and evidence references.
-- [Test specification version 2](spec-v2.md) and [machine report version 2](report-v2.md) define the opt-in development workspace contract.
+- [Test specification version 2](spec-v2.md) and [machine report version 2](report-v2.md) define the opt-in workspace contract published in v0.4.0-rc.1.
 - [Offline failure reports](failure-reports.md) explains safe, bounded HTML export and diagnosis.
 - [Test suites and CI evidence](suites.md) defines directory selection, summaries, limits, and artifact layout.
 - [CI failure handoff](ci-failure-handoff.md) defines the ordinary reviewed context needed for a local rerun.
@@ -42,6 +42,8 @@ Development plans describe possible future work and are not released functionali
 ## Product planning
 
 - [Current delivery roadmap and completed releases](../roadmap.md).
-- [Competitive and user-needs research](research/competitive-user-survey-2026-09-19.md).
-- [Real-application validation program](plans/validation-program.md) and [120 proposed workflows](plans/corpus-catalog.md).
+- [Weekly status review](plans/weekly-review-2026-09-26.md) and [E0-E5 readiness plan](plans/engineering-readiness.md).
+- [Accepted native E1/E2 evidence and tradeoffs](validation/e1-e2-native-readiness-2026-09-27.md) and [authorized execution prompt](plans/e1-e2-ci-execution-prompt.md).
+- [Competitive research refresh](research/competitive-refresh-2026-09-26.md) and [real-world scenarios](plans/real-world-scenarios.md).
+- [Real-application validation program](plans/validation-program.md) and [original workflow design catalog](plans/corpus-catalog.md).
 - [Maintainer adoption after engineering](plans/release/07-maintainer-adoption.md).

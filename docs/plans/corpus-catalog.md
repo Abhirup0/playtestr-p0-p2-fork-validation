@@ -1,5 +1,7 @@
 # Proposed corpus: 120 workflow intents
 
+> Current-status note, 26 September: the original intents below are preserved as design history. The admitted implementations and outcomes are in the [corpus](../../corpus/README.md) and [qualification record](../validation/sprint-11-c-r6-q-2026-09-25.md); actual task scope may differ from an original intent. New scenario work follows [this protocol](real-world-scenarios.md).
+
 Status: **design inventory, not implemented tests or compatibility evidence**. Each project has eight candidate user tasks below. IDs make omissions, duplication and scope changes reviewable. Sprint 11 admits exact versions and actual supported routes before implementation; a listed task may need replacement if that pinned application cannot perform it. Never modify the application just to make a proposed feature exist.
 
 The [validation program](validation-program.md) owns acceptance, native breadth, counting and execution budgets. The [root roadmap](../../roadmap.md) owns order. A case is complete only with its actual spec, independently justified expectation, host scope, bounded setup and cleanup, attempt evidence and review. An interface framework or language name alone is not coverage.

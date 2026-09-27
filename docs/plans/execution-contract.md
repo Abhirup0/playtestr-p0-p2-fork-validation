@@ -1,4 +1,6 @@
-# Execution contract for the remaining batch
+# Execution contract for roadmap checkpoints
+
+> Applies to [E0-E5](engineering-readiness.md) from 26 September. Earlier pre-adoption scheduling language is superseded by that finite phase; evidence, severity, authorization and invalidation rules remain in force. Plans themselves are not implementation authorization.
 
 Status: planning rules, 19 September 2026. [Root roadmap](../../roadmap.md) owns sequence and milestone status. This document defines how to begin, verify and close a checkpoint without inventing certainty or growing the product accidentally.
 

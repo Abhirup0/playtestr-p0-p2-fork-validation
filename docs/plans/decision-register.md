@@ -1,8 +1,14 @@
 # Decisions, unresolved questions and scope control
 
-Updated 25 September 2026. The [root roadmap](../../roadmap.md) fixes order; this register makes choices and revisit triggers visible. A proposed feature is not approved merely because it has a row.
+Updated 26 September 2026. The [root roadmap](../../roadmap.md) fixes order; this register makes choices and revisit triggers visible. A proposed feature is not approved merely because it has a row.
 
-## Decisions made for this batch
+Current execution status updated 27 September: E0/E1/E2 accepted; E3-E5 unstarted. The dated decisions below retain the earlier partial states.
+
+## Current sequencing override
+
+D21 supersedes D01's immediate R6-to-A1 scheduling and the old fixed stop at Sprint 14, at the user's explicit request on 26 September. Completed engineering and evidence-backed deferrals stay complete. E0-E5 are a finite new phase, not an indefinite parity campaign. Further outreach is held; recorded prior invitations remain history.
+
+## Decisions made for the previous batch
 
 | ID | Decision | Reason and consequence |
 | --- | --- | --- |
@@ -27,6 +33,26 @@ Updated 25 September 2026. The [root roadmap](../../roadmap.md) fixes order; thi
 | D19 | Select and qualify `v0.4.0-rc.1` without stable relabeling | Exact-version setup plus opt-in workspace/report v2 is a coherent minor prerelease. V1 remains the downgrade boundary; changing the embedded version changes bytes and requires qualification. |
 | D20 | Close R6-Q with exact hash evidence and retain transient failures | The 120-workflow matrix, 15 intended negatives/recoveries and 3,000 unique first attempts passed. CV-02 and Posting host transients remain recorded; WSL target rows are not native app claims. |
 
+## Decisions from the 26 September review
+
+| ID | Decision | Reason and consequence |
+| --- | --- | --- |
+| D21 | Add finite E0-E5 readiness before further outreach | User requested deeper R&D and real-scenario competitive improvement; [plan](engineering-readiness.md) defines scope, budget, evidence and stop decision. No implementation authorized by this planning pass. |
+| D22 | Audit risk rows and mutation provenance before enlarging campaigns | 300 rows reference 41 distinct strings; no inference of 300 independent tests. Real target defects must be distinguished from mismatched baselines/specs. |
+| D23 | Retain task-level wins, ties, losses and unknowns | Speed cannot compensate for false passes; operator success cannot establish independent preference; universal superiority is not claimed. |
+| D24 | Accept E0 audit; keep E1/E2 partial | [E0 ledger](../validation/e0-evidence-reconciliation-2026-09-26.md) separates 300 mappings, 40 test anchors and one workflow, fixes timing interpretations and distinguishes executable patches from template/input controls. Missing evidence stays missing. |
+| D25 | Repair state oracles and readiness before optimization | [Local execution](../validation/e1-e2-local-readiness-2026-09-26.md) adds exact Git/SQLite/request/scaffold state and save/reopen controls. Preserve first harness failures, stale readiness and input-transition failure. No runner safeguard reduction or unsupported performance win. |
+| D26 | Do not infer native acceptance or competitor cleanup from local task passes | Required Linux/macOS lanes and matched resource/comparator cells remain open. Termless menu task works, but its console-helper stderr leaves cleanup unqualified. E3-E5 and outreach remain unstarted. |
+| D27 | Continue local diagnostics; hold conditional push until E0-E2 acceptance | User confirms no native endpoint is available. Fresh Windows sampled-resource and reduced node-pty cleanup findings improve evidence but cannot replace required native cells or matched comparisons. Preserve instrumentation/operator failures and keep E1/E2 unaccepted. |
+
+## Decisions from 27 September execution
+
+| ID | Decision | Reason and consequence |
+| --- | --- | --- |
+| D28 | Use standard GitHub-hosted native runners under explicit authorization | No physical devices or SSH hosts are needed. Actual Linux/macOS execution, artifact retrieval and testing-branch pushes are authorized; configured workflows alone remain insufficient proof. No paid runners, publication or outreach. |
+| D29 | Accept E1's admitted six-journey native scope | Five-good/source-defect/recovery on all three hosts, scheduled variations and three synthetic maintenance cases pass. Preserve wide-cell failure and unisolated Posting query editing; synthetic changes and unknown human minutes are not upstream-upgrade or independent-effort claims. |
+| D30 | Accept E2's measured Unix parent-slave ownership repair and honest tradeoffs | Same-source regression fails before/pass after on Linux; macOS baseline already reaches EOF. Matched short/real-task and paired 1/10/50 suites preserve exact state, output and cleanup. Source safeguards remain fixed. Create-vite ties Atago; Lazygit still loses with an unisolated first-assertion wait. New bytes remain unpublished and require E5 qualification. |
+
 ## Decisions to make at explicit checkpoints
 
 | ID | Question | Owner / deadline | Evidence needed / default |
@@ -38,10 +64,20 @@ Updated 25 September 2026. The [root roadmap](../../roadmap.md) fixes order; thi
 | Q05 | What next version and compatible migration? | **Closed 2026-09-25: `v0.4.0-rc.1`** | V1 remains compatible; v2 workspace/mixed reports need the new reader. Remote novelty checked; migration/rollback is documented. |
 | Q06 | How to retain reproducible evidence affordably? | **Closed 2026-09-24 for discovery depth** | Checked-in corpus metadata is 384,243 bytes; screen artifacts and raw reports remain ignored/private, while compact result records preserve hashes, outcomes, costs and exclusions. R6-Q defines its own bounded attempt ledger. |
 | Q07 | Is a comparison task fairly supported by all chosen tools? | **Closed 2026-09-22 for C1-C3 on Linux amd64** | [Measurement record](../validation/sprint-13-c-competitive-2026-09-22.md); raw-output limiting and cancellation models remain explicitly non-equivalent |
-| Q08 | Can genuine installer upgrade be shown in this batch? | Release owner, R6-V | Same published immutable action SHA installs existing v0.3.0-rc.1 then new R6 release; otherwise future longitudinal check stays open without invented releases |
+| Q08 | Can genuine installer upgrade be shown in this batch? | **Closed 2026-09-26 at R6-V** | Same immutable action verified public v0.3-to-v0.4 upgrades on all three hosts; [record](../validation/r6-publication-and-blocker-2026-09-25.md). Future release upgrades need their own evidence. |
 | Q09 | How do strict formats interact with patch-addition wording? | **Closed 2026-09-25** | New reader accepts old v1 documents; old strict readers may reject v2/new documents. V2 is opt-in and not silently downgraded. |
 
 Do not silently pick a new format version during implementation. Document alternatives and cost at the relevant checkpoint; the maintainer reviews the concrete contract before it is presented as stable. Routine implementation choices within accepted scope do not need repeated permission requests.
+
+## New phase checkpoint questions
+
+| ID | Question | Owner / deadline | Evidence / default |
+| --- | --- | --- | --- |
+| Q10 | Which claims retain reproducible raw evidence and distinct test execution? | **Closed at E0 audit boundary** | [Ledger](../validation/e0-evidence-reconciliation-2026-09-26.md); missing historical evidence remains missing |
+| Q11 | What causes the speed gap and can it be reduced safely? | **Closed at E2 investigation boundary** | [Native record](../validation/e1-e2-native-readiness-2026-09-27.md): Linux final drain explained and repaired; remaining RW1 readiness cost and human-effort comparison remain explicit gaps |
+| Q12 | Which fidelity family blocks a useful real task? | Maintainer, E3 | Reduced application failure and independent cell/input expectation; no checkbox-driven change |
+| Q13 | Does total authoring/maintenance effort beat an applicable alternative? | Operator, E4 | Two real-task comparisons and all helper work; later independent A1 confirmation |
+| Q14 | Is evidence sufficient to resume a scoped trial? | User, E5 | Honest scorecard and exact support/release proposal; specific outreach permission still required |
 
 ## Backlog admission table
 
@@ -59,13 +95,13 @@ Do not silently pick a new format version during implementation. Document altern
 | Hosted evidence/history | Deferred to A2 | Independent repeat use, repeated collaborative need and one paid pilot |
 | Billing/accounts/PR bots | Deferred | Paid value and privacy/operating economics established; never a local-run prerequisite |
 
-Every new accepted item needs task, evidence, minimum solution, regression proof, cost, owner and a displaced priority or later slot. A competitor release alone is not a trigger. Do not append pre-adoption sprints for these ideas.
+Every new accepted item needs task, evidence, minimum solution, regression proof, cost, owner and a displaced priority or later slot. A competitor release alone is not a trigger. Do not append optional work beyond E0-E5 for these ideas without a revised scope decision and displaced priority.
 
 ## Main risks and early warning signals
 
 | Risk | Early signal | Mitigation / stop condition |
 | --- | --- | --- |
-| Demand assumptions outlive engineering | New optional sprint added before A1 | Fixed batch; escalate scope change, then proceed to user validation |
+| Demand assumptions outlive engineering | E0-E5 grows without stronger real-task evidence | Fixed phase budget and E5 decision; independent preference remains unknown until authorized A1 |
 | Test count inflation | Same flow renamed for hosts/viewports | Stable IDs, distinct-task review, separate repeat counters |
 | Oracle validates the wrong state | Screen green but Git/file state differs | Independent exact state checks and failing-oracle controls |
 | Adapter invalidates real-process coverage | Signals/input differ from direct launch | Native parity checks or use owned-cwd harness alternative |

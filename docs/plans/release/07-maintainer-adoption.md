@@ -1,16 +1,14 @@
 # A1: maintainer adoption after engineering
 
-Status: recruitment active from 26 September 2026 after R6-V completion. No
-participant, review, repeat use, or participant-owned CI result has yet been
-counted. Owner: project maintainer. Existing [R3 protocol](03-real-project-trials.md),
-participant templates and cohort ledger may be reused, without treating
-operator tests as independent runs.
+Status: **further recruitment and outreach held from the 26 September weekly review**. R6-V is complete, and the cohort records five invitations already posted with zero responses/consents counted. Preserve that history. The user requested [E0-E5 readiness](../engineering-readiness.md) before further contact. Owner: project maintainer. No participant, review, repeat use or participant-owned CI result is counted.
+
+Existing [R3 protocol](03-real-project-trials.md), templates and cohort ledger remain useful. E5 produces a readiness recommendation; the user must accept the boundary and explicitly authorize each specific outreach action before invitations, replies or follow-ups are sent. This plan grants no communication permission.
 
 ## Entry and recruitment
 
 Prepare the verified release, three recipes, real failure report, exact support limits, removal instructions and a one-page trial guide. With explicit authorization to contact chosen recipients, invite five consenting maintainers across at least three implementation ecosystems. Include an existing framework-test user, a custom-script user and someone relying on manual checks if feasible. Do not manufacture names, endorsements or participant CI.
 
-Recruitment starts here, not during engineering. Unsolicited inbound feedback can be recorded earlier without claiming adoption completion. If participants are unavailable, keep the outcome open and revise recruiting, not the feature roadmap. Review progress after two weeks of actual recruitment; do not invent another engineering batch merely to postpone discovery.
+Future recruitment resumes only after the E5 decision and explicit outreach authorization. Unsolicited inbound feedback can be recorded earlier without claiming adoption completion. If participants are unavailable, keep the outcome open and revise recruiting, not the feature roadmap. Review progress after two weeks of actually resumed recruitment; engineering work and elapsed time do not count as participant evidence.
 
 ## Interview and observation protocol
 

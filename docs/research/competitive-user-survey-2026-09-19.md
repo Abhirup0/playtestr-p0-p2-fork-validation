@@ -1,5 +1,7 @@
 # Competitive landscape and developer needs
 
+> Historical survey. The [26 September refresh](competitive-refresh-2026-09-26.md) updates comparative findings and R&D priorities; the [root roadmap](../../roadmap.md) supersedes old release/status/scheduling descriptions below. Original sources and qualitative reports remain dated evidence.
+
 Research date: 19 September 2026. Public-source desk research plus repository review; not interviews, a representative market survey, or an executed competitor benchmark. This supersedes recommendations and current-state descriptions in the [15 September assessment](competitive-assessment-2026-09.md).
 
 ## Method and limitations
