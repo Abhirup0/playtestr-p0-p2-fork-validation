@@ -13,6 +13,7 @@ ROOT=Path(__file__).resolve().parents[2]
 parser=argparse.ArgumentParser()
 parser.add_argument('--runner',required=True)
 parser.add_argument('--out',default='artifacts/readiness-native/tasks')
+parser.add_argument('--primary-only',action='store_true',help='Frozen-byte replay of the six admitted primary journeys only')
 args=parser.parse_args()
 runner=Path(args.runner).resolve()
 out=ROOT/args.out
@@ -78,6 +79,11 @@ if all(pilot):
         for i in range(1,6): attempt(ident+'-good-'+str(i),'corpus/workflows/'+good,0)
         attempt(ident+'-defect','corpus/workflows/'+bad,1)
         attempt(ident+'-recovery','corpus/workflows/'+good,0)
+    if args.primary_only:
+        summary=dict(host=host,runner_sha256=runner_sha,attempts=len(rows),accepted=sum(x['accepted'] for x in rows),pilot_accepted=True,
+            scope='Six frozen primary journeys: six pilots plus five good/defect/recovery per journey; development controls, not extra qualification repeats')
+        (out/'summary.json').write_text(json.dumps(summary,indent=2)+'\n')
+        raise SystemExit(0 if all(x['accepted'] for x in rows) else 1)
     variations=[
         'lazygit/rw1-resize.control','micro/rw2-ui-maintained.control',
         'micro/micro-05.json','micro/rw2-basic-unicode.control','micro/rw2-realistic.control',

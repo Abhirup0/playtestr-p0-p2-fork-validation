@@ -1,0 +1,72 @@
+name: E5 frozen-byte six native real journeys
+on:
+  push:
+    branches: [readiness/e3-e5]
+    paths: ['.github/workflows/readiness-e5-real.yml', 'scripts/readiness/run-native.py']
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  real:
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { runner: ubuntu-24.04, target: linux-amd64 }
+          - { runner: macos-15, target: darwin-arm64 }
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-go@v7
+        with:
+          go-version: '1.26.0'
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24.7.0'
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v6
+        with:
+          name: playtestr-${{ matrix.target }}
+          path: candidate
+          github-token: ${{ github.token }}
+          run-id: '36329978517'
+      - name: Verify and extract exact frozen bytes
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib,json,pathlib,tarfile,os
+          root=pathlib.Path('candidate'); record=json.loads(next(root.rglob('candidate-evidence-*.json')).read_text())
+          assert record['source_commit']=='ae97c62022966cde9699b26169b4dc6ef0a12439'
+          archive=root/record['archive']; assert hashlib.sha256(archive.read_bytes()).hexdigest()==record['archive_sha256']
+          destination=pathlib.Path('frozen candidate'); destination.mkdir()
+          with tarfile.open(archive) as t:
+              assert sorted(t.getnames())==sorted(record['archive_members']); t.extractall(destination,filter='data')
+          binary=next(destination.rglob('playtestr')); assert hashlib.sha256(binary.read_bytes()).hexdigest()==record['executable_sha256']
+          with open(os.environ['GITHUB_ENV'],'a') as env: env.write('FROZEN_RUNNER='+str(binary)+'\n')
+          PY
+      - name: Prepare unchanged pinned native targets and code controls
+        run: python scripts/readiness/setup-native.py
+      - name: Revalidate six admitted native task boundaries without rebuilding runner
+        shell: bash
+        run: |
+          python scripts/readiness/run-native.py --runner "$FROZEN_RUNNER" --primary-only --out artifacts/e5-native-real
+          python - <<'PY'
+          import json,pathlib,subprocess,platform,sys
+          root=pathlib.Path('artifacts/e5-native-real'); summary=json.loads((root/'summary.json').read_text())
+          assert summary['attempts']==48 and summary['accepted']==48
+          identities=dict(python=sys.version,node=subprocess.check_output(['node','--version'],text=True).strip(),go=subprocess.check_output(['go','version'],text=True).strip(),host=platform.platform())
+          (root/'runtime-identities.json').write_text(json.dumps(identities,indent=2)+'\n')
+          PY
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: e5-native-real-${{ matrix.target }}
+          path: |
+            artifacts/e5-native-real
+            artifacts/readiness-native/target-pins.json
+            artifacts/readiness-native/setup-operations.json
+          retention-days: 14
