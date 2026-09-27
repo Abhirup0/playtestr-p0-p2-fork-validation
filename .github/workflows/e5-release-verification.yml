@@ -1,0 +1,226 @@
+name: E5 public distribution and upgrade verification
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  RELEASE_VERSION: v0.4.0-rc.2
+  ACTION_REVISION: ae97c62022966cde9699b26169b4dc6ef0a12439
+
+jobs:
+  public-behavior:
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: ubuntu-latest
+            target_os: linux
+            target_arch: amd64
+            executable: playtestr
+            archive: playtestr_0.4.0-rc.2_linux_amd64.tar.gz
+            archive_sha256: e442710e1cc851d134cde7ccc9441be8503c65e210d35318f0106ed5ab54ce55
+            binary_sha256: 543f56353cfa77e6270e8ae0ce4ab018fe58fc0a990a9b4a942e33a2f9ed0c03
+          - runner: macos-15
+            target_os: darwin
+            target_arch: arm64
+            executable: playtestr
+            archive: playtestr_0.4.0-rc.2_darwin_arm64.tar.gz
+            archive_sha256: 7dab72ab263b34f3e1a4958b6c6f6f8aa374633320531e9ebeaf11317006a9f4
+            binary_sha256: a6b806e38bf6818fcf2405f8fff2ccb83be3565e18ca444714c9886b2593c527
+          - runner: windows-latest
+            target_os: windows
+            target_arch: amd64
+            executable: playtestr.exe
+            archive: playtestr_0.4.0-rc.2_windows_amd64.zip
+            archive_sha256: 27284f5e994dc7e7122bdca83a52819aec55fa420e9dbd78cdc2bdde70c7eff4
+            binary_sha256: b09f8daea6211ae24ca15aeb4b7f15f5daac277c920a02cb28feb6b99eb3aa8b
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-go@v7
+        with:
+          go-version: '1.26.0'
+      - name: Install through immutable public action
+        id: setup
+        uses: Wyrcan-io/playtestr/setup-playtestr@ae97c62022966cde9699b26169b4dc6ef0a12439
+        with:
+          version: v0.4.0-rc.2
+      - name: Verify action identities and PATH
+        shell: bash
+        env:
+          BINARY_PATH: ${{ steps.setup.outputs.binary-path }}
+          ARCHIVE_SHA256: ${{ steps.setup.outputs.archive-sha256 }}
+          BINARY_SHA256: ${{ steps.setup.outputs.binary-sha256 }}
+        run: |
+          set -euo pipefail
+          test "$ARCHIVE_SHA256" = '${{ matrix.archive_sha256 }}'
+          test "$BINARY_SHA256" = '${{ matrix.binary_sha256 }}'
+          binary_for_shell="$BINARY_PATH"
+          if [[ '${{ matrix.target_os }}' == windows ]]; then
+            binary_for_shell="$(cygpath -u "$BINARY_PATH")"
+          fi
+          test "$(sha256sum "$binary_for_shell" | awk '{print $1}')" = '${{ matrix.binary_sha256 }}'
+          test "$("$binary_for_shell" version)" = 'playtestr v0.4.0-rc.2'
+          test "$(playtestr version)" = 'playtestr v0.4.0-rc.2'
+      - name: Download and extract public archive into spaced path
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p 'artifacts/public download/path with spaces'
+          base='https://github.com/Wyrcan-io/playtestr/releases/download/v0.4.0-rc.2'
+          archive='artifacts/public download/${{ matrix.archive }}'
+          curl --fail --location --retry 3 --silent --show-error \
+            --write-out 'status=%{http_code} size=%{size_download} seconds=%{time_total}\n' \
+            "$base/${{ matrix.archive }}" --output "$archive" \
+            > 'artifacts/public download/download.txt'
+          curl --fail --location --retry 3 --silent --show-error \
+            "$base/checksums-v0.4.0-rc.2.txt" \
+            --output 'artifacts/public download/checksums-v0.4.0-rc.2.txt'
+          test "$(sha256sum "$archive" | awk '{print $1}')" = '${{ matrix.archive_sha256 }}'
+          if [[ '${{ matrix.target_os }}' == windows ]]; then
+            unzip -q "$archive" -d 'artifacts/public download/path with spaces'
+          else
+            tar -xzf "$archive" -C 'artifacts/public download/path with spaces'
+          fi
+          extracted="$(find 'artifacts/public download/path with spaces' -name '${{ matrix.executable }}' -type f)"
+          test -n "$extracted"
+          test "$(sha256sum "$extracted" | awk '{print $1}')" = '${{ matrix.binary_sha256 }}'
+          test "$("$extracted" version)" = 'playtestr v0.4.0-rc.2'
+      - name: Build deterministic targets
+        shell: bash
+        run: |
+          set -euo pipefail
+          suffix=''
+          if [[ '${{ matrix.target_os }}' == windows ]]; then suffix='.exe'; fi
+          go build -trimpath -o "bin/demo$suffix" ./cmd/demo
+          go build -trimpath -o "bin/fixture$suffix" ./cmd/fixture
+      - name: Run release stories and cleanup checks
+        shell: bash
+        env:
+          PUBLIC_RUNNER: ${{ steps.setup.outputs.binary-path }}
+        run: bash release/stories/run.sh "$PUBLIC_RUNNER" 'artifacts/public-stories'
+      - name: Run v1, v2, mixed, expected-nonzero, and reports
+        shell: bash
+        env:
+          PUBLIC_RUNNER: ${{ steps.setup.outputs.binary-path }}
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/public-contracts
+          "$PUBLIC_RUNNER" test --report artifacts/public-contracts/v1.json examples/menu.json
+          "$PUBLIC_RUNNER" report --input artifacts/public-contracts/v1.json --evidence-root . --output artifacts/public-contracts/v1.html
+          "$PUBLIC_RUNNER" test --report artifacts/public-contracts/v2.json examples/workspace.json
+          "$PUBLIC_RUNNER" report --input artifacts/public-contracts/v2.json --evidence-root . --output artifacts/public-contracts/v2.html
+          "$PUBLIC_RUNNER" test --report artifacts/public-contracts/mixed.json examples/menu.json examples/workspace.json
+          cat > artifacts/public-contracts/expected-nonzero.json <<'JSON'
+          {
+            "version": 1,
+            "name": "Public expected nonzero",
+            "command": ["pwsh", "-NoLogo", "-NoProfile", "-Command", "Write-Output 'expected nonzero ready'; exit 7"],
+            "steps": [{"expect": "expected nonzero ready"}, {"exit": 7}]
+          }
+          JSON
+          "$PUBLIC_RUNNER" test --report artifacts/public-contracts/expected-nonzero-result.json artifacts/public-contracts/expected-nonzero.json
+          python - <<'PY'
+          import json, pathlib
+          root = pathlib.Path('artifacts/public-contracts')
+          for name in ('v1', 'v2', 'mixed', 'expected-nonzero-result'):
+              data = json.loads((root / f'{name}.json').read_text(encoding='utf-8'))
+              assert data['summary']['failed'] == 0, (name, data)
+          assert json.loads((root / 'v1.json').read_text())['report_version'] == 1
+          assert json.loads((root / 'v2.json').read_text())['report_version'] == 2
+          assert json.loads((root / 'mixed.json').read_text())['report_version'] == 2
+          PY
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: public-verification-${{ matrix.target_os }}-${{ matrix.target_arch }}
+          path: |
+            artifacts/public download/download.txt
+            artifacts/public-stories/
+            artifacts/public-contracts/
+          if-no-files-found: error
+          retention-days: 14
+
+  upgrade:
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: ubuntu-latest
+            target_os: linux
+          - runner: macos-15
+            target_os: darwin
+          - runner: windows-latest
+            target_os: windows
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-go@v7
+        with:
+          go-version: '1.26.0'
+      - name: Build v1 and v2 targets
+        shell: bash
+        run: |
+          set -euo pipefail
+          suffix=''
+          if [[ '${{ matrix.target_os }}' == windows ]]; then suffix='.exe'; fi
+          go build -trimpath -o "bin/demo$suffix" ./cmd/demo
+          go build -trimpath -o "bin/fixture$suffix" ./cmd/fixture
+          sha256sum examples/snapshots/diagnostics.txt > artifacts-baseline.sha256
+      - name: Install old runner with the new immutable action
+        id: old
+        uses: Wyrcan-io/playtestr/setup-playtestr@ae97c62022966cde9699b26169b4dc6ef0a12439
+        with:
+          version: v0.3.0-rc.1
+      - name: Exercise old v1 pass, failure, and recovery
+        shell: bash
+        env:
+          OLD_RUNNER: ${{ steps.old.outputs.binary-path }}
+        run: |
+          set -euo pipefail
+          test "$(playtestr version)" = 'playtestr v0.3.0-rc.1'
+          "$OLD_RUNNER" test --report old-pass.json examples/menu.json
+          set +e
+          "$OLD_RUNNER" test --report old-failure.json examples/snapshot-mismatch.json
+          code=$?
+          set -e
+          test "$code" -eq 1
+          "$OLD_RUNNER" test --report old-recovery.json examples/menu.json
+      - name: Install new runner separately with the same action
+        id: new
+        uses: Wyrcan-io/playtestr/setup-playtestr@ae97c62022966cde9699b26169b4dc6ef0a12439
+        with:
+          version: v0.4.0-rc.2
+      - name: Exercise new v1 path and v2-only path
+        shell: bash
+        env:
+          OLD_RUNNER: ${{ steps.old.outputs.binary-path }}
+          NEW_RUNNER: ${{ steps.new.outputs.binary-path }}
+        run: |
+          set -euo pipefail
+          test "$OLD_RUNNER" != "$NEW_RUNNER"
+          test "$(playtestr version)" = 'playtestr v0.4.0-rc.2'
+          "$NEW_RUNNER" test --report new-pass.json examples/menu.json
+          set +e
+          "$NEW_RUNNER" test --report new-failure.json examples/snapshot-mismatch.json
+          code=$?
+          set -e
+          test "$code" -eq 1
+          "$NEW_RUNNER" test --report new-recovery.json examples/menu.json
+          "$NEW_RUNNER" test --report new-v2.json examples/workspace.json
+          sha256sum --check --strict artifacts-baseline.sha256
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: public-upgrade-${{ matrix.target_os }}
+          path: |
+            old-*.json
+            new-*.json
+            artifacts-baseline.sha256
+          if-no-files-found: warn
+          retention-days: 14
