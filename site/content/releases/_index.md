@@ -13,6 +13,15 @@ The first stable standalone runner for deterministic end-to-end tests of trusted
 
 ## Current prerelease
 
+### [Playtestr v0.4.0-rc.3](/playtestr/releases/v0.4.0-rc.3/)
+
+The selected two-column wide-character repair preserves v1/v2 formats and passed
+fresh exact-byte qualification plus native public archive/action/upgrade checks.
+Stable v0.1.0 stays unchanged; combining clusters, emoji/ZWJ and terminal queries
+remain excluded. See its release record for exact hashes, first attempts and limits.
+
+## Earlier prerelease
+
 ### [Playtestr v0.4.0-rc.1](/playtestr/releases/v0.4.0-rc.1/)
 
 Adds opt-in fresh workspaces and versioned mixed-suite reports. Its qualified

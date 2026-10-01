@@ -32,7 +32,7 @@ Sprint 6 then proved an ordinary pinned-input handoff sufficient and deferred
 its optional manifest. Status is **R6-V complete**. The 26 September weekly
 review selected [E0-E5 readiness](plans/engineering-readiness.md), subsequently
 completed within recorded scope with rc.2 publication. The later selected
-[CJK repair](validation/wide-character-2026-09-28.md) passed native development checks;
+[CJK repair](validation/wide-character-2026-09-28.md) passed native development checks and later [rc.3 qualification/publication](validation/wide-character-release-2026-10-01.md);
 further A1 outreach is held. The interactive screen-reader audit remains open. The root
 roadmap owns exact checkpoint order; [planning documents](plans/README.md)
 define execution details. Completed counts link to dated evidence; no adoption
@@ -173,6 +173,6 @@ case but is not independent adoption. Maintainer adoption/outside feedback remai
 
 ## Current development plans
 
-The [root roadmap](../roadmap.md) records completed scoped E0-E5 readiness and rc.2 publication. The user then requested the [wide-character repair](plans/wide-character-next-steps-prompt.md); [native development evidence](validation/wide-character-2026-09-28.md) records its outcome. A1/A2, outreach and marketing remain held. A later release requires fresh qualification of its own frozen bytes.
+The [root roadmap](../roadmap.md) records completed scoped E0-E5 readiness and rc.2 publication. The user then requested the [wide-character repair](plans/wide-character-next-steps-prompt.md); [native development evidence](validation/wide-character-2026-09-28.md) records its outcome. A1/A2, outreach and marketing remain held. The later rc.3 release completed fresh frozen-byte qualification and public verification; [record](validation/wide-character-release-2026-10-01.md). Any future release needs its own qualification.
 
 Sprints 5-14 and R6 remain completed accepted scope or explicitly deferred branches as recorded above; they are not a new implementation backlog. The [planning index](plans/README.md) links historical plans and current protocols. Do not infer participant adoption from corpus or operator results.

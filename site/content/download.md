@@ -9,6 +9,17 @@ Playtestr runs trusted targets with your user permissions; it is not a sandbox. 
 
 These are the exact release targets verified by their native packaging and public-install workflows. Other architectures, every OS version or distribution, and every terminal application are not implied. Read [compatibility evidence](/playtestr/docs/compatibility/) and the [support policy](/playtestr/support/) for the boundaries.
 
+## v0.4.0-rc.3 prerelease
+
+The [v0.4.0-rc.3 release](/playtestr/releases/v0.4.0-rc.3/) provides the selected
+two-column wide-character repair in separately qualified native archives for
+Linux amd64, macOS arm64 and Windows amd64. All public archives/checksums matched
+the frozen files; immutable action revision
+`ae97c62022966cde9699b26169b4dc6ef0a12439` independently selects runner version
+`v0.4.0-rc.3`. Installation and genuine upgrade checks passed on all three native
+hosts. Combining clusters, emoji/ZWJ and terminal queries remain excluded.
+Stable v0.1.0 remains the stable channel; older prereleases below are historical.
+
 ## v0.4.0-rc.1 prerelease
 
 The [v0.4.0-rc.1 release](/playtestr/releases/v0.4.0-rc.1/) publishes three

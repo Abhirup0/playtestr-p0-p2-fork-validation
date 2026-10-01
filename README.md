@@ -17,7 +17,7 @@ Stable `v0.1.0` publishes native archives for Linux x86-64 (`amd64`), Apple sili
 
 Playtestr starts a real pseudoterminal, sends keyboard input, and feeds output into a VT terminal emulator. Assertions inspect the rendered screen, including cursor movement and redraws.
 
-The newest tested prerelease is [v0.4.0-rc.2](https://github.com/Wyrcan-io/playtestr/releases/tag/v0.4.0-rc.2), with suites, offline reports, opt-in workspaces and the installer/macOS output repairs. See its [downloads and installation](docs/releases/v0.4.0-rc.2.md). Stable v0.1.0 remains available below.
+The newest verified prerelease is [v0.4.0-rc.3](https://github.com/Wyrcan-io/playtestr/releases/tag/v0.4.0-rc.3), adding the selected two-column wide-character repair while retaining suites, offline reports, workspaces and installer/macOS output repairs. See its [downloads and installation](docs/releases/v0.4.0-rc.3.md). Stable v0.1.0 remains available below.
 
 ## Install and run a first test
 
@@ -192,6 +192,6 @@ supported hosts, adopter workflow, archive fallback, and maintenance boundary.
 Recording, replay, exact-failure minimization, and styled snapshots remain post-MVP work.
 
 Built on [Charm's xpty](https://github.com/charmbracelet/x/tree/main/xpty) and a [locally maintained vt10x renderer](internal/terminal/vt10x/README.md).
-The [development wide-character repair](docs/validation/wide-character-2026-09-28.md) is not yet in the downloadable v0.4.0-rc.2 release.
+The selected wide-character repair is in verified v0.4.0-rc.3; [release evidence](docs/validation/wide-character-release-2026-10-01.md) records the exact scope. Combining clusters, emoji/ZWJ sequences and target-visible terminal queries remain excluded.
 
 For completed releases, engineering status and the next implementation steps, see the [project roadmap](roadmap.md). Plans describe future work separately from the released capabilities above.

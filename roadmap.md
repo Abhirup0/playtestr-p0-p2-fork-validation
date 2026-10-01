@@ -1,14 +1,14 @@
 # Playtestr roadmap
 
-Updated 28 September 2026 after scoped E0–E5 acceptance, rc.2 publication and the development wide-character repair. **This file is the authoritative status and execution order.** Detailed plans live in [docs/plans](docs/plans/README.md). Historical evidence remains in its original dated records.
+Updated 1 October 2026 after rc.3 qualification, publication and native public-download verification. **This file is the authoritative status and execution order.** Detailed plans live in [docs/plans](docs/plans/README.md). Historical evidence remains in its original dated records.
 
 Product goal: a developer installs one runner, writes a short terminal interaction, catches a meaningful regression, and understands the failure quickly. Protect correctness and simplicity while increasing real-project depth. E0-E5 are accepted within their recorded boundaries: audited claims, native real tasks, measured cost, investigated fidelity deferral and operator walkthroughs. The macOS last-output and bounded installer repairs passed native gates. E5 qualified exact private v0.4.0-rc.2 bytes and recommends a scoped trial; publication subsequently completed with verified downloads; outreach and marketing remain held. [Execution checkpoint](docs/validation/e3-e5-checkpoint-2026-09-27.md).
 
 ## Read the status correctly
 
 The later [wide-character task](docs/plans/wide-character-next-steps-prompt.md)
-is complete as a native-validated development repair. It is not included in
-the downloadable rc.2 binary; [evidence and remaining boundaries](docs/validation/wide-character-2026-09-28.md).
+is complete and now ships in verified v0.4.0-rc.3;
+[release evidence](docs/validation/wide-character-release-2026-10-01.md) preserves exact-byte results and remaining limits. The older rc.2 bytes remain unchanged.
 
 | Label | Meaning |
 | --- | --- |
@@ -87,7 +87,7 @@ Subsequent user instructions authorized E0-E5 execution, native hosted validatio
 | E0: evidence reconciliation | Auditable claims, counts, artifact availability and frozen experiment questions | Map risk rows to actual tests; classify controls; select scenarios, hosts and comparison pins | **Complete with scoped evidence gaps**; [ledger](docs/validation/e0-evidence-reconciliation-2026-09-26.md), [freeze](docs/validation/e0-experiment-freeze-2026-09-26.md) |
 | E1: real-world effectiveness | Six useful primary journeys with state checks, target defects and maintenance exercises | E0; good/defect/recovery on two native hosts per primary journey, all three runner hosts represented; two holdouts reserved | **Complete at admitted scope**: six journeys on all three hosts, scheduled variations and three synthetic maintenance exercises; human authoring time remains unknown; [record](docs/validation/e1-e2-native-readiness-2026-09-27.md) |
 | E2: runtime and resource cost | Explain and safely reduce measured overhead; compare real suites and total effort | E0 plus two valid E1 journeys; matched before/after, real-task comparison and lifecycle controls | **Complete at engineering boundary**: causal EOF proof, matched short/real tasks, paired 1/10/50 resource suites and lifecycle/race controls; remaining runtime/effort losses explicit; [record](docs/validation/e1-e2-native-readiness-2026-09-27.md) |
-| E3: targeted terminal fidelity | Original native investigation; later selected CJK repair | [Original exclusions](docs/validation/e3-fidelity-boundary-2026-09-27.md), [development repair](docs/validation/wide-character-2026-09-28.md) | Historical deferral retained; selected wide-cell repair natively verified, not yet released |
+| E3: targeted terminal fidelity | Original native investigation; later selected CJK repair | [Original exclusions](docs/validation/e3-fidelity-boundary-2026-09-27.md), [development repair](docs/validation/wide-character-2026-09-28.md) | Historical deferral retained; selected wide-cell repair qualified and published in verified rc.3 |
 | E4: authoring, diagnosis and maintenance | Four walkthroughs, eight maintenance changes, six diagnoses and native correctness repairs | [Operator and accessibility boundaries](docs/validation/e4-operator-readiness-2026-09-27.md) | Accepted |
 | E5: final qualification and readiness decision | Exact-byte evidence, two held-out definitions, honest competitive scorecard | [Qualified private v0.4.0-rc.2](docs/validation/e5-qualified-readiness-2026-09-27.md); 3,000 first attempts on three native hosts, support/accessibility exclusions | **Complete; published downloads verified; outreach held** |
 | A1: independent adoption | Consenting maintainer first use, participant CI and voluntary later use | E5 readiness review plus explicit permission for each outreach action | **Held** |
@@ -103,7 +103,7 @@ E5 produces a concrete recommendation for the user. Technical readiness can be e
 
 ## Release strategy
 
-Stable v0.1.0 remains the stable channel; v0.4.0-rc.2 is now a published, verified prerelease. [Publication evidence](docs/validation/e5-publication-2026-09-28.md). Keep published tags/assets immutable. A necessary correctness hotfix may interrupt planned work with narrow acceptance and its own qualification.
+Stable v0.1.0 remains the stable channel; v0.4.0-rc.3 is the newest published, verified prerelease. Earlier rc.2 [publication evidence](docs/validation/e5-publication-2026-09-28.md) remains historical. Keep published tags/assets immutable. A necessary correctness hotfix may interrupt planned work with narrow acceptance and its own qualification.
 
 Any runner source, version, compiler/dependency or build-flag change creates new bytes and requires affected native and final qualification. Unchanged-byte evidence may be reused under the [invalidation policy](docs/plans/execution-contract.md). A new stable version is not qualified by relabeling prerelease results. Publication and downloaded-byte verification remain separate explicit actions under [R6](docs/plans/release/06-qualified-release.md).
 
@@ -124,11 +124,13 @@ Publication and native download/install verification completed under the later u
 Use the verified download and existing examples locally. The requested
 [three-step wide-character task](docs/plans/wide-character-next-steps-prompt.md)
 is complete as a scoped development repair. The authorized [wide-character release cycle](docs/validation/wide-character-release-2026-10-01.md)
-has frozen unused `v0.4.0-rc.3` and passed native builds/source/fidelity/corpus gates.
-Its required 3,000-attempt exact-byte qualification and public verification remain
-in progress; rc.2 is still the newest verified published download.
+is complete: `v0.4.0-rc.3` passed its 3,000-attempt exact-byte campaign, native
+gates, public-download/action and genuine upgrade checks. Stable v0.1.0 remains
+unchanged. No outreach, marketing or website deployment occurred. Next decision:
+use the verified prerelease locally; stable promotion or specific independent
+trial/outreach requires a later instruction. Human accessibility/adoption remain open.
 
-**E3's original investigated deferral remains historical evidence.** Later development corrects the selected MICRO-08 wide-cell gap on all three native hosts; [the repair record](docs/validation/wide-character-2026-09-28.md) preserves first failures and reviewed snapshot migration. Combining clusters and query-dependent flows remain excluded. The published rc.2 runner retains its original boundary.
+**E3's original investigated deferral remains historical evidence.** Later development corrects the selected MICRO-08 wide-cell gap on all three native hosts; [the repair record](docs/validation/wide-character-2026-09-28.md) preserves first failures and reviewed snapshot migration. Combining clusters and query-dependent flows remain excluded. The published rc.2 runner retains its original boundary; rc.3 separately qualifies the selected repair.
 
 GitHub-hosted native jobs resolved the missing-device dependency. E0-E2 acceptance
 and the completed push preserve first failures, source/runner/target hashes,

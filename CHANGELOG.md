@@ -4,6 +4,17 @@ All notable user-visible changes are recorded here. Playtestr is pre-1.0; the
 compatibility rules for released specs, reports, and patches are in
 [`SUPPORT.md`](SUPPORT.md).
 
+## v0.4.0-rc.3 - 2026-10-01
+
+- Correct selected East Asian Wide/Fullwidth two-column cursor, overwrite/erase,
+  wrapping, split UTF-8, resize and alternate-screen behavior.
+- Preserve v1/v2 formats and explicitly review three affected television snapshots.
+- Qualify exact native bytes with 3,000 first attempts, existing corpus controls,
+  native fidelity/lifecycle and verified public download/action/upgrade checks.
+- Keep combining clusters, emoji/ZWJ and terminal-query flows excluded.
+
+See [release and migration](docs/releases/v0.4.0-rc.3.md). Stable v0.1.0 is unchanged.
+
 ## v0.4.0-rc.2 - 2026-09-28
 
 ### Fixed

@@ -19,14 +19,22 @@ The current vt10x emulator retains control-sequence parser state between writes.
 
 ## Known limits
 
-The [E3 native investigation](validation/e3-fidelity-boundary-2026-09-27.md)
-reproduces micro's Snow/stale-cell failure on Linux/macOS, retains an intermittent
-Windows failure, and reduces incorrect
-wide/combining cursor positions. The separately passing file-save and fzf probes
-do not expand this contract. Terminal replies are not forwarded to target input;
-query-dependent tasks and bracketed-paste behavior remain unsupported.
+The [historical E3 investigation](validation/e3-fidelity-boundary-2026-09-27.md)
+records the old wide/combining cursor gaps retained in rc.2. Verified
+[v0.4.0-rc.3](releases/v0.4.0-rc.3.md) corrects the selected East Asian
+Wide/Fullwidth two-column cells behind a locally maintained vt10x adapter.
+[Release evidence](validation/wide-character-release-2026-10-01.md) covers the
+original MICRO-08 rendered interaction and independent saved-file oracle,
+cursor addressing, paired overwrite/erase, wrapping, split UTF-8, resize
+cropping and alternate-screen behavior on the three recorded native hosts.
+Three affected television baselines were individually reviewed; old evidence
+and published rc.2 bytes remain unchanged.
 
-vt10x models one Go rune as one terminal cell. It does not provide complete `wcwidth`, grapheme-cluster, combining-mark, emoji-sequence, or East Asian wide-character layout. Snapshots containing those characters may have incorrect column alignment even when the text survives. Basic Unicode code points are supported by the exercised contract; precise complex-Unicode layout is not yet supported.
+Ambiguous characters remain one column; resize does not reflow text. Combining
+clusters, variation selectors, emoji/ZWJ sequences and terminal-specific width
+settings remain unsupported. Terminal replies are discarded; query-dependent
+tasks and bracketed-paste behavior remain outside the supported contract.
+Selected two-column evidence is not general grapheme or universal Unicode support.
 
 The fixtures do not establish support for every VT control sequence, device query, mouse protocol, hyperlink, image protocol, color, style, or application-specific terminal extension. Snapshot comparison is text-only. Compatibility with a particular TUI requires exercising that application on the claimed operating system; cross-compilation alone is not runtime evidence.
 

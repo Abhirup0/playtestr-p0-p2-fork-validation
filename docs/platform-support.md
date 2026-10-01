@@ -10,7 +10,7 @@ completed its exact-byte three-host qualification;
 [readiness and scope](validation/e5-qualified-readiness-2026-09-27.md).
 Published v0.4.0-rc.2 passed native public archive/action, upgrade and binary-only
 checks on Linux amd64, macOS arm64 and Windows amd64;
-[publication evidence](validation/e5-publication-2026-09-28.md). Wide-cell
+[publication evidence](validation/e5-publication-2026-09-28.md). For those rc.2 bytes, wide-cell
 cursor layout and terminal-query-dependent flows remain explicitly unsupported;
 [exact fidelity boundary](validation/e3-fidelity-boundary-2026-09-27.md).
 
@@ -19,6 +19,15 @@ with unchanged MICRO-08 and full tests/vet/race on native Linux amd64,
 macOS arm64 and Windows amd64. [Development evidence](validation/wide-character-2026-09-28.md)
 does not extend the published rc.2 bytes. Combining clusters and terminal query
 round trips remain outside the rendering contract.
+
+The new [v0.4.0-rc.3 release record](validation/wide-character-release-2026-10-01.md)
+qualifies and verifies public bytes on Windows amd64, Linux amd64 and macOS arm64.
+The native build used macos-latest (macOS 26 image); qualification/public lanes
+also exercised macos-15. Recorded image identities remain distinct. Existing
+120-workflow Windows-runner coverage includes separately labeled WSL target lanes;
+it is not a 120-by-three native application matrix. All 3,000 selected repeated
+attempts used the exact frozen host executable hashes. Complex Unicode and
+terminal queries remain excluded; no broader OS/framework claim is implied.
 
 Stable `v0.1.0` is verified on these native GitHub-hosted runners:
 
