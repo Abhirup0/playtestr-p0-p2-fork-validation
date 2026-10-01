@@ -30,7 +30,7 @@ cases, not newly unseen evidence. The two-host real journeys remain distinct fro
 the Windows corpus and its admitted WSL target lanes.
 
 Before the long campaign, historical rc.2 actual cost is 1.74 runner-hours and
-6.47 MB scaled evidence. A fresh 30-cell preflight is running to update the forecast.
+6.47 MB scaled evidence. The fresh 30-cell preflight completed and updated the forecast before the long campaign.
 The 90-minute campaign jobs, six-hour exploration allowance, per-attempt 64 MiB and
 per-job 1 GiB bounds and 14-day hosted retention remain unchanged. No paid runner,
 billing change or new service spend is authorized. Actual billed dollars remain unknown.
@@ -66,7 +66,7 @@ Fresh preflight accepted 30/30 and forecasts 1.537 runner-hours plus setup and
 6,471,700 bytes. The exact 3,000-attempt campaign passed at
 [36864122786](https://github.com/Wyrcan-io/playtestr/actions/runs/36864122786).
 All 3,000/3,000 first attempts passed, with zero first-attempt or managed-cleanup failures. Each host ledger contains ten workflows with exactly 100 unique attempts each, the expected frozen executable hash on every row, and confirmed cleanup. Raw reports/oracles and ledgers remain retained. Public installation and upgrade verification subsequently passed; see the dated publication section below. Operator review cannot close independent adoption or human accessibility.
-The [machine record](wide-character-release-2026-10-01.json) will record final outcomes.
+The [machine record](wide-character-release-2026-10-01.json) records the final outcomes.
 
 The manifest/configuration files preserve their original build-time pending fields as
 historical freeze evidence. The derived qualification section in the machine packet
