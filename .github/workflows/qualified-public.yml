@@ -92,7 +92,9 @@ jobs:
           test "$(sha256sum "$archive" | awk '{print $1}')" = '${{ matrix.archive_sha256 }}'
           curl --fail --location --retry 3 --connect-timeout 15 --max-time 120 --max-filesize 65536 --silent --show-error \
             "$base/${{ matrix.archive }}.sha256" --output "$archive.sha256"
-          cmp "artifacts/public download/checksums-$RELEASE_VERSION.txt" "release/checksums-$RELEASE_VERSION.txt"
+          # Compare immutable Git blob bytes, unaffected by Windows checkout CRLF.
+          git show "HEAD:release/checksums-$RELEASE_VERSION.txt" > 'artifacts/public download/expected-checksums.txt'
+          cmp "artifacts/public download/checksums-$RELEASE_VERSION.txt" 'artifacts/public download/expected-checksums.txt'
           printf '%s  %s\n' '${{ matrix.archive_sha256 }}' '${{ matrix.archive }}' > 'artifacts/public download/expected.sha256'
           cmp "$archive.sha256" 'artifacts/public download/expected.sha256'
           if [[ '${{ matrix.target_os }}' == windows ]]; then
