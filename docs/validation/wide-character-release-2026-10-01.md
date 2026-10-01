@@ -1,6 +1,6 @@
 # Wide-character release execution — 1 October 2026
 
-Status: **qualification in progress; unpublished**. The user authorized the complete
+Status: **qualified; unpublished; public verification pending**. The user authorized the complete
 release cycle, including necessary main pushes and publication after qualification.
 Outreach, marketing, issue/PR/discussion mutations and website deployment remain prohibited.
 
@@ -63,8 +63,12 @@ attempt are both retained. No runner rebuild, assertion weakening or baseline
 acceptance was used.
 
 Fresh preflight accepted 30/30 and forecasts 1.537 runner-hours plus setup and
-6,471,700 bytes. The exact 3,000-attempt campaign is running at
+6,471,700 bytes. The exact 3,000-attempt campaign passed at
 [36864122786](https://github.com/Wyrcan-io/playtestr/actions/runs/36864122786).
-Repeat qualification and public installation gates remain pending. Publication has not
-occurred. Operator review cannot close independent adoption or human accessibility.
+All 3,000/3,000 first attempts passed, with zero first-attempt or managed-cleanup failures. Each host ledger contains ten workflows with exactly 100 unique attempts each, the expected frozen executable hash on every row, and confirmed cleanup. Raw reports/oracles and ledgers remain retained. Public installation and upgrade verification remain pending. Publication has not occurred. Operator review cannot close independent adoption or human accessibility.
 The [machine record](wide-character-release-2026-10-01.json) will record final outcomes.
+
+The manifest/configuration files preserve their original build-time pending fields as
+historical freeze evidence. The derived qualification section in the machine packet
+records final acceptance. Implementing engineer self-review is the review boundary;
+independent adoption and human accessibility remain open.

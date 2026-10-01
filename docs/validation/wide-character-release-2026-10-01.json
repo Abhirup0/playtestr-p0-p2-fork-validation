@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date": "2026-10-01",
-  "status": "qualification in progress; unpublished",
+  "status": "qualified; publication and native public-byte verification pending",
   "source_commit": "07b304bb32aab9d064e7109733c244ab91766899",
   "version": "v0.4.0-rc.3",
   "build_run": 36862893790,
@@ -3127,5 +3127,4022 @@
     "file": "artifacts/rc3-corpus/actual-target-inventory.json",
     "files": 56,
     "changed_from_prior_inventory": 0
-  }
+  },
+  "qualification": {
+    "run_id": 36864122786,
+    "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36864122786",
+    "attempts": 3000,
+    "first_attempt_failures": 0,
+    "managed_cleanup_failures": 0,
+    "hosts": [
+      {
+        "summary": {
+          "attempt_count": 1000,
+          "attempts_per_workflow": 100,
+          "completed_utc": "2026-10-01T13:34:25.739093Z",
+          "first_attempt_failures": 0,
+          "host": "darwin_arm64",
+          "managed_cleanup_failures": 0,
+          "runner_sha256": "05ad8911ddaa4a5ad73ca0a218b357d850a1cf93b6d610e1c691f0fc80c36b79",
+          "schema_version": 2,
+          "status": "passed",
+          "workflow_count": 10
+        },
+        "ledgers": [
+          {
+            "path": "artifacts/rc3-qualification/qualification-darwin-arm64-100/attempts.jsonl",
+            "sha256": "8fc3ddcd29b8ff987bf92164779b681d69eb4a0818cd3ec04fc47cdeb916602f",
+            "bytes": 1397049
+          },
+          {
+            "path": "artifacts/rc3-qualification/qualification-darwin-arm64-100/summary.json",
+            "sha256": "1eac778e2c5dca4ae104bbb46ac6463b3b0c8c84fdf10639927541abbd8bfa88",
+            "bytes": 356
+          },
+          {
+            "path": "artifacts/rc3-qualification/qualification-darwin-arm64-100/qualification-targets.txt",
+            "sha256": "a3e8413989f91979b16531154b7469d2f86794ca5fc7831fcc93f32ad391ad19",
+            "bytes": 578
+          }
+        ],
+        "descriptive": [
+          {
+            "workflow": "BT-06",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 4293,
+              "median": 4337.0,
+              "p95": 4354,
+              "max": 4383
+            },
+            "cpu_user_ms_observed_sum": 29036,
+            "cpu_system_ms_observed_sum": 63960,
+            "missing_cpu_user_rows": 0,
+            "missing_cpu_system_rows": 0,
+            "artifact_bytes": 254797,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          },
+          {
+            "workflow": "CV-01",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 459,
+              "median": 557.0,
+              "p95": 595,
+              "max": 729
+            },
+            "cpu_user_ms_observed_sum": 13986,
+            "cpu_system_ms_observed_sum": 22126,
+            "missing_cpu_user_rows": 0,
+            "missing_cpu_system_rows": 0,
+            "artifact_bytes": 245325,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          },
+          {
+            "workflow": "CV-06",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 420,
+              "median": 461.0,
+              "p95": 497,
+              "max": 521
+            },
+            "cpu_user_ms_observed_sum": 15289,
+            "cpu_system_ms_observed_sum": 22529,
+            "missing_cpu_user_rows": 0,
+            "missing_cpu_system_rows": 0,
+            "artifact_bytes": 205602,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          },
+          {
+            "workflow": "GUM-01",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 5352,
+              "median": 5504.5,
+              "p95": 5586,
+              "max": 5621
+            },
+            "cpu_user_ms_observed_sum": 15084,
+            "cpu_system_ms_observed_sum": 23789,
+            "missing_cpu_user_rows": 0,
+            "missing_cpu_system_rows": 0,
+            "artifact_bytes": 164486,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          },
+          {
+            "workflow": "GUM-04",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 5382,
+              "median": 5464.5,
+              "p95": 5549,
+              "max": 5580
+            },
+            "cpu_user_ms_observed_sum": 17440,
+            "cpu_system_ms_observed_sum": 25938,
+            "missing_cpu_user_rows": 0,
+            "missing_cpu_system_rows": 0,
+            "artifact_bytes": 164346,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          },
+          {
+            "workflow": "GUM-05",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 5372,
+              "median": 5488.0,
+              "p95": 5602,
+              "max": 5664
+            },
+            "cpu_user_ms_observed_sum": 17338,
+            "cpu_system_ms_observed_sum": 25922,
+            "missing_cpu_user_rows": 0,
+            "missing_cpu_system_rows": 0,
+            "artifact_bytes": 190377,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          },
+          {
+            "workflow": "LG-01",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 1524,
+              "median": 1629.0,
+              "p95": 1955,
+              "max": 2220
+            },
+            "cpu_user_ms_observed_sum": 41236,
+            "cpu_system_ms_observed_sum": 50377,
+            "missing_cpu_user_rows": 0,
+            "missing_cpu_system_rows": 0,
+            "artifact_bytes": 203830,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          },
+          {
+            "workflow": "LG-04",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 1706,
+              "median": 1770.0,
+              "p95": 1873,
+              "max": 1888
+            },
+            "cpu_user_ms_observed_sum": 37903,
+            "cpu_system_ms_observed_sum": 43496,
+            "missing_cpu_user_rows": 0,
+            "missing_cpu_system_rows": 0,
+            "artifact_bytes": 256546,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          },
+          {
+            "workflow": "MICRO-01",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 435,
+              "median": 492.0,
+              "p95": 510,
+              "max": 598
+            },
+            "cpu_user_ms_observed_sum": 9956,
+            "cpu_system_ms_observed_sum": 21703,
+            "missing_cpu_user_rows": 0,
+            "missing_cpu_system_rows": 0,
+            "artifact_bytes": 217002,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          },
+          {
+            "workflow": "MICRO-05",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 493,
+              "median": 578.0,
+              "p95": 621,
+              "max": 633
+            },
+            "cpu_user_ms_observed_sum": 9933,
+            "cpu_system_ms_observed_sum": 21630,
+            "missing_cpu_user_rows": 0,
+            "missing_cpu_system_rows": 0,
+            "artifact_bytes": 256298,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          }
+        ],
+        "target_pins": "setup_started_utc=2026-10-01T12:48:16Z\nsetup_elapsed_seconds=134\ngo=go version go1.26.0 darwin/arm64\nrust=rustc 1.95.0 (59807616e 2026-04-14)\ncargo=cargo 1.95.0 (f2d3ce0bd 2026-03-21)\nnode=v24.7.0\nnpm=11.5.1\ngum=ffc71f20d596cdd73a5e739fba5c4b59cfe248df530b98a07c019863f2e92cfd\nlazygit=4fe80935149428acc7d0b885071e757af586a95857207014d3c91ef1d4062d6d\nbottom=73a4ca7053df5eaf70ed4ba3613a6030385de78b3c1bc18f35887fb4e531c91a\nmicro=c95a587727f083b08ef4d5a605ff9c4a7ace293615c2bad0732125449b617a53\ncreate_vite_tarball=4dd92d0e734e96e88ec8afd8c0153f6a9446156205460a995b978b63b49b4eb8\n"
+      },
+      {
+        "summary": {
+          "attempt_count": 1000,
+          "attempts_per_workflow": 100,
+          "completed_utc": "2026-10-01T13:27:08.273683937Z",
+          "first_attempt_failures": 0,
+          "host": "linux_amd64",
+          "managed_cleanup_failures": 0,
+          "runner_sha256": "6317f37b59946c30e50a7f34c627c9be6fdd957fe370a8d9cde4697fc5d04425",
+          "schema_version": 2,
+          "status": "passed",
+          "workflow_count": 10
+        },
+        "ledgers": [
+          {
+            "path": "artifacts/rc3-qualification/qualification-linux-amd64-100/attempts.jsonl",
+            "sha256": "3a43bdc433612b7e257b2c71f89ea598700298f711d287676cc3d917e1e35cfc",
+            "bytes": 1395434
+          },
+          {
+            "path": "artifacts/rc3-qualification/qualification-linux-amd64-100/summary.json",
+            "sha256": "601562176718a62753e146530313ee6901849e272daa37308f74cee542557d65",
+            "bytes": 358
+          },
+          {
+            "path": "artifacts/rc3-qualification/qualification-linux-amd64-100/qualification-targets.txt",
+            "sha256": "264f182b035b8b0715c978c657a151bf71a9f2e8fcb9b1bb954a682a2f2a195b",
+            "bytes": 576
+          }
+        ],
+        "descriptive": [
+          {
+            "workflow": "BT-06",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 4018,
+              "median": 4077.5,
+              "p95": 4589,
+              "max": 4591
+            },
+            "cpu_user_ms_observed_sum": 9816,
+            "cpu_system_ms_observed_sum": 8085,
+            "missing_cpu_user_rows": 0,
+            "missing_cpu_system_rows": 0,
+            "artifact_bytes": 254475,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          },
+          {
+            "workflow": "CV-01",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 87,
+              "median": 88.0,
+              "p95": 89,
+              "max": 102
+            },
+            "cpu_user_ms_observed_sum": 5556,
+            "cpu_system_ms_observed_sum": 2037,
+            "missing_cpu_user_rows": 0,
+            "missing_cpu_system_rows": 0,
+            "artifact_bytes": 244501,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          },
+          {
+            "workflow": "CV-06",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 66,
+              "median": 72.5,
+              "p95": 88,
+              "max": 89
+            },
+            "cpu_user_ms_observed_sum": 5693,
+            "cpu_system_ms_observed_sum": 1919,
+            "missing_cpu_user_rows": 0,
+            "missing_cpu_system_rows": 0,
+            "artifact_bytes": 205000,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          },
+          {
+            "workflow": "GUM-01",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 5217,
+              "median": 5218.0,
+              "p95": 5228,
+              "max": 5230
+            },
+            "cpu_user_ms_observed_sum": 7798,
+            "cpu_system_ms_observed_sum": 3475,
+            "missing_cpu_user_rows": 0,
+            "missing_cpu_system_rows": 0,
+            "artifact_bytes": 164200,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          },
+          {
+            "workflow": "GUM-04",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 5217,
+              "median": 5218.0,
+              "p95": 5229,
+              "max": 5230
+            },
+            "cpu_user_ms_observed_sum": 7956,
+            "cpu_system_ms_observed_sum": 3491,
+            "missing_cpu_user_rows": 0,
+            "missing_cpu_system_rows": 0,
+            "artifact_bytes": 164100,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          },
+          {
+            "workflow": "GUM-05",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 5217,
+              "median": 5219.0,
+              "p95": 5219,
+              "max": 5229
+            },
+            "cpu_user_ms_observed_sum": 7758,
+            "cpu_system_ms_observed_sum": 3431,
+            "missing_cpu_user_rows": 0,
+            "missing_cpu_system_rows": 0,
+            "artifact_bytes": 190000,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          },
+          {
+            "workflow": "LG-01",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 1067,
+              "median": 1079.0,
+              "p95": 1089,
+              "max": 1093
+            },
+            "cpu_user_ms_observed_sum": 9097,
+            "cpu_system_ms_observed_sum": 8378,
+            "missing_cpu_user_rows": 0,
+            "missing_cpu_system_rows": 0,
+            "artifact_bytes": 203400,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          },
+          {
+            "workflow": "LG-04",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 1284,
+              "median": 1292.0,
+              "p95": 1302,
+              "max": 1304
+            },
+            "cpu_user_ms_observed_sum": 10261,
+            "cpu_system_ms_observed_sum": 9055,
+            "missing_cpu_user_rows": 0,
+            "missing_cpu_system_rows": 0,
+            "artifact_bytes": 256100,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          },
+          {
+            "workflow": "MICRO-01",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 56,
+              "median": 57.0,
+              "p95": 58,
+              "max": 63
+            },
+            "cpu_user_ms_observed_sum": 1554,
+            "cpu_system_ms_observed_sum": 1392,
+            "missing_cpu_user_rows": 0,
+            "missing_cpu_system_rows": 0,
+            "artifact_bytes": 216300,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          },
+          {
+            "workflow": "MICRO-05",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 106,
+              "median": 108.0,
+              "p95": 109,
+              "max": 110
+            },
+            "cpu_user_ms_observed_sum": 1589,
+            "cpu_system_ms_observed_sum": 1463,
+            "missing_cpu_user_rows": 0,
+            "missing_cpu_system_rows": 0,
+            "artifact_bytes": 255500,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          }
+        ],
+        "target_pins": "setup_started_utc=2026-10-01T12:47:59Z\nsetup_elapsed_seconds=99\ngo=go version go1.26.0 linux/amd64\nrust=rustc 1.95.0 (59807616e 2026-04-14)\ncargo=cargo 1.95.0 (f2d3ce0bd 2026-03-21)\nnode=v24.7.0\nnpm=11.5.1\ngum=cd6c5c720b87189c16a6967b649e1840d48839a165d371fc05e5b50b3db2514a\nlazygit=60327079b0bcf01000ac6ecdf931ac0e6ac905f6deddcef70654e1f441d7b9c2\nbottom=77c304536a206a57c2dcf8f78eb258e161a9fa0ede12f03ae5eb62ed1dc8a781\nmicro=4b40128000e64bc706e35a64e3b11c5649a279d131e785b4fc9c7df9e7043573\ncreate_vite_tarball=4dd92d0e734e96e88ec8afd8c0153f6a9446156205460a995b978b63b49b4eb8\n"
+      },
+      {
+        "summary": {
+          "attempt_count": 1000,
+          "attempts_per_workflow": 100,
+          "completed_utc": "2026-10-01T13:05:22.4831634Z",
+          "first_attempt_failures": 0,
+          "host": "windows_amd64",
+          "managed_cleanup_failures": 0,
+          "runner_sha256": "531804dcb5f29bdcc9d9e2650b1be86e083eedd34c4545ebff1654f05d33f16a",
+          "schema_version": 2,
+          "status": "passed",
+          "workflow_count": 10
+        },
+        "ledgers": [
+          {
+            "path": "artifacts/rc3-qualification/qualification-windows-amd64-100/attempts.jsonl",
+            "sha256": "89ed9f88b6d5b4ef939073d1e32f6c93ca2901c2a9e625d90c9dd5ee3414a813",
+            "bytes": 1398475
+          },
+          {
+            "path": "artifacts/rc3-qualification/qualification-windows-amd64-100/summary.json",
+            "sha256": "efd704ef81a414a28e1499c47dd409aac84f437c3b513b04374289947ec3ae20",
+            "bytes": 358
+          },
+          {
+            "path": "artifacts/rc3-qualification/qualification-windows-amd64-100/qualification-targets.txt",
+            "sha256": "e4d920d8c31d75fbd25416730856f455e57259678f678b2cd1a368e4f3dbbd65",
+            "bytes": 579
+          }
+        ],
+        "descriptive": [
+          {
+            "workflow": "BT-06",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 2090,
+              "median": 2311.0,
+              "p95": 3136,
+              "max": 4747
+            },
+            "cpu_user_ms_observed_sum": 2810,
+            "cpu_system_ms_observed_sum": 5028,
+            "missing_cpu_user_rows": 11,
+            "missing_cpu_system_rows": 3,
+            "artifact_bytes": 254904,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          },
+          {
+            "workflow": "CV-01",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 441,
+              "median": 482.0,
+              "p95": 512,
+              "max": 722
+            },
+            "cpu_user_ms_observed_sum": 1637,
+            "cpu_system_ms_observed_sum": 2517,
+            "missing_cpu_user_rows": 32,
+            "missing_cpu_system_rows": 13,
+            "artifact_bytes": 245484,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          },
+          {
+            "workflow": "CV-06",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 407,
+              "median": 448.0,
+              "p95": 469,
+              "max": 668
+            },
+            "cpu_user_ms_observed_sum": 1203,
+            "cpu_system_ms_observed_sum": 2505,
+            "missing_cpu_user_rows": 44,
+            "missing_cpu_system_rows": 14,
+            "artifact_bytes": 205911,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          },
+          {
+            "workflow": "GUM-01",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 274,
+              "median": 306.5,
+              "p95": 388,
+              "max": 404
+            },
+            "cpu_user_ms_observed_sum": 1155,
+            "cpu_system_ms_observed_sum": 1758,
+            "missing_cpu_user_rows": 41,
+            "missing_cpu_system_rows": 25,
+            "artifact_bytes": 164490,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          },
+          {
+            "workflow": "GUM-04",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 275,
+              "median": 310.0,
+              "p95": 387,
+              "max": 427
+            },
+            "cpu_user_ms_observed_sum": 1406,
+            "cpu_system_ms_observed_sum": 1726,
+            "missing_cpu_user_rows": 36,
+            "missing_cpu_system_rows": 27,
+            "artifact_bytes": 164410,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          },
+          {
+            "workflow": "GUM-05",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 280,
+              "median": 317.5,
+              "p95": 394,
+              "max": 435
+            },
+            "cpu_user_ms_observed_sum": 1189,
+            "cpu_system_ms_observed_sum": 1635,
+            "missing_cpu_user_rows": 43,
+            "missing_cpu_system_rows": 29,
+            "artifact_bytes": 190342,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          },
+          {
+            "workflow": "LG-01",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 1038,
+              "median": 1159.0,
+              "p95": 1983,
+              "max": 3106
+            },
+            "cpu_user_ms_observed_sum": 3378,
+            "cpu_system_ms_observed_sum": 5355,
+            "missing_cpu_user_rows": 15,
+            "missing_cpu_system_rows": 2,
+            "artifact_bytes": 204178,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          },
+          {
+            "workflow": "LG-04",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 1089,
+              "median": 1228.5,
+              "p95": 1315,
+              "max": 1523
+            },
+            "cpu_user_ms_observed_sum": 3408,
+            "cpu_system_ms_observed_sum": 4714,
+            "missing_cpu_user_rows": 7,
+            "missing_cpu_system_rows": 2,
+            "artifact_bytes": 256701,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          },
+          {
+            "workflow": "MICRO-01",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 400,
+              "median": 452.5,
+              "p95": 496,
+              "max": 660
+            },
+            "cpu_user_ms_observed_sum": 1311,
+            "cpu_system_ms_observed_sum": 2382,
+            "missing_cpu_user_rows": 40,
+            "missing_cpu_system_rows": 21,
+            "artifact_bytes": 217102,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          },
+          {
+            "workflow": "MICRO-05",
+            "attempts": 100,
+            "wall_ms": {
+              "min": 388,
+              "median": 429.0,
+              "p95": 559,
+              "max": 662
+            },
+            "cpu_user_ms_observed_sum": 1609,
+            "cpu_system_ms_observed_sum": 2862,
+            "missing_cpu_user_rows": 37,
+            "missing_cpu_system_rows": 10,
+            "artifact_bytes": 256204,
+            "scope": "Descriptive repeated samples; not universal reliability or causal overhead evidence"
+          }
+        ],
+        "target_pins": "setup_started_utc=2026-10-01T12:48:46Z\nsetup_elapsed_seconds=224\ngo=go version go1.26.0 windows/amd64\nrust=rustc 1.95.0 (59807616e 2026-04-14)\ncargo=cargo 1.95.0 (f2d3ce0bd 2026-03-21)\nnode=v24.7.0\nnpm=11.5.1\ngum=6c9b88bb8e364875b930745198b1187403f5b70bef9450cf2eacae5a298a11aa\nlazygit=e1f56a98534060626bdd15ccd42069a2dd4b82443b3e81054ffa61256b89b43a\nbottom=438d9f3e65c16b76751b7ae27bbbfe9f8d75c96ea35922c5c0427ef6680022f3\nmicro=2cadf36ca99b54dc47931057560ff6ec2f34f512738cafd0e0bf21ccfc0a9836\ncreate_vite_tarball=4dd92d0e734e96e88ec8afd8c0153f6a9446156205460a995b978b63b49b4eb8\n"
+      }
+    ],
+    "artifact_bytes": 6471911,
+    "admission": "Ten existing frozen workflows x 100 first attempts x three native runner hosts; one campaign, never counted twice."
+  },
+  "review": {
+    "operator": "Codex executing the user-authorized release",
+    "reviewer": "Implementing engineer self-review; no independent participant evidence",
+    "shipping_source_clean": true,
+    "evidence": "Native source environment records show clean checkout; executable-input diff remains empty after tooling/docs follow-ups."
+  },
+  "native_run_index": [
+    {
+      "id": 36862893790,
+      "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36862893790",
+      "source": "07b304bb32aab9d064e7109733c244ab91766899",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-01T12:36:30Z",
+      "run_started_at": "2026-10-01T12:36:30Z",
+      "jobs": [
+        {
+          "id": 110371197355,
+          "run_id": 36862893790,
+          "workflow_name": "Native release build",
+          "head_branch": "main",
+          "run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/runs/36862893790",
+          "run_attempt": 1,
+          "node_id": "CR_kwDOUPAeBM8AAAAZsqLRqw",
+          "head_sha": "07b304bb32aab9d064e7109733c244ab91766899",
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/jobs/110371197355",
+          "html_url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36862893790/job/110371197355",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T12:36:32Z",
+          "started_at": "2026-10-01T12:36:38Z",
+          "completed_at": "2026-10-01T12:37:53Z",
+          "name": "package (macos-latest, darwin, arm64, playtestr, demo, fixture)",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-01T12:36:38Z",
+              "completed_at": "2026-10-01T12:36:39Z"
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-01T12:36:39Z",
+              "completed_at": "2026-10-01T12:36:41Z"
+            },
+            {
+              "name": "Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-01T12:36:41Z",
+              "completed_at": "2026-10-01T12:36:56Z"
+            },
+            {
+              "name": "Validate release target",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-01T12:36:56Z",
+              "completed_at": "2026-10-01T12:36:56Z"
+            },
+            {
+              "name": "Test",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-01T12:36:56Z",
+              "completed_at": "2026-10-01T12:37:31Z"
+            },
+            {
+              "name": "Build native binaries",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-01T12:37:31Z",
+              "completed_at": "2026-10-01T12:37:37Z"
+            },
+            {
+              "name": "Package native release",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-10-01T12:37:37Z",
+              "completed_at": "2026-10-01T12:37:38Z"
+            },
+            {
+              "name": "Install exact private archive using current source installer",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8,
+              "started_at": "2026-10-01T12:37:38Z",
+              "completed_at": "2026-10-01T12:37:38Z"
+            },
+            {
+              "name": "Verify and run the extracted release archive",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9,
+              "started_at": "2026-10-01T12:37:38Z",
+              "completed_at": "2026-10-01T12:37:42Z"
+            },
+            {
+              "name": "Record immutable candidate evidence",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10,
+              "started_at": "2026-10-01T12:37:42Z",
+              "completed_at": "2026-10-01T12:37:43Z"
+            },
+            {
+              "name": "Run actions/upload-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11,
+              "started_at": "2026-10-01T12:37:43Z",
+              "completed_at": "2026-10-01T12:37:45Z"
+            },
+            {
+              "name": "Post Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 21,
+              "started_at": "2026-10-01T12:37:45Z",
+              "completed_at": "2026-10-01T12:37:48Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 22,
+              "started_at": "2026-10-01T12:37:48Z",
+              "completed_at": "2026-10-01T12:37:49Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 23,
+              "started_at": "2026-10-01T12:37:49Z",
+              "completed_at": "2026-10-01T12:37:50Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/check-runs/110371197355",
+          "labels": [
+            "macos-latest"
+          ],
+          "runner_id": 1000001369,
+          "runner_name": "GitHub Actions 1000001369",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        },
+        {
+          "id": 110371197537,
+          "run_id": 36862893790,
+          "workflow_name": "Native release build",
+          "head_branch": "main",
+          "run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/runs/36862893790",
+          "run_attempt": 1,
+          "node_id": "CR_kwDOUPAeBM8AAAAZsqLSYQ",
+          "head_sha": "07b304bb32aab9d064e7109733c244ab91766899",
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/jobs/110371197537",
+          "html_url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36862893790/job/110371197537",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T12:36:32Z",
+          "started_at": "2026-10-01T12:36:35Z",
+          "completed_at": "2026-10-01T12:38:25Z",
+          "name": "package (windows-latest, windows, amd64, playtestr.exe, demo.exe, fixture.exe)",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-01T12:36:36Z",
+              "completed_at": "2026-10-01T12:36:37Z"
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-01T12:36:37Z",
+              "completed_at": "2026-10-01T12:36:43Z"
+            },
+            {
+              "name": "Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-01T12:36:43Z",
+              "completed_at": "2026-10-01T12:37:04Z"
+            },
+            {
+              "name": "Validate release target",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-01T12:37:04Z",
+              "completed_at": "2026-10-01T12:37:04Z"
+            },
+            {
+              "name": "Test",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-01T12:37:04Z",
+              "completed_at": "2026-10-01T12:37:52Z"
+            },
+            {
+              "name": "Build native binaries",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-01T12:37:52Z",
+              "completed_at": "2026-10-01T12:38:06Z"
+            },
+            {
+              "name": "Package native release",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-10-01T12:38:06Z",
+              "completed_at": "2026-10-01T12:38:06Z"
+            },
+            {
+              "name": "Install exact private archive using current source installer",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8,
+              "started_at": "2026-10-01T12:38:06Z",
+              "completed_at": "2026-10-01T12:38:07Z"
+            },
+            {
+              "name": "Verify and run the extracted release archive",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9,
+              "started_at": "2026-10-01T12:38:07Z",
+              "completed_at": "2026-10-01T12:38:11Z"
+            },
+            {
+              "name": "Record immutable candidate evidence",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10,
+              "started_at": "2026-10-01T12:38:11Z",
+              "completed_at": "2026-10-01T12:38:12Z"
+            },
+            {
+              "name": "Run actions/upload-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11,
+              "started_at": "2026-10-01T12:38:12Z",
+              "completed_at": "2026-10-01T12:38:14Z"
+            },
+            {
+              "name": "Post Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 21,
+              "started_at": "2026-10-01T12:38:14Z",
+              "completed_at": "2026-10-01T12:38:19Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 22,
+              "started_at": "2026-10-01T12:38:19Z",
+              "completed_at": "2026-10-01T12:38:22Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 23,
+              "started_at": "2026-10-01T12:38:22Z",
+              "completed_at": "2026-10-01T12:38:22Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/check-runs/110371197537",
+          "labels": [
+            "windows-latest"
+          ],
+          "runner_id": 1000001368,
+          "runner_name": "GitHub Actions 1000001368",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        },
+        {
+          "id": 110371197691,
+          "run_id": 36862893790,
+          "workflow_name": "Native release build",
+          "head_branch": "main",
+          "run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/runs/36862893790",
+          "run_attempt": 1,
+          "node_id": "CR_kwDOUPAeBM8AAAAZsqLS-w",
+          "head_sha": "07b304bb32aab9d064e7109733c244ab91766899",
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/jobs/110371197691",
+          "html_url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36862893790/job/110371197691",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T12:36:32Z",
+          "started_at": "2026-10-01T12:36:35Z",
+          "completed_at": "2026-10-01T12:37:35Z",
+          "name": "package (ubuntu-latest, linux, amd64, playtestr, demo, fixture)",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-01T12:36:36Z",
+              "completed_at": "2026-10-01T12:36:37Z"
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-01T12:36:37Z",
+              "completed_at": "2026-10-01T12:36:38Z"
+            },
+            {
+              "name": "Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-01T12:36:38Z",
+              "completed_at": "2026-10-01T12:36:46Z"
+            },
+            {
+              "name": "Validate release target",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-01T12:36:46Z",
+              "completed_at": "2026-10-01T12:36:46Z"
+            },
+            {
+              "name": "Test",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-01T12:36:46Z",
+              "completed_at": "2026-10-01T12:37:21Z"
+            },
+            {
+              "name": "Build native binaries",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-01T12:37:21Z",
+              "completed_at": "2026-10-01T12:37:27Z"
+            },
+            {
+              "name": "Package native release",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-10-01T12:37:27Z",
+              "completed_at": "2026-10-01T12:37:27Z"
+            },
+            {
+              "name": "Install exact private archive using current source installer",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8,
+              "started_at": "2026-10-01T12:37:27Z",
+              "completed_at": "2026-10-01T12:37:28Z"
+            },
+            {
+              "name": "Verify and run the extracted release archive",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9,
+              "started_at": "2026-10-01T12:37:28Z",
+              "completed_at": "2026-10-01T12:37:29Z"
+            },
+            {
+              "name": "Record immutable candidate evidence",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10,
+              "started_at": "2026-10-01T12:37:29Z",
+              "completed_at": "2026-10-01T12:37:29Z"
+            },
+            {
+              "name": "Run actions/upload-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11,
+              "started_at": "2026-10-01T12:37:29Z",
+              "completed_at": "2026-10-01T12:37:30Z"
+            },
+            {
+              "name": "Post Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 21,
+              "started_at": "2026-10-01T12:37:30Z",
+              "completed_at": "2026-10-01T12:37:32Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 22,
+              "started_at": "2026-10-01T12:37:32Z",
+              "completed_at": "2026-10-01T12:37:32Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 23,
+              "started_at": "2026-10-01T12:37:32Z",
+              "completed_at": "2026-10-01T12:37:32Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/check-runs/110371197691",
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "runner_id": 1000001370,
+          "runner_name": "GitHub Actions 1000001370",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 11162796624,
+          "node_id": "MDg6QXJ0aWZhY3QxMTE2Mjc5NjYyNA==",
+          "name": "playtestr-darwin-arm64",
+          "size_in_bytes": 1820006,
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11162796624",
+          "archive_download_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11162796624/zip",
+          "expired": false,
+          "digest": "sha256:88b96200b255d9befd7e12f7af50955a95107a827d85c4888c8e36416a354292",
+          "created_at": "2026-10-01T12:37:46Z",
+          "updated_at": "2026-10-01T12:37:46Z",
+          "expires_at": "2026-10-15T12:37:44Z",
+          "workflow_run": {
+            "id": 36862893790,
+            "repository_id": 1357913604,
+            "head_repository_id": 1357913604,
+            "head_branch": "main",
+            "head_sha": "07b304bb32aab9d064e7109733c244ab91766899"
+          }
+        },
+        {
+          "id": 11162541944,
+          "node_id": "MDg6QXJ0aWZhY3QxMTE2MjU0MTk0NA==",
+          "name": "playtestr-windows-amd64",
+          "size_in_bytes": 2074986,
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11162541944",
+          "archive_download_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11162541944/zip",
+          "expired": false,
+          "digest": "sha256:06a41e0afab49f0d5c191b6dd040c69703ba13db8dfae4e67e9eecdbabdc7e3e",
+          "created_at": "2026-10-01T12:38:14Z",
+          "updated_at": "2026-10-01T12:38:14Z",
+          "expires_at": "2026-10-15T12:38:12Z",
+          "workflow_run": {
+            "id": 36862893790,
+            "repository_id": 1357913604,
+            "head_repository_id": 1357913604,
+            "head_branch": "main",
+            "head_sha": "07b304bb32aab9d064e7109733c244ab91766899"
+          }
+        },
+        {
+          "id": 11162321576,
+          "node_id": "MDg6QXJ0aWZhY3QxMTE2MjMyMTU3Ng==",
+          "name": "playtestr-linux-amd64",
+          "size_in_bytes": 1957048,
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11162321576",
+          "archive_download_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11162321576/zip",
+          "expired": false,
+          "digest": "sha256:e324ecebe1ce3ad257eabb5cb9f6501548b58900087d3955fa0240269db6f492",
+          "created_at": "2026-10-01T12:37:30Z",
+          "updated_at": "2026-10-01T12:37:30Z",
+          "expires_at": "2026-10-15T12:37:30Z",
+          "workflow_run": {
+            "id": 36862893790,
+            "repository_id": 1357913604,
+            "head_repository_id": 1357913604,
+            "head_branch": "main",
+            "head_sha": "07b304bb32aab9d064e7109733c244ab91766899"
+          }
+        }
+      ]
+    },
+    {
+      "id": 36862898486,
+      "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36862898486",
+      "source": "07b304bb32aab9d064e7109733c244ab91766899",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-01T12:36:33Z",
+      "run_started_at": "2026-10-01T12:36:33Z",
+      "jobs": [
+        {
+          "id": 110371212864,
+          "run_id": 36862898486,
+          "workflow_name": "E4 native source and installation gates",
+          "head_branch": "main",
+          "run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/runs/36862898486",
+          "run_attempt": 1,
+          "node_id": "CR_kwDOUPAeBM8AAAAZsqMOQA",
+          "head_sha": "07b304bb32aab9d064e7109733c244ab91766899",
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/jobs/110371212864",
+          "html_url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36862898486/job/110371212864",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T12:36:35Z",
+          "started_at": "2026-10-01T12:36:42Z",
+          "completed_at": "2026-10-01T12:40:59Z",
+          "name": "source (macos-15)",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-01T12:36:43Z",
+              "completed_at": "2026-10-01T12:36:44Z"
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-01T12:36:44Z",
+              "completed_at": "2026-10-01T12:36:47Z"
+            },
+            {
+              "name": "Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-01T12:36:47Z",
+              "completed_at": "2026-10-01T12:37:04Z"
+            },
+            {
+              "name": "Require PowerShell",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-01T12:37:04Z",
+              "completed_at": "2026-10-01T12:37:05Z"
+            },
+            {
+              "name": "Tests vet race required events and manual checks",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-01T12:37:05Z",
+              "completed_at": "2026-10-01T12:40:42Z"
+            },
+            {
+              "name": "Reviewed cell and query probe",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-01T12:40:42Z",
+              "completed_at": "2026-10-01T12:40:48Z"
+            },
+            {
+              "name": "Run actions/upload-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-10-01T12:40:48Z",
+              "completed_at": "2026-10-01T12:40:50Z"
+            },
+            {
+              "name": "Post Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13,
+              "started_at": "2026-10-01T12:40:50Z",
+              "completed_at": "2026-10-01T12:40:53Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14,
+              "started_at": "2026-10-01T12:40:53Z",
+              "completed_at": "2026-10-01T12:40:54Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15,
+              "started_at": "2026-10-01T12:40:54Z",
+              "completed_at": "2026-10-01T12:40:56Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/check-runs/110371212864",
+          "labels": [
+            "macos-15"
+          ],
+          "runner_id": 1000001371,
+          "runner_name": "GitHub Actions 1000001371",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        },
+        {
+          "id": 110371213131,
+          "run_id": 36862898486,
+          "workflow_name": "E4 native source and installation gates",
+          "head_branch": "main",
+          "run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/runs/36862898486",
+          "run_attempt": 1,
+          "node_id": "CR_kwDOUPAeBM8AAAAZsqMPSw",
+          "head_sha": "07b304bb32aab9d064e7109733c244ab91766899",
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/jobs/110371213131",
+          "html_url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36862898486/job/110371213131",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T12:36:35Z",
+          "started_at": "2026-10-01T12:36:37Z",
+          "completed_at": "2026-10-01T12:40:41Z",
+          "name": "source (windows-latest)",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-01T12:36:38Z",
+              "completed_at": "2026-10-01T12:36:39Z"
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-01T12:36:39Z",
+              "completed_at": "2026-10-01T12:36:46Z"
+            },
+            {
+              "name": "Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-01T12:36:46Z",
+              "completed_at": "2026-10-01T12:37:04Z"
+            },
+            {
+              "name": "Require PowerShell",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-01T12:37:04Z",
+              "completed_at": "2026-10-01T12:37:05Z"
+            },
+            {
+              "name": "Tests vet race required events and manual checks",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-01T12:37:05Z",
+              "completed_at": "2026-10-01T12:40:26Z"
+            },
+            {
+              "name": "Reviewed cell and query probe",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-01T12:40:26Z",
+              "completed_at": "2026-10-01T12:40:32Z"
+            },
+            {
+              "name": "Run actions/upload-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-10-01T12:40:32Z",
+              "completed_at": "2026-10-01T12:40:34Z"
+            },
+            {
+              "name": "Post Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13,
+              "started_at": "2026-10-01T12:40:34Z",
+              "completed_at": "2026-10-01T12:40:37Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14,
+              "started_at": "2026-10-01T12:40:37Z",
+              "completed_at": "2026-10-01T12:40:38Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15,
+              "started_at": "2026-10-01T12:40:38Z",
+              "completed_at": "2026-10-01T12:40:38Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/check-runs/110371213131",
+          "labels": [
+            "windows-latest"
+          ],
+          "runner_id": 1000001372,
+          "runner_name": "GitHub Actions 1000001372",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        },
+        {
+          "id": 110371213133,
+          "run_id": 36862898486,
+          "workflow_name": "E4 native source and installation gates",
+          "head_branch": "main",
+          "run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/runs/36862898486",
+          "run_attempt": 1,
+          "node_id": "CR_kwDOUPAeBM8AAAAZsqMPTQ",
+          "head_sha": "07b304bb32aab9d064e7109733c244ab91766899",
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/jobs/110371213133",
+          "html_url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36862898486/job/110371213133",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T12:36:35Z",
+          "started_at": "2026-10-01T12:36:38Z",
+          "completed_at": "2026-10-01T12:40:24Z",
+          "name": "source (ubuntu-24.04)",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-01T12:36:39Z",
+              "completed_at": "2026-10-01T12:36:40Z"
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-01T12:36:40Z",
+              "completed_at": "2026-10-01T12:36:41Z"
+            },
+            {
+              "name": "Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-01T12:36:41Z",
+              "completed_at": "2026-10-01T12:36:51Z"
+            },
+            {
+              "name": "Require PowerShell",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-01T12:36:51Z",
+              "completed_at": "2026-10-01T12:36:56Z"
+            },
+            {
+              "name": "Tests vet race required events and manual checks",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-01T12:36:56Z",
+              "completed_at": "2026-10-01T12:40:12Z"
+            },
+            {
+              "name": "Reviewed cell and query probe",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-01T12:40:12Z",
+              "completed_at": "2026-10-01T12:40:17Z"
+            },
+            {
+              "name": "Run actions/upload-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-10-01T12:40:17Z",
+              "completed_at": "2026-10-01T12:40:19Z"
+            },
+            {
+              "name": "Post Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13,
+              "started_at": "2026-10-01T12:40:19Z",
+              "completed_at": "2026-10-01T12:40:21Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14,
+              "started_at": "2026-10-01T12:40:21Z",
+              "completed_at": "2026-10-01T12:40:22Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15,
+              "started_at": "2026-10-01T12:40:22Z",
+              "completed_at": "2026-10-01T12:40:22Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/check-runs/110371213133",
+          "labels": [
+            "ubuntu-24.04"
+          ],
+          "runner_id": 1000001373,
+          "runner_name": "GitHub Actions 1000001373",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 11163246524,
+          "node_id": "MDg6QXJ0aWZhY3QxMTE2MzI0NjUyNA==",
+          "name": "e4-native-source-macos-15",
+          "size_in_bytes": 3624218,
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11163246524",
+          "archive_download_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11163246524/zip",
+          "expired": false,
+          "digest": "sha256:a0e523e14fd51f4394e6f37b0573b412c5d733595e1369fc31df4f1c41d0405e",
+          "created_at": "2026-10-01T12:40:51Z",
+          "updated_at": "2026-10-01T12:40:51Z",
+          "expires_at": "2026-10-15T12:40:48Z",
+          "workflow_run": {
+            "id": 36862898486,
+            "repository_id": 1357913604,
+            "head_repository_id": 1357913604,
+            "head_branch": "main",
+            "head_sha": "07b304bb32aab9d064e7109733c244ab91766899"
+          }
+        },
+        {
+          "id": 11162806888,
+          "node_id": "MDg6QXJ0aWZhY3QxMTE2MjgwNjg4OA==",
+          "name": "e4-native-source-windows-latest",
+          "size_in_bytes": 4040364,
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11162806888",
+          "archive_download_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11162806888/zip",
+          "expired": false,
+          "digest": "sha256:bd2260c6c8e7190956031fdda205af4300218aeb8432ef0d22914322ebb2d014",
+          "created_at": "2026-10-01T12:40:34Z",
+          "updated_at": "2026-10-01T12:40:34Z",
+          "expires_at": "2026-10-15T12:40:32Z",
+          "workflow_run": {
+            "id": 36862898486,
+            "repository_id": 1357913604,
+            "head_repository_id": 1357913604,
+            "head_branch": "main",
+            "head_sha": "07b304bb32aab9d064e7109733c244ab91766899"
+          }
+        },
+        {
+          "id": 11162617045,
+          "node_id": "MDg6QXJ0aWZhY3QxMTE2MjYxNzA0NQ==",
+          "name": "e4-native-source-ubuntu-24.04",
+          "size_in_bytes": 3845341,
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11162617045",
+          "archive_download_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11162617045/zip",
+          "expired": false,
+          "digest": "sha256:0a42243a48d937e05cbdebba60760163a11667b1b155843e2c87d5351ad4d90c",
+          "created_at": "2026-10-01T12:40:19Z",
+          "updated_at": "2026-10-01T12:40:19Z",
+          "expires_at": "2026-10-15T12:40:17Z",
+          "workflow_run": {
+            "id": 36862898486,
+            "repository_id": 1357913604,
+            "head_repository_id": 1357913604,
+            "head_branch": "main",
+            "head_sha": "07b304bb32aab9d064e7109733c244ab91766899"
+          }
+        }
+      ]
+    },
+    {
+      "id": 36863259625,
+      "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36863259625",
+      "source": "07b304bb32aab9d064e7109733c244ab91766899",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-01T12:39:48Z",
+      "run_started_at": "2026-10-01T12:39:48Z",
+      "jobs": [
+        {
+          "id": 110372423804,
+          "run_id": 36863259625,
+          "workflow_name": "Frozen candidate qualification",
+          "head_branch": "main",
+          "run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/runs/36863259625",
+          "run_attempt": 1,
+          "node_id": "CR_kwDOUPAeBM8AAAAZsrWIfA",
+          "head_sha": "07b304bb32aab9d064e7109733c244ab91766899",
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/jobs/110372423804",
+          "html_url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36863259625/job/110372423804",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T12:39:49Z",
+          "started_at": "2026-10-01T12:39:55Z",
+          "completed_at": "2026-10-01T12:43:01Z",
+          "name": "repeat (macos-15, darwin, arm64, playtestr, tar.gz)",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-01T12:39:56Z",
+              "completed_at": "2026-10-01T12:39:57Z"
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-01T12:39:57Z",
+              "completed_at": "2026-10-01T12:39:59Z"
+            },
+            {
+              "name": "Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-01T12:39:59Z",
+              "completed_at": "2026-10-01T12:40:09Z"
+            },
+            {
+              "name": "Run actions/setup-node@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-01T12:40:09Z",
+              "completed_at": "2026-10-01T12:40:14Z"
+            },
+            {
+              "name": "Pin Rust toolchain",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-01T12:40:14Z",
+              "completed_at": "2026-10-01T12:40:20Z"
+            },
+            {
+              "name": "Download frozen native archive",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-01T12:40:20Z",
+              "completed_at": "2026-10-01T12:40:22Z"
+            },
+            {
+              "name": "Verify and extract frozen runner",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-10-01T12:40:22Z",
+              "completed_at": "2026-10-01T12:40:23Z"
+            },
+            {
+              "name": "Prepare exact target pins",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8,
+              "started_at": "2026-10-01T12:40:23Z",
+              "completed_at": "2026-10-01T12:42:23Z"
+            },
+            {
+              "name": "Run first-attempt campaign",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9,
+              "started_at": "2026-10-01T12:42:23Z",
+              "completed_at": "2026-10-01T12:42:49Z"
+            },
+            {
+              "name": "Run actions/upload-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10,
+              "started_at": "2026-10-01T12:42:49Z",
+              "completed_at": "2026-10-01T12:42:51Z"
+            },
+            {
+              "name": "Post Run actions/setup-node@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 18,
+              "started_at": "2026-10-01T12:42:51Z",
+              "completed_at": "2026-10-01T12:42:51Z"
+            },
+            {
+              "name": "Post Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 19,
+              "started_at": "2026-10-01T12:42:51Z",
+              "completed_at": "2026-10-01T12:42:57Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 20,
+              "started_at": "2026-10-01T12:42:57Z",
+              "completed_at": "2026-10-01T12:42:57Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 21,
+              "started_at": "2026-10-01T12:42:57Z",
+              "completed_at": "2026-10-01T12:42:58Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/check-runs/110372423804",
+          "labels": [
+            "macos-15"
+          ],
+          "runner_id": 1000001375,
+          "runner_name": "GitHub Actions 1000001375",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        },
+        {
+          "id": 110372423963,
+          "run_id": 36863259625,
+          "workflow_name": "Frozen candidate qualification",
+          "head_branch": "main",
+          "run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/runs/36863259625",
+          "run_attempt": 1,
+          "node_id": "CR_kwDOUPAeBM8AAAAZsrWJGw",
+          "head_sha": "07b304bb32aab9d064e7109733c244ab91766899",
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/jobs/110372423963",
+          "html_url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36863259625/job/110372423963",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T12:39:49Z",
+          "started_at": "2026-10-01T12:39:51Z",
+          "completed_at": "2026-10-01T12:43:16Z",
+          "name": "repeat (ubuntu-latest, linux, amd64, playtestr, tar.gz)",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-01T12:39:52Z",
+              "completed_at": "2026-10-01T12:39:54Z"
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-01T12:39:54Z",
+              "completed_at": "2026-10-01T12:39:55Z"
+            },
+            {
+              "name": "Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-01T12:39:55Z",
+              "completed_at": "2026-10-01T12:40:04Z"
+            },
+            {
+              "name": "Run actions/setup-node@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-01T12:40:04Z",
+              "completed_at": "2026-10-01T12:40:16Z"
+            },
+            {
+              "name": "Pin Rust toolchain",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-01T12:40:16Z",
+              "completed_at": "2026-10-01T12:40:25Z"
+            },
+            {
+              "name": "Download frozen native archive",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-01T12:40:25Z",
+              "completed_at": "2026-10-01T12:40:26Z"
+            },
+            {
+              "name": "Verify and extract frozen runner",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-10-01T12:40:26Z",
+              "completed_at": "2026-10-01T12:40:26Z"
+            },
+            {
+              "name": "Prepare exact target pins",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8,
+              "started_at": "2026-10-01T12:40:26Z",
+              "completed_at": "2026-10-01T12:42:46Z"
+            },
+            {
+              "name": "Run first-attempt campaign",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9,
+              "started_at": "2026-10-01T12:42:46Z",
+              "completed_at": "2026-10-01T12:43:09Z"
+            },
+            {
+              "name": "Run actions/upload-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10,
+              "started_at": "2026-10-01T12:43:09Z",
+              "completed_at": "2026-10-01T12:43:10Z"
+            },
+            {
+              "name": "Post Run actions/setup-node@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 18,
+              "started_at": "2026-10-01T12:43:10Z",
+              "completed_at": "2026-10-01T12:43:10Z"
+            },
+            {
+              "name": "Post Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 19,
+              "started_at": "2026-10-01T12:43:10Z",
+              "completed_at": "2026-10-01T12:43:13Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 20,
+              "started_at": "2026-10-01T12:43:13Z",
+              "completed_at": "2026-10-01T12:43:14Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 21,
+              "started_at": "2026-10-01T12:43:14Z",
+              "completed_at": "2026-10-01T12:43:14Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/check-runs/110372423963",
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "runner_id": 1000001374,
+          "runner_name": "GitHub Actions 1000001374",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        },
+        {
+          "id": 110372424226,
+          "run_id": 36863259625,
+          "workflow_name": "Frozen candidate qualification",
+          "head_branch": "main",
+          "run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/runs/36863259625",
+          "run_attempt": 1,
+          "node_id": "CR_kwDOUPAeBM8AAAAZsrWKIg",
+          "head_sha": "07b304bb32aab9d064e7109733c244ab91766899",
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/jobs/110372424226",
+          "html_url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36863259625/job/110372424226",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T12:39:49Z",
+          "started_at": "2026-10-01T12:39:52Z",
+          "completed_at": "2026-10-01T12:44:40Z",
+          "name": "repeat (windows-latest, windows, amd64, playtestr.exe, zip)",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-01T12:39:53Z",
+              "completed_at": "2026-10-01T12:39:55Z"
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-01T12:39:55Z",
+              "completed_at": "2026-10-01T12:40:01Z"
+            },
+            {
+              "name": "Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-01T12:40:01Z",
+              "completed_at": "2026-10-01T12:40:19Z"
+            },
+            {
+              "name": "Run actions/setup-node@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-01T12:40:19Z",
+              "completed_at": "2026-10-01T12:40:29Z"
+            },
+            {
+              "name": "Pin Rust toolchain",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-01T12:40:29Z",
+              "completed_at": "2026-10-01T12:40:39Z"
+            },
+            {
+              "name": "Download frozen native archive",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-01T12:40:39Z",
+              "completed_at": "2026-10-01T12:40:41Z"
+            },
+            {
+              "name": "Verify and extract frozen runner",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-10-01T12:40:41Z",
+              "completed_at": "2026-10-01T12:40:43Z"
+            },
+            {
+              "name": "Prepare exact target pins",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8,
+              "started_at": "2026-10-01T12:40:43Z",
+              "completed_at": "2026-10-01T12:44:21Z"
+            },
+            {
+              "name": "Run first-attempt campaign",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9,
+              "started_at": "2026-10-01T12:44:21Z",
+              "completed_at": "2026-10-01T12:44:28Z"
+            },
+            {
+              "name": "Run actions/upload-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10,
+              "started_at": "2026-10-01T12:44:28Z",
+              "completed_at": "2026-10-01T12:44:29Z"
+            },
+            {
+              "name": "Post Run actions/setup-node@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 18,
+              "started_at": "2026-10-01T12:44:29Z",
+              "completed_at": "2026-10-01T12:44:29Z"
+            },
+            {
+              "name": "Post Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 19,
+              "started_at": "2026-10-01T12:44:29Z",
+              "completed_at": "2026-10-01T12:44:36Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 20,
+              "started_at": "2026-10-01T12:44:36Z",
+              "completed_at": "2026-10-01T12:44:37Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 21,
+              "started_at": "2026-10-01T12:44:37Z",
+              "completed_at": "2026-10-01T12:44:37Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/check-runs/110372424226",
+          "labels": [
+            "windows-latest"
+          ],
+          "runner_id": 1000001376,
+          "runner_name": "GitHub Actions 1000001376",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 11163017617,
+          "node_id": "MDg6QXJ0aWZhY3QxMTE2MzAxNzYxNw==",
+          "name": "qualification-windows-amd64-1",
+          "size_in_bytes": 9995,
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11163017617",
+          "archive_download_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11163017617/zip",
+          "expired": false,
+          "digest": "sha256:756cb03649d2565b755ad055fd388b544b1e5ca5f11e4424081874bd5c8f2257",
+          "created_at": "2026-10-01T12:44:29Z",
+          "updated_at": "2026-10-01T12:44:29Z",
+          "expires_at": "2026-10-15T12:44:28Z",
+          "workflow_run": {
+            "id": 36863259625,
+            "repository_id": 1357913604,
+            "head_repository_id": 1357913604,
+            "head_branch": "main",
+            "head_sha": "07b304bb32aab9d064e7109733c244ab91766899"
+          }
+        },
+        {
+          "id": 11162712423,
+          "node_id": "MDg6QXJ0aWZhY3QxMTE2MjcxMjQyMw==",
+          "name": "qualification-darwin-arm64-1",
+          "size_in_bytes": 10103,
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11162712423",
+          "archive_download_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11162712423/zip",
+          "expired": false,
+          "digest": "sha256:709c4e837a005dccb8ac3b98071bab9db712ef623c4544b389dd6732c22ac54a",
+          "created_at": "2026-10-01T12:42:51Z",
+          "updated_at": "2026-10-01T12:42:51Z",
+          "expires_at": "2026-10-15T12:42:50Z",
+          "workflow_run": {
+            "id": 36863259625,
+            "repository_id": 1357913604,
+            "head_repository_id": 1357913604,
+            "head_branch": "main",
+            "head_sha": "07b304bb32aab9d064e7109733c244ab91766899"
+          }
+        },
+        {
+          "id": 11162532626,
+          "node_id": "MDg6QXJ0aWZhY3QxMTE2MjUzMjYyNg==",
+          "name": "qualification-linux-amd64-1",
+          "size_in_bytes": 9994,
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11162532626",
+          "archive_download_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11162532626/zip",
+          "expired": false,
+          "digest": "sha256:108d4ccbe720b7ec0872fb4c33af1513eacd8ca6bb2dab0f3031d8a7a6588061",
+          "created_at": "2026-10-01T12:43:10Z",
+          "updated_at": "2026-10-01T12:43:10Z",
+          "expires_at": "2026-10-15T12:43:09Z",
+          "workflow_run": {
+            "id": 36863259625,
+            "repository_id": 1357913604,
+            "head_repository_id": 1357913604,
+            "head_branch": "main",
+            "head_sha": "07b304bb32aab9d064e7109733c244ab91766899"
+          }
+        }
+      ]
+    },
+    {
+      "id": 36863506598,
+      "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36863506598",
+      "source": "a171a86ad5f548f488ad199193a693a30241fdcf",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-01T12:41:58Z",
+      "run_started_at": "2026-10-01T12:41:58Z",
+      "jobs": [
+        {
+          "id": 110373241870,
+          "run_id": 36863506598,
+          "workflow_name": "E5 frozen-byte native lifecycle and resource gates",
+          "head_branch": "main",
+          "run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/runs/36863506598",
+          "run_attempt": 1,
+          "node_id": "CR_kwDOUPAeBM8AAAAZssIEDg",
+          "head_sha": "a171a86ad5f548f488ad199193a693a30241fdcf",
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/jobs/110373241870",
+          "html_url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36863506598/job/110373241870",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T12:42:00Z",
+          "started_at": "2026-10-01T12:42:03Z",
+          "completed_at": "2026-10-01T12:43:52Z",
+          "name": "gates (windows-latest, windows-amd64, playtestr.exe)",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-01T12:42:04Z",
+              "completed_at": "2026-10-01T12:42:06Z"
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-01T12:42:06Z",
+              "completed_at": "2026-10-01T12:42:12Z"
+            },
+            {
+              "name": "Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-01T12:42:12Z",
+              "completed_at": "2026-10-01T12:42:33Z"
+            },
+            {
+              "name": "Run actions/download-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-01T12:42:33Z",
+              "completed_at": "2026-10-01T12:42:35Z"
+            },
+            {
+              "name": "Verify exact selected candidate",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-01T12:42:35Z",
+              "completed_at": "2026-10-01T12:42:37Z"
+            },
+            {
+              "name": "Execute frozen native lifecycle resource and fidelity gates",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-01T12:42:37Z",
+              "completed_at": "2026-10-01T12:43:45Z"
+            },
+            {
+              "name": "Run actions/upload-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-10-01T12:43:45Z",
+              "completed_at": "2026-10-01T12:43:47Z"
+            },
+            {
+              "name": "Post Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13,
+              "started_at": "2026-10-01T12:43:47Z",
+              "completed_at": "2026-10-01T12:43:47Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14,
+              "started_at": "2026-10-01T12:43:47Z",
+              "completed_at": "2026-10-01T12:43:49Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15,
+              "started_at": "2026-10-01T12:43:49Z",
+              "completed_at": "2026-10-01T12:43:49Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/check-runs/110373241870",
+          "labels": [
+            "windows-latest"
+          ],
+          "runner_id": 1000001384,
+          "runner_name": "GitHub Actions 1000001384",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        },
+        {
+          "id": 110373242134,
+          "run_id": 36863506598,
+          "workflow_name": "E5 frozen-byte native lifecycle and resource gates",
+          "head_branch": "main",
+          "run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/runs/36863506598",
+          "run_attempt": 1,
+          "node_id": "CR_kwDOUPAeBM8AAAAZssIFFg",
+          "head_sha": "a171a86ad5f548f488ad199193a693a30241fdcf",
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/jobs/110373242134",
+          "html_url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36863506598/job/110373242134",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T12:42:00Z",
+          "started_at": "2026-10-01T12:42:09Z",
+          "completed_at": "2026-10-01T12:43:47Z",
+          "name": "gates (macos-15, darwin-arm64, playtestr)",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-01T12:42:10Z",
+              "completed_at": "2026-10-01T12:42:13Z"
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-01T12:42:13Z",
+              "completed_at": "2026-10-01T12:42:15Z"
+            },
+            {
+              "name": "Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-01T12:42:15Z",
+              "completed_at": "2026-10-01T12:42:38Z"
+            },
+            {
+              "name": "Run actions/download-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-01T12:42:38Z",
+              "completed_at": "2026-10-01T12:42:41Z"
+            },
+            {
+              "name": "Verify exact selected candidate",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-01T12:42:41Z",
+              "completed_at": "2026-10-01T12:42:43Z"
+            },
+            {
+              "name": "Execute frozen native lifecycle resource and fidelity gates",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-01T12:42:43Z",
+              "completed_at": "2026-10-01T12:43:40Z"
+            },
+            {
+              "name": "Run actions/upload-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-10-01T12:43:40Z",
+              "completed_at": "2026-10-01T12:43:41Z"
+            },
+            {
+              "name": "Post Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13,
+              "started_at": "2026-10-01T12:43:41Z",
+              "completed_at": "2026-10-01T12:43:42Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14,
+              "started_at": "2026-10-01T12:43:42Z",
+              "completed_at": "2026-10-01T12:43:42Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15,
+              "started_at": "2026-10-01T12:43:42Z",
+              "completed_at": "2026-10-01T12:43:44Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/check-runs/110373242134",
+          "labels": [
+            "macos-15"
+          ],
+          "runner_id": 1000001385,
+          "runner_name": "GitHub Actions 1000001385",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        },
+        {
+          "id": 110373242330,
+          "run_id": 36863506598,
+          "workflow_name": "E5 frozen-byte native lifecycle and resource gates",
+          "head_branch": "main",
+          "run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/runs/36863506598",
+          "run_attempt": 1,
+          "node_id": "CR_kwDOUPAeBM8AAAAZssIF2g",
+          "head_sha": "a171a86ad5f548f488ad199193a693a30241fdcf",
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/jobs/110373242330",
+          "html_url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36863506598/job/110373242330",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T12:42:00Z",
+          "started_at": "2026-10-01T12:42:04Z",
+          "completed_at": "2026-10-01T12:43:00Z",
+          "name": "gates (ubuntu-24.04, linux-amd64, playtestr)",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-01T12:42:05Z",
+              "completed_at": "2026-10-01T12:42:07Z"
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-01T12:42:07Z",
+              "completed_at": "2026-10-01T12:42:08Z"
+            },
+            {
+              "name": "Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-01T12:42:08Z",
+              "completed_at": "2026-10-01T12:42:19Z"
+            },
+            {
+              "name": "Run actions/download-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-01T12:42:19Z",
+              "completed_at": "2026-10-01T12:42:20Z"
+            },
+            {
+              "name": "Verify exact selected candidate",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-01T12:42:20Z",
+              "completed_at": "2026-10-01T12:42:21Z"
+            },
+            {
+              "name": "Execute frozen native lifecycle resource and fidelity gates",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-01T12:42:21Z",
+              "completed_at": "2026-10-01T12:42:54Z"
+            },
+            {
+              "name": "Run actions/upload-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-10-01T12:42:54Z",
+              "completed_at": "2026-10-01T12:42:56Z"
+            },
+            {
+              "name": "Post Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13,
+              "started_at": "2026-10-01T12:42:56Z",
+              "completed_at": "2026-10-01T12:42:56Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14,
+              "started_at": "2026-10-01T12:42:56Z",
+              "completed_at": "2026-10-01T12:42:56Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15,
+              "started_at": "2026-10-01T12:42:56Z",
+              "completed_at": "2026-10-01T12:42:56Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/check-runs/110373242330",
+          "labels": [
+            "ubuntu-24.04"
+          ],
+          "runner_id": 1000001386,
+          "runner_name": "GitHub Actions 1000001386",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 11163311055,
+          "node_id": "MDg6QXJ0aWZhY3QxMTE2MzMxMTA1NQ==",
+          "name": "e5-native-bytes-darwin-arm64",
+          "size_in_bytes": 50204,
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11163311055",
+          "archive_download_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11163311055/zip",
+          "expired": false,
+          "digest": "sha256:53bbe863c7a46f74b5f4ffabce2fec31c696eedc0625fbc8ab43d68944a7d9df",
+          "created_at": "2026-10-01T12:43:41Z",
+          "updated_at": "2026-10-01T12:43:41Z",
+          "expires_at": "2026-10-15T12:43:40Z",
+          "workflow_run": {
+            "id": 36863506598,
+            "repository_id": 1357913604,
+            "head_repository_id": 1357913604,
+            "head_branch": "main",
+            "head_sha": "a171a86ad5f548f488ad199193a693a30241fdcf"
+          }
+        },
+        {
+          "id": 11163256976,
+          "node_id": "MDg6QXJ0aWZhY3QxMTE2MzI1Njk3Ng==",
+          "name": "e5-native-bytes-windows-amd64",
+          "size_in_bytes": 49259,
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11163256976",
+          "archive_download_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11163256976/zip",
+          "expired": false,
+          "digest": "sha256:364c29dae23047f17ea95adbdd80c9918da76d42ff7526ddc8382d836a2f0d46",
+          "created_at": "2026-10-01T12:43:47Z",
+          "updated_at": "2026-10-01T12:43:47Z",
+          "expires_at": "2026-10-15T12:43:46Z",
+          "workflow_run": {
+            "id": 36863506598,
+            "repository_id": 1357913604,
+            "head_repository_id": 1357913604,
+            "head_branch": "main",
+            "head_sha": "a171a86ad5f548f488ad199193a693a30241fdcf"
+          }
+        },
+        {
+          "id": 11162937274,
+          "node_id": "MDg6QXJ0aWZhY3QxMTE2MjkzNzI3NA==",
+          "name": "e5-native-bytes-linux-amd64",
+          "size_in_bytes": 49244,
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11162937274",
+          "archive_download_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11162937274/zip",
+          "expired": false,
+          "digest": "sha256:1a885bc8547de50796e4c5fe6c5a9ce399d327e34079b287c0cf1bea701a0a72",
+          "created_at": "2026-10-01T12:42:56Z",
+          "updated_at": "2026-10-01T12:42:56Z",
+          "expires_at": "2026-10-15T12:42:54Z",
+          "workflow_run": {
+            "id": 36863506598,
+            "repository_id": 1357913604,
+            "head_repository_id": 1357913604,
+            "head_branch": "main",
+            "head_sha": "a171a86ad5f548f488ad199193a693a30241fdcf"
+          }
+        }
+      ]
+    },
+    {
+      "id": 36863511363,
+      "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36863511363",
+      "source": "a171a86ad5f548f488ad199193a693a30241fdcf",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-01T12:42:01Z",
+      "run_started_at": "2026-10-01T12:42:01Z",
+      "jobs": [
+        {
+          "id": 110373256842,
+          "run_id": 36863511363,
+          "workflow_name": "E5 frozen-byte six native real journeys",
+          "head_branch": "main",
+          "run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/runs/36863511363",
+          "run_attempt": 1,
+          "node_id": "CR_kwDOUPAeBM8AAAAZssI-ig",
+          "head_sha": "a171a86ad5f548f488ad199193a693a30241fdcf",
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/jobs/110373256842",
+          "html_url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36863511363/job/110373256842",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T12:42:02Z",
+          "started_at": "2026-10-01T12:42:05Z",
+          "completed_at": "2026-10-01T12:45:12Z",
+          "name": "real (ubuntu-24.04, linux-amd64)",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-01T12:42:05Z",
+              "completed_at": "2026-10-01T12:42:07Z"
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-01T12:42:07Z",
+              "completed_at": "2026-10-01T12:42:09Z"
+            },
+            {
+              "name": "Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-01T12:42:09Z",
+              "completed_at": "2026-10-01T12:42:18Z"
+            },
+            {
+              "name": "Run actions/setup-node@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-01T12:42:18Z",
+              "completed_at": "2026-10-01T12:42:23Z"
+            },
+            {
+              "name": "Run actions/setup-python@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-01T12:42:23Z",
+              "completed_at": "2026-10-01T12:42:23Z"
+            },
+            {
+              "name": "Run actions/download-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-01T12:42:23Z",
+              "completed_at": "2026-10-01T12:42:24Z"
+            },
+            {
+              "name": "Verify exact selected candidate",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-10-01T12:42:24Z",
+              "completed_at": "2026-10-01T12:42:26Z"
+            },
+            {
+              "name": "Prepare unchanged pinned native targets and code controls",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8,
+              "started_at": "2026-10-01T12:42:26Z",
+              "completed_at": "2026-10-01T12:43:39Z"
+            },
+            {
+              "name": "Revalidate six admitted native task boundaries without rebuilding runner",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9,
+              "started_at": "2026-10-01T12:43:39Z",
+              "completed_at": "2026-10-01T12:45:08Z"
+            },
+            {
+              "name": "Run actions/upload-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10,
+              "started_at": "2026-10-01T12:45:08Z",
+              "completed_at": "2026-10-01T12:45:09Z"
+            },
+            {
+              "name": "Post Run actions/setup-python@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 17,
+              "started_at": "2026-10-01T12:45:09Z",
+              "completed_at": "2026-10-01T12:45:09Z"
+            },
+            {
+              "name": "Post Run actions/setup-node@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 18,
+              "started_at": "2026-10-01T12:45:09Z",
+              "completed_at": "2026-10-01T12:45:09Z"
+            },
+            {
+              "name": "Post Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 19,
+              "started_at": "2026-10-01T12:45:09Z",
+              "completed_at": "2026-10-01T12:45:09Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 20,
+              "started_at": "2026-10-01T12:45:09Z",
+              "completed_at": "2026-10-01T12:45:10Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 21,
+              "started_at": "2026-10-01T12:45:10Z",
+              "completed_at": "2026-10-01T12:45:10Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/check-runs/110373256842",
+          "labels": [
+            "ubuntu-24.04"
+          ],
+          "runner_id": 1000001387,
+          "runner_name": "GitHub Actions 1000001387",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        },
+        {
+          "id": 110373257348,
+          "run_id": 36863511363,
+          "workflow_name": "E5 frozen-byte six native real journeys",
+          "head_branch": "main",
+          "run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/runs/36863511363",
+          "run_attempt": 1,
+          "node_id": "CR_kwDOUPAeBM8AAAAZssJAhA",
+          "head_sha": "a171a86ad5f548f488ad199193a693a30241fdcf",
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/jobs/110373257348",
+          "html_url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36863511363/job/110373257348",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T12:42:02Z",
+          "started_at": "2026-10-01T12:42:09Z",
+          "completed_at": "2026-10-01T12:45:55Z",
+          "name": "real (macos-15, darwin-arm64)",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-01T12:42:10Z",
+              "completed_at": "2026-10-01T12:42:12Z"
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-01T12:42:12Z",
+              "completed_at": "2026-10-01T12:42:13Z"
+            },
+            {
+              "name": "Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-01T12:42:13Z",
+              "completed_at": "2026-10-01T12:42:39Z"
+            },
+            {
+              "name": "Run actions/setup-node@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-01T12:42:39Z",
+              "completed_at": "2026-10-01T12:42:46Z"
+            },
+            {
+              "name": "Run actions/setup-python@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-01T12:42:46Z",
+              "completed_at": "2026-10-01T12:42:46Z"
+            },
+            {
+              "name": "Run actions/download-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-01T12:42:46Z",
+              "completed_at": "2026-10-01T12:42:48Z"
+            },
+            {
+              "name": "Verify exact selected candidate",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-10-01T12:42:48Z",
+              "completed_at": "2026-10-01T12:42:49Z"
+            },
+            {
+              "name": "Prepare unchanged pinned native targets and code controls",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8,
+              "started_at": "2026-10-01T12:42:49Z",
+              "completed_at": "2026-10-01T12:44:04Z"
+            },
+            {
+              "name": "Revalidate six admitted native task boundaries without rebuilding runner",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9,
+              "started_at": "2026-10-01T12:44:04Z",
+              "completed_at": "2026-10-01T12:45:47Z"
+            },
+            {
+              "name": "Run actions/upload-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10,
+              "started_at": "2026-10-01T12:45:47Z",
+              "completed_at": "2026-10-01T12:45:48Z"
+            },
+            {
+              "name": "Post Run actions/setup-python@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 17,
+              "started_at": "2026-10-01T12:45:48Z",
+              "completed_at": "2026-10-01T12:45:48Z"
+            },
+            {
+              "name": "Post Run actions/setup-node@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 18,
+              "started_at": "2026-10-01T12:45:48Z",
+              "completed_at": "2026-10-01T12:45:48Z"
+            },
+            {
+              "name": "Post Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 19,
+              "started_at": "2026-10-01T12:45:48Z",
+              "completed_at": "2026-10-01T12:45:49Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 20,
+              "started_at": "2026-10-01T12:45:49Z",
+              "completed_at": "2026-10-01T12:45:49Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 21,
+              "started_at": "2026-10-01T12:45:49Z",
+              "completed_at": "2026-10-01T12:45:51Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/check-runs/110373257348",
+          "labels": [
+            "macos-15"
+          ],
+          "runner_id": 1000001388,
+          "runner_name": "GitHub Actions 1000001388",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 11163277088,
+          "node_id": "MDg6QXJ0aWZhY3QxMTE2MzI3NzA4OA==",
+          "name": "e5-native-real-linux-amd64",
+          "size_in_bytes": 112978,
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11163277088",
+          "archive_download_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11163277088/zip",
+          "expired": false,
+          "digest": "sha256:3bb0a63c2204699774c3f7694fb06aa8b21c3457fa6983800e729ed95f7e9003",
+          "created_at": "2026-10-01T12:45:09Z",
+          "updated_at": "2026-10-01T12:45:09Z",
+          "expires_at": "2026-10-15T12:45:08Z",
+          "workflow_run": {
+            "id": 36863511363,
+            "repository_id": 1357913604,
+            "head_repository_id": 1357913604,
+            "head_branch": "main",
+            "head_sha": "a171a86ad5f548f488ad199193a693a30241fdcf"
+          }
+        },
+        {
+          "id": 11163182796,
+          "node_id": "MDg6QXJ0aWZhY3QxMTE2MzE4Mjc5Ng==",
+          "name": "e5-native-real-darwin-arm64",
+          "size_in_bytes": 115187,
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11163182796",
+          "archive_download_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11163182796/zip",
+          "expired": false,
+          "digest": "sha256:cacb09225c73323f7e020bed873796eb396cb2b39ab51cdea1bdf8bafb851d8c",
+          "created_at": "2026-10-01T12:45:49Z",
+          "updated_at": "2026-10-01T12:45:49Z",
+          "expires_at": "2026-10-15T12:45:47Z",
+          "workflow_run": {
+            "id": 36863511363,
+            "repository_id": 1357913604,
+            "head_repository_id": 1357913604,
+            "head_branch": "main",
+            "head_sha": "a171a86ad5f548f488ad199193a693a30241fdcf"
+          }
+        }
+      ]
+    },
+    {
+      "id": 36863515911,
+      "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36863515911",
+      "source": "a171a86ad5f548f488ad199193a693a30241fdcf",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-01T12:42:03Z",
+      "run_started_at": "2026-10-01T12:42:03Z",
+      "jobs": [
+        {
+          "id": 110373274670,
+          "run_id": 36863515911,
+          "workflow_name": "Frozen release stories",
+          "head_branch": "main",
+          "run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/runs/36863515911",
+          "run_attempt": 1,
+          "node_id": "CR_kwDOUPAeBM8AAAAZssKELg",
+          "head_sha": "a171a86ad5f548f488ad199193a693a30241fdcf",
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/jobs/110373274670",
+          "html_url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36863515911/job/110373274670",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T12:42:05Z",
+          "started_at": "2026-10-01T12:42:49Z",
+          "completed_at": "2026-10-01T12:43:18Z",
+          "name": "stories (ubuntu-latest, linux, amd64, playtestr, tar.gz)",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-01T12:42:50Z",
+              "completed_at": "2026-10-01T12:42:52Z"
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-01T12:42:52Z",
+              "completed_at": "2026-10-01T12:42:53Z"
+            },
+            {
+              "name": "Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-01T12:42:53Z",
+              "completed_at": "2026-10-01T12:43:04Z"
+            },
+            {
+              "name": "Run actions/download-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-01T12:43:04Z",
+              "completed_at": "2026-10-01T12:43:05Z"
+            },
+            {
+              "name": "Verify and extract frozen candidate",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-01T12:43:05Z",
+              "completed_at": "2026-10-01T12:43:06Z"
+            },
+            {
+              "name": "Run three pass-defect-recovery stories",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-01T12:43:06Z",
+              "completed_at": "2026-10-01T12:43:14Z"
+            },
+            {
+              "name": "Run actions/upload-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-10-01T12:43:14Z",
+              "completed_at": "2026-10-01T12:43:15Z"
+            },
+            {
+              "name": "Post Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13,
+              "started_at": "2026-10-01T12:43:15Z",
+              "completed_at": "2026-10-01T12:43:15Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14,
+              "started_at": "2026-10-01T12:43:15Z",
+              "completed_at": "2026-10-01T12:43:16Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15,
+              "started_at": "2026-10-01T12:43:16Z",
+              "completed_at": "2026-10-01T12:43:16Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/check-runs/110373274670",
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "runner_id": 1000001389,
+          "runner_name": "GitHub Actions 1000001389",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        },
+        {
+          "id": 110373274802,
+          "run_id": 36863515911,
+          "workflow_name": "Frozen release stories",
+          "head_branch": "main",
+          "run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/runs/36863515911",
+          "run_attempt": 1,
+          "node_id": "CR_kwDOUPAeBM8AAAAZssKEsg",
+          "head_sha": "a171a86ad5f548f488ad199193a693a30241fdcf",
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/jobs/110373274802",
+          "html_url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36863515911/job/110373274802",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T12:42:05Z",
+          "started_at": "2026-10-01T12:43:06Z",
+          "completed_at": "2026-10-01T12:43:44Z",
+          "name": "stories (macos-15, darwin, arm64, playtestr, tar.gz)",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-01T12:43:06Z",
+              "completed_at": "2026-10-01T12:43:08Z"
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-01T12:43:08Z",
+              "completed_at": "2026-10-01T12:43:10Z"
+            },
+            {
+              "name": "Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-01T12:43:10Z",
+              "completed_at": "2026-10-01T12:43:24Z"
+            },
+            {
+              "name": "Run actions/download-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-01T12:43:24Z",
+              "completed_at": "2026-10-01T12:43:25Z"
+            },
+            {
+              "name": "Verify and extract frozen candidate",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-01T12:43:25Z",
+              "completed_at": "2026-10-01T12:43:26Z"
+            },
+            {
+              "name": "Run three pass-defect-recovery stories",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-01T12:43:26Z",
+              "completed_at": "2026-10-01T12:43:38Z"
+            },
+            {
+              "name": "Run actions/upload-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-10-01T12:43:38Z",
+              "completed_at": "2026-10-01T12:43:39Z"
+            },
+            {
+              "name": "Post Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13,
+              "started_at": "2026-10-01T12:43:39Z",
+              "completed_at": "2026-10-01T12:43:40Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14,
+              "started_at": "2026-10-01T12:43:40Z",
+              "completed_at": "2026-10-01T12:43:40Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15,
+              "started_at": "2026-10-01T12:43:40Z",
+              "completed_at": "2026-10-01T12:43:41Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/check-runs/110373274802",
+          "labels": [
+            "macos-15"
+          ],
+          "runner_id": 1000001391,
+          "runner_name": "GitHub Actions 1000001391",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        },
+        {
+          "id": 110373274824,
+          "run_id": 36863515911,
+          "workflow_name": "Frozen release stories",
+          "head_branch": "main",
+          "run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/runs/36863515911",
+          "run_attempt": 1,
+          "node_id": "CR_kwDOUPAeBM8AAAAZssKEyA",
+          "head_sha": "a171a86ad5f548f488ad199193a693a30241fdcf",
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/jobs/110373274824",
+          "html_url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36863515911/job/110373274824",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T12:42:05Z",
+          "started_at": "2026-10-01T12:42:08Z",
+          "completed_at": "2026-10-01T12:43:10Z",
+          "name": "stories (windows-latest, windows, amd64, playtestr.exe, zip)",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-01T12:42:09Z",
+              "completed_at": "2026-10-01T12:42:11Z"
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-01T12:42:11Z",
+              "completed_at": "2026-10-01T12:42:19Z"
+            },
+            {
+              "name": "Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-01T12:42:19Z",
+              "completed_at": "2026-10-01T12:42:42Z"
+            },
+            {
+              "name": "Run actions/download-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-01T12:42:42Z",
+              "completed_at": "2026-10-01T12:42:43Z"
+            },
+            {
+              "name": "Verify and extract frozen candidate",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-01T12:42:43Z",
+              "completed_at": "2026-10-01T12:42:47Z"
+            },
+            {
+              "name": "Run three pass-defect-recovery stories",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-01T12:42:47Z",
+              "completed_at": "2026-10-01T12:43:03Z"
+            },
+            {
+              "name": "Run actions/upload-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-10-01T12:43:03Z",
+              "completed_at": "2026-10-01T12:43:05Z"
+            },
+            {
+              "name": "Post Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13,
+              "started_at": "2026-10-01T12:43:05Z",
+              "completed_at": "2026-10-01T12:43:05Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14,
+              "started_at": "2026-10-01T12:43:05Z",
+              "completed_at": "2026-10-01T12:43:07Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15,
+              "started_at": "2026-10-01T12:43:07Z",
+              "completed_at": "2026-10-01T12:43:07Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/check-runs/110373274824",
+          "labels": [
+            "windows-latest"
+          ],
+          "runner_id": 1000001390,
+          "runner_name": "GitHub Actions 1000001390",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 11162722470,
+          "node_id": "MDg6QXJ0aWZhY3QxMTE2MjcyMjQ3MA==",
+          "name": "release-stories-windows-amd64",
+          "size_in_bytes": 12914,
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11162722470",
+          "archive_download_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11162722470/zip",
+          "expired": false,
+          "digest": "sha256:d93fe5a390254721123a0d7e9b52af0d34c083031062a8a922e2d09974d92bd6",
+          "created_at": "2026-10-01T12:43:05Z",
+          "updated_at": "2026-10-01T12:43:05Z",
+          "expires_at": "2026-10-15T12:43:04Z",
+          "workflow_run": {
+            "id": 36863515911,
+            "repository_id": 1357913604,
+            "head_repository_id": 1357913604,
+            "head_branch": "main",
+            "head_sha": "a171a86ad5f548f488ad199193a693a30241fdcf"
+          }
+        },
+        {
+          "id": 11162442477,
+          "node_id": "MDg6QXJ0aWZhY3QxMTE2MjQ0MjQ3Nw==",
+          "name": "release-stories-darwin-arm64",
+          "size_in_bytes": 12918,
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11162442477",
+          "archive_download_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11162442477/zip",
+          "expired": false,
+          "digest": "sha256:2e874e2336122d1261ae8b28d1bdb1dc5ddea998718af59b656640d1ce718d24",
+          "created_at": "2026-10-01T12:43:40Z",
+          "updated_at": "2026-10-01T12:43:40Z",
+          "expires_at": "2026-10-15T12:43:38Z",
+          "workflow_run": {
+            "id": 36863515911,
+            "repository_id": 1357913604,
+            "head_repository_id": 1357913604,
+            "head_branch": "main",
+            "head_sha": "a171a86ad5f548f488ad199193a693a30241fdcf"
+          }
+        },
+        {
+          "id": 11162127653,
+          "node_id": "MDg6QXJ0aWZhY3QxMTE2MjEyNzY1Mw==",
+          "name": "release-stories-linux-amd64",
+          "size_in_bytes": 12780,
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11162127653",
+          "archive_download_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11162127653/zip",
+          "expired": false,
+          "digest": "sha256:90eebb7663a0b09815a97486cdc485356d9da6d4dd864d47aa7d3a8377c35766",
+          "created_at": "2026-10-01T12:43:15Z",
+          "updated_at": "2026-10-01T12:43:15Z",
+          "expires_at": "2026-10-15T12:43:14Z",
+          "workflow_run": {
+            "id": 36863515911,
+            "repository_id": 1357913604,
+            "head_repository_id": 1357913604,
+            "head_branch": "main",
+            "head_sha": "a171a86ad5f548f488ad199193a693a30241fdcf"
+          }
+        }
+      ]
+    },
+    {
+      "id": 36864853483,
+      "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36864853483",
+      "source": "cb85579e03ee34c895caf85074307d9c1b8045fd",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-01T12:53:42Z",
+      "run_started_at": "2026-10-01T12:53:42Z",
+      "jobs": [
+        {
+          "id": 110377718327,
+          "run_id": 36864853483,
+          "workflow_name": "Qualified wide-cell ANSI expectations",
+          "head_branch": "main",
+          "run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/runs/36864853483",
+          "run_attempt": 1,
+          "node_id": "CR_kwDOUPAeBM8AAAAZswZSNw",
+          "head_sha": "cb85579e03ee34c895caf85074307d9c1b8045fd",
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/jobs/110377718327",
+          "html_url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36864853483/job/110377718327",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T12:53:43Z",
+          "started_at": "2026-10-01T12:53:45Z",
+          "completed_at": "2026-10-01T12:54:40Z",
+          "name": "gates (windows-latest, windows-amd64, playtestr.exe)",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-01T12:53:46Z",
+              "completed_at": "2026-10-01T12:53:48Z"
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-01T12:53:48Z",
+              "completed_at": "2026-10-01T12:53:55Z"
+            },
+            {
+              "name": "Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-01T12:53:55Z",
+              "completed_at": "2026-10-01T12:54:17Z"
+            },
+            {
+              "name": "Run actions/download-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-01T12:54:17Z",
+              "completed_at": "2026-10-01T12:54:19Z"
+            },
+            {
+              "name": "Verify exact selected candidate",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-01T12:54:19Z",
+              "completed_at": "2026-10-01T12:54:24Z"
+            },
+            {
+              "name": "Independent ANSI expectations on real PTYs",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-01T12:54:24Z",
+              "completed_at": "2026-10-01T12:54:34Z"
+            },
+            {
+              "name": "Run actions/upload-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-10-01T12:54:34Z",
+              "completed_at": "2026-10-01T12:54:35Z"
+            },
+            {
+              "name": "Post Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13,
+              "started_at": "2026-10-01T12:54:35Z",
+              "completed_at": "2026-10-01T12:54:36Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14,
+              "started_at": "2026-10-01T12:54:36Z",
+              "completed_at": "2026-10-01T12:54:38Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15,
+              "started_at": "2026-10-01T12:54:38Z",
+              "completed_at": "2026-10-01T12:54:38Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/check-runs/110377718327",
+          "labels": [
+            "windows-latest"
+          ],
+          "runner_id": 1000001402,
+          "runner_name": "GitHub Actions 1000001402",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        },
+        {
+          "id": 110377718781,
+          "run_id": 36864853483,
+          "workflow_name": "Qualified wide-cell ANSI expectations",
+          "head_branch": "main",
+          "run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/runs/36864853483",
+          "run_attempt": 1,
+          "node_id": "CR_kwDOUPAeBM8AAAAZswZT_Q",
+          "head_sha": "cb85579e03ee34c895caf85074307d9c1b8045fd",
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/jobs/110377718781",
+          "html_url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36864853483/job/110377718781",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T12:53:43Z",
+          "started_at": "2026-10-01T12:53:52Z",
+          "completed_at": "2026-10-01T12:54:42Z",
+          "name": "gates (macos-15, darwin-arm64, playtestr)",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-01T12:53:53Z",
+              "completed_at": "2026-10-01T12:53:55Z"
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-01T12:53:55Z",
+              "completed_at": "2026-10-01T12:53:58Z"
+            },
+            {
+              "name": "Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-01T12:53:58Z",
+              "completed_at": "2026-10-01T12:54:19Z"
+            },
+            {
+              "name": "Run actions/download-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-01T12:54:19Z",
+              "completed_at": "2026-10-01T12:54:21Z"
+            },
+            {
+              "name": "Verify exact selected candidate",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-01T12:54:21Z",
+              "completed_at": "2026-10-01T12:54:23Z"
+            },
+            {
+              "name": "Independent ANSI expectations on real PTYs",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-01T12:54:23Z",
+              "completed_at": "2026-10-01T12:54:35Z"
+            },
+            {
+              "name": "Run actions/upload-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-10-01T12:54:35Z",
+              "completed_at": "2026-10-01T12:54:37Z"
+            },
+            {
+              "name": "Post Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13,
+              "started_at": "2026-10-01T12:54:37Z",
+              "completed_at": "2026-10-01T12:54:37Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14,
+              "started_at": "2026-10-01T12:54:37Z",
+              "completed_at": "2026-10-01T12:54:37Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15,
+              "started_at": "2026-10-01T12:54:37Z",
+              "completed_at": "2026-10-01T12:54:38Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/check-runs/110377718781",
+          "labels": [
+            "macos-15"
+          ],
+          "runner_id": 1000001404,
+          "runner_name": "GitHub Actions 1000001404",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        },
+        {
+          "id": 110377718871,
+          "run_id": 36864853483,
+          "workflow_name": "Qualified wide-cell ANSI expectations",
+          "head_branch": "main",
+          "run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/runs/36864853483",
+          "run_attempt": 1,
+          "node_id": "CR_kwDOUPAeBM8AAAAZswZUVw",
+          "head_sha": "cb85579e03ee34c895caf85074307d9c1b8045fd",
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/jobs/110377718871",
+          "html_url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36864853483/job/110377718871",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T12:53:43Z",
+          "started_at": "2026-10-01T12:53:46Z",
+          "completed_at": "2026-10-01T12:54:08Z",
+          "name": "gates (ubuntu-24.04, linux-amd64, playtestr)",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-01T12:53:46Z",
+              "completed_at": "2026-10-01T12:53:47Z"
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-01T12:53:47Z",
+              "completed_at": "2026-10-01T12:53:48Z"
+            },
+            {
+              "name": "Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-01T12:53:48Z",
+              "completed_at": "2026-10-01T12:53:58Z"
+            },
+            {
+              "name": "Run actions/download-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-01T12:53:58Z",
+              "completed_at": "2026-10-01T12:53:59Z"
+            },
+            {
+              "name": "Verify exact selected candidate",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-01T12:53:59Z",
+              "completed_at": "2026-10-01T12:53:59Z"
+            },
+            {
+              "name": "Independent ANSI expectations on real PTYs",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-01T12:53:59Z",
+              "completed_at": "2026-10-01T12:54:05Z"
+            },
+            {
+              "name": "Run actions/upload-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-10-01T12:54:05Z",
+              "completed_at": "2026-10-01T12:54:05Z"
+            },
+            {
+              "name": "Post Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13,
+              "started_at": "2026-10-01T12:54:05Z",
+              "completed_at": "2026-10-01T12:54:06Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14,
+              "started_at": "2026-10-01T12:54:06Z",
+              "completed_at": "2026-10-01T12:54:06Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15,
+              "started_at": "2026-10-01T12:54:06Z",
+              "completed_at": "2026-10-01T12:54:06Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/check-runs/110377718871",
+          "labels": [
+            "ubuntu-24.04"
+          ],
+          "runner_id": 1000001403,
+          "runner_name": "GitHub Actions 1000001403",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 11163365203,
+          "node_id": "MDg6QXJ0aWZhY3QxMTE2MzM2NTIwMw==",
+          "name": "qualified-wide-cells-darwin-arm64",
+          "size_in_bytes": 31522,
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11163365203",
+          "archive_download_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11163365203/zip",
+          "expired": false,
+          "digest": "sha256:ba3de769ef887ac0bf502a2cd8706dcfaccaf08c44957d1548f7f8234d98b263",
+          "created_at": "2026-10-01T12:54:37Z",
+          "updated_at": "2026-10-01T12:54:37Z",
+          "expires_at": "2026-10-15T12:54:35Z",
+          "workflow_run": {
+            "id": 36864853483,
+            "repository_id": 1357913604,
+            "head_repository_id": 1357913604,
+            "head_branch": "main",
+            "head_sha": "cb85579e03ee34c895caf85074307d9c1b8045fd"
+          }
+        },
+        {
+          "id": 11163094229,
+          "node_id": "MDg6QXJ0aWZhY3QxMTE2MzA5NDIyOQ==",
+          "name": "qualified-wide-cells-linux-amd64",
+          "size_in_bytes": 30826,
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11163094229",
+          "archive_download_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11163094229/zip",
+          "expired": false,
+          "digest": "sha256:74b5141c30548c93fa93137655e686336f5612b618a56fea939c565d7d80004a",
+          "created_at": "2026-10-01T12:54:05Z",
+          "updated_at": "2026-10-01T12:54:05Z",
+          "expires_at": "2026-10-15T12:54:05Z",
+          "workflow_run": {
+            "id": 36864853483,
+            "repository_id": 1357913604,
+            "head_repository_id": 1357913604,
+            "head_branch": "main",
+            "head_sha": "cb85579e03ee34c895caf85074307d9c1b8045fd"
+          }
+        },
+        {
+          "id": 11162069401,
+          "node_id": "MDg6QXJ0aWZhY3QxMTE2MjA2OTQwMQ==",
+          "name": "qualified-wide-cells-windows-amd64",
+          "size_in_bytes": 31042,
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11162069401",
+          "archive_download_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11162069401/zip",
+          "expired": false,
+          "digest": "sha256:0ce78ebc9da2a3e3a7586e334bdb6e577d62f2331b4c3cb9ab13dc9992e80d4d",
+          "created_at": "2026-10-01T12:54:35Z",
+          "updated_at": "2026-10-01T12:54:35Z",
+          "expires_at": "2026-10-15T12:54:34Z",
+          "workflow_run": {
+            "id": 36864853483,
+            "repository_id": 1357913604,
+            "head_repository_id": 1357913604,
+            "head_branch": "main",
+            "head_sha": "cb85579e03ee34c895caf85074307d9c1b8045fd"
+          }
+        }
+      ]
+    },
+    {
+      "id": 36864122786,
+      "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36864122786",
+      "source": "a171a86ad5f548f488ad199193a693a30241fdcf",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-01T12:47:22Z",
+      "run_started_at": "2026-10-01T12:47:22Z",
+      "jobs": [
+        {
+          "id": 110375279630,
+          "run_id": 36864122786,
+          "workflow_name": "Frozen candidate qualification",
+          "head_branch": "main",
+          "run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/runs/36864122786",
+          "run_attempt": 1,
+          "node_id": "CR_kwDOUPAeBM8AAAAZsuEcDg",
+          "head_sha": "a171a86ad5f548f488ad199193a693a30241fdcf",
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/jobs/110375279630",
+          "html_url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36864122786/job/110375279630",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T12:47:24Z",
+          "started_at": "2026-10-01T12:47:26Z",
+          "completed_at": "2026-10-01T13:05:29Z",
+          "name": "repeat (windows-latest, windows, amd64, playtestr.exe, zip)",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-01T12:47:27Z",
+              "completed_at": "2026-10-01T12:47:28Z"
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-01T12:47:28Z",
+              "completed_at": "2026-10-01T12:47:34Z"
+            },
+            {
+              "name": "Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-01T12:47:34Z",
+              "completed_at": "2026-10-01T12:48:18Z"
+            },
+            {
+              "name": "Run actions/setup-node@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-01T12:48:18Z",
+              "completed_at": "2026-10-01T12:48:29Z"
+            },
+            {
+              "name": "Pin Rust toolchain",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-01T12:48:29Z",
+              "completed_at": "2026-10-01T12:48:42Z"
+            },
+            {
+              "name": "Download frozen native archive",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-01T12:48:42Z",
+              "completed_at": "2026-10-01T12:48:43Z"
+            },
+            {
+              "name": "Verify and extract frozen runner",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-10-01T12:48:43Z",
+              "completed_at": "2026-10-01T12:48:46Z"
+            },
+            {
+              "name": "Prepare exact target pins",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8,
+              "started_at": "2026-10-01T12:48:46Z",
+              "completed_at": "2026-10-01T12:52:32Z"
+            },
+            {
+              "name": "Run first-attempt campaign",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9,
+              "started_at": "2026-10-01T12:52:32Z",
+              "completed_at": "2026-10-01T13:05:22Z"
+            },
+            {
+              "name": "Run actions/upload-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10,
+              "started_at": "2026-10-01T13:05:22Z",
+              "completed_at": "2026-10-01T13:05:23Z"
+            },
+            {
+              "name": "Post Run actions/setup-node@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 18,
+              "started_at": "2026-10-01T13:05:23Z",
+              "completed_at": "2026-10-01T13:05:23Z"
+            },
+            {
+              "name": "Post Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 19,
+              "started_at": "2026-10-01T13:05:23Z",
+              "completed_at": "2026-10-01T13:05:24Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 20,
+              "started_at": "2026-10-01T13:05:24Z",
+              "completed_at": "2026-10-01T13:05:26Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 21,
+              "started_at": "2026-10-01T13:05:26Z",
+              "completed_at": "2026-10-01T13:05:26Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/check-runs/110375279630",
+          "labels": [
+            "windows-latest"
+          ],
+          "runner_id": 1000001393,
+          "runner_name": "GitHub Actions 1000001393",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        },
+        {
+          "id": 110375279891,
+          "run_id": 36864122786,
+          "workflow_name": "Frozen candidate qualification",
+          "head_branch": "main",
+          "run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/runs/36864122786",
+          "run_attempt": 1,
+          "node_id": "CR_kwDOUPAeBM8AAAAZsuEdEw",
+          "head_sha": "a171a86ad5f548f488ad199193a693a30241fdcf",
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/jobs/110375279891",
+          "html_url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36864122786/job/110375279891",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T12:47:24Z",
+          "started_at": "2026-10-01T12:47:26Z",
+          "completed_at": "2026-10-01T13:27:12Z",
+          "name": "repeat (ubuntu-latest, linux, amd64, playtestr, tar.gz)",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-01T12:47:27Z",
+              "completed_at": "2026-10-01T12:47:29Z"
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-01T12:47:29Z",
+              "completed_at": "2026-10-01T12:47:31Z"
+            },
+            {
+              "name": "Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-01T12:47:31Z",
+              "completed_at": "2026-10-01T12:47:41Z"
+            },
+            {
+              "name": "Run actions/setup-node@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-01T12:47:41Z",
+              "completed_at": "2026-10-01T12:47:48Z"
+            },
+            {
+              "name": "Pin Rust toolchain",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-01T12:47:48Z",
+              "completed_at": "2026-10-01T12:47:56Z"
+            },
+            {
+              "name": "Download frozen native archive",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-01T12:47:56Z",
+              "completed_at": "2026-10-01T12:47:58Z"
+            },
+            {
+              "name": "Verify and extract frozen runner",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-10-01T12:47:58Z",
+              "completed_at": "2026-10-01T12:47:59Z"
+            },
+            {
+              "name": "Prepare exact target pins",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8,
+              "started_at": "2026-10-01T12:47:59Z",
+              "completed_at": "2026-10-01T12:49:38Z"
+            },
+            {
+              "name": "Run first-attempt campaign",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9,
+              "started_at": "2026-10-01T12:49:38Z",
+              "completed_at": "2026-10-01T13:27:08Z"
+            },
+            {
+              "name": "Run actions/upload-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10,
+              "started_at": "2026-10-01T13:27:08Z",
+              "completed_at": "2026-10-01T13:27:09Z"
+            },
+            {
+              "name": "Post Run actions/setup-node@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 18,
+              "started_at": "2026-10-01T13:27:09Z",
+              "completed_at": "2026-10-01T13:27:09Z"
+            },
+            {
+              "name": "Post Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 19,
+              "started_at": "2026-10-01T13:27:09Z",
+              "completed_at": "2026-10-01T13:27:10Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 20,
+              "started_at": "2026-10-01T13:27:10Z",
+              "completed_at": "2026-10-01T13:27:10Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 21,
+              "started_at": "2026-10-01T13:27:10Z",
+              "completed_at": "2026-10-01T13:27:10Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/check-runs/110375279891",
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "runner_id": 1000001392,
+          "runner_name": "GitHub Actions 1000001392",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        },
+        {
+          "id": 110375280052,
+          "run_id": 36864122786,
+          "workflow_name": "Frozen candidate qualification",
+          "head_branch": "main",
+          "run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/runs/36864122786",
+          "run_attempt": 1,
+          "node_id": "CR_kwDOUPAeBM8AAAAZsuEdtA",
+          "head_sha": "a171a86ad5f548f488ad199193a693a30241fdcf",
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/jobs/110375280052",
+          "html_url": "https://github.com/Wyrcan-io/playtestr/actions/runs/36864122786/job/110375280052",
+          "status": "completed",
+          "conclusion": "success",
+          "created_at": "2026-10-01T12:47:24Z",
+          "started_at": "2026-10-01T12:47:31Z",
+          "completed_at": "2026-10-01T13:34:34Z",
+          "name": "repeat (macos-15, darwin, arm64, playtestr, tar.gz)",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1,
+              "started_at": "2026-10-01T12:47:32Z",
+              "completed_at": "2026-10-01T12:47:34Z"
+            },
+            {
+              "name": "Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2,
+              "started_at": "2026-10-01T12:47:34Z",
+              "completed_at": "2026-10-01T12:47:36Z"
+            },
+            {
+              "name": "Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3,
+              "started_at": "2026-10-01T12:47:36Z",
+              "completed_at": "2026-10-01T12:48:01Z"
+            },
+            {
+              "name": "Run actions/setup-node@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4,
+              "started_at": "2026-10-01T12:48:01Z",
+              "completed_at": "2026-10-01T12:48:06Z"
+            },
+            {
+              "name": "Pin Rust toolchain",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5,
+              "started_at": "2026-10-01T12:48:06Z",
+              "completed_at": "2026-10-01T12:48:13Z"
+            },
+            {
+              "name": "Download frozen native archive",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6,
+              "started_at": "2026-10-01T12:48:13Z",
+              "completed_at": "2026-10-01T12:48:14Z"
+            },
+            {
+              "name": "Verify and extract frozen runner",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7,
+              "started_at": "2026-10-01T12:48:14Z",
+              "completed_at": "2026-10-01T12:48:16Z"
+            },
+            {
+              "name": "Prepare exact target pins",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8,
+              "started_at": "2026-10-01T12:48:16Z",
+              "completed_at": "2026-10-01T12:50:31Z"
+            },
+            {
+              "name": "Run first-attempt campaign",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9,
+              "started_at": "2026-10-01T12:50:31Z",
+              "completed_at": "2026-10-01T13:34:25Z"
+            },
+            {
+              "name": "Run actions/upload-artifact@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10,
+              "started_at": "2026-10-01T13:34:25Z",
+              "completed_at": "2026-10-01T13:34:27Z"
+            },
+            {
+              "name": "Post Run actions/setup-node@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 18,
+              "started_at": "2026-10-01T13:34:27Z",
+              "completed_at": "2026-10-01T13:34:27Z"
+            },
+            {
+              "name": "Post Run actions/setup-go@v7",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 19,
+              "started_at": "2026-10-01T13:34:27Z",
+              "completed_at": "2026-10-01T13:34:28Z"
+            },
+            {
+              "name": "Post Run actions/checkout@v6",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 20,
+              "started_at": "2026-10-01T13:34:28Z",
+              "completed_at": "2026-10-01T13:34:28Z"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 21,
+              "started_at": "2026-10-01T13:34:28Z",
+              "completed_at": "2026-10-01T13:34:29Z"
+            }
+          ],
+          "check_run_url": "https://api.github.com/repos/Wyrcan-io/playtestr/check-runs/110375280052",
+          "labels": [
+            "macos-15"
+          ],
+          "runner_id": 1000001394,
+          "runner_name": "GitHub Actions 1000001394",
+          "runner_group_id": 0,
+          "runner_group_name": "GitHub Actions"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 11166991654,
+          "node_id": "MDg6QXJ0aWZhY3QxMTE2Njk5MTY1NA==",
+          "name": "qualification-darwin-arm64-100",
+          "size_in_bytes": 50271,
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11166991654",
+          "archive_download_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11166991654/zip",
+          "expired": false,
+          "digest": "sha256:ce2c0103bc55c00ab8df2ba45966166f7a6f0e032cd2820799c9a52f5d9a202c",
+          "created_at": "2026-10-01T13:34:27Z",
+          "updated_at": "2026-10-01T13:34:27Z",
+          "expires_at": "2026-10-15T13:34:26Z",
+          "workflow_run": {
+            "id": 36864122786,
+            "repository_id": 1357913604,
+            "head_repository_id": 1357913604,
+            "head_branch": "main",
+            "head_sha": "a171a86ad5f548f488ad199193a693a30241fdcf"
+          }
+        },
+        {
+          "id": 11165087006,
+          "node_id": "MDg6QXJ0aWZhY3QxMTE2NTA4NzAwNg==",
+          "name": "qualification-linux-amd64-100",
+          "size_in_bytes": 43867,
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11165087006",
+          "archive_download_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11165087006/zip",
+          "expired": false,
+          "digest": "sha256:c8371bf2cc02364e382d6315249ea6b3552557e06e5df9e37db9a5095fdd7120",
+          "created_at": "2026-10-01T13:27:09Z",
+          "updated_at": "2026-10-01T13:27:09Z",
+          "expires_at": "2026-10-15T13:27:08Z",
+          "workflow_run": {
+            "id": 36864122786,
+            "repository_id": 1357913604,
+            "head_repository_id": 1357913604,
+            "head_branch": "main",
+            "head_sha": "a171a86ad5f548f488ad199193a693a30241fdcf"
+          }
+        },
+        {
+          "id": 11164710835,
+          "node_id": "MDg6QXJ0aWZhY3QxMTE2NDcxMDgzNQ==",
+          "name": "qualification-windows-amd64-100",
+          "size_in_bytes": 46249,
+          "url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11164710835",
+          "archive_download_url": "https://api.github.com/repos/Wyrcan-io/playtestr/actions/artifacts/11164710835/zip",
+          "expired": false,
+          "digest": "sha256:d498eff954d8beeb765ff2464af9d64301c6c19097bdaa68a29f93c58632feda",
+          "created_at": "2026-10-01T13:05:23Z",
+          "updated_at": "2026-10-01T13:05:23Z",
+          "expires_at": "2026-10-15T13:05:22Z",
+          "workflow_run": {
+            "id": 36864122786,
+            "repository_id": 1357913604,
+            "head_repository_id": 1357913604,
+            "head_branch": "main",
+            "head_sha": "a171a86ad5f548f488ad199193a693a30241fdcf"
+          }
+        }
+      ]
+    }
+  ]
 }

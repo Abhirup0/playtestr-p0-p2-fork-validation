@@ -1,6 +1,6 @@
-﻿# Playtestr v0.4.0-rc.3
+# Playtestr v0.4.0-rc.3
 
-Release-note draft; qualification and publication are pending.
+Qualified prerelease. Stable v0.1.0 and all previous assets remain unchanged.
 
 This prerelease adds the selected East Asian Wide/Fullwidth two-column repair:
 correct cursor advancement, addressed overwrite/erase, wrapping, split UTF-8,
@@ -28,7 +28,7 @@ The independently pinned setup action remains
 `Wyrcan-io/playtestr/setup-playtestr@ae97c62022966cde9699b26169b4dc6ef0a12439`,
 with runner version `v0.4.0-rc.3` selected separately. Its implementation is
 unchanged from the verified action, and current native installer source/failure
-checks passed. Public action and public-download checks will run after publication.
+checks passed. Public distribution and upgrade verification is tracked separately in the dated evidence record.
 
 Combining clusters, variation selectors, emoji/ZWJ sequences, terminal-specific
 ambiguous widths and target-visible terminal queries remain excluded. Cleanup
@@ -36,3 +36,14 @@ applies to the documented process-group/Job Object boundary, with existing escap
 limits. Exact workflow evidence is not universal framework/Unicode compatibility.
 Independent adoption, human screen-reader usability, human effort and differentiation
 remain open. No website deployment, outreach or marketing accompanies this release.
+
+Qualification accepted 3,000/3,000 selected first attempts on three native runner
+hosts, 120 admitted workflows plus 15 classified controls and recoveries, 54
+independent ANSI/cell expectations, native real journeys and lifecycle/installer
+gates. Expected negatives retain failed product reports; no first attempt was retried away.
+Previously used GitUI/television definitions are regression cases, not unseen holdouts.
+
+[Downloads and installation](https://github.com/Wyrcan-io/playtestr/blob/main/docs/releases/v0.4.0-rc.3.md) · [Migration](https://github.com/Wyrcan-io/playtestr/blob/main/docs/migration-v0.4.0-rc.3.md) · [Exact hashes](https://github.com/Wyrcan-io/playtestr/blob/main/release/wide-character-candidate-manifest.json) · [Dated evidence](https://github.com/Wyrcan-io/playtestr/blob/main/docs/validation/wide-character-release-2026-10-01.md).
+
+Archive READMEs retain their frozen-source installation context; use these versioned
+release instructions for rc.3. Published archives are promoted without substitution.
