@@ -6,7 +6,11 @@ on:
       candidate_run_id:
         description: Frozen native candidate run ID
         required: true
-        default: '36103641387'
+        type: string
+      frozen_source_commit:
+        description: Immutable shipping source
+        required: true
+        type: string
 
 permissions:
   actions: read
@@ -48,10 +52,14 @@ jobs:
           run-id: ${{ inputs.candidate_run_id }}
       - name: Verify and extract frozen candidate
         shell: bash
+        env:
+          FROZEN_SOURCE: ${{ inputs.frozen_source_commit }}
         run: |
           set -euo pipefail
+          git fetch --no-tags origin "$FROZEN_SOURCE"
+          git diff --exit-code "$FROZEN_SOURCE" -- cmd internal go.mod go.sum corpus/workflows corpus/controls
           evidence="$(find candidate -name 'candidate-evidence-*.json' -type f)"
-          test "$(python -c 'import json,sys; print(json.load(open(sys.argv[1]))["source_commit"])' "$evidence")" = "$GITHUB_SHA"
+          test "$(python -c 'import json,sys; print(json.load(open(sys.argv[1]))["source_commit"])' "$evidence")" = "$FROZEN_SOURCE"
           archive="$(find candidate -name 'playtestr_*.${{ matrix.extension }}' -type f)"
           expected_archive="$(python -c 'import json,sys; print(json.load(open(sys.argv[1]))["archive_sha256"])' "$evidence")"
           test "$(sha256sum "$archive" | awk '{print $1}')" = "$expected_archive"

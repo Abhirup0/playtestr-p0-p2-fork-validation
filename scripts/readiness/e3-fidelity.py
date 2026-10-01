@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[2]
 parser = argparse.ArgumentParser()
 parser.add_argument('--out', default='artifacts/e3-fidelity')
 parser.add_argument('--require-wide-pass', action='store_true', help='Fail if any investigated real case or cleanup fails')
+parser.add_argument('--runner', help='Use an extracted frozen executable without rebuilding it')
 args = parser.parse_args()
 OUT = ROOT / args.out
 TOOLS = ROOT / '.trial-private/corpus-tools'
@@ -37,11 +38,14 @@ for name, repo, commit, binary, package in [
     assert subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=source, text=True).strip() == commit
     run(['go', 'build', '-trimpath', '-o', TOOLS/binary, package], source)
 run(['go', 'build', '-trimpath', '-o', TOOLS/('micro-oracle'+suffix), '.'], ROOT/'corpus/controls/micro-oracle')
-runner = OUT/('playtestr'+suffix)
-run(['go', 'build', '-trimpath', '-o', runner, './cmd/playtestr'])
+runner = Path(args.runner).resolve() if args.runner else OUT/('playtestr'+suffix)
+if not args.runner:
+    run(['go', 'build', '-trimpath', '-o', runner, './cmd/playtestr'])
 identity = dict(source=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
     runner_sha256=sha(runner), toolchain=subprocess.check_output(['go','version'],text=True).strip(),
-    host=platform.platform(), architecture=platform.machine(), flags=['-trimpath'],
+    host=platform.platform(), architecture=platform.machine(), flags=None if args.runner else ['-trimpath'],
+    runner_version=subprocess.check_output([str(runner),'version'],text=True).strip(),
+    runner_route='extracted frozen bytes' if args.runner else 'development build',
     targets={p.name:sha(p) for p in [TOOLS/'micro.exe', TOOLS/('fzf'+suffix), TOOLS/('micro-oracle'+suffix)]})
 (OUT/'identities.json').write_text(json.dumps(identity,indent=2)+'\n')
 cases = [

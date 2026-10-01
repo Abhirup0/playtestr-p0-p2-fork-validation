@@ -4,12 +4,25 @@ on:
     branches: [readiness/e3-e5]
     paths: ['.github/workflows/readiness-e5-bytes.yml', 'scripts/readiness/e5-native-gates.py']
   workflow_dispatch:
+    inputs:
+      candidate_run_id:
+        description: Successful nonpublishing native build run ID
+        required: true
+        type: string
+      frozen_source_commit:
+        description: Immutable shipping source
+        required: true
+        type: string
+      version:
+        description: Frozen embedded prerelease version
+        required: true
+        type: string
 permissions:
   actions: read
   contents: read
 jobs:
   gates:
-    timeout-minutes: 15
+    timeout-minutes: 25
     strategy:
       fail-fast: false
       matrix:
@@ -28,37 +41,31 @@ jobs:
           name: playtestr-${{ matrix.target }}
           path: candidate
           github-token: ${{ github.token }}
-          run-id: '36329978517'
-      - name: Verify frozen identities and execute bounded native gates
+          run-id: ${{ inputs.candidate_run_id }}
+      - name: Verify exact selected candidate
+        env:
+          FROZEN_SOURCE: ${{ inputs.frozen_source_commit }}
+          FROZEN_VERSION: ${{ inputs.version }}
         shell: bash
         run: |
           set -euo pipefail
-          python - <<'PY'
-          import hashlib,json,pathlib,tarfile,zipfile
-          root=pathlib.Path('candidate')
-          record=json.loads(next(root.rglob('candidate-evidence-*.json')).read_text())
-          assert record['source_commit']=='ae97c62022966cde9699b26169b4dc6ef0a12439'
-          archive=root/record['archive']
-          assert hashlib.sha256(archive.read_bytes()).hexdigest()==record['archive_sha256']
-          destination=pathlib.Path('frozen candidate'); destination.mkdir()
-          if archive.suffix=='.zip':
-              with zipfile.ZipFile(archive) as z:
-                  assert sorted(z.namelist())==sorted(record['archive_members']); z.extractall(destination)
-          else:
-              with tarfile.open(archive) as t:
-                  assert sorted(t.getnames())==sorted(record['archive_members']); t.extractall(destination,filter='data')
-          binary=next(destination.rglob('${{ matrix.executable }}'))
-          assert hashlib.sha256(binary.read_bytes()).hexdigest()==record['executable_sha256']
-          with open(__import__('os').environ['GITHUB_ENV'],'a') as env: env.write('FROZEN_RUNNER='+str(binary)+'\n')
-          PY
+          git fetch --no-tags origin "$FROZEN_SOURCE"
+          git diff --exit-code "$FROZEN_SOURCE" -- cmd internal go.mod go.sum corpus/workflows corpus/controls release/qualification-plan.json
+          python scripts/readiness/verify-frozen.py --source "$FROZEN_SOURCE" --version "$FROZEN_VERSION"
+      - name: Execute frozen native lifecycle resource and fidelity gates
+        shell: bash
+        run: |
+          set -euo pipefail
           suffix=''; if [[ "$RUNNER_OS" == Windows ]]; then suffix='.exe'; fi
-          frozen_runner="$(find 'frozen candidate' -name '${{ matrix.executable }}' -type f)"
-          # Build a helper only; never rebuild or relabel the frozen runner.
           go build -o "artifacts/e5-fixture$suffix" ./cmd/fixture
-          python scripts/readiness/e5-native-gates.py --runner "$frozen_runner" --fixture "artifacts/e5-fixture$suffix" --out artifacts/e5-native-bytes
+          python scripts/readiness/e5-native-gates.py --runner "$FROZEN_RUNNER" --fixture "artifacts/e5-fixture$suffix" --out artifacts/e5-native-bytes
+          python scripts/readiness/e3-fidelity.py --runner "$FROZEN_RUNNER" --out artifacts/frozen-fidelity --require-wide-pass
       - uses: actions/upload-artifact@v6
         if: always()
         with:
           name: e5-native-bytes-${{ matrix.target }}
-          path: artifacts/e5-native-bytes
+          path: |
+            artifacts/e5-native-bytes
+            artifacts/frozen-fidelity
+            frozen candidate/verified-identity.json
           retention-days: 14

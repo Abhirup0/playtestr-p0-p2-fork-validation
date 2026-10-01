@@ -1,0 +1,95 @@
+[
+  {
+    "schema_version": 1,
+    "status": "candidate frozen; qualification pending",
+    "source_commit": "07b304bb32aab9d064e7109733c244ab91766899",
+    "version": "v0.4.0-rc.3",
+    "host": {
+      "runner_os": "macOS",
+      "runner_arch": "ARM64",
+      "image_os": "macos26",
+      "image_version": "20260907.0351.1"
+    },
+    "toolchain": "go version go1.26.0 darwin/arm64",
+    "build_command": "go build -trimpath -ldflags '-s -w -X github.com/Wyrcan-io/playtestr/internal/buildinfo.Version=$VERSION' -o bin/<native-name> ./cmd/playtestr",
+    "executable_sha256": "05ad8911ddaa4a5ad73ca0a218b357d850a1cf93b6d610e1c691f0fc80c36b79",
+    "version_output": "playtestr v0.4.0-rc.3",
+    "archive": "dist/playtestr_0.4.0-rc.3_darwin_arm64.tar.gz",
+    "archive_sha256": "494731020f663eca67340ba8969d5475c0f52525ebdd12cc0975fbbc8246c181",
+    "archive_members": [
+      "playtestr_0.4.0-rc.3_darwin_arm64/LICENSE",
+      "playtestr_0.4.0-rc.3_darwin_arm64/README.md",
+      "playtestr_0.4.0-rc.3_darwin_arm64/THIRD_PARTY_NOTICES.md",
+      "playtestr_0.4.0-rc.3_darwin_arm64/playtestr"
+    ],
+    "extraction_path": "release verification",
+    "extracted_executable_sha256": "05ad8911ddaa4a5ad73ca0a218b357d850a1cf93b6d610e1c691f0fc80c36b79",
+    "smoke_exit_status": 0,
+    "limitations": [
+      "hosted native build evidence; application compatibility requires R6-Q",
+      "candidate is not published or qualified"
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "candidate frozen; qualification pending",
+    "source_commit": "07b304bb32aab9d064e7109733c244ab91766899",
+    "version": "v0.4.0-rc.3",
+    "host": {
+      "runner_os": "Linux",
+      "runner_arch": "X64",
+      "image_os": "ubuntu24",
+      "image_version": "20260920.314.1"
+    },
+    "toolchain": "go version go1.26.0 linux/amd64",
+    "build_command": "go build -trimpath -ldflags '-s -w -X github.com/Wyrcan-io/playtestr/internal/buildinfo.Version=$VERSION' -o bin/<native-name> ./cmd/playtestr",
+    "executable_sha256": "6317f37b59946c30e50a7f34c627c9be6fdd957fe370a8d9cde4697fc5d04425",
+    "version_output": "playtestr v0.4.0-rc.3",
+    "archive": "dist/playtestr_0.4.0-rc.3_linux_amd64.tar.gz",
+    "archive_sha256": "8ebd5390e0e76cd2c34e141e66cb4dda2d0c8488f18ef4319fd9c17bf4a6ed16",
+    "archive_members": [
+      "playtestr_0.4.0-rc.3_linux_amd64/LICENSE",
+      "playtestr_0.4.0-rc.3_linux_amd64/README.md",
+      "playtestr_0.4.0-rc.3_linux_amd64/THIRD_PARTY_NOTICES.md",
+      "playtestr_0.4.0-rc.3_linux_amd64/playtestr"
+    ],
+    "extraction_path": "release verification",
+    "extracted_executable_sha256": "6317f37b59946c30e50a7f34c627c9be6fdd957fe370a8d9cde4697fc5d04425",
+    "smoke_exit_status": 0,
+    "limitations": [
+      "hosted native build evidence; application compatibility requires R6-Q",
+      "candidate is not published or qualified"
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "candidate frozen; qualification pending",
+    "source_commit": "07b304bb32aab9d064e7109733c244ab91766899",
+    "version": "v0.4.0-rc.3",
+    "host": {
+      "runner_os": "Windows",
+      "runner_arch": "X64",
+      "image_os": "win25-vs2026",
+      "image_version": "20260925.250.1"
+    },
+    "toolchain": "go version go1.26.0 windows/amd64",
+    "build_command": "go build -trimpath -ldflags '-s -w -X github.com/Wyrcan-io/playtestr/internal/buildinfo.Version=$VERSION' -o bin/<native-name> ./cmd/playtestr",
+    "executable_sha256": "531804dcb5f29bdcc9d9e2650b1be86e083eedd34c4545ebff1654f05d33f16a",
+    "version_output": "playtestr v0.4.0-rc.3",
+    "archive": "dist/playtestr_0.4.0-rc.3_windows_amd64.zip",
+    "archive_sha256": "b159cd8f638f231c278b485565663dfe8fe323f97e3edf0c86fe7077239a406f",
+    "archive_members": [
+      "playtestr_0.4.0-rc.3_windows_amd64/LICENSE",
+      "playtestr_0.4.0-rc.3_windows_amd64/README.md",
+      "playtestr_0.4.0-rc.3_windows_amd64/THIRD_PARTY_NOTICES.md",
+      "playtestr_0.4.0-rc.3_windows_amd64/playtestr.exe"
+    ],
+    "extraction_path": "release verification",
+    "extracted_executable_sha256": "531804dcb5f29bdcc9d9e2650b1be86e083eedd34c4545ebff1654f05d33f16a",
+    "smoke_exit_status": 0,
+    "limitations": [
+      "hosted native build evidence; application compatibility requires R6-Q",
+      "candidate is not published or qualified"
+    ]
+  }
+]

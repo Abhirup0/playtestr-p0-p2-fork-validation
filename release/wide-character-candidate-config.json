@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "version": "v0.4.0-rc.3",
+  "status": "freeze selected; native builds and qualification pending",
+  "version_novelty_checked_on": "2026-10-01",
+  "version_reason": "Selected two-column East Asian Wide/Fullwidth repair and explicitly reviewed television snapshot migration; v1/v2 unchanged.",
+  "toolchain": "go1.26.0",
+  "flags": "-trimpath -ldflags '-s -w -X github.com/Wyrcan-io/playtestr/internal/buildinfo.Version=v0.4.0-rc.3'",
+  "hosts": [
+    "linux/amd64",
+    "darwin/arm64",
+    "windows/amd64"
+  ],
+  "source_identity": "Exact immutable checkout SHA recorded by native candidate-evidence manifests; tracked shipping inputs only, unrelated local user edits excluded.",
+  "invalidation": "New source affecting execution, dependency, compiler, flags or embedded version requires new bytes and qualification. Documentation-only follow-up retains identical frozen bytes.",
+  "qualification": "release/qualification-plan.json",
+  "corpus_scope": "120 existing admitted Windows-runner workflows; tig and taskwarrior targets are WSL lanes. Ten selected workflows on each of three native runner hosts, 100 first attempts each, are one separate 3000-attempt qualification.",
+  "controls": {
+    "executable_code_defects": 12,
+    "altered_input_or_fixture": 3
+  },
+  "contracts": {
+    "preserved_default": 1,
+    "opt_in": 2
+  },
+  "public_routes": "Publication authorized after mandatory exact-byte gates; immutable public action independently pinned to ae97c62022966cde9699b26169b4dc6ef0a12439.",
+  "qualified_record": "docs/validation/wide-character-release-2026-10-01.md",
+  "source_commit": "07b304bb32aab9d064e7109733c244ab91766899",
+  "holdouts": "Previously used GitUI and television definitions are regression evidence, not unseen holdouts."
+}

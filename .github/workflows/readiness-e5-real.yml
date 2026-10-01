@@ -4,6 +4,19 @@ on:
     branches: [readiness/e3-e5]
     paths: ['.github/workflows/readiness-e5-real.yml', 'scripts/readiness/run-native.py']
   workflow_dispatch:
+    inputs:
+      candidate_run_id:
+        description: Successful nonpublishing native build run ID
+        required: true
+        type: string
+      frozen_source_commit:
+        description: Immutable shipping source
+        required: true
+        type: string
+      version:
+        description: Frozen embedded prerelease version
+        required: true
+        type: string
 permissions:
   actions: read
   contents: read
@@ -33,21 +46,17 @@ jobs:
           name: playtestr-${{ matrix.target }}
           path: candidate
           github-token: ${{ github.token }}
-          run-id: '36329978517'
-      - name: Verify and extract exact frozen bytes
+          run-id: ${{ inputs.candidate_run_id }}
+      - name: Verify exact selected candidate
+        env:
+          FROZEN_SOURCE: ${{ inputs.frozen_source_commit }}
+          FROZEN_VERSION: ${{ inputs.version }}
         shell: bash
         run: |
-          python - <<'PY'
-          import hashlib,json,pathlib,tarfile,os
-          root=pathlib.Path('candidate'); record=json.loads(next(root.rglob('candidate-evidence-*.json')).read_text())
-          assert record['source_commit']=='ae97c62022966cde9699b26169b4dc6ef0a12439'
-          archive=root/record['archive']; assert hashlib.sha256(archive.read_bytes()).hexdigest()==record['archive_sha256']
-          destination=pathlib.Path('frozen candidate'); destination.mkdir()
-          with tarfile.open(archive) as t:
-              assert sorted(t.getnames())==sorted(record['archive_members']); t.extractall(destination,filter='data')
-          binary=next(destination.rglob('playtestr')); assert hashlib.sha256(binary.read_bytes()).hexdigest()==record['executable_sha256']
-          with open(os.environ['GITHUB_ENV'],'a') as env: env.write('FROZEN_RUNNER='+str(binary)+'\n')
-          PY
+          set -euo pipefail
+          git fetch --no-tags origin "$FROZEN_SOURCE"
+          git diff --exit-code "$FROZEN_SOURCE" -- cmd internal go.mod go.sum corpus/workflows corpus/controls release/qualification-plan.json
+          python scripts/readiness/verify-frozen.py --source "$FROZEN_SOURCE" --version "$FROZEN_VERSION"
       - name: Prepare unchanged pinned native targets and code controls
         run: python scripts/readiness/setup-native.py
       - name: Revalidate six admitted native task boundaries without rebuilding runner

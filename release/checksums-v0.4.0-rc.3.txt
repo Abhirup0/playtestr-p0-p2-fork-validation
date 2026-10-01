@@ -1,0 +1,3 @@
+494731020f663eca67340ba8969d5475c0f52525ebdd12cc0975fbbc8246c181  playtestr_0.4.0-rc.3_darwin_arm64.tar.gz
+8ebd5390e0e76cd2c34e141e66cb4dda2d0c8488f18ef4319fd9c17bf4a6ed16  playtestr_0.4.0-rc.3_linux_amd64.tar.gz
+b159cd8f638f231c278b485565663dfe8fe323f97e3edf0c86fe7077239a406f  playtestr_0.4.0-rc.3_windows_amd64.zip

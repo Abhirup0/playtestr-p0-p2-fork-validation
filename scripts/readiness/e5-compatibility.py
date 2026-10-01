@@ -1,11 +1,16 @@
 """Side-by-side private upgrade preparation; preserve reviewed v1 snapshots."""
+import argparse
 import hashlib
 import json
 from pathlib import Path
 import subprocess
 ROOT=Path(__file__).resolve().parents[2]
-out=ROOT/'artifacts/e5-compatibility'; out.mkdir(parents=True,exist_ok=False)
-new=ROOT/'artifacts/e5 frozen candidate extracted/playtestr_0.4.0-rc.2_windows_amd64/playtestr.exe'
+parser=argparse.ArgumentParser()
+parser.add_argument('--runner', default=str(ROOT/'artifacts/e5 frozen candidate extracted/playtestr_0.4.0-rc.2_windows_amd64/playtestr.exe'))
+parser.add_argument('--out', default='artifacts/e5-compatibility')
+args=parser.parse_args()
+out=ROOT/args.out; out.mkdir(parents=True,exist_ok=False)
+new=Path(args.runner).resolve()
 old=ROOT/'artifacts/upgrade previous extracted/playtestr_0.3.0-rc.1_windows_amd64/playtestr.exe'
 public=ROOT/'artifacts/qualified candidate extracted/playtestr_0.4.0-rc.1_windows_amd64/playtestr.exe'
 def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
@@ -22,15 +27,15 @@ def run(name,binary,spec,expected,report_version,category=None):
     if category!='invalid_spec': accepted=accepted and first['cleanup']['confirmed_exited']
     rows.append(dict(id=name,runner_sha256=sha(binary),version=subprocess.check_output([str(binary),'version'],text=True).strip(),
                      exit=process.returncode,accepted=accepted,result=result))
-for label,binary in [('old-v03',old),('public-v04rc1',public),('private-v04rc2',new)]:
+for label,binary in [('old-v03',old),('public-v04rc1',public),('candidate',new)]:
     run(label+'-pass',binary,'examples/menu.json',0,1)
     run(label+'-failure',binary,'examples/snapshot-mismatch.json',1,1,'snapshot_mismatch')
     run(label+'-recovery',binary,'examples/menu.json',0,1)
 run('old-v03-rejects-v2',old,'examples/workspace.json',1,1,'invalid_spec')
 run('public-v04rc1-v2',public,'examples/workspace.json',0,2)
-run('private-v04rc2-v2',new,'examples/workspace.json',0,2)
+run('candidate-v2',new,'examples/workspace.json',0,2)
 v1=out/'old-v03-failure.json'
-v2=out/'private-v04rc2-v2.json'
+v2=out/'candidate-v2.json'
 for name,reader,input_file,expected in [('new-reader-old-v1',new,v1,0),('new-reader-v2',new,v2,0),('old-reader-rejects-v2',old,v2,1)]:
     with (out/(name+'.log')).open('wb') as log:
         process=subprocess.run([str(reader),'report','--input',str(input_file.relative_to(ROOT)),
