@@ -1,4 +1,4 @@
-ï»¿# Wide-character release execution â€” 1 October 2026
+# Wide-character release execution — 1 October 2026
 
 Status: **qualification in progress; unpublished**. The user authorized the complete
 release cycle, including necessary main pushes and publication after qualification.
