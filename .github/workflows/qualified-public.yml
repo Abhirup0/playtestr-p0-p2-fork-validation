@@ -104,6 +104,10 @@ jobs:
           test -n "$extracted"
           test "$(sha256sum "$extracted" | awk '{print $1}')" = '${{ matrix.binary_sha256 }}'
           test "$("$extracted" version)" = "playtestr $RELEASE_VERSION"
+          python - "$extracted" <<'PY'
+          import os,pathlib,sys
+          with open(os.environ['GITHUB_ENV'],'a') as output: output.write('PUBLIC_EXTRACTED='+str(pathlib.Path(sys.argv[1]).resolve())+'\n')
+          PY
       - name: Build deterministic targets
         shell: bash
         run: |
@@ -121,14 +125,14 @@ jobs:
           set -euo pipefail
           go install github.com/charmbracelet/gum@v0.17.0
           mkdir -p artifacts/public-real
-          "$PUBLIC_RUNNER" test --report artifacts/public-real/pass.json corpus/workflows/gum/gum-01.json
+          "$PUBLIC_EXTRACTED" test --report artifacts/public-real/pass.json corpus/workflows/gum/gum-01.json
           set +e
-          "$PUBLIC_RUNNER" test --report artifacts/public-real/failure.json --artifacts-dir artifacts/public-real/evidence corpus/pilots/gum-01-negative.json
+          "$PUBLIC_EXTRACTED" test --report artifacts/public-real/failure.json --artifacts-dir artifacts/public-real/evidence corpus/pilots/gum-01-negative.json
           code=$?
           set -e
           test "$code" -eq 1
-          "$PUBLIC_RUNNER" test --report artifacts/public-real/recovery.json corpus/workflows/gum/gum-01.json
-          "$PUBLIC_RUNNER" report --input artifacts/public-real/failure.json --evidence-root artifacts --output artifacts/public-real/report.html
+          "$PUBLIC_EXTRACTED" test --report artifacts/public-real/recovery.json corpus/workflows/gum/gum-01.json
+          "$PUBLIC_EXTRACTED" report --input artifacts/public-real/failure.json --evidence-root artifacts --output artifacts/public-real/report.html
           python - <<'PY'
           import json,pathlib,hashlib
           root=pathlib.Path('artifacts/public-real')
@@ -140,6 +144,30 @@ jobs:
           target=next(pathlib.Path('.tools/external').glob('gum*'))
           (root/'target.json').write_text(json.dumps(dict(version='v0.17.0',sha256=hashlib.sha256(target.read_bytes()).hexdigest(),negative='classified wrong input; not executable code defect')))
           PY
+      - name: Public invalid input cancellation and controlling terminal
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/public-prelaunch
+          printf '{"version":99}' > artifacts/public-prelaunch/invalid.json
+          set +e
+          "$PUBLIC_EXTRACTED" test --report artifacts/public-prelaunch/invalid-result.json artifacts/public-prelaunch/invalid.json > artifacts/public-prelaunch/invalid.log 2>&1
+          code=$?
+          set -e
+          test "$code" -eq 1
+          python - <<'PY'
+          import json,pathlib
+          r=json.loads(pathlib.Path('artifacts/public-prelaunch/invalid-result.json').read_text())['results'][0]
+          assert r['failure']['category']=='invalid_spec' and not r['cleanup']['attempted']
+          PY
+          suffix=''; if [[ "$RUNNER_OS" == Windows ]]; then suffix='.exe'; fi
+          python scripts/release-cancel-smoke.py "$PUBLIC_EXTRACTED" "$PWD/bin/fixture$suffix" "$PWD/artifacts/public-cancellation"
+          if [[ "$RUNNER_OS" != Windows ]]; then
+            mkdir -p artifacts/public-tty
+            cp testdata/install-smoke/unix/controlling-tty.* artifacts/public-tty/
+            chmod +x artifacts/public-tty/controlling-tty.sh
+            (cd artifacts/public-tty && "$PUBLIC_EXTRACTED" test --report tty-result.json controlling-tty.json)
+          fi
       - name: Run release stories and cleanup checks
         shell: bash
         env:
@@ -185,6 +213,9 @@ jobs:
             artifacts/public-stories/
             artifacts/public-contracts/
             artifacts/public-real/
+            artifacts/public-prelaunch/
+            artifacts/public-cancellation/
+            artifacts/public-tty/
             artifacts/public download/*.sha256
             artifacts/public download/checksums-*.txt
           if-no-files-found: error

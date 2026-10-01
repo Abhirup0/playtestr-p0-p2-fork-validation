@@ -1,0 +1,92 @@
+name: Qualified binary-only public installation checks
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Qualified published runner version
+        required: true
+        type: string
+permissions:
+  contents: read
+env:
+  RELEASE_VERSION: ${{ inputs.version }}
+jobs:
+  verify:
+    if: github.event_name == 'workflow_dispatch'
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { runner: ubuntu-24.04, os: linux, arch: amd64, family: unix }
+          - { runner: macos-15, os: darwin, arch: arm64, family: unix }
+          - { runner: windows-latest, os: windows, arch: amd64, family: windows }
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install published candidate through immutable action
+        id: setup
+        uses: Wyrcan-io/playtestr/setup-playtestr@ae97c62022966cde9699b26169b4dc6ef0a12439
+        with:
+          version: ${{ inputs.version }}
+      - name: Verify public installed identities and behavior without Go
+        shell: bash
+        env:
+          BINARY_PATH: ${{ steps.setup.outputs.binary-path }}
+          BINARY_SHA256: ${{ steps.setup.outputs.binary-sha256 }}
+          ARCHIVE_SHA256: ${{ steps.setup.outputs.archive-sha256 }}
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/e5-public
+          python - <<'PY'
+          import json,os,pathlib,hashlib
+          records=json.loads(pathlib.Path('release/wide-character-candidate-manifest.json').read_text())
+          record=next(r for r in records if '${{ matrix.os }}_${{ matrix.arch }}' in r['archive'])
+          assert os.environ['BINARY_SHA256']==record['executable_sha256']
+          assert os.environ['ARCHIVE_SHA256']==record['archive_sha256']
+          assert hashlib.sha256(pathlib.Path(os.environ['BINARY_PATH']).read_bytes()).hexdigest()==record['executable_sha256']
+          pathlib.Path('artifacts/e5-public/identity.json').write_text(json.dumps(record,indent=2))
+          PY
+          binary="$BINARY_PATH"
+          if [[ "$RUNNER_OS" == Windows ]]; then binary="$(cygpath -u "$binary")"; fi
+          test "$("$binary" version)" = "playtestr $RELEASE_VERSION"
+          test "$(playtestr version)" = "playtestr $RELEASE_VERSION"
+          "$binary" help > artifacts/e5-public/help.txt
+          # Greeting targets resolve their script relative to invocation cwd.
+          # Copy the documented fixture to an owned directory and run there.
+          cp -R testdata/install-smoke/${{ matrix.family }}/. artifacts/e5-public/
+          cd artifacts/e5-public
+          "$binary" test --report good-result.json good.json > good.log
+          set +e
+          "$binary" test --report bad-result.json --artifacts-dir evidence bad.json > bad.log 2>&1
+          code=$?
+          set -e
+          test "$code" -eq 1
+          "$binary" test --report recovery-result.json good.json > recovery.log
+          "$binary" report --input bad-result.json --evidence-root . --output report.html
+          if [[ "$RUNNER_OS" != Windows ]]; then
+            "$binary" test --report controlling-tty-result.json controlling-tty.json > controlling-tty.log
+          fi
+          printf '{"version":99}' > invalid.json
+          set +e
+          "$binary" test --report invalid-result.json invalid.json > invalid.log 2>&1
+          code=$?
+          set -e
+          test "$code" -eq 1
+          python - <<'PY'
+          import json,pathlib
+          root=pathlib.Path('.')
+          invalid=json.loads((root/'invalid-result.json').read_text())['results'][0]
+          assert invalid['failure']['category']=='invalid_spec' and not invalid['cleanup']['attempted']
+          for name in ['good','recovery']:
+              r=json.loads((root/(name+'-result.json')).read_text()); assert r['summary']['passed']==1 and r['results'][0]['cleanup']['confirmed_exited']
+          r=json.loads((root/'bad-result.json').read_text()); assert r['results'][0]['failure']['category']=='assertion_timeout' and r['results'][0]['cleanup']['confirmed_exited']
+          if (root/'controlling-tty-result.json').exists():
+              r=json.loads((root/'controlling-tty-result.json').read_text()); assert r['summary']['passed']==1 and r['results'][0]['cleanup']['confirmed_exited']
+          PY
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: qualified-binary-install-${{ matrix.os }}-${{ matrix.arch }}
+          path: artifacts/e5-public
+          retention-days: 14

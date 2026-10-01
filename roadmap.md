@@ -1,6 +1,6 @@
 # Playtestr roadmap
 
-Updated 28 September 2026 after scoped E0–E5 acceptance, rc.2 publication and the development wide-character repair. **This file is the authoritative status and execution order.** Detailed plans live in [docs/plans](docs/plans/README.md). Historical evidence remains in its original dated records.
+Updated 28 September 2026 after scoped E0â€“E5 acceptance, rc.2 publication and the development wide-character repair. **This file is the authoritative status and execution order.** Detailed plans live in [docs/plans](docs/plans/README.md). Historical evidence remains in its original dated records.
 
 Product goal: a developer installs one runner, writes a short terminal interaction, catches a meaningful regression, and understands the failure quickly. Protect correctness and simplicity while increasing real-project depth. E0-E5 are accepted within their recorded boundaries: audited claims, native real tasks, measured cost, investigated fidelity deferral and operator walkthroughs. The macOS last-output and bounded installer repairs passed native gates. E5 qualified exact private v0.4.0-rc.2 bytes and recommends a scoped trial; publication subsequently completed with verified downloads; outreach and marketing remain held. [Execution checkpoint](docs/validation/e3-e5-checkpoint-2026-09-27.md).
 
@@ -117,14 +117,16 @@ Every checkpoint ends with exact evidence, retained failures, exclusions, actual
 
 ## Immediate next decision
 
-**E0–E5 complete at their scoped boundaries.** Review the
+**E0â€“E5 complete at their scoped boundaries.** Review the
 [private readiness decision and kit](docs/validation/e5-qualified-readiness-2026-09-27.md).
 Publication and native download/install verification completed under the later user instruction.
 **No outreach or marketing now:** A1/A2 remain held until a later explicit instruction.
 Use the verified download and existing examples locally. The requested
 [three-step wide-character task](docs/plans/wide-character-next-steps-prompt.md)
-is complete as a scoped development repair. A next release needs a new unused
-candidate version, frozen builds and its own qualification before publication.
+is complete as a scoped development repair. The authorized [wide-character release cycle](docs/validation/wide-character-release-2026-10-01.md)
+has frozen unused `v0.4.0-rc.3` and passed native builds/source/fidelity/corpus gates.
+Its required 3,000-attempt exact-byte qualification and public verification remain
+in progress; rc.2 is still the newest verified published download.
 
 **E3's original investigated deferral remains historical evidence.** Later development corrects the selected MICRO-08 wide-cell gap on all three native hosts; [the repair record](docs/validation/wide-character-2026-09-28.md) preserves first failures and reviewed snapshot migration. Combining clusters and query-dependent flows remain excluded. The published rc.2 runner retains its original boundary.
 
