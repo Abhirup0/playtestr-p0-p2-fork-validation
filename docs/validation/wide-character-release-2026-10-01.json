@@ -123,5 +123,37 @@
     "Target-visible terminal queries",
     "Independent adoption",
     "Human screen-reader validation"
-  ]
+  ],
+  "fresh_forecast": {
+    "hosts": [
+      {
+        "host": "darwin_arm64",
+        "pilot_attempts": 10,
+        "runner_sha256": "05ad8911ddaa4a5ad73ca0a218b357d850a1cf93b6d610e1c691f0fc80c36b79",
+        "projected_campaign_seconds": 2593.3,
+        "projected_evidence_bytes": 2158700,
+        "setup_not_included": true
+      },
+      {
+        "host": "linux_amd64",
+        "pilot_attempts": 10,
+        "runner_sha256": "6317f37b59946c30e50a7f34c627c9be6fdd957fe370a8d9cde4697fc5d04425",
+        "projected_campaign_seconds": 2277.9,
+        "projected_evidence_bytes": 2153700,
+        "setup_not_included": true
+      },
+      {
+        "host": "windows_amd64",
+        "pilot_attempts": 10,
+        "runner_sha256": "531804dcb5f29bdcc9d9e2650b1be86e083eedd34c4545ebff1654f05d33f16a",
+        "projected_campaign_seconds": 662.5,
+        "projected_evidence_bytes": 2159300,
+        "setup_not_included": true
+      }
+    ],
+    "projected_runner_hours": 1.537138888888889,
+    "projected_evidence_bytes": 6471700,
+    "limits": "90 minute native jobs; 64 MiB per attempt/1 GiB per job; 14-day hosted retention; 6-hour exploration allowance separate from required qualification",
+    "cost": "Ordinary GitHub-hosted runners; actual billed dollars unknown; no new paid service"
+  }
 }

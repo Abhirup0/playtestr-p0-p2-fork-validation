@@ -1,0 +1,62 @@
+name: Qualified wide-cell ANSI expectations
+on:
+  workflow_dispatch:
+    inputs:
+      candidate_run_id:
+        description: Successful nonpublishing native build run ID
+        required: true
+        type: string
+      frozen_source_commit:
+        description: Immutable shipping source
+        required: true
+        type: string
+      version:
+        description: Frozen embedded prerelease version
+        required: true
+        type: string
+permissions:
+  actions: read
+  contents: read
+jobs:
+  gates:
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { runner: ubuntu-24.04, target: linux-amd64, executable: playtestr }
+          - { runner: macos-15, target: darwin-arm64, executable: playtestr }
+          - { runner: windows-latest, target: windows-amd64, executable: playtestr.exe }
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-go@v7
+        with:
+          go-version: '1.26.0'
+      - uses: actions/download-artifact@v6
+        with:
+          name: playtestr-${{ matrix.target }}
+          path: candidate
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.candidate_run_id }}
+      - name: Verify exact selected candidate
+        env:
+          FROZEN_SOURCE: ${{ inputs.frozen_source_commit }}
+          FROZEN_VERSION: ${{ inputs.version }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin "$FROZEN_SOURCE"
+          git diff --exit-code "$FROZEN_SOURCE" -- cmd internal go.mod go.sum corpus/workflows corpus/controls release/qualification-plan.json
+          python scripts/readiness/verify-frozen.py --source "$FROZEN_SOURCE" --version "$FROZEN_VERSION"
+      - name: Independent ANSI expectations on real PTYs
+        shell: bash
+        run: python scripts/readiness/frozen-wide-cells.py --runner "$FROZEN_RUNNER" --out artifacts/frozen-wide-cells
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: qualified-wide-cells-${{ matrix.target }}
+          path: |
+            artifacts/frozen-wide-cells
+            frozen candidate/verified-identity.json
+          retention-days: 14
