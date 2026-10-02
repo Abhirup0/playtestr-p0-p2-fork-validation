@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-02",
+  "status": "complete for currently eligible local checkpoints; conditional and external gates remain deferred or held",
+  "starting_head": "400f9fa43c4b308f9ac46c2b33773250560435bd",
+  "execution_scope": "local and uncommitted; no new remote CI claim",
+  "archive": {
+    "archive_bytes": 13382221,
+    "crc_verified": true,
+    "expanded_bytes": 22782421,
+    "member_hashes_verified": true,
+    "members": 2000,
+    "scope": "Integrity against supplied digest; does not establish runtime results or independent adoption",
+    "sha256": "8fcdb231a5ce89e65d09e3765e8801ff41f62b4a212f723d673d5f08986abda9",
+    "status": "verified"
+  },
+  "tool_hashes": {
+    "scripts/readiness/verify-evidence.py": "60f840caccb07d6e5c447149efa6ecb217b1b31a30da10e516e2f34496a133a5",
+    "scripts/readiness/test_verify_evidence.py": "1a37abdc5385e8ffefc36d2eae4ebf48aad631cd01c0b4808dfe21b211458ec4"
+  },
+  "checks": [
+    {
+      "case": "seven unittest methods",
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "seconds": 0.437,
+      "disposition": "pass"
+    },
+    {
+      "case": "Python compilation",
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "seconds": 0.172,
+      "disposition": "pass"
+    },
+    {
+      "case": "real archive integrity",
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "seconds": 0.297,
+      "disposition": "pass"
+    },
+    {
+      "case": "wrong trusted digest CLI",
+      "expected_exit": 1,
+      "observed_exit": 1,
+      "seconds": 0.141,
+      "disposition": "pass"
+    },
+    {
+      "case": "missing archive CLI",
+      "expected_exit": 1,
+      "observed_exit": 1,
+      "seconds": 0.156,
+      "disposition": "pass"
+    },
+    {
+      "case": "local site and repository Markdown link validation",
+      "expected_exit": 0,
+      "observed_exit": 0,
+      "seconds": 0.297,
+      "disposition": "pass",
+      "log": "artifacts/roadmap-continuation-site-final-2026-10-02.log"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "P1",
+      "disposition": "complete",
+      "reason": "sealed evidence verifier and active status reconciliation"
+    },
+    {
+      "id": "P2-S10",
+      "disposition": "selected repair already released; other families deferred",
+      "trigger": "new reduced useful-task failure and independent expectation"
+    },
+    {
+      "id": "P2-S12-B",
+      "disposition": "deferred",
+      "trigger": "two admitted workflows blocked by the same family after failed fixture/state workarounds"
+    },
+    {
+      "id": "P2-S6",
+      "disposition": "deferred",
+      "trigger": "repeated safe context omission surviving the ordinary handoff"
+    },
+    {
+      "id": "P3",
+      "disposition": "retain rc.3",
+      "reason": "no executable/build/package/installer input changes; no stable promotion selected"
+    },
+    {
+      "id": "P4-A1-A2",
+      "disposition": "held",
+      "reason": "outreach prohibited; no independent consent or repeat-use evidence"
+    },
+    {
+      "id": "P4-accessibility",
+      "disposition": "open",
+      "reason": "human screen-reader evidence absent"
+    }
+  ],
+  "first_failures": [
+    {
+      "kind": "documentation order",
+      "outcome": "initial site build succeeded; four missing closing-record links",
+      "repair": "created dated record before final link validation"
+    },
+    {
+      "kind": "patch preparation",
+      "outcome": "incorrect heading rejected entire patch before mutation",
+      "repair": "read actual heading and reapplied corrected patch"
+    },
+    {
+      "kind": "read preparation",
+      "outcome": "initial filename guesses did not exist",
+      "repair": "used repository file list"
+    }
+  ],
+  "runner_inputs_unchanged": true,
+  "new_native_runtime_campaign": false,
+  "remote_mutation": false,
+  "website_deployment": false,
+  "outreach": false,
+  "marketing": false,
+  "spend": {
+    "new_runner_or_service_spend": false,
+    "billed_cost": null,
+    "human_effort_hours": null
+  },
+  "completed_utc": "2026-10-02T15:22:20.834594+00:00",
+  "site_build": {
+    "tool": "Hugo 0.164.0 windows/amd64",
+    "built_pages": 39,
+    "deployment": false
+  }
+}

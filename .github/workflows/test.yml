@@ -16,6 +16,11 @@ jobs:
       GOBIN: ${{ github.workspace }}/.tools/external
     steps:
       - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Verify evidence-tool failure controls
+        run: python -m unittest discover -s scripts/readiness -p test_verify_evidence.py -v
       - uses: actions/setup-go@v7
         with:
           go-version-file: go.mod

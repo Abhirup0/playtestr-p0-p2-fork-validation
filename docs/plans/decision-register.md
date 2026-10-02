@@ -2,13 +2,21 @@
 
 Updated 26 September 2026. The [root roadmap](../../roadmap.md) fixes order; this register makes choices and revisit triggers visible. A proposed feature is not approved merely because it has a row.
 
-Current execution status updated 28 September: E0–E5 accepted within recorded boundaries; v0.4.0-rc.2 published and verified. The selected CJK cell repair is natively verified development work, not a new released version. Outreach and marketing remain held. The dated decisions below retain earlier partial states.
+Current execution status updated 2 October: E0–E5 accepted within recorded boundaries; the selected CJK repair ships in qualified, published and download-verified v0.4.0-rc.3. [Release evidence](../validation/wide-character-release-2026-10-01.md) and [continuation decisions](../validation/roadmap-continuation-2026-10-02.md) define the current boundary. Outreach and marketing remain held. The dated decisions below retain earlier partial states.
 
 28 September override: the user authorized exact-byte download publication and
 public verification, now complete. Outreach and marketing are explicitly
 prohibited; A1/A2 remain unstarted even after technical readiness.
 
 ## Current sequencing override
+
+2 October continuation: the user requested autonomous roadmap execution and
+execution prompts, explicitly prohibiting outreach and marketing. Durable
+evidence verification and active-status reconciliation are complete. S12-B and
+S6 remain deferred without their qualifying evidence; selected S10 CJK work is
+released, and its other families need a new reduced useful-task failure.
+Retain rc.3 for documentation/evidence-tooling changes. No stable promotion,
+new product feature, external participant result or deployment is inferred.
 
 D21 supersedes D01's immediate R6-to-A1 scheduling and the old fixed stop at Sprint 14, at the user's explicit request on 26 September. Completed engineering and evidence-backed deferrals stay complete. E0-E5 are a finite new phase, not an indefinite parity campaign. Further outreach is held; recorded prior invitations remain history.
 

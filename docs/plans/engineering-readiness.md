@@ -1,5 +1,12 @@
 # Engineering readiness before renewed outreach
 
+> Current status, 2 October 2026: selected CJK repair qualified and published
+> in verified rc.3; [release record](../validation/wide-character-release-2026-10-01.md).
+> The original phase and its scoped results below remain historical.
+> [Continuation](roadmap-continuation-execution-prompt.md) owns subsequent
+> local work; independent adoption, human accessibility and differentiation
+> remain open. Outreach and marketing are prohibited.
+
 Planned 26 September 2026; complete E3–E5 execution was subsequently authorized, including testing-branch and final pushes. **E0–E5 accepted on 27 September: 6/6 milestones complete at their scoped boundaries.** The [E1/E2 record](../validation/e1-e2-native-readiness-2026-09-27.md), [E3 boundary](../validation/e3-fidelity-boundary-2026-09-27.md) and [E4 record](../validation/e4-operator-readiness-2026-09-27.md) preserve first failures, repairs and exclusions. E3 uses an investigated fidelity deferral; E4 is familiar-operator evidence with human accessibility and timing limits. Publication was later authorized and verified; outreach and marketing remain prohibited under the 28 September instruction. Private v0.4.0-rc.2 completed exact-byte qualification; [E5 decision](../validation/e5-qualified-readiness-2026-09-27.md) recommends a scoped trial. Differentiation remains unmet. The [roadmap](../../roadmap.md) owns sequence; the [weekly review](weekly-review-2026-09-26.md) preserves the original planning pass.
 
 ## Outcome and boundary

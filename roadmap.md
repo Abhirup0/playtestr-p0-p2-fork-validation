@@ -1,6 +1,6 @@
 # Playtestr roadmap
 
-Updated 1 October 2026 after rc.3 qualification, publication and native public-download verification. **This file is the authoritative status and execution order.** Detailed plans live in [docs/plans](docs/plans/README.md). Historical evidence remains in its original dated records.
+Updated 3 October 2026 after continuation handoff and the scheduled roadmap review. rc.3 qualification, publication and native public-download verification remain complete. **This file is the authoritative status and execution order.** Detailed plans live in [docs/plans](docs/plans/README.md). Historical evidence remains in its original dated records.
 
 Product goal: a developer installs one runner, writes a short terminal interaction, catches a meaningful regression, and understands the failure quickly. Protect correctness and simplicity while increasing real-project depth. E0-E5 are accepted within their recorded boundaries: audited claims, native real tasks, measured cost, investigated fidelity deferral and operator walkthroughs. The macOS last-output and bounded installer repairs passed native gates. E5 qualified exact private v0.4.0-rc.2 bytes and recommends a scoped trial; publication subsequently completed with verified downloads; outreach and marketing remain held. [Execution checkpoint](docs/validation/e3-e5-checkpoint-2026-09-27.md).
 
@@ -32,6 +32,7 @@ Engineering completion, publication and adoption are separate dimensions. An unc
 | [v0.3.0-rc.1](docs/releases/v0.3.0-rc.1.md) | Sprint 7 offline HTML reports plus prior suite work, published 18 September | Source `7cf64af`; release run `35288218202`; public-install run `35288555826`; three native hosts | Historical prerelease; does not contain later spec-v2 workspaces |
 | [v0.4.0-rc.1](docs/releases/v0.4.0-rc.1.md) | Opt-in workspaces, report v2, setup action and release stories, published 25 September | Frozen source `f6ffeb7`; qualified archive hashes match public assets; immutable action `1c03904`; six-lane public verification [36173075209](https://github.com/Wyrcan-io/playtestr/actions/runs/36173075209) | Verified prerelease on Windows amd64, Linux amd64 and macOS arm64; not the stable channel |
 | [v0.4.0-rc.2](docs/releases/v0.4.0-rc.2.md) | Bounded installer reads, Linux EOF optimization, macOS final-output preservation | Frozen source `ae97c62`; exact archives promoted unchanged; public distribution/upgrade and binary-only checks passed on three native hosts | Prerelease; wide-cell/query and human-accessibility exclusions retained; no outreach |
+| [v0.4.0-rc.3](docs/releases/v0.4.0-rc.3.md) | Selected two-column CJK/fullwidth rendering repair | Frozen source `07b304b`; exact archives, 3,000 native first attempts and actual public download/install/upgrade checks passed on three hosts | Verified prerelease; combining/emoji/query and human-evidence limits remain; no outreach |
 
 Exact hashes and run links belong to the cited records. Local tags corroborate identities but do not themselves prove publication. The annotated v0.1.0 tag object differs from its peeled source commit; use the source commit above for code provenance. No stable v0.2.0/v0.3.0/v0.4.0 is claimed; released workspaces are available in v0.4.0-rc.1.
 
@@ -49,7 +50,7 @@ Exact hashes and run links belong to the cited records. Local tags corroborate i
 | 7 | Offline failure diagnosis | Implemented, natively/publicly verified in v0.3.0-rc.1; [record](docs/validation/sprint-7-engineering-2026-09-18.md) | Independent diagnosis timing in A1 |
 | 8 | Setup-only exact-version GitHub Action | Implemented, source-qualified, repaired for both checksum contracts, and publicly verified on three native hosts; [record](docs/validation/r6-publication-and-blocker-2026-09-25.md) | Independent participant CI use in A1 |
 | 9 | Fresh bounded workspaces, spec/report v2, v2 HTML rendering | Implemented, qualified and publicly verified in frozen bytes on three native hosts; [record](docs/validation/sprint-9-engineering-2026-09-19.md), [R6-V](docs/validation/r6-publication-and-blocker-2026-09-25.md) | Independent participant use in A1 |
-| 10 | One evidence-selected terminal compatibility improvement | Original deferral reopened for the reduced MICRO-08 CJK failure; selected two-column repair natively verified in development; [record](docs/validation/wide-character-2026-09-28.md) | Fresh release qualification; combining clusters/query round trips remain excluded |
+| 10 | One evidence-selected terminal compatibility improvement | Original deferral reopened for MICRO-08; selected two-column repair qualified and published in rc.3; [release record](docs/validation/wide-character-release-2026-10-01.md) | Combining clusters/emoji/query remain excluded; further work requires a reduced useful-task failure |
 | 11 | Deep real-project validation corpus | **A0/A1/B/C and R6-V complete**; [checkpoint](corpus/README.md), [B evidence](docs/validation/sprint-11-b-corpus-depth-2026-09-24.md), [R6-V](docs/validation/r6-publication-and-blocker-2026-09-25.md) | Independent adoption remains A1 |
 | 12 | Easier first-test authoring | **A complete; B deferred at its evidence gate**; [A record](docs/validation/sprint-12-a-authoring-2026-09-21.md), [B decision](docs/validation/sprint-12-b-decision-2026-09-21.md) | Reopen B only for two reduced workflow failures with the same missing input/assertion family |
 | 13 | Native evidence, integrated hardening and fair comparison | **A0/A1/B/C/D and R6 complete**; [A0](docs/validation/sprint-13-a0-native-gaps-2026-09-20.md), [A1](docs/validation/sprint-13-a1-integrated-hardening-2026-09-21.md), [B](docs/validation/sprint-13-b-setup-action-2026-09-21.md), [C](docs/validation/sprint-13-c-competitive-2026-09-22.md), [D](docs/validation/sprint-13-d-rehearsal-2026-09-24.md), [R6-V](docs/validation/r6-publication-and-blocker-2026-09-25.md) | Preserve regressions through E0-E5; A1 is held |
@@ -72,7 +73,7 @@ Sprint numbers are durable identifiers, not chronology: 7 shipped before 6, and 
 
 ## How much is done?
 
-The original MVP and the accepted subsequent engineering batch are complete through **R6-V**. S12-B and the S6 manifest remain evidence-backed deferrals. S10 was later reopened for the selected CJK failure and its development repair passed native checks. Engineering readiness is **6/6 milestones complete within explicit acceptance boundaries**. Independent adoption and commercial validation remain unproven; an overall product-completion percentage would hide those differences.
+The original MVP and the accepted subsequent engineering batch are complete through **R6-V**. S12-B and the S6 manifest remain evidence-backed deferrals. S10 was later reopened for the selected CJK failure and ships in qualified, public-download-verified rc.3. Engineering readiness is **6/6 milestones complete within explicit acceptance boundaries**. Independent adoption and commercial validation remain unproven; an overall product-completion percentage would hide those differences.
 
 Recorded depth is 15 projects / 120 workflows; 3,000 repetitions cover ten selected workflows on three hosts. Full application depth is not a 120-workflow three-host matrix. The 300 focused risk-map rows point to 41 distinct references and are not automatically 300 independent executed tests. See the [weekly audit](docs/plans/weekly-review-2026-09-26.md) and [exact host coverage](docs/qualified-compatibility-v0.4.0-rc.1.md).
 
@@ -80,7 +81,7 @@ The historical Linux comparison found equal selected detection and a Playtestr s
 
 ## Execute next, in this order
 
-Subsequent user instructions authorized E0-E5 execution, native hosted validation, source pushes and exact rc.2 publication. The later [wide-character prompt](docs/plans/wide-character-next-steps-prompt.md) authorizes a scoped development repair and verification. Outreach, marketing and PR/issue/discussion mutations remain held. Completed sprint IDs remain historical; do not rebuild shipped capabilities.
+Subsequent user instructions authorized E0-E5 execution, native hosted validation, source pushes and exact rc.2 publication, followed by the selected wide-character repair and rc.3 qualification/publication. The 2 October instruction requests autonomous roadmap continuation and execution prompts. Outreach, marketing and PR/issue/discussion mutations remain held. Completed sprint IDs remain historical; do not rebuild shipped capabilities.
 
 | Checkpoint | Concrete outcome | Acceptance / dependency | Status |
 | --- | --- | --- | --- |
@@ -109,13 +110,28 @@ Any runner source, version, compiler/dependency or build-flag change creates new
 
 ## Weekly cadence and scope
 
-The [26 September review](docs/plans/weekly-review-2026-09-26.md) owns this week's findings, proposed 20-hour allocation and review template. Next planning review: 3 October 2026. The phase estimate is roughly 6-12 weeks at that capacity, subject to E0 re-estimation and native/human-test availability; it is not a delivery commitment.
+The [3 October review](docs/plans/weekly-review-2026-10-03.md) audits the completed phase, committed continuation and remaining gates. The [26 September review](docs/plans/weekly-review-2026-09-26.md) preserves its original estimates and review template. Next planning review: 10 October 2026; no automated task is created. Historical phase estimates are not a new implementation schedule.
 
 Keep one implementation behavior active, with one supporting validation activity. Reuse the 120-workflow corpus; do not inflate counts or automatically expand to every host/tool permutation. Allow one evidence-selected terminal family and one conditional authoring/CI family. Correctness repairs outrank optional breadth. No language rewrite, autonomous game behavior, hosted platform, automatic retries or parallel runner by default.
 
 Every checkpoint ends with exact evidence, retained failures, exclusions, actual cost and a next decision. Missed speed/usability targets stay visible; false passes, destructive cleanup and unbounded behavior cannot be waved through. A good benchmark cannot compensate for a broken real workflow.
 
 ## Immediate next decision
+
+The [3 October audit](docs/plans/weekly-review-2026-10-03.md) distinguishes
+unfinished independent validation from conditional features and release
+decisions. Outreach and marketing are not the final step or a substitute for
+independent use, participant CI, retention, human accessibility or commercial
+evidence. Those gates remain open/held; the scoped engineering batch is complete.
+
+The [2 October continuation](docs/validation/roadmap-continuation-2026-10-02.md)
+completed retained-evidence verification, corrected active summaries and
+executed conditional/release triage. [Execution prompts](docs/plans/roadmap-continuation-execution-prompt.md)
+cover the remaining branches. S6 and S12-B remain evidence-backed deferrals;
+S10's selected repair is released. Retain rc.3 because this continuation changes
+no runner/build/package inputs. A1/A2 and human accessibility remain open;
+outreach and marketing are prohibited. New reduced workflow evidence can open
+the next implementation checkpoint without restarting completed sprints.
 
 **E0–E5 complete at their scoped boundaries.** Review the
 [private readiness decision and kit](docs/validation/e5-qualified-readiness-2026-09-27.md).

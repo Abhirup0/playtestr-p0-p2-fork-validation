@@ -1,5 +1,19 @@
 # Planning guide
 
+> Current continuation, 2 October 2026: rc.3 is qualified, published and native
+> public-download verified; the older dated summary below remains context.
+> Execute [roadmap continuation](roadmap-continuation-execution-prompt.md),
+> [conditional implementation triage](conditional-work-execution-prompt.md) and
+> [release/channel decision](release-channel-decision-prompt.md) in that order.
+> [Continuation results](../validation/roadmap-continuation-2026-10-02.md)
+> distinguish completed local work from evidence-gated deferrals. A1/A2,
+> outreach and marketing remain held. Existing user-authored prompt links are
+> preserved.
+
+The [3 October scheduled review](weekly-review-2026-10-03.md) records committed
+follow-through, the verifier's CI integration and the remaining independent,
+conditional and release gates. Outreach and marketing are not the finish line.
+
 Updated 28 September 2026. The **[root roadmap](../../roadmap.md)** is authoritative for status and order. E0-E5 are accepted within their recorded scope; v0.4.0-rc.2 is published and download-verified. The later [wide-character prompt](wide-character-next-steps-prompt.md) covers a scoped development repair and native checks. Outreach and marketing remain held. Each release needs its own frozen-byte qualification; development results do not extend existing release assets.
 
 ## Current planning set

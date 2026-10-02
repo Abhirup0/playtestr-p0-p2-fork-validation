@@ -1,10 +1,11 @@
 # Sprint 10: fix a terminal compatibility gap that blocks a real test
 
-Status: **deferred at the evidence gate on 21 September 2026.** The five Sprint
-11 pilots contain no qualifying current-runner terminal blocker; see the
-[decision record](../../validation/sprint-10-decision-2026-09-21.md). Reopen only
-with the reduced real-application evidence required below. This plan is not a
-promise of full Unicode or terminal-emulator compatibility. Read the current
+Status: **selected CJK/fullwidth repair completed and released in rc.3.** The
+[original 21 September deferral](../../validation/sprint-10-decision-2026-09-21.md)
+was reopened for MICRO-08; [qualified release evidence](../../validation/wide-character-release-2026-10-01.md)
+records the outcome. Other terminal families require new reduced useful-task
+evidence under the criteria below. This plan is not a promise of full Unicode
+or terminal-emulator compatibility. Read the current
 [terminal compatibility contract](../../terminal-compatibility.md) before
 selecting any future implementation scope.
 
