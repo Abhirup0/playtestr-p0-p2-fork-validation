@@ -8,7 +8,7 @@
     "Firefox",
     "WebKit"
   ],
-  "local_browser_checks": 24,
+  "local_browser_checks": 27,
   "viewport_widths": [
     320,
     375,
@@ -191,7 +191,8 @@
     "artifacts/website-browser-cross-engine-first.json",
     "artifacts/website-performance-first-attempt",
     "artifacts/website-screenshots-before",
-    "artifacts/website-screenshots"
+    "artifacts/website-screenshots",
+    "artifacts/website-browser-skip-first.json"
   ],
   "limits": [
     "No human screen-reader test",
@@ -199,5 +200,84 @@
     "Lab Lighthouse does not establish field INP, rankings or p75",
     "Independent project trial evidence remains open"
   ],
-  "outreach": "None"
+  "outreach": "None",
+  "native_onboarding": [
+    {
+      "host": "macOS-26.6.2-arm64-arm-64bit",
+      "version": "v0.4.0-rc.3",
+      "sha256": "494731020f663eca67340ba8969d5475c0f52525ebdd12cc0975fbbc8246c181",
+      "install_output": "playtestr_0.4.0-rc.3_darwin_arm64.tar.gz: OK\nplaytestr v0.4.0-rc.3",
+      "cases": [
+        {
+          "case": "pass",
+          "exit": 0
+        },
+        {
+          "case": "intentional-failure",
+          "exit": 1
+        },
+        {
+          "case": "recovery",
+          "exit": 0
+        }
+      ]
+    },
+    {
+      "host": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+      "version": "v0.4.0-rc.3",
+      "sha256": "8ebd5390e0e76cd2c34e141e66cb4dda2d0c8488f18ef4319fd9c17bf4a6ed16",
+      "install_output": "playtestr_0.4.0-rc.3_linux_amd64.tar.gz: OK\nplaytestr v0.4.0-rc.3",
+      "cases": [
+        {
+          "case": "pass",
+          "exit": 0
+        },
+        {
+          "case": "intentional-failure",
+          "exit": 1
+        },
+        {
+          "case": "recovery",
+          "exit": 0
+        }
+      ]
+    },
+    {
+      "host": "Windows-2025Server-10.0.26100-SP0",
+      "version": "v0.4.0-rc.3",
+      "sha256": "b159cd8f638f231c278b485565663dfe8fe323f97e3edf0c86fe7077239a406f",
+      "install_output": "playtestr v0.4.0-rc.3",
+      "cases": [
+        {
+          "case": "pass",
+          "exit": 0
+        },
+        {
+          "case": "intentional-failure",
+          "exit": 1
+        },
+        {
+          "case": "recovery",
+          "exit": 0
+        }
+      ]
+    }
+  ],
+  "ci_before_keyboard_fix": {
+    "commit": "722e7b8",
+    "website": 37194251991,
+    "terminal_tests": 37194251994,
+    "native_gaps": 37194251995,
+    "conclusion": "success"
+  },
+  "keyboard_review": {
+    "engine": "Chromium",
+    "widths": [
+      390,
+      1440
+    ],
+    "search": "results visually captured",
+    "missingRoute": 404,
+    "keyboard": "Skip link focuses main after Enter"
+  }
 }

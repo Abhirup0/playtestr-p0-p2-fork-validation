@@ -41,3 +41,11 @@ test('demo sensitivity, reduced motion and copy feedback',async({page})=>{
   await page.emulateMedia({reducedMotion:'reduce'}); await page.goto('');await expect(page.locator('[data-demo-provenance]')).not.toContainText('loading');await page.locator('[data-scenario="failure"]').click();await page.locator('[data-demo-action="play"]').click();await expect(page.locator('[data-evidence-panel]')).toBeVisible();await page.locator('[data-evidence="diff"]').click();await expect(page.locator('[data-evidence-output]')).toContainText('Preview deployed successfully.');await page.goto('docs/ci-installation/');await page.getByRole('button',{name:'Copy code'}).first().click();await expect(page.locator('pre [role="status"]').first()).toContainText(/Code copied|Copy unavailable/);
 });
 test('missing routes are genuine 404s',async({page})=>{const response=await page.goto('does-not-exist-website-check/');expect(response.status()).toBe(404);await expect(page.getByRole('heading',{level:1})).toContainText("isn't here");});
+
+test('skip navigation transfers keyboard focus into the content',async({page})=>{
+  for(const width of [375,1440]) for(const route of ['', 'docs/']) {
+    await page.setViewportSize({width,height:900});await page.goto(route);
+    await page.keyboard.press('Tab');await expect(page.getByRole('link',{name:'Skip to content'})).toBeFocused();
+    await page.keyboard.press('Enter');await expect(page.locator('main')).toBeFocused();
+  }
+});
