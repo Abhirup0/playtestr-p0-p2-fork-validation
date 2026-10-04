@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 import platform
 import re
+import shutil
 import subprocess
 import tomllib
 import urllib.request
@@ -13,7 +14,7 @@ repo = Path(__file__).resolve().parents[2]
 data = tomllib.loads((repo / "site/data/prerelease.toml").read_text(encoding='utf8'))
 host = {"Windows": "windows", "Linux": "linux", "Darwin": "darwin"}[platform.system()]
 target = next(x for x in data["targets"] if "_" + host + "_" in x["archive"])
-work = repo / "artifacts" / ("website-onboarding-" + host)
+work = repo / "artifacts" / ("website-onboarding-" + os.getenv("ONBOARDING_RUN", host))
 work.mkdir(parents=True, exist_ok=True)
 if (work / "playtestr rc3").exists():
     raise SystemExit("Use a fresh onboarding directory; previous evidence exists")
@@ -32,7 +33,7 @@ assert hashlib.sha256((work / target["archive"]).read_bytes()).hexdigest() == ta
 guide = (repo / "site/content/docs/prerelease-installation.md").read_text(encoding='utf8')
 blocks = re.findall(r"```(?:powershell|sh)\n(.*?)```", guide, re.S)
 command = blocks[{"windows": 0, "linux": 1, "darwin": 2}[host]]
-run = subprocess.run(["powershell.exe", "-NoProfile", "-Command", "$ErrorActionPreference='Stop';\n" + command] if host == "windows" else ["sh", "-eu", "-c", command], cwd=work, capture_output=True, text=True, timeout=90)
+run = subprocess.run([shutil.which("pwsh") or "powershell.exe", "-NoProfile", "-Command", "$ErrorActionPreference='Stop';\n" + command] if host == "windows" else ["sh", "-eu", "-c", command], cwd=work, capture_output=True, text=True, timeout=90)
 assert run.returncode == 0, run.stderr + run.stdout
 assert "playtestr " + data["version"] in run.stdout, run.stdout
 walkthrough = (repo / "docs/releases/v0.1.0-installation-walkthrough.md").read_text(encoding='utf8')
