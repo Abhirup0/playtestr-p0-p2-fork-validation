@@ -1,0 +1,1 @@
+{"name":"playtestr-website-checks","private":true,"type":"module","scripts":{"test":"playwright test","performance":"node performance.mjs"},"devDependencies":{"@playwright/test":"1.63.0","@axe-core/playwright":"4.13.0","lighthouse":"13.5.0"}}

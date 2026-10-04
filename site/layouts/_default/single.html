@@ -5,8 +5,12 @@
   <aside class="docs-sidebar">{{ partial "docs-nav.html" . }}</aside>
   {{ end }}
   <article class="prose{{ if ne .Section "docs" }} prose-wide{{ end }}">
+    {{ partial "breadcrumbs.html" . }}
     {{ if not .Params.source }}<p class="eyebrow">{{ .Params.eyebrow | default (upper .Section) }}</p><h1>{{ .Title }}</h1>{{ end }}
-    {{ if .Params.source }}{{ .RenderString (readFile .Params.source) }}{{ else }}{{ .Content }}{{ end }}
+    {{ $body := .Content }}{{ if .Params.source }}{{ $body = .RenderString (readFile .Params.source) }}{{ end }}
+    {{ if .Params.source }}{{ $title := index (findRE `<h1[\s\S]*?</h1>` (printf "%s" $body)) 0 }}{{ $title | safeHTML }}{{ $body = replace (printf "%s" $body) $title "" | safeHTML }}{{ end }}
+    {{ partial "toc.html" $body }}
+    {{ $body }}
     {{ with .Params.source }}<p class="source-link"><a href="https://github.com/Wyrcan-io/playtestr/blob/main/{{ . }}">View source <span aria-hidden="true">↗</span></a> · <a href="https://github.com/Wyrcan-io/playtestr/edit/main/{{ . }}">Suggest an edit <span aria-hidden="true">↗</span></a></p>{{ end }}
     {{ if or .Params.previous .Params.next }}<nav class="next-page" aria-label="Adjacent documentation pages">{{ with .Params.previous }}<a href="{{ .url | relURL }}">← {{ .label }}</a>{{ else }}<span></span>{{ end }}{{ with .Params.next }}<a href="{{ .url | relURL }}">{{ .label }} →</a>{{ end }}</nav>{{ end }}
   </article>

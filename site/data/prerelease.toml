@@ -1,0 +1,26 @@
+version = "v0.4.0-rc.3"
+release_url = "https://github.com/Wyrcan-io/playtestr/releases/tag/v0.4.0-rc.3"
+action_sha = "ae97c62022966cde9699b26169b4dc6ef0a12439"
+published = "1 October 2026"
+
+
+[[targets]]
+name = "Linux"
+architecture = "x86-64"
+go_arch = "amd64"
+archive = "playtestr_0.4.0-rc.3_linux_amd64.tar.gz"
+sha256 = "8ebd5390e0e76cd2c34e141e66cb4dda2d0c8488f18ef4319fd9c17bf4a6ed16"
+
+[[targets]]
+name = "macOS"
+architecture = "Apple silicon"
+go_arch = "arm64"
+archive = "playtestr_0.4.0-rc.3_darwin_arm64.tar.gz"
+sha256 = "494731020f663eca67340ba8969d5475c0f52525ebdd12cc0975fbbc8246c181"
+
+[[targets]]
+name = "Windows"
+architecture = "x86-64"
+go_arch = "amd64"
+archive = "playtestr_0.4.0-rc.3_windows_amd64.zip"
+sha256 = "b159cd8f638f231c278b485565663dfe8fe323f97e3edf0c86fe7077239a406f"

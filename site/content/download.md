@@ -1,31 +1,16 @@
 ---
 title: "Download"
-description: "Download checksum-verified Playtestr v0.1.0 archives for Linux x86-64, Apple silicon macOS, and Windows x86-64."
+description: "Choose stable v0.1.0 or verified v0.4.0-rc.3 archives for Linux x86-64, Apple silicon macOS, and Windows x86-64."
 layout: "single"
 search: true
 ---
 
-Playtestr runs trusted targets with your user permissions; it is not a sandbox. The target command and any runtime it needs remain your responsibility.
+## Install and verify
 
-These are the exact release targets verified by their native packaging and public-install workflows. Other architectures, every OS version or distribution, and every terminal application are not implied. Read [compatibility evidence](/playtestr/docs/compatibility/) and the [support policy](/playtestr/support/) for the boundaries.
+Follow the [prerelease installation guide](/playtestr/docs/prerelease-installation/) for rc.3, or the [stable first-test walkthrough](/playtestr/docs/installation/) for v0.1.0. Verify the adjacent checksum before extraction and check `playtestr --version` before changing PATH.
 
-## v0.4.0-rc.3 prerelease
+## Choose the right boundary
 
-The [v0.4.0-rc.3 release](/playtestr/releases/v0.4.0-rc.3/) provides the selected
-two-column wide-character repair in separately qualified native archives for
-Linux amd64, macOS arm64 and Windows amd64. All public archives/checksums matched
-the frozen files; immutable action revision
-`ae97c62022966cde9699b26169b4dc6ef0a12439` independently selects runner version
-`v0.4.0-rc.3`. Installation and genuine upgrade checks passed on all three native
-hosts. Combining clusters, emoji/ZWJ and terminal queries remain excluded.
-Stable v0.1.0 remains the stable channel; older prereleases below are historical.
+Playtestr runs explicitly trusted targets with your permissions; it is not a sandbox. Your target application and runtime are your responsibility. Combining clusters, emoji/ZWJ, ambiguous-width settings and terminal queries remain outside the selected rc.3 repair.
 
-## v0.4.0-rc.1 prerelease
-
-The [v0.4.0-rc.1 release](/playtestr/releases/v0.4.0-rc.1/) publishes three
-qualified archives and one [aggregate checksum file](https://github.com/Wyrcan-io/playtestr/releases/download/v0.4.0-rc.1/checksums-v0.4.0-rc.1.txt).
-Use the direct archive links in its release notes or the setup action at
-immutable revision
-`1c03904075512e67f53b0c94a13daa17f0383f1d`; its installation and public-byte
-verification passed on Windows amd64, Linux amd64, and macOS arm64. The initial
-checksum-contract failure remains linked from the release evidence.
+[Terminal compatibility](/playtestr/docs/terminal-compatibility/) · [Support policy](/playtestr/support/) · [All release notes](/playtestr/releases/)

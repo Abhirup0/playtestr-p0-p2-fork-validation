@@ -12,6 +12,7 @@ on:
       - 'SECURITY.md'
       - 'CHANGELOG.md'
       - 'scripts/check-site.mjs'
+      - 'scripts/website/**'
       - '.github/workflows/pages.yml'
   pull_request:
     paths:
@@ -23,6 +24,7 @@ on:
       - 'SECURITY.md'
       - 'CHANGELOG.md'
       - 'scripts/check-site.mjs'
+      - 'scripts/website/**'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
     inputs:
@@ -46,9 +48,12 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
       - name: Install pinned Hugo
         shell: bash
         run: |
@@ -71,6 +76,27 @@ jobs:
           cp schema/*.json public/schema/
       - name: Validate generated website
         run: node scripts/check-site.mjs public
+      - name: Install pinned website test tools
+        run: npm ci --prefix scripts/website --ignore-scripts --no-audit --no-fund
+      - name: Install browser engines
+        working-directory: scripts/website
+        run: npx playwright install --with-deps chromium firefox webkit
+      - name: Check browser journeys and accessibility
+        working-directory: scripts/website
+        env:
+          WEB_ROOT: public
+        run: npm test
+      - name: Preserve website test evidence
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: website-browser-evidence
+          path: |
+            artifacts/website-browser-results.json
+            artifacts/website-browser-results/**
+            artifacts/website-screenshots/**
+          if-no-files-found: warn
+          retention-days: 14
       - name: Upload Pages artifact
         if: github.event_name == 'workflow_dispatch' && inputs.publish
         uses: actions/upload-pages-artifact@v4

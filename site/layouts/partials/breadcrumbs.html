@@ -1,0 +1,1 @@
+<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="{{ "" | relURL }}">Home</a><span aria-hidden="true">/</span>{{ if eq .Section "docs" }}<a href="{{ "docs/" | relURL }}">Documentation</a>{{ else if eq .Section "releases" }}<a href="{{ "releases/" | relURL }}">Releases</a>{{ end }}<span aria-hidden="true">/</span><span aria-current="page">{{ .Title }}</span></nav>

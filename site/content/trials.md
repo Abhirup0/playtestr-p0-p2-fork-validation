@@ -1,23 +1,18 @@
 ---
-title: "Try Playtestr on one real workflow"
-description: "Join the optional Playtestr v0.4.0-rc.1 maintainer trial with one repeatable, non-sensitive CLI or TUI workflow."
-eyebrow: "PROJECT TRIALS / OPTIONAL"
+title: "Independent trial status"
+description: "Current independent-use status, verified downloads and the boundary between engineering evidence and adoption."
 ---
 
-The project trial is for maintainers or contributors who have one existing interactive CLI or TUI flow they want to protect. A good first flow is a setup wizard, an interactive selector, or a full-screen view with navigation or redraws.
+Playtestr's engineering and public-download checks are complete at their recorded scope. Independent maintainer adoption, participant-owned CI and voluntary later reuse remain unproven.
 
-Plan for 30–60 minutes after the target application is already runnable. Use synthetic or disposable local data on Linux x86-64, Apple silicon macOS, or Windows x86-64. Playtestr runs the trusted target with your own permissions and is not a sandbox.
+## Current status
 
-Before starting, choose the exact target version, one keyboard workflow, the repeatable starting state, and a concrete regression the test should catch. The trial includes a known-good run, an intended known-bad run, recovery, and a later decision about whether the test is useful enough to keep.
+Further recruitment and outreach are held. This page does not launch a new trial campaign. Historical invitations and operator results remain in the [project trial records](https://github.com/Wyrcan-io/playtestr/blob/main/docs/trials/cohort.md).
 
-Use the checksum-verified
-[`v0.4.0-rc.1` prerelease](/playtestr/releases/v0.4.0-rc.1/) and the exact
-immutable setup-action pin
-`1c03904075512e67f53b0c94a13daa17f0383f1d` from the
-[CI installation guide](/playtestr/docs/ci-installation/).
-Participation and public attribution are optional; an invitation or initial
-reply is not counted as adoption.
+For self-directed evaluation, choose a [verified download](/playtestr/download/) and read its versioned support boundaries. The current newer prerelease is [v0.4.0-rc.3](/playtestr/releases/v0.4.0-rc.3/); stable v0.1.0 remains available. Use the independently pinned setup action in the [CI guide](/playtestr/docs/ci-installation/).
 
-[Open the public project-trial form](https://github.com/Wyrcan-io/playtestr/issues/new?template=project-trial.yml) only with information you are comfortable publishing. Attribution is optional and a project alias is allowed. Do not include credentials, private source, personal paths, or unreviewed terminal evidence.
+## Evidence that remains open
 
-For the complete participant protocol, read the [project-trial guide source](https://github.com/Wyrcan-io/playtestr/blob/main/docs/trials/README.md).
+Independent first use, diagnosis effort, participant-owned CI, later voluntary reuse and a human screen-reader session require their own observations. Automated campaigns and operator walkthroughs do not substitute for those results.
+
+Keep evaluation data synthetic or disposable. Playtestr runs explicitly trusted targets with your permissions and is not a sandbox. See [compatibility](/playtestr/docs/compatibility/) and [support](/playtestr/support/) before choosing a workflow.

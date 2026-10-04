@@ -1,9 +1,11 @@
 ---
 title: "Playtestr documentation"
-description: "Install Playtestr, write deterministic CLI and TUI tests, review snapshots, diagnose failures, and read the version 1 contracts."
+description: "Install Playtestr, write deterministic CLI and TUI tests, review snapshots, diagnose failures, and read the versioned contracts."
 ---
 
 Playtestr drives trusted interactive terminal applications with authored keyboard input and checks their rendered text. Start with the stable binary, prove one passing and one failing case, then adapt the small spec to your own application.
+
+Stable v0.1.0 is the original MVP. Verified prerelease v0.4.0-rc.3 adds later suites, HTML reports, workspaces and the selected CJK repair. [Choose a release](/playtestr/download/) or follow the [prerelease installation guide](/playtestr/docs/prerelease-installation/).
 
 ## Learn the workflow
 
@@ -13,7 +15,7 @@ Playtestr drives trusted interactive terminal applications with authored keyboar
 4. [Add a reviewed text snapshot](/playtestr/docs/snapshots/) when a complete screen is useful.
 5. [Diagnose failures](/playtestr/docs/troubleshooting/) by category, failed step, screen, and diff.
 6. [Reproduce a CI failure locally](/playtestr/docs/ci-failure-handoff/) from reviewed identities and ordinary rerun commands.
-7. [Install an exact release in GitHub Actions](/playtestr/docs/ci-installation/) after the action revision is published.
+7. [Install an exact release in GitHub Actions](/playtestr/docs/ci-installation/) with independently pinned action and runner versions.
 8. [Use a repeatable workspace](/playtestr/docs/workspaces/) for a stateful local flow.
 
 ## Use the reference

@@ -1,4 +1,5 @@
 (() => {
+
   const navToggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('#site-nav');
   if (navToggle && nav) {
@@ -6,8 +7,18 @@
       const open = navToggle.getAttribute('aria-expanded') === 'true';
       navToggle.setAttribute('aria-expanded', String(!open));
       nav.classList.toggle('open', !open);
+      if (!open) nav.querySelector('a')?.focus();
     });
   }
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && navToggle?.getAttribute('aria-expanded') === 'true') {
+      navToggle.setAttribute('aria-expanded', 'false'); nav.classList.remove('open'); navToggle.focus();
+    }
+  });
+  matchMedia('(min-width: 761px)').addEventListener('change', () => {
+    navToggle?.setAttribute('aria-expanded', 'false'); nav?.classList.remove('open');
+  });
 
   const currentPath = window.location.pathname.replace(/index\.html$/, '');
   document.querySelectorAll('.docs-nav a').forEach((link) => {
@@ -23,30 +34,24 @@
     button.className = 'copy-button';
     button.textContent = 'Copy';
     button.setAttribute('aria-label', 'Copy code');
+    const feedback = document.createElement('span');
+    feedback.className = 'visually-hidden'; feedback.setAttribute('role', 'status');
+    pre.tabIndex = 0; pre.setAttribute('aria-label', 'Code example');
     button.addEventListener('click', async () => {
+      feedback.textContent = 'Copying code…';
+      let timeout;
       try {
-        await navigator.clipboard.writeText(code.textContent);
-        button.textContent = 'Copied';
+        await Promise.race([navigator.clipboard.writeText(code.textContent), new Promise((_, reject) => { timeout = setTimeout(() => reject(new Error('Clipboard timed out')), 1500); })]);
+        button.textContent = 'Copied'; feedback.textContent = 'Code copied to clipboard.';
       } catch (_) {
-        button.textContent = 'Select text';
-      }
+        button.textContent = 'Select text'; feedback.textContent = 'Copy unavailable. Select the code text.';
+      } finally { clearTimeout(timeout); }
       window.setTimeout(() => { button.textContent = 'Copy'; }, 1600);
     });
-    pre.appendChild(button);
+    pre.append(button, feedback);
   });
 
-  const article = document.querySelector('.interior-layout .prose');
-  if (article) {
-    const headings = [...article.querySelectorAll('h2[id]')];
-    if (headings.length >= 3) {
-      const contents = document.createElement('details'); contents.className = 'page-toc';
-      const summary = document.createElement('summary'); summary.textContent = 'On this page';
-      const links = document.createElement('nav'); links.setAttribute('aria-label', 'On this page');
-      headings.forEach((heading) => { const link = document.createElement('a'); link.href = `#${heading.id}`; link.textContent = heading.textContent.replace(/#$/, ''); links.appendChild(link); });
-      contents.append(summary, links);
-      const firstHeading = article.querySelector('h1'); firstHeading.insertAdjacentElement('afterend', contents);
-    }
-  }
+  document.querySelectorAll('.prose table').forEach(table => { table.tabIndex = 0; });
 
   const form = document.querySelector('[data-search-form]');
   if (!form) return;
@@ -54,8 +59,8 @@
   const results = document.querySelector('[data-search-results]');
   const status = document.querySelector('[data-search-status]');
   let indexPromise;
+  let searchSequence = 0;
 
-  const escapeHTML = (value) => value.replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const loadIndex = () => {
     if (!indexPromise) indexPromise = fetch(form.dataset.index).then((response) => {
       if (!response.ok) throw new Error('Search index unavailable');
@@ -72,12 +77,14 @@
   };
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
+    const thisSearch = ++searchSequence;
     const term = input.value.trim().toLowerCase();
     results.replaceChildren();
     if (term.length < 2) { status.textContent = 'Enter at least two characters.'; return; }
     status.textContent = 'Searching documentation…';
     try {
       const pages = await loadIndex();
+      if (thisSearch !== searchSequence) return;
       const matches = pages.filter((page) => `${page.title} ${page.text}`.toLowerCase().includes(term)).slice(0, 8);
       status.textContent = matches.length ? `${matches.length} result${matches.length === 1 ? '' : 's'}.` : `No documentation found for “${input.value.trim()}”.`;
       matches.forEach((page) => {
@@ -91,10 +98,13 @@
         results.appendChild(item);
       });
     } catch (_) {
+      indexPromise = undefined;
+      if (thisSearch !== searchSequence) return;
       status.textContent = 'Search is unavailable. Use the documentation navigation below.';
     }
   });
   form.querySelector('[data-search-clear]').addEventListener('click', () => {
+    searchSequence++;
     input.value = '';
     results.replaceChildren();
     status.textContent = 'Search page titles and documentation text.';

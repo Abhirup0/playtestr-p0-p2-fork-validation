@@ -1,0 +1,2 @@
+{{ $headings := findRE `<h2 id="[^"]+">[\s\S]*?</h2>` (printf "%s" .) }}
+{{ if ge (len $headings) 3 }}<details class="page-toc"><summary>On this page</summary><nav aria-label="On this page">{{ range $headings }}{{ $id := replaceRE `^[\s\S]*?id="([^"]+)"[\s\S]*$` "$1" . }}{{ $text := replaceRE `<a[\s\S]*?</a>` "" . | plainify }}<a href="#{{ $id }}">{{ $text }}</a>{{ end }}</nav></details>{{ end }}

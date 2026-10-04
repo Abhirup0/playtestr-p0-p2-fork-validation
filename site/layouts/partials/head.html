@@ -1,11 +1,12 @@
 {{ $description := .Description | default .Site.Params.description }}
-{{ $title := cond .IsHome .Site.Title (printf "%s — %s" .Title .Site.Title) }}
+{{ $title := cond .IsHome (printf "%s — terminal end-to-end testing" .Site.Title) (printf "%s — %s" .Title .Site.Title) }}
 {{ $social := .Site.Params.socialImage | absURL }}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add("js")</script>
 <title>{{ $title }}</title>
 <meta name="description" content="{{ $description }}">
-<meta name="theme-color" content="#fffdf9">
+<meta name="theme-color" content="#ffffff">
 <link rel="canonical" href="{{ .Permalink }}">
 <meta property="og:title" content="{{ $title }}">
 <meta property="og:description" content="{{ $description }}">
@@ -22,3 +23,11 @@
 <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
 {{ $css := resources.Get "style.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+
+{{ if eq .Kind "404" }}<meta name="robots" content="noindex">{{ end }}
+{{ if .IsHome }}
+{{ $website := dict "@context" "https://schema.org" "@type" "WebSite" "name" "Playtestr" "url" .Site.BaseURL "description" .Site.Params.description }}
+<script type="application/ld+json">{{ $website | jsonify | safeJS }}</script>
+{{ $software := dict "@context" "https://schema.org" "@type" "SoftwareSourceCode" "name" "Playtestr" "description" .Site.Params.description "codeRepository" .Site.Params.github "programmingLanguage" "Go" "license" "https://www.apache.org/licenses/LICENSE-2.0" "url" .Site.BaseURL }}
+<script type="application/ld+json">{{ $software | jsonify | safeJS }}</script>
+{{ end }}

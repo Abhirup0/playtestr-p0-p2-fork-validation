@@ -2,6 +2,7 @@
 /dist/
 /public/
 /artifacts/
+/scripts/website/node_modules/
 /.cache/
 /.hugo_build.lock
 /.reference/

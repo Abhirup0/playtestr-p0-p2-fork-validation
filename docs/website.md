@@ -4,7 +4,7 @@ The Playtestr website is a static Hugo site published at <https://wyrcan-io.gith
 
 ## Design contract
 
-The design keeps Playtestr's existing paper, ink, rule, rust, and terminal colors. Pages use solid surfaces, fine borders, readable type, and product evidence as the main visual material. Do not introduce frosted glass, backdrop blur, decorative gradients, neon glow, floating ornaments, or generic marketing-card grids.
+The design keeps Playtestr's white and cool gray surfaces, navy ink, blue links, fine rules, and dark terminal colors. Pages use solid surfaces, fine borders, readable type, and product evidence as the main visual material. Do not introduce frosted glass, backdrop blur, decorative gradients, neon glow, floating ornaments, or generic marketing-card grids.
 
 The interactive terminal is a browser presentation of finite, reviewed repository fixture states. It does not execute arbitrary commands or claim to be a live PTY. The provenance record is published with its data at `site/static/demos/README.txt`.
 
@@ -14,7 +14,7 @@ The interactive terminal is a browser presentation of finite, reviewed repositor
 - `site/layouts/` contains the shared page shell and page-type templates.
 - `site/assets/` contains the shared CSS and small JavaScript enhancements.
 - `site/content/` defines public routes. Reference wrappers point to a canonical repository document through their `source` front-matter field.
-- `site/data/release.toml` is the reviewed website source for stable asset names, direct URLs, hashes, and supported targets.
+- `site/data/release.toml` and `site/data/prerelease.toml` separately hold reviewed stable and prerelease archive identities.
 - `site/static/` contains the favicon, social preview, and bounded demonstration data.
 - `docs/` remains the canonical source for technical prose shared with GitHub and release archives.
 - `scripts/check-site.mjs` checks required routes, local links, fragments, metadata, search terms, demo evidence, fixed colors, prohibited effects, and asset budgets.
@@ -46,7 +46,9 @@ sh scripts/site.sh serve
 
 The build writes only to ignored `public/`. Build mode copies the four canonical v1/v2 schemas to `public/schema/` and runs the Node-based validation. Serve mode uses Hugo's development server and renders drafts without changing repository content.
 
-For a local browser check, start the Hugo server and a Chromium-based browser with a remote debugging port, then run `node scripts/browser-check.mjs`. The script visits every public route at 320, 375, 768, and 1440 CSS pixels, checks overflow and basic semantics, exercises the intentional-failure evidence controls, inspects accessible control names, and saves representative screenshots under ignored `.cache/site-browser/`.
+Install the pinned test tools with `npm ci --prefix scripts/website --ignore-scripts`, then run `npx playwright install chromium firefox webkit` from `scripts/website`. Build the preview under `artifacts/website-redesign-preview`, including public schemas, then run `npm test --prefix scripts/website`. Set `WEB_ROOT=public` to test the normal build or `SITE_URL=https://wyrcan-io.github.io/playtestr/` to test production. The harness owns and closes its local server and browser sessions.
+
+The tests visit every route, check six viewport widths from 320 to 1440, run axe WCAG 2.2 AA rules on representative templates, exercise search failure paths, keyboard menus, reduced motion, no-script access, code copying, release identities and genuine 404s. Screenshots and traces stay in ignored `artifacts/`. `npm run performance --prefix scripts/website` performs three mobile Lighthouse lab runs each on the homepage and CI guide. These are lab measurements, not field INP or human accessibility certification.
 
 ## Adding or changing documentation
 
@@ -82,7 +84,7 @@ The demonstration JSON is website data, not report v1 and not a runner replay fo
 
 ## Deployment workflow
 
-`.github/workflows/pages.yml` builds and validates website changes on pull requests without deploying. On an authorized change reaching `main`, it builds the same static output, uploads the Pages artifact, and deploys it. The workflow continues to publish the canonical versioned JSON schemas at `/playtestr/schema/`.
+`.github/workflows/pages.yml` builds and validates website changes on pull requests without deploying. Pushes to `main` build and run browser checks without deploying. Dispatch the Website workflow on the reviewed revision with `publish: true` to build, validate, upload and deploy its Pages artifact. The workflow continues to publish the canonical versioned JSON schemas at `/playtestr/schema/`.
 
 A configured or green build is not evidence that the public site works. After deployment, check direct entry to nested routes, downloads and checksums, schemas, search, the terminal controls, social-preview assets, mobile layout, keyboard navigation, and the 404 page at the configured Pages address.
 

@@ -1,0 +1,203 @@
+{
+  "date": "2026-10-04",
+  "publication": "pending",
+  "design": "Original navy/blue typographic layout, actual terminal evidence, native disclosures, system fonts; no animation framework or new runtime dependencies",
+  "routes": 39,
+  "browsers": [
+    "Chromium",
+    "Firefox",
+    "WebKit"
+  ],
+  "local_browser_checks": 24,
+  "viewport_widths": [
+    320,
+    375,
+    390,
+    768,
+    1024,
+    1440
+  ],
+  "accessibility": "axe WCAG 2.2 AA on seven representative templates in three engines; automated checks only",
+  "performance_before": [
+    {
+      "page": "home",
+      "attempt": 1,
+      "performance": 100,
+      "accessibility": 96,
+      "seo": 100,
+      "lcp_ms": 1206.7259999999999,
+      "cls": 0,
+      "total_bytes": 13679,
+      "tool": "13.5.0",
+      "scope": "Mobile Lighthouse lab, simulated throttling; not field INP or p75"
+    },
+    {
+      "page": "home",
+      "attempt": 2,
+      "performance": 100,
+      "accessibility": 96,
+      "seo": 100,
+      "lcp_ms": 1210.3731,
+      "cls": 0,
+      "total_bytes": 13679,
+      "tool": "13.5.0",
+      "scope": "Mobile Lighthouse lab, simulated throttling; not field INP or p75"
+    },
+    {
+      "page": "home",
+      "attempt": 3,
+      "performance": 100,
+      "accessibility": 96,
+      "seo": 100,
+      "lcp_ms": 1211.79,
+      "cls": 0,
+      "total_bytes": 13679,
+      "tool": "13.5.0",
+      "scope": "Mobile Lighthouse lab, simulated throttling; not field INP or p75"
+    },
+    {
+      "page": "docs",
+      "attempt": 1,
+      "performance": 100,
+      "accessibility": 100,
+      "seo": 100,
+      "lcp_ms": 953.6697999999999,
+      "cls": 0,
+      "total_bytes": 11553,
+      "tool": "13.5.0",
+      "scope": "Mobile Lighthouse lab, simulated throttling; not field INP or p75"
+    },
+    {
+      "page": "docs",
+      "attempt": 2,
+      "performance": 100,
+      "accessibility": 100,
+      "seo": 100,
+      "lcp_ms": 908.0823,
+      "cls": 0.05450548514066611,
+      "total_bytes": 11553,
+      "tool": "13.5.0",
+      "scope": "Mobile Lighthouse lab, simulated throttling; not field INP or p75"
+    },
+    {
+      "page": "docs",
+      "attempt": 3,
+      "performance": 100,
+      "accessibility": 100,
+      "seo": 100,
+      "lcp_ms": 951.5446999999999,
+      "cls": 0.05450548514066611,
+      "total_bytes": 11553,
+      "tool": "13.5.0",
+      "scope": "Mobile Lighthouse lab, simulated throttling; not field INP or p75"
+    }
+  ],
+  "performance_after": [
+    {
+      "page": "home",
+      "attempt": 1,
+      "performance": 100,
+      "accessibility": 100,
+      "seo": 100,
+      "lcp_ms": 1204.1999999999998,
+      "cls": 0,
+      "total_bytes": 14411,
+      "tool": "13.5.0",
+      "scope": "Mobile Lighthouse lab, simulated throttling; not field INP or p75"
+    },
+    {
+      "page": "home",
+      "attempt": 2,
+      "performance": 99,
+      "accessibility": 100,
+      "seo": 100,
+      "lcp_ms": 1260.21865,
+      "cls": 0,
+      "total_bytes": 14411,
+      "tool": "13.5.0",
+      "scope": "Mobile Lighthouse lab, simulated throttling; not field INP or p75"
+    },
+    {
+      "page": "home",
+      "attempt": 3,
+      "performance": 100,
+      "accessibility": 100,
+      "seo": 100,
+      "lcp_ms": 1208.8658999999998,
+      "cls": 0,
+      "total_bytes": 14411,
+      "tool": "13.5.0",
+      "scope": "Mobile Lighthouse lab, simulated throttling; not field INP or p75"
+    },
+    {
+      "page": "docs",
+      "attempt": 1,
+      "performance": 100,
+      "accessibility": 100,
+      "seo": 100,
+      "lcp_ms": 957.2002,
+      "cls": 0,
+      "total_bytes": 11950,
+      "tool": "13.5.0",
+      "scope": "Mobile Lighthouse lab, simulated throttling; not field INP or p75"
+    },
+    {
+      "page": "docs",
+      "attempt": 2,
+      "performance": 100,
+      "accessibility": 100,
+      "seo": 100,
+      "lcp_ms": 1080.2645,
+      "cls": 0,
+      "total_bytes": 11950,
+      "tool": "13.5.0",
+      "scope": "Mobile Lighthouse lab, simulated throttling; not field INP or p75"
+    },
+    {
+      "page": "docs",
+      "attempt": 3,
+      "performance": 100,
+      "accessibility": 100,
+      "seo": 100,
+      "lcp_ms": 908.3336999999999,
+      "cls": 0,
+      "total_bytes": 11950,
+      "tool": "13.5.0",
+      "scope": "Mobile Lighthouse lab, simulated throttling; not field INP or p75"
+    }
+  ],
+  "onboarding_windows": {
+    "host": "Windows-11-10.0.26300-SP0",
+    "version": "v0.4.0-rc.3",
+    "sha256": "b159cd8f638f231c278b485565663dfe8fe323f97e3edf0c86fe7077239a406f",
+    "install_output": "playtestr v0.4.0-rc.3",
+    "cases": [
+      {
+        "case": "pass",
+        "exit": 0
+      },
+      {
+        "case": "intentional-failure",
+        "exit": 1
+      },
+      {
+        "case": "recovery",
+        "exit": 0
+      }
+    ]
+  },
+  "evidence_artifacts": [
+    "artifacts/website-browser-first-attempt.json",
+    "artifacts/website-browser-cross-engine-first.json",
+    "artifacts/website-performance-first-attempt",
+    "artifacts/website-screenshots-before",
+    "artifacts/website-screenshots"
+  ],
+  "limits": [
+    "No human screen-reader test",
+    "Browser engines are not physical device coverage",
+    "Lab Lighthouse does not establish field INP, rankings or p75",
+    "Independent project trial evidence remains open"
+  ],
+  "outreach": "None"
+}

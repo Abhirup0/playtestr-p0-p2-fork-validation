@@ -2,9 +2,9 @@
 
 Status: immutable action revision
 `ae97c62022966cde9699b26169b4dc6ef0a12439` is verified for exact-version
-installation of published `v0.4.0-rc.2` on Windows amd64, Linux amd64 and
-macOS arm64. [Public distribution/upgrade verification](https://github.com/Wyrcan-io/playtestr/actions/runs/36345677928)
-and [binary-only installation checks](https://github.com/Wyrcan-io/playtestr/actions/runs/36346042029)
+installation of published `v0.4.0-rc.3` on Windows amd64, Linux amd64 and
+macOS arm64. [Public distribution/upgrade verification](https://github.com/Wyrcan-io/playtestr/actions/runs/36871693872)
+and [binary-only installation checks](https://github.com/Wyrcan-io/playtestr/actions/runs/36871699556)
 passed. Pin the full action SHA and runner version independently. Historical
 v0.4.0-rc.1 action evidence remains in its own release record.
 
@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
-      PLAYTESTR_VERSION: v0.4.0-rc.2
+      PLAYTESTR_VERSION: v0.4.0-rc.3
     steps:
       - uses: actions/checkout@v6
       - name: Install Playtestr

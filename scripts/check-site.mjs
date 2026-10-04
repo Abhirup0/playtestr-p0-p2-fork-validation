@@ -26,6 +26,7 @@ const requiredRoutes = [
   'releases/index.html', 'releases/v0.1.0/index.html',
   'releases/v0.3.0-rc.1/index.html',
   'releases/v0.4.0-rc.1/index.html',
+  'releases/v0.4.0-rc.3/index.html', 'docs/prerelease-installation/index.html', 'docs/upgrade/index.html',
   'support/index.html', 'trials/index.html', 'index.json',
   'demos/terminal-demo.json', 'schema/playtestr-spec-v1.schema.json',
   'schema/playtestr-report-v1.schema.json', 'schema/playtestr-spec-v2.schema.json',
@@ -136,18 +137,43 @@ for (const file of markdownFiles) {
   }
 }
 
+
+const prerelease = readFileSync(join(repository, 'site/data/prerelease.toml'), 'utf8');
+const checksums = readFileSync(join(repository, 'release/checksums-v0.4.0-rc.3.txt'), 'utf8');
+for (const match of prerelease.matchAll(/archive = "([^"]+)"[\s\S]*?sha256 = "([a-f0-9]{64})"/g)) {
+  if (!checksums.includes(`${match[2]}  ${match[1]}`)) fail(`prerelease archive identity differs from qualified checksums: ${match[1]}`);
+}
+for (const file of htmlFiles) {
+  const html = readFileSync(file, 'utf8');
+  const path = relative(output, file).replaceAll('\\', '/');
+  const canonical = `https://wyrcan-io.github.io/playtestr/${path.replace(/index\.html$/, '')}`;
+  const match = html.match(/<link rel=canonical href=(?:"([^"]+)"|([^\s>]+))/i);
+  if ((match?.[1] || match?.[2]) !== canonical) fail(`${path}: canonical differs from route`);
+  for (const block of html.matchAll(/<script type=(?:"application\/ld\+json"|application\/ld\+json)>([\s\S]*?)<\/script>/g)) {
+    try { const value = JSON.parse(block[1]); if (value['@context'] !== 'https://schema.org' || !value['@type']) fail(`${path}: incomplete structured data`); }
+    catch { fail(`${path}: invalid JSON-LD`); }
+  }
+}
+const sitemap = readFileSync(join(output, 'sitemap.xml'), 'utf8');
+if (sitemap.includes('/404.html') || sitemap.includes('localhost')) fail('sitemap includes error or local routes');
+for (const route of ['download/', 'releases/v0.4.0-rc.3/', 'docs/prerelease-installation/']) if (!sitemap.includes(`https://wyrcan-io.github.io/playtestr/${route}`)) fail(`sitemap missing ${route}`);
+for (const file of files.filter(file => /\.(css|js)$/.test(file))) {
+  const limit = file.endsWith('.css') ? 40 * 1024 : 35 * 1024;
+  if (gzipSync(readFileSync(file)).length > limit) fail(`${relative(output, file)}: code asset exceeds size budget`);
+}
+
 const cssSource = readFileSync(join(repository, 'site/assets/style.css'), 'utf8');
-for (const token of ['#fffdf9', '#252323', '#625e5c', '#d8d2cd', '#652d3c', '#292728']) if (!cssSource.includes(token)) fail(`missing locked color token ${token}`);
+for (const token of ['#ffffff', '#142235', '#526174', '#dce3eb', '#244cc7', '#152235']) if (!cssSource.includes(token)) fail(`missing locked color token ${token}`);
 for (const prohibited of [/backdrop-filter/i, /linear-gradient/i, /radial-gradient/i, /filter:\s*blur/i]) if (prohibited.test(cssSource)) fail(`prohibited visual effect found: ${prohibited}`);
 const rgb = (hex) => [1, 3, 5].map((index) => Number.parseInt(hex.slice(index, index + 2), 16) / 255).map((channel) => channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4);
 const contrast = (foreground, background) => { const a = rgb(foreground).reduce((sum, channel, index) => sum + channel * [0.2126, 0.7152, 0.0722][index], 0); const b = rgb(background).reduce((sum, channel, index) => sum + channel * [0.2126, 0.7152, 0.0722][index], 0); return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05); };
-for (const [foreground, background, label] of [['#252323', '#fffdf9', 'body text'], ['#625e5c', '#fffdf9', 'muted text'], ['#652d3c', '#fffdf9', 'rust links'], ['#eee9e4', '#292728', 'terminal text'], ['#bfcca1', '#292728', 'terminal pass text']]) if (contrast(foreground, background) < 4.5) fail(`${label} color contrast is below 4.5:1`);
+for (const [foreground, background, label] of [['#142235', '#ffffff', 'body text'], ['#526174', '#ffffff', 'muted text'], ['#244cc7', '#ffffff', 'accent links'], ['#edf2fa', '#152235', 'terminal text'], ['#a9e1c0', '#152235', 'terminal pass text']]) if (contrast(foreground, background) < 4.5) fail(`${label} color contrast is below 4.5:1`);
 
 const initialAssets = files.filter((file) => /\.(?:css|js)$/.test(file) && !file.includes(`terminal-demo${sep}`));
 const compressedCode = initialAssets.reduce((sum, file) => sum + gzipSync(readFileSync(file)).length, 0);
-if (compressedCode > 100 * 1024) fail(`shared CSS and JavaScript exceed 100 KB compressed: ${compressedCode}`);
+if (compressedCode > 75 * 1024) fail(`shared CSS and JavaScript exceed 100 KB compressed: ${compressedCode}`);
 const homeSize = gzipSync(readFileSync(join(output, 'index.html'))).length + compressedCode;
-if (homeSize > 500 * 1024) fail(`home first-load budget exceeds 500 KB compressed: ${homeSize}`);
+if (homeSize > 350 * 1024) fail(`home first-load budget exceeds 500 KB compressed: ${homeSize}`);
 
 if (failures.length) {
   console.error(`Website validation failed (${failures.length}):\n- ${failures.join('\n- ')}`);

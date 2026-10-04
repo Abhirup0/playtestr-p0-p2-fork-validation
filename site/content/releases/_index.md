@@ -22,6 +22,12 @@ remain excluded. See its release record for exact hashes, first attempts and lim
 
 ## Earlier prerelease
 
+### [Playtestr v0.4.0-rc.2](/playtestr/releases/v0.4.0-rc.2/)
+
+Bounded installer reads, Linux final-drain optimization and macOS final-output
+preservation. Its immutable files remain historical; the selected CJK repair
+ships in rc.3.
+
 ### [Playtestr v0.4.0-rc.1](/playtestr/releases/v0.4.0-rc.1/)
 
 Adds opt-in fresh workspaces and versioned mixed-suite reports. Its qualified
