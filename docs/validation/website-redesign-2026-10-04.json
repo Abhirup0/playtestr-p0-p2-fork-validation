@@ -1,6 +1,6 @@
 {
   "date": "2026-10-04",
-  "publication": "pending",
+  "publication": "verified",
   "design": "Original navy/blue typographic layout, actual terminal evidence, native disclosures, system fonts; no animation framework or new runtime dependencies",
   "routes": 39,
   "browsers": [
@@ -99,21 +99,21 @@
       "performance": 100,
       "accessibility": 100,
       "seo": 100,
-      "lcp_ms": 1204.1999999999998,
+      "lcp_ms": 1304.9750000000001,
       "cls": 0,
-      "total_bytes": 14411,
+      "total_bytes": 14420,
       "tool": "13.5.0",
       "scope": "Mobile Lighthouse lab, simulated throttling; not field INP or p75"
     },
     {
       "page": "home",
       "attempt": 2,
-      "performance": 99,
+      "performance": 100,
       "accessibility": 100,
       "seo": 100,
-      "lcp_ms": 1260.21865,
+      "lcp_ms": 1216.7631000000001,
       "cls": 0,
-      "total_bytes": 14411,
+      "total_bytes": 14420,
       "tool": "13.5.0",
       "scope": "Mobile Lighthouse lab, simulated throttling; not field INP or p75"
     },
@@ -123,9 +123,9 @@
       "performance": 100,
       "accessibility": 100,
       "seo": 100,
-      "lcp_ms": 1208.8658999999998,
+      "lcp_ms": 1207.98405,
       "cls": 0,
-      "total_bytes": 14411,
+      "total_bytes": 14420,
       "tool": "13.5.0",
       "scope": "Mobile Lighthouse lab, simulated throttling; not field INP or p75"
     },
@@ -135,9 +135,9 @@
       "performance": 100,
       "accessibility": 100,
       "seo": 100,
-      "lcp_ms": 957.2002,
+      "lcp_ms": 906.0867000000001,
       "cls": 0,
-      "total_bytes": 11950,
+      "total_bytes": 11965,
       "tool": "13.5.0",
       "scope": "Mobile Lighthouse lab, simulated throttling; not field INP or p75"
     },
@@ -147,9 +147,9 @@
       "performance": 100,
       "accessibility": 100,
       "seo": 100,
-      "lcp_ms": 1080.2645,
+      "lcp_ms": 906.9205999999999,
       "cls": 0,
-      "total_bytes": 11950,
+      "total_bytes": 11965,
       "tool": "13.5.0",
       "scope": "Mobile Lighthouse lab, simulated throttling; not field INP or p75"
     },
@@ -159,9 +159,9 @@
       "performance": 100,
       "accessibility": 100,
       "seo": 100,
-      "lcp_ms": 908.3336999999999,
+      "lcp_ms": 904.4562000000001,
       "cls": 0,
-      "total_bytes": 11950,
+      "total_bytes": 11965,
       "tool": "13.5.0",
       "scope": "Mobile Lighthouse lab, simulated throttling; not field INP or p75"
     }
@@ -279,5 +279,383 @@
     "search": "results visually captured",
     "missingRoute": 404,
     "keyboard": "Skip link focuses main after Enter"
+  },
+  "deployed_commit": "d01793685eee6082ba9e0d7fecf1316811619ab3",
+  "public_url": "https://wyrcan-io.github.io/playtestr/",
+  "deployment": {
+    "conclusion": "success",
+    "headSha": "d01793685eee6082ba9e0d7fecf1316811619ab3",
+    "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/37194969977"
+  },
+  "ci": [
+    {
+      "conclusion": "success",
+      "databaseId": 37194969977,
+      "name": "Website",
+      "status": "completed",
+      "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/37194969977"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37194684872,
+      "name": "Terminal tests",
+      "status": "completed",
+      "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/37194684872"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37194684874,
+      "name": "Website",
+      "status": "completed",
+      "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/37194684874"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 37194684867,
+      "name": "Native gap checks",
+      "status": "completed",
+      "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/37194684867"
+    }
+  ],
+  "performance_source_commit": "d01793685eee6082ba9e0d7fecf1316811619ab3",
+  "public_http": {
+    "base": "https://wyrcan-io.github.io/playtestr/",
+    "checked": 54,
+    "results": [
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/demos/README.txt",
+        "status": 200,
+        "content_type": "text/plain; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/demos/terminal-demo.json",
+        "status": 200,
+        "content_type": "application/json; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/docs/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/docs/ci-failure-handoff/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/docs/ci-installation/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/docs/compatibility/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/docs/evidence-gallery/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/docs/failure-reports/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/docs/installation/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/docs/platform-evidence/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/docs/prerelease-installation/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/docs/recipes/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/docs/recipes/full-screen/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/docs/recipes/release-compatibility/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/docs/recipes/release-hero/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/docs/recipes/release-stateful/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/docs/recipes/selector/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/docs/recipes/stateful-wizard/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/docs/report-v1/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/docs/report-v2/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/docs/snapshots/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/docs/spec-v1/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/docs/spec-v2/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/docs/suites/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/docs/terminal-compatibility/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/docs/troubleshooting/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/docs/upgrade/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/docs/workspaces/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/docs/writing-tests/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/download/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/examples/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/favicon.svg",
+        "status": 200,
+        "content_type": "image/svg+xml"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/images/social-preview.png",
+        "status": 200,
+        "content_type": "image/png"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/index.json",
+        "status": 200,
+        "content_type": "application/json; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/releases/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/releases/v0.1.0/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/releases/v0.3.0-rc.1/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/releases/v0.4.0-rc.1/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/releases/v0.4.0-rc.2/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/releases/v0.4.0-rc.3/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/robots.txt",
+        "status": 200,
+        "content_type": "text/plain; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/schema/playtestr-report-v1.schema.json",
+        "status": 200,
+        "content_type": "application/json; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/schema/playtestr-report-v2.schema.json",
+        "status": 200,
+        "content_type": "application/json; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/schema/playtestr-spec-v1.schema.json",
+        "status": 200,
+        "content_type": "application/json; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/schema/playtestr-spec-v2.schema.json",
+        "status": 200,
+        "content_type": "application/json; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/site.min.b337501726c480b251e7639ce2691dc89b4ebbaa4c3cfa23f9bc71aee7de386b.js",
+        "status": 200,
+        "content_type": "application/javascript; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/sitemap.xml",
+        "status": 200,
+        "content_type": "application/xml"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/style.min.cb9a8ac3a8ac567209a174e630ca535cac7984c18ebee16eaed0652119d84980.css",
+        "status": 200,
+        "content_type": "text/css; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/support/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/terminal-demo.min.a0e8f25bd23dd8a8b0ad21d0d503e269444074d0ac4d37a57ba9ab4ea66163ce.js",
+        "status": 200,
+        "content_type": "application/javascript; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/trials/",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8"
+      },
+      {
+        "url": "https://wyrcan-io.github.io/playtestr/missing-publication-check/",
+        "status": 404
+      },
+      {
+        "url": "https://wyrcan-io.github.io/robots.txt",
+        "status": 404
+      }
+    ],
+    "errors": [],
+    "robots_scope": "Only host-root robots.txt controls crawl policy; project robots is informational"
+  },
+  "production_browser_stats": {
+    "startTime": "2026-10-04T10:22:19.785Z",
+    "duration": 81478.764,
+    "expected": 27,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tools": {
+    "Hugo": "0.164.0",
+    "Playwright": "1.63.0",
+    "axe-core/playwright": "4.13.0",
+    "Lighthouse": "13.5.0"
+  },
+  "budgets": {
+    "compressed_initial_code_bytes": 7509,
+    "compressed_home_html_and_code_bytes": 12291,
+    "lab_home_total_bytes": 14420,
+    "lab_ci_guide_total_bytes": 11965
+  },
+  "screenshot_sha256": {
+    "artifacts/website-screenshots-before/docs--1440.png": "7b985e638df345fcb00e8f54135e6b0921c09ee184438fa5f01fcc2d25373c46",
+    "artifacts/website-screenshots-before/docs--390.png": "0ece3082c6dd33766aa9ed6a5b9ae998db581a18f68ac452e5c71d9575bce812",
+    "artifacts/website-screenshots-before/download--1440.png": "800ea8ea50be3c186959d935e81280d9fd70d131eb9d07bbad284c24e488814a",
+    "artifacts/website-screenshots-before/download--390.png": "aec5d11641b9054de73eacefd353494f207febd2fb95c046b24484b4d2aa01c1",
+    "artifacts/website-screenshots-before/home-1440.png": "bb54602a0c839cb42479dedee1b9f02f718db4dbf6e45d0c8a6dce6370ec85a4",
+    "artifacts/website-screenshots-before/home-390.png": "bd95cadd56af798ec454df7f8540a3ea7b1eebf0b38e0d64f0c508e01660b10f",
+    "artifacts/website-screenshots/404-1440.png": "a3efbc02fff85cc6c143c6bd1a255afc01284fbdd11931c97c5685d69d6d965f",
+    "artifacts/website-screenshots/404-390.png": "40b4daff216dc05b97b8148232fce40825883311175ca4e9ef0ef0fb867347fc",
+    "artifacts/website-screenshots/docs--1440.png": "cfa7b62c35f72e8aac586570814181d89e0c501daca175009883151f537e3aa8",
+    "artifacts/website-screenshots/docs--390.png": "c0bdd77d34d674b1f5c9e53bba5464ad191288ebe919db683d3b74a630ab39b1",
+    "artifacts/website-screenshots/docs-prerelease-installation--1440.png": "591d764d61154236159daf9680c3caa357e65b1e14f39511b586d712b34ec269",
+    "artifacts/website-screenshots/docs-prerelease-installation--390.png": "47f05dbe2a2fce0a3b5827961af557b53fd129037b7977cf9f4a9aeb07835654",
+    "artifacts/website-screenshots/docs-spec-v2--1440.png": "b245220caf34b70e83b7efcdb348ea1818c72f10e057d6ecfad728075ae29b59",
+    "artifacts/website-screenshots/docs-spec-v2--390.png": "13a53c445b0075f096fdd0162fa82d79b2a6d5052e8c1f6f051e4969006ccac2",
+    "artifacts/website-screenshots/download--1440.png": "c42f60b2f308d861e35beab4e72e2be30c972d637215b922eb70d5e23ae6524e",
+    "artifacts/website-screenshots/download--390.png": "2e1115206921d67c9a692c6d3faf4d449d2f4f3d94fb67376c687bcbdbe40e38",
+    "artifacts/website-screenshots/examples--1440.png": "3809ab58d0ca1f50db2cef9c91ea86884bd4ad245182c359be02607d48b839dd",
+    "artifacts/website-screenshots/examples--390.png": "92a5e5613464e95c1ffa56e619f65fc01f93bab0541db99b3893d7435ae4fd83",
+    "artifacts/website-screenshots/home-1440.png": "b67a0e5d3dd02078b7e7f96e2494491e080b4ae251ed51f80dd3e82849bc26c6",
+    "artifacts/website-screenshots/home-390.png": "71240553cb1781be1c1ae807c05fabb97f78b2579a5ba6049ec442f1052fc4b9",
+    "artifacts/website-screenshots/releases-v0.4.0-rc.3--1440.png": "63c0934b70ea3938405eaf5e58b0d3127910bc10c778340fe82646e6f779dfaa",
+    "artifacts/website-screenshots/releases-v0.4.0-rc.3--390.png": "b2e4523e80243b9d7fe165d34c44b8269deee04f23e876c0a72ed4308d4fec1c",
+    "artifacts/website-screenshots/search-1440.png": "5c9d28ca7a06ff2b57f22aad9342e9e0c48e2344d934bd1fe717d212159dcb7e",
+    "artifacts/website-screenshots/search-390.png": "b648ca05be64a0a61a9f3bc36b4f58d3a3b35e929014dd3a9d89f85c32c770be",
+    "artifacts/website-screenshots-local-final/404-1440.png": "a3efbc02fff85cc6c143c6bd1a255afc01284fbdd11931c97c5685d69d6d965f",
+    "artifacts/website-screenshots-local-final/404-390.png": "40b4daff216dc05b97b8148232fce40825883311175ca4e9ef0ef0fb867347fc",
+    "artifacts/website-screenshots-local-final/docs--1440.png": "cfa7b62c35f72e8aac586570814181d89e0c501daca175009883151f537e3aa8",
+    "artifacts/website-screenshots-local-final/docs--390.png": "c0bdd77d34d674b1f5c9e53bba5464ad191288ebe919db683d3b74a630ab39b1",
+    "artifacts/website-screenshots-local-final/docs-prerelease-installation--1440.png": "591d764d61154236159daf9680c3caa357e65b1e14f39511b586d712b34ec269",
+    "artifacts/website-screenshots-local-final/docs-prerelease-installation--390.png": "47f05dbe2a2fce0a3b5827961af557b53fd129037b7977cf9f4a9aeb07835654",
+    "artifacts/website-screenshots-local-final/docs-spec-v2--1440.png": "b245220caf34b70e83b7efcdb348ea1818c72f10e057d6ecfad728075ae29b59",
+    "artifacts/website-screenshots-local-final/docs-spec-v2--390.png": "13a53c445b0075f096fdd0162fa82d79b2a6d5052e8c1f6f051e4969006ccac2",
+    "artifacts/website-screenshots-local-final/download--1440.png": "c42f60b2f308d861e35beab4e72e2be30c972d637215b922eb70d5e23ae6524e",
+    "artifacts/website-screenshots-local-final/download--390.png": "2e1115206921d67c9a692c6d3faf4d449d2f4f3d94fb67376c687bcbdbe40e38",
+    "artifacts/website-screenshots-local-final/examples--1440.png": "3809ab58d0ca1f50db2cef9c91ea86884bd4ad245182c359be02607d48b839dd",
+    "artifacts/website-screenshots-local-final/examples--390.png": "92a5e5613464e95c1ffa56e619f65fc01f93bab0541db99b3893d7435ae4fd83",
+    "artifacts/website-screenshots-local-final/home-1440.png": "b67a0e5d3dd02078b7e7f96e2494491e080b4ae251ed51f80dd3e82849bc26c6",
+    "artifacts/website-screenshots-local-final/home-390.png": "71240553cb1781be1c1ae807c05fabb97f78b2579a5ba6049ec442f1052fc4b9",
+    "artifacts/website-screenshots-local-final/releases-v0.4.0-rc.3--1440.png": "63c0934b70ea3938405eaf5e58b0d3127910bc10c778340fe82646e6f779dfaa",
+    "artifacts/website-screenshots-local-final/releases-v0.4.0-rc.3--390.png": "b2e4523e80243b9d7fe165d34c44b8269deee04f23e876c0a72ed4308d4fec1c",
+    "artifacts/website-screenshots-local-final/search-1440.png": "5c9d28ca7a06ff2b57f22aad9342e9e0c48e2344d934bd1fe717d212159dcb7e",
+    "artifacts/website-screenshots-local-final/search-390.png": "b648ca05be64a0a61a9f3bc36b4f58d3a3b35e929014dd3a9d89f85c32c770be"
   }
 }
