@@ -19,7 +19,7 @@ Playtestr starts a real pseudoterminal, sends keyboard input, and feeds output i
 
 The newest verified prerelease is [v0.4.0-rc.3](https://github.com/Wyrcan-io/playtestr/releases/tag/v0.4.0-rc.3), adding the selected two-column wide-character repair while retaining suites, offline reports, workspaces and installer/macOS output repairs. See its [downloads and installation](docs/releases/v0.4.0-rc.3.md). Stable v0.1.0 remains available below.
 
-For a prerelease trial, see the [captured pass/failure/recovery demo](docs/adoption-demo.md) and the [complete PR workflow](docs/ci-installation.md). The workflow builds an actual example target and retains failure evidence; its new summary integration is locally verified, with hosted execution pending an authorized push.
+For a prerelease trial, see the [captured pass/failure/recovery demo](docs/adoption-demo.md) and the [complete PR workflow](docs/ci-installation.md). The workflow builds an actual example target and retains failure evidence; [hosted pass, deliberate failure and recovery](docs/validation/adoption-preparation-2026-10-05.md#hosted-validation-after-authorized-push) verified its summary and artifact steps.
 
 ## Install and run a first test
 

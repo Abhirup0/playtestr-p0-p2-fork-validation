@@ -24,7 +24,7 @@ Adapt a [selector, stateful wizard or full-screen recipe](https://wyrcan-io.gith
 
 First get a good case. Then introduce a reviewed, reversible defect or known incorrect fixture that should fail, retain the report, and recover with the same test. If the valuable result is a saved file or database update, verify that state independently; plausible screen text alone cannot prove persistence. The existing stateful recipes show adapter/oracle approaches. Treat a missing dependency as a setup failure, not a caught product regression.
 
-Keep your faster unit/widget tests. Add [CI](https://wyrcan-io.github.io/playtestr/docs/ci-installation/) only if this terminal test is useful. The prepared PR summary workflow is a source addition awaiting hosted verification; it is not included inside the downloaded rc.3 binary.
+Keep your faster unit/widget tests. Add [CI](https://github.com/Wyrcan-io/playtestr/blob/main/docs/ci-installation.md) only if this terminal test is useful. The PR summary workflow passed hosted normal/failure/recovery verification; it is a separate source addition, not included inside the downloaded rc.3 binary. Use this source guide until the updated website documentation is deployed.
 
 ## Limits, feedback and removal
 

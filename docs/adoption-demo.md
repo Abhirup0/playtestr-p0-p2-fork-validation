@@ -42,6 +42,8 @@ The normal target passed with runner exit 0. Rebuilding the target with `-X main
 
 Rebuilding the normal target restored a pass with runner exit 0. The three captured reports confirmed target cleanup; hashes confirmed the spec and snapshot were unchanged. Failure evidence also rendered as an offline HTML report and an Actions-style Markdown summary. The local summary does not prove a hosted Actions upload.
 
+Subsequent [hosted pass/failure/recovery verification](https://github.com/Wyrcan-io/playtestr/blob/main/docs/validation/adoption-preparation-2026-10-05.md#hosted-validation-after-authorized-push) confirmed that the example workflow keeps its check red on this defect while rendering HTML, writing the job summary and uploading evidence. Those runs used the repository-owned demo on Ubuntu 24.04; the image below remains the original local Windows capture.
+
 ![Actual rc.3 offline report: one failed menu snapshot, the changed diagnostics line, and confirmed Windows target cleanup](/playtestr/images/adoption/seeded-defect-report.png)
 
 This unedited screenshot was captured from the final seeded-defect HTML using local Chrome. PNG SHA-256 is recorded in the preparation record. The diff and outcome text above provide the same essential information without the image.

@@ -1,6 +1,6 @@
 # Adoption package review
 
-Local preparation dated 5 October 2026. No release, site deployment, push, invitation or public post is authorized by this index. The core runner and published assets are unchanged. Independent adoption/commercial gates remain open.
+Preparation and hosted validation dated 5 October 2026. The owner explicitly authorized the source commit/push and hosted checks; the package is available in the repository. This index does not authorize a release, site deployment, invitation or public post. The core runner and released assets are unchanged. Independent adoption/commercial gates remain open.
 
 | Ready-to-review result | Location |
 | --- | --- |
@@ -19,7 +19,7 @@ The ignored `.trial-private/adoption-review-2026-10-05/messages.md` contains fiv
 
 ## Smallest next decisions
 
-1. Review the source diff, approve a scoped commit/push and hosted runs if desired: default pass, seeded red check with retained evidence, unchanged recovery. Actual new-workflow hosted results are still required.
+1. Source commit/push and hosted validation are complete: default pass, seeded red check with retained evidence, unchanged recovery, native summary tests and website checks. See the [actual runs](../validation/adoption-preparation-2026-10-05.md#hosted-validation-after-authorized-push).
 2. Approve publication of the reviewed demo/CI documentation and, separately, decide where the article should live. An article in `docs/articles` is a draft, not automatically a public blog route.
 3. Select at most two private invitation drafts or one public-post draft. Approval must name the destination and exact text; existing AGENTS.md requires permission for each external communication/mutation.
 4. Record real first use and later voluntary reuse before any commercial discovery. The operating plan starts from actual recruitment, not this file's creation date.

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date": "2026-10-05",
-  "scope": "Local adoption preparation; no external publication or communication",
+  "scope": "Adoption preparation, explicitly authorized source push and hosted validation; no website deployment or outreach",
   "base_source_commit": "326650d59a0cc352991a3a04a64f99b96fecfce9",
   "host": {
     "os": "Windows",
@@ -86,11 +86,144 @@
       "skipped": 0,
       "unexpected": 0,
       "flaky": 0
+    },
+    "hosted_native_tests": {
+      "run_id": 37328072077,
+      "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/37328072077",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "name": "test (windows-latest)",
+          "conclusion": "success",
+          "summary_failure_tests": "success"
+        },
+        {
+          "name": "test (macos-latest)",
+          "conclusion": "success",
+          "summary_failure_tests": "success"
+        },
+        {
+          "name": "test (ubuntu-latest)",
+          "conclusion": "success",
+          "summary_failure_tests": "success"
+        }
+      ]
+    },
+    "hosted_native_gaps": {
+      "run_id": 37328072333,
+      "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/37328072333",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "name": "focused-native-gaps (macos-15, darwin-arm64)",
+          "conclusion": "success"
+        },
+        {
+          "name": "focused-native-gaps (ubuntu-latest, linux-amd64)",
+          "conclusion": "success"
+        },
+        {
+          "name": "focused-native-gaps (windows-latest, windows-amd64)",
+          "conclusion": "success"
+        }
+      ]
+    },
+    "hosted_website": {
+      "run_id": 37328072029,
+      "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/37328072029",
+      "conclusion": "success",
+      "browser_stats": {
+        "startTime": "2026-10-05T14:52:21.488Z",
+        "duration": 36180.005,
+        "expected": 27,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "host": "ubuntu-latest",
+      "deploy": "skipped",
+      "downloaded_evidence": "artifacts/adoption-hosted/website"
     }
   },
-  "hosted_new_workflow": "not executed; requires authorized source push",
+  "hosted_new_workflow": {
+    "source_commit": "30edcc34e44cb66e4e0cfce29a006e37f0031df8",
+    "runner": "ubuntu-24.04",
+    "cases": [
+      {
+        "case": "pass",
+        "run_id": 37328072239,
+        "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/37328072239",
+        "conclusion": "success",
+        "summary": {
+          "total": 2,
+          "passed": 2,
+          "failed": 0,
+          "cancelled": 0,
+          "not_run": 0
+        },
+        "cleanup_confirmed": true,
+        "html_summary_upload_steps": "success",
+        "report_sha256": "4a7613f34d34710b37a1e288d8050f46dd335951f130cee5aa60e6e157520d5f",
+        "downloaded_evidence": "artifacts/adoption-hosted/pass"
+      },
+      {
+        "case": "seeded-defect",
+        "run_id": 37328099210,
+        "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/37328099210",
+        "conclusion": "failure",
+        "summary": {
+          "total": 2,
+          "passed": 1,
+          "failed": 1,
+          "cancelled": 0,
+          "not_run": 0
+        },
+        "cleanup_confirmed": true,
+        "html_summary_upload_steps": "success",
+        "report_sha256": "a908c215f5d2169a6879994f7577b825c702df448380ad95d061eadef8dee6ed",
+        "downloaded_evidence": "artifacts/adoption-hosted/seeded-defect"
+      },
+      {
+        "case": "recovery",
+        "run_id": 37328210937,
+        "url": "https://github.com/Wyrcan-io/playtestr/actions/runs/37328210937",
+        "conclusion": "success",
+        "summary": {
+          "total": 2,
+          "passed": 2,
+          "failed": 0,
+          "cancelled": 0,
+          "not_run": 0
+        },
+        "cleanup_confirmed": true,
+        "html_summary_upload_steps": "success",
+        "report_sha256": "b16fd4f593f7a984f0e01b2030a8c9ab9a76d87de67492d51fe3c7cb4578ad14",
+        "downloaded_evidence": "artifacts/adoption-hosted/recovery"
+      }
+    ],
+    "qualification": "Repository-owned demo; push and workflow_dispatch, not an external fork PR"
+  },
   "independent_adoption": "not established",
-  "external_actions_performed": [],
+  "external_actions_performed": [
+    {
+      "action": "commit_and_push",
+      "commit": "30edcc34e44cb66e4e0cfce29a006e37f0031df8",
+      "branch": "main",
+      "authorization": "Explicit owner approval to commit/push prepared package; existing edits excluded"
+    },
+    {
+      "action": "hosted_validation",
+      "run_ids": [
+        37328072239,
+        37328099210,
+        37328210937,
+        37328072077,
+        37328072333,
+        37328072029
+      ],
+      "authorization": "Requested validation using standard GitHub-hosted runners"
+    }
+  ],
   "private_packet_ignored": true,
   "retained_failed_attempts": [
     "artifacts/adoption-demo",

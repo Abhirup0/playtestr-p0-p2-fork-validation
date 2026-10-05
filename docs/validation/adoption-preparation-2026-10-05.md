@@ -1,6 +1,6 @@
 # Adoption and PR workflow preparation — 5 October 2026
 
-Status: local implementation and material preparation; new-workflow hosted execution and external publication remain pending. This record describes the current task, not completion of independent adoption or commercial validation. The user explicitly requested execution of the [adoption prompt](../plans/adoption-and-pr-workflow-execution-prompt.md).
+Status: implementation, material preparation, authorized source push and hosted validation complete. Website deployment and outreach remain pending. This record describes the current task, not completion of independent adoption or commercial validation. The user explicitly requested execution of the [adoption prompt](../plans/adoption-and-pr-workflow-execution-prompt.md), then authorized committing and pushing the prepared package.
 
 ## Baseline and scope
 
@@ -45,10 +45,29 @@ The first website-browser attempt lacked the pinned browser executables. They we
 
 ## Remaining boundaries
 
-Actual new-workflow Actions pass/red/recovery and Linux/macOS summary execution are unverified until these source changes are pushed with explicit authorization. Existing release/native evidence is historical and cannot certify this new helper. Native devices are not a prerequisite: standard hosted validation is prepared. No concurrency or process-lifecycle code changed, so an additional race campaign was not required for this slice.
+The new workflow and native helper results are recorded below. Existing release qualification remains separate historical evidence. No concurrency or process-lifecycle code changed, so an additional race campaign was not required for this slice.
 
-No source commit/push, site deployment, article publication, invitations, comments, PR/issue/discussion mutations, sponsorship setup or service spend occurred. Public route drafts and links to new source must not be announced as deployed. Human trial consent, unaided first use, diagnosis effort, voluntary return and paid demand remain unobserved. HN's current generated-text prohibition is recorded; no HN-ready AI draft was prepared.
+The source package was committed and pushed after explicit authorization; the article is now publicly accessible as a repository draft. No site deployment, blog publication, invitations, comments, PR/issue/discussion mutations, sponsorship setup or service spend occurred. New website routes must not be announced as deployed. Human trial consent, unaided first use, diagnosis effort, voluntary return and paid demand remain unobserved. HN's current generated-text prohibition is recorded; no HN-ready AI draft was prepared.
 
 The [machine-readable local record](adoption-preparation-2026-10-05.json) retains capture outcomes, runtime identities, final file hashes and browser-result counts. No costs or human hours have been measured. Browser dependencies were downloaded locally; no service or paid runner was purchased. Private candidate drafts and refusal data remain ignored.
 
 The original missing-browser run completed after the task-owned preview server was terminated; its 27 prerequisite failures are retained in `artifacts/adoption-browser-missing-prerequisites.json`. The final accepted browser evidence remains the separate installed-browser and Firefox runs above. Preview termination was confirmed by the process API. The final summary-helper code was also run successfully on all three captured reports, writing `summary-final.md` without rerunning the targets or changing evidence.
+
+## Hosted validation after authorized push
+
+The owner explicitly approved committing and pushing the prepared package. Commit `30edcc34e44cb66e4e0cfce29a006e37f0031df8` was pushed to `main`; existing edits to AGENTS.md, the planning index and the two unrelated execution prompts were excluded. The Website workflow was inspected before pushing: deployment requires an explicit `workflow_dispatch` with `publish=true`, so the push only built and checked the site.
+
+| Hosted check at that source commit | Actual result |
+| --- | --- |
+| [Normal PR-example run](https://github.com/Wyrcan-io/playtestr/actions/runs/37328072239) | Passed on Ubuntu 24.04; published rc.3, two specs, 12 passing steps, confirmed cleanup. HTML, job summary and artifact upload steps succeeded. |
+| [Seeded regression](https://github.com/Wyrcan-io/playtestr/actions/runs/37328099210) | Expected failed check. The menu snapshot failed with `snapshot_mismatch`; the exit spec passed. HTML, job summary and artifact upload still succeeded. Downloaded actual screen/diff and HTML contain `Diagnostics: all systems healthy.REGRESSION`; cleanup confirmed for both results. |
+| [Unchanged recovery](https://github.com/Wyrcan-io/playtestr/actions/runs/37328210937) | Passed after dispatching with defect injection disabled, at the same source commit and with unchanged specs/baseline. Two specs and all 12 steps passed; cleanup, HTML, summary and upload succeeded. |
+| [Native terminal tests](https://github.com/Wyrcan-io/playtestr/actions/runs/37328072077) | All three jobs passed: ubuntu-latest, macos-latest and windows-latest. Each actually executed the new summary failure-control tests, Go tests/vet, real terminal acceptance and expected-failure checks. |
+| [Native gap checks](https://github.com/Wyrcan-io/playtestr/actions/runs/37328072333) | All focused integrated-hardening jobs passed: Linux amd64, macOS arm64 and Windows amd64. This existing workflow also ran automatically on the push. |
+| [Website](https://github.com/Wyrcan-io/playtestr/actions/runs/37328072029) | Hosted Linux build/static checks and all 27 browser checks passed, zero skipped/unexpected failures. Downloaded browser JSON confirms the count. Deploy job was skipped. |
+
+Commands: `git commit` and `git push origin main`; normal example/native/site checks were push-triggered. `gh workflow run terminal-pr-example.yml --ref main -f inject_regression=true` supplied the expected failure; the same dispatch with `false` supplied recovery. `gh run view --json status,conclusion,jobs` verified completed job/step outcomes; `gh run download` retrieved all three example artifacts and website browser evidence. Ignored `artifacts/adoption-hosted/` retains reports, failed screen/diff, HTML, run metadata and browser JSON. Report hashes and run IDs are in the machine-readable record. Job-summary step success is verified from job metadata; summary text is not part of the downloaded evidence artifact.
+
+These checks establish the repository-owned demo workflow and helper tests on the named hosts. They do not establish external fork-PR execution, third-party adoption, unrestricted terminal compatibility or paid demand. Source publication and hosted validation were the authorized external actions; no invitations, PR/issue/discussion mutations or website deployment occurred.
+
+The documentation follow-up initially used a relative link to this validation record from the demo page. The site check caught that the record has no generated website route; the link was corrected to its repository URL and the final build/static check passed.
