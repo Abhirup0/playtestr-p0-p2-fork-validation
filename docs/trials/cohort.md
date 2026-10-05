@@ -1,5 +1,12 @@
 # R3 cohort record
 
+5 October 2026 read-only reconciliation: the earlier five invitation threads
+were checked against GitHub. Four have no comments; one contains an explicit
+decline and is marked for no further contact in the ignored private ledger.
+Current recorded responses: one; consenting maintainers: zero; qualifying
+independent trials: zero. No new invitation, reply, edit or follow-up was sent.
+The dated September zero-response statements below remain historical.
+
 Status: further A1 outreach held by the 26 September weekly review pending
 [E0-E5](../plans/engineering-readiness.md) and explicit user authorization.
 Recruitment had opened earlier after R6-V; no independent project has been
@@ -43,7 +50,7 @@ This file tracks completion without publishing participant details that lack con
 - Open release blockers: unknown until trials begin
 - Public-name permissions recorded: 0
 - Invitations sent: 5/5 target
-- Responses received: 0
+- Responses received: 1 (explicit decline; read-only check 5 October 2026)
 - Consenting maintainers: 0/5 target
 
 Do not convert a recruited or partially configured project into a completion count. A project completes the initial gate only after its maintainer reviews a passing good case and an intended failing bad case.

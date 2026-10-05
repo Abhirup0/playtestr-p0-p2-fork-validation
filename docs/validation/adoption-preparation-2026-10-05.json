@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-05",
+  "scope": "Local adoption preparation; no external publication or communication",
+  "base_source_commit": "326650d59a0cc352991a3a04a64f99b96fecfce9",
+  "host": {
+    "os": "Windows",
+    "arch": "AMD64",
+    "python": "3.12.7"
+  },
+  "runner_capture": {
+    "runner_version": "playtestr v0.4.0-rc.3",
+    "runner_sha256": "531804dcb5f29bdcc9d9e2650b1be86e083eedd34c4545ebff1654f05d33f16a",
+    "host": "win32",
+    "target_source_sha256": "1a433e37c653cf1178bea93050a6dc7df790c7642b2496b147e8f9b188b208dd",
+    "cases": [
+      {
+        "case": "pass",
+        "test_exit": 0,
+        "status": "passed",
+        "category": null,
+        "cleanup_confirmed": true,
+        "target_sha256": "d19b77050a22e15756be43687c1028e38fba65a445681b9b93504bd645e25227",
+        "report_sha256": "8197e40ba023cd857d3fe6c8889315feb48ae625ed7a658d464b849b1a7569c1",
+        "spec_sha256": "c828d38077bd4123196eac294638dc89907e58833d4e0640bc27b02835a7b6d3",
+        "baseline_sha256": "96bbce2386a3ab5e113225d126bbedbd674e1bcc28f33c657c4d621604aa3eb4",
+        "evidence_directory": "artifacts/adoption-demo-final/pass"
+      },
+      {
+        "case": "seeded-defect",
+        "test_exit": 1,
+        "status": "failed",
+        "category": "snapshot_mismatch",
+        "cleanup_confirmed": true,
+        "target_sha256": "2613bce292028e512d0f652c52dfd34888ad5d286a0e740e38ed0e0c547eccef",
+        "report_sha256": "aea9f120141c6720b03d2210493655140abbf0957cf6f1f225efe94749d8fed3",
+        "spec_sha256": "c828d38077bd4123196eac294638dc89907e58833d4e0640bc27b02835a7b6d3",
+        "baseline_sha256": "96bbce2386a3ab5e113225d126bbedbd674e1bcc28f33c657c4d621604aa3eb4",
+        "evidence_directory": "artifacts/adoption-demo-final/seeded-defect"
+      },
+      {
+        "case": "recovery",
+        "test_exit": 0,
+        "status": "passed",
+        "category": null,
+        "cleanup_confirmed": true,
+        "target_sha256": "d19b77050a22e15756be43687c1028e38fba65a445681b9b93504bd645e25227",
+        "report_sha256": "1be38c9d079b56984076f6ff668802c89f60062d9fe03bfca0b308ade830a303",
+        "spec_sha256": "c828d38077bd4123196eac294638dc89907e58833d4e0640bc27b02835a7b6d3",
+        "baseline_sha256": "96bbce2386a3ab5e113225d126bbedbd674e1bcc28f33c657c4d621604aa3eb4",
+        "evidence_directory": "artifacts/adoption-demo-final/recovery"
+      }
+    ],
+    "disclosure": "Operator-run synthetic target defect; not independent adoption"
+  },
+  "file_sha256": {
+    "scripts/ci/report_summary.py": "09eafb4685e2350fba2a0a6f0724ef006f42d367c1ba7571878cd5affcf3b581",
+    "scripts/ci/test_report_summary.py": "c7b706a0381f660e3d281609b50af981b609000ea8b2793ac87871d8dcc451a2",
+    "scripts/ci/capture_demo.py": "f64ad4b953dd4c24ca71a163afc4de4e0345d1f05f27a99c6c620fbb7cc74488",
+    ".github/workflows/terminal-pr-example.yml": "63dd501fd0e2ca2f0ef744748bdf03a69f640ec1db0636c116e742617bf56b8f",
+    "site/static/images/adoption/seeded-defect-report.png": "0e44c23370f578dea5770e870e50d7c8d4cfcd5a7eab4c704c0bb0d8f1e5ad2d"
+  },
+  "checks": {
+    "summary_unit_tests": {
+      "passed": 8
+    },
+    "go_test": "passed on Windows",
+    "go_vet": "passed on Windows",
+    "actionlint": "passed",
+    "site_static": {
+      "html_pages": 40,
+      "passed": true
+    },
+    "browser_mixed_attempt": {
+      "startTime": "2026-10-05T14:29:27.952Z",
+      "duration": 61988.381,
+      "expected": 18,
+      "skipped": 0,
+      "unexpected": 9,
+      "flaky": 0
+    },
+    "firefox_outside_sandbox": {
+      "startTime": "2026-10-05T14:31:26.726Z",
+      "duration": 60985.958999999995,
+      "expected": 9,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "hosted_new_workflow": "not executed; requires authorized source push",
+  "independent_adoption": "not established",
+  "external_actions_performed": [],
+  "private_packet_ignored": true,
+  "retained_failed_attempts": [
+    "artifacts/adoption-demo",
+    "artifacts/adoption-demo-verified",
+    "artifacts/adoption-browser-first-installed.json",
+    "artifacts/adoption-browser-missing-prerequisites.json"
+  ],
+  "task_preview_cleanup": "Exact task-owned Node preview server termination confirmed; initial test command completed afterward."
+}

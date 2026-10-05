@@ -1,0 +1,84 @@
+name: Terminal PR example
+
+on:
+  pull_request:
+    paths: ['cmd/demo/**', 'examples/**', 'scripts/ci/**', '.github/workflows/terminal-pr-example.yml', 'go.mod', 'go.sum']
+  push:
+    branches: [main]
+    paths: ['cmd/demo/**', 'examples/**', 'scripts/ci/**', '.github/workflows/terminal-pr-example.yml', 'go.mod', 'go.sum']
+  workflow_dispatch:
+    inputs:
+      inject_regression:
+        description: 'Seed a demo defect to verify a red check and retained evidence'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  terminal:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      PLAYTESTR_VERSION: v0.4.0-rc.3
+    steps:
+      - name: Check out tests and target
+        id: checkout
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install Python for the summary helper
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - name: Install published Playtestr
+        id: install
+        uses: Wyrcan-io/playtestr/setup-playtestr@ae97c62022966cde9699b26169b4dc6ef0a12439
+        with:
+          version: ${{ env.PLAYTESTR_VERSION }}
+      - name: Verify exact runner version
+        run: test "$(playtestr --version)" = "playtestr $PLAYTESTR_VERSION"
+      - name: Install Go for this example target
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
+        with:
+          go-version-file: go.mod
+      - name: Build the actual demo target
+        id: prepare
+        env:
+          INJECT_REGRESSION: ${{ inputs.inject_regression || false }}
+        run: |
+          if [ "$INJECT_REGRESSION" = "true" ]; then
+            go build -ldflags '-X main.diagnosticsSuffix=REGRESSION' -o bin/demo ./cmd/demo
+          else
+            go build -o bin/demo ./cmd/demo
+          fi
+      - name: Test committed terminal interactions
+        id: tests
+        run: playtestr test --artifacts-dir artifacts/pr-example/screens --report artifacts/pr-example/results.json examples/menu.json examples/menu-exit.json
+      - name: Render offline evidence
+        id: html
+        if: always() && steps.checkout.outcome == 'success'
+        run: playtestr report --input artifacts/pr-example/results.json --evidence-root artifacts/pr-example --output artifacts/pr-example/report.html
+      - name: Write job summary
+        if: always() && steps.checkout.outcome == 'success'
+        env:
+          SETUP_OUTCOME: ${{ steps.install.outcome || 'unknown' }}
+          PREPARE_OUTCOME: ${{ steps.prepare.outcome || 'unknown' }}
+          TEST_OUTCOME: ${{ steps.tests.outcome || 'unknown' }}
+          HTML_OUTCOME: ${{ steps.html.outcome || 'unknown' }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          python scripts/ci/report_summary.py --input artifacts/pr-example/results.json \
+            --evidence-root artifacts/pr-example --output "$GITHUB_STEP_SUMMARY" \
+            --setup-outcome "$SETUP_OUTCOME" --prepare-outcome "$PREPARE_OUTCOME" \
+            --test-outcome "$TEST_OUTCOME" --html-outcome "$HTML_OUTCOME" \
+            --artifact-name playtestr-evidence --run-url "$RUN_URL"
+      - name: Upload evidence even after failure
+        if: always() && steps.checkout.outcome == 'success'
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: playtestr-evidence
+          path: artifacts/pr-example/
+          if-no-files-found: warn
+          retention-days: 14

@@ -14,55 +14,125 @@ downloads, upload artifacts, or write to the repository.
 
 ## Pinned CI workflow
 
-Pin the action implementation and runner version independently:
+The complete example below builds this repository's actual mission-control target and runs its committed menu tests. Copy it to `.github/workflows/terminal-pr-example.yml` in a checkout of Playtestr, including `scripts/ci/report_summary.py`, `cmd/demo`, the two menu specs and their reviewed baseline. It requires the existing Go module for the demo and Python 3.12 for the summary helper. The installed runner itself does not require Go or Python.
+
+This workflow and summary helper are new source additions. Local execution and workflow lint are documented in the [adoption preparation record](https://github.com/Wyrcan-io/playtestr/blob/main/docs/validation/adoption-preparation-2026-10-05.md); hosted execution of this new workflow is pending an authorized push. The setup Action's published rc.3 installation evidence above remains a separate, already completed check.
 
 ```yaml
-name: terminal regression
+name: Terminal PR example
 
-on: [push, pull_request]
+on:
+  pull_request:
+    paths: ['cmd/demo/**', 'examples/**', 'scripts/ci/**', '.github/workflows/terminal-pr-example.yml', 'go.mod', 'go.sum']
+  push:
+    branches: [main]
+    paths: ['cmd/demo/**', 'examples/**', 'scripts/ci/**', '.github/workflows/terminal-pr-example.yml', 'go.mod', 'go.sum']
+  workflow_dispatch:
+    inputs:
+      inject_regression:
+        description: 'Seed a demo defect to verify a red check and retained evidence'
+        type: boolean
+        default: false
 
 permissions:
   contents: read
 
 jobs:
-  playtestr:
-    runs-on: ubuntu-latest
+  terminal:
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     env:
       PLAYTESTR_VERSION: v0.4.0-rc.3
     steps:
-      - uses: actions/checkout@v6
-      - name: Install Playtestr
-        id: playtestr
+      - name: Check out tests and target
+        id: checkout
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Install Python for the summary helper
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - name: Install published Playtestr
+        id: install
         uses: Wyrcan-io/playtestr/setup-playtestr@ae97c62022966cde9699b26169b4dc6ef0a12439
         with:
           version: ${{ env.PLAYTESTR_VERSION }}
-      - name: Verify selected version
-        shell: bash
+      - name: Verify exact runner version
         run: test "$(playtestr --version)" = "playtestr $PLAYTESTR_VERSION"
-      - name: Run terminal tests
-        run: playtestr test --artifacts-dir artifacts/playtestr --report artifacts/results.json tests/terminal
-      - name: Upload failure evidence
-        if: always()
-        uses: actions/upload-artifact@v6
+      - name: Install Go for this example target
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
         with:
-          name: playtestr-evidence-${{ runner.os }}
-          path: |
-            artifacts/results.json
-            artifacts/playtestr/**
+          go-version-file: go.mod
+      - name: Build the actual demo target
+        id: prepare
+        env:
+          INJECT_REGRESSION: ${{ inputs.inject_regression || false }}
+        run: |
+          if [ "$INJECT_REGRESSION" = "true" ]; then
+            go build -ldflags '-X main.diagnosticsSuffix=REGRESSION' -o bin/demo ./cmd/demo
+          else
+            go build -o bin/demo ./cmd/demo
+          fi
+      - name: Test committed terminal interactions
+        id: tests
+        run: playtestr test --artifacts-dir artifacts/pr-example/screens --report artifacts/pr-example/results.json examples/menu.json examples/menu-exit.json
+      - name: Render offline evidence
+        id: html
+        if: always() && steps.checkout.outcome == 'success'
+        run: playtestr report --input artifacts/pr-example/results.json --evidence-root artifacts/pr-example --output artifacts/pr-example/report.html
+      - name: Write job summary
+        if: always() && steps.checkout.outcome == 'success'
+        env:
+          SETUP_OUTCOME: ${{ steps.install.outcome || 'unknown' }}
+          PREPARE_OUTCOME: ${{ steps.prepare.outcome || 'unknown' }}
+          TEST_OUTCOME: ${{ steps.tests.outcome || 'unknown' }}
+          HTML_OUTCOME: ${{ steps.html.outcome || 'unknown' }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          python scripts/ci/report_summary.py --input artifacts/pr-example/results.json \
+            --evidence-root artifacts/pr-example --output "$GITHUB_STEP_SUMMARY" \
+            --setup-outcome "$SETUP_OUTCOME" --prepare-outcome "$PREPARE_OUTCOME" \
+            --test-outcome "$TEST_OUTCOME" --html-outcome "$HTML_OUTCOME" \
+            --artifact-name playtestr-evidence --run-url "$RUN_URL"
+      - name: Upload evidence even after failure
+        if: always() && steps.checkout.outcome == 'success'
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: playtestr-evidence
+          path: artifacts/pr-example/
           if-no-files-found: warn
           retention-days: 14
 ```
 
-Keep setup and execution in separate steps. A failing Playtestr command must
-remain a failed workflow step; do not add blanket `continue-on-error`. The
-`if: always()` belongs only on evidence upload so diagnostics survive a real
-regression.
+For another project, replace the Go setup/build with your target's real prerequisites and build command, then select that project's committed specs. Copy the standalone `scripts/ci/report_summary.py` helper; it has no package dependencies. Keep the report and evidence paths identical across execution, rendering, summary and upload. Pins for third-party Actions were resolved from their public v6/v7 tags on 5 October 2026; review them when updating.
 
-Change `PLAYTESTR_VERSION` to select another exact published release. The
-action does not need rebuilding when an existing supported host uses the same
-release asset contract. Review release notes before changing the pin, then
-confirm `playtestr --version`, one passing test, and one controlled regression.
+The default run must pass. For a controlled failure, manually dispatch with `inject_regression: true`. This appends `REGRESSION` to the demo's diagnostics output while leaving the spec and snapshot unchanged. The snapshot comparison must fail with exit 1; the test job stays red while later evidence steps run. Dispatch again with the input false to restore a pass. This is a seeded repository-owned demo defect, not an upstream bug.
+
+## Read the summary and failure evidence
+
+Open the workflow run from the PR's Checks tab. Its job summary lists captured counts, each problem spec, failure category, cleanup state and local screen/diff availability. The run link leads to the Artifacts section. Download `playtestr-evidence`, extract it, and open `report.html`; it works offline. If HTML rendering failed, inspect `results.json` and the files under `screens/` instead. The summary does not promise that an upload completed; check the upload step and artifact list.
+
+Installation or target-build failure means tests can be skipped. Missing, malformed, empty, unsupported or inconsistent reports yield an explicit unavailable-report summary and helper exit 2. Cancelled and not-run specs remain separate counts. A hard workflow cancellation may prevent final steps from running at all; missing evidence must not be read as a pass. Renderer and uploader failures are additional workflow failures. No blanket `continue-on-error` or snapshot update is used.
+
+The helper consumes existing report v1/v2 metadata, not raw screens or failure prose. It reads at most 8 MiB, accepts at most 1,000 results and 10,000 steps, checks count/outcome consistency and escapes displayed metadata. At most 100 problem rows are displayed; an omission count points to the full report. Generated text plus existing destination content is bounded to 256 KiB, below GitHub's per-step summary limit. Unknown unused report fields are ignored; this helper is not a replacement for full schema validation. A valid failed report renders with helper exit 0; the earlier test command owns the failed check. An invalid report or unwritable summary returns 2. No report field becomes a shell command, hyperlink, annotation or raw log output.
+
+Evidence presence checks resolve references from the invocation working directory and admit only files inside the selected evidence root, including after symlink resolution. They do not read screens, or certify evidence content or successful upload. Keep sensitive target output out of artifacts. Retention is 14 days in this example. Review artifact visibility before running a target that can print private data.
+
+Fork PR execution uses `pull_request`, `contents: read`, and no target secrets or write credentials. Test only targets you have reviewed and trust; Playtestr is not an execution sandbox. Do not move PR-head execution into privileged `pull_request_target` merely to post comments. This example produces an Actions summary, not a PR comment or hosted bot. [GitHub summary behavior](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-commands#adding-a-job-summary), [fork/privileged-event behavior](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request_target), and [artifact retrieval](https://docs.github.com/en/actions/tutorials/store-and-share-data) describe the platform boundaries.
+
+## Local verification and removal
+
+From a repository checkout with Go, Python and an installed exact rc.3 runner:
+
+```sh
+python -m unittest discover -s scripts/ci -p 'test_*.py' -v
+python scripts/ci/capture_demo.py --runner /absolute/path/to/playtestr --output artifacts/adoption-demo
+```
+
+The capture command requires a fresh output directory and preserves old attempts. It builds the real demo, runs pass/seeded snapshot failure/recovery against an unchanged spec/baseline, renders HTML and generates a summary for each. Windows may pass a quoted path to `playtestr.exe`. Logs, hashes and `capture.json` remain in ignored artifacts. These local checks do not establish Actions or other-host execution.
+
+To remove this integration, delete its workflow and copied summary helper, then remove test specs/baselines that you no longer want. No GitHub App, account or subscription needs disconnecting. The setup Action installed a binary into the disposable runner's tool directory; a self-hosted installation can be removed using its `install-dir` output when no job is using it. Existing retained artifacts expire under the configured policy or can be deleted by an authorized repository owner.
 
 ## Supported hosts and outputs
 

@@ -21,6 +21,8 @@ jobs:
           python-version: '3.12'
       - name: Verify evidence-tool failure controls
         run: python -m unittest discover -s scripts/readiness -p test_verify_evidence.py -v
+      - name: Verify CI summary failure controls
+        run: python -m unittest discover -s scripts/ci -p 'test_*.py' -v
       - name: Verify published prerelease installation and greeting documentation
         run: python scripts/website/install_doc_smoke.py
       - uses: actions/setup-go@v7
