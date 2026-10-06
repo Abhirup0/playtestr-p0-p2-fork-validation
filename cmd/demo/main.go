@@ -11,7 +11,7 @@ import (
 
 // diagnosticsSuffix can be replaced at build time to demonstrate that the
 // unchanged Playtestr spec catches a controlled target regression.
-var diagnosticsSuffix = "REGRESSION"
+var diagnosticsSuffix string
 
 func main() {
 	old, err := term.MakeRaw(int(os.Stdin.Fd()))
