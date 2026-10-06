@@ -2,7 +2,7 @@
 
 > Historical assessment. Use the [26 September research refresh](competitive-refresh-2026-09-26.md) and [current roadmap](../../roadmap.md) for priorities and sequence; preserve the earlier hypotheses below as history.
 
-> Historical assessment. Current-state descriptions and recommendations are superseded by the [19 September survey](competitive-user-survey-2026-09-19.md) and [delivery roadmap](../plans/README.md). Preserve the dated observations below as history, not current feature status.
+> Historical assessment. Current-state descriptions and recommendations are superseded by the [19 September survey](competitive-user-survey-2026-09-19.md) and [delivery roadmap](../archive/prelaunch-2026-10-06/plans/README.md). Preserve the dated observations below as history, not current feature status.
 
 ## Verified conclusion
 
@@ -105,8 +105,8 @@ turn that lesson into a general database/HTTP assertion engine.
 
 ## Recommended delivery order
 
-See the [product focus](../plans/product-focus.md) and
-[roadmap](../plans/README.md) for the current contract.
+See the [product focus](../archive/prelaunch-2026-10-06/plans/product-focus.md) and
+[roadmap](../archive/prelaunch-2026-10-06/plans/README.md) for the current contract.
 
 1. **Sprint 5: useful suites.** Directory selection, list, serial execution,
    a concise summary, and safe evidence destinations. JUnit, custom globs, and

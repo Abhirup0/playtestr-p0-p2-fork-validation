@@ -67,7 +67,7 @@ Suites shipped in the natively verified v0.2.0-rc.1 prerelease; offline HTML rep
 
 ## Fair comparison protocol
 
-The [detailed execution protocol](../plans/competitive-benchmark.md) defines case admission, one-host initial scope, measurement sheet, setup budget and fair result publication. The summary below records the research recommendation, not completed experiments.
+The [detailed execution protocol](../archive/prelaunch-2026-10-06/plans/competitive-benchmark.md) defines case admission, one-host initial scope, measurement sheet, setup budget and fair result publication. The summary below records the research recommendation, not completed experiments.
 
 Sprint 13 executes comparisons with Atago, a pinned Microsoft beta matching its docs, and Termlens on three shared real-process tasks: selector/confirmation regression, stateful configuration, and resize/redraw failure. Include an existing framework-native test as a complementary baseline with its narrower boundary labeled.
 
@@ -103,4 +103,4 @@ The Atago documentation-site fetch failed during this follow-up; no new claims a
 
 The category has overlapping promises. Concentrate on a coherent regression workflow and make its proof easy to try. A broad private test matrix will not create demand by itself: prepare useful recipes and sanitized evidence, then learn whether maintainers return voluntarily.
 
-Keep the local open-source runner useful without accounts. After adoption, test paid onboarding or compatibility support before hosted history. Pricing, market size and revenue remain unknown. The [adoption plan](../plans/release/07-maintainer-adoption.md) defines discovery and paid-pilot gates. Delayed adoption has a finite finish line so engineering does not substitute for learning.
+Keep the local open-source runner useful without accounts. After adoption, test paid onboarding or compatibility support before hosted history. Pricing, market size and revenue remain unknown. The [adoption plan](../archive/prelaunch-2026-10-06/plans/release/07-maintainer-adoption.md) defines discovery and paid-pilot gates. Delayed adoption has a finite finish line so engineering does not substitute for learning.

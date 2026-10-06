@@ -1,46 +1,38 @@
-# Planning guide
+# Playtestr prelaunch planning set
 
-> Current continuation, 2 October 2026: rc.3 is qualified, published and native
-> public-download verified; the older dated summary below remains context.
-> Execute [roadmap continuation](roadmap-continuation-execution-prompt.md),
-> [conditional implementation triage](conditional-work-execution-prompt.md) and
-> [release/channel decision](release-channel-decision-prompt.md) in that order.
-> [Continuation results](../validation/roadmap-continuation-2026-10-02.md)
-> distinguish completed local work from evidence-gated deferrals. A1/A2,
-> outreach and marketing remain held. Existing user-authored prompt links are
-> preserved.
-
-The [3 October scheduled review](weekly-review-2026-10-03.md) records committed
-follow-through, the verifier's CI integration and the remaining independent,
-conditional and release gates. Outreach and marketing are not the finish line.
-
-Updated 28 September 2026. The **[root roadmap](../../roadmap.md)** is authoritative for status and order. E0-E5 are accepted within their recorded scope; v0.4.0-rc.2 is published and download-verified. The later [wide-character prompt](wide-character-next-steps-prompt.md) covers a scoped development repair and native checks. Outreach and marketing remain held. Each release needs its own frozen-byte qualification; development results do not extend existing release assets.
-
-## Current planning set
+Created 6 October 2026. **Plans only.** The [root roadmap](../../roadmap.md) defines authoritative order and acceptance. Implementation milestones are planned; document completion does not mean product completion.
 
 | Document | Owns |
 | --- | --- |
-| [Root roadmap](../../roadmap.md) | Completed work, current checkpoint, dependency order and outreach status |
-| [Wide-character next steps](wide-character-next-steps-prompt.md) | Reproduce, repair, validate selected two-column CJK rendering without outreach |
-| [Weekly review, 26 September](weekly-review-2026-09-26.md) | Status audit, decisions, next-week allocation and recurring review procedure |
-| [Engineering readiness](engineering-readiness.md) | E0-E5 milestones, scorecard, acceptance gates, estimates and stop rules |
-| [Real-world scenarios](real-world-scenarios.md) | Useful tasks, state oracles, target defects, variations, upgrades and holdouts |
-| [Competitive refresh](../research/competitive-refresh-2026-09-26.md) | Updated primary-source research, measured losses and testable hypotheses |
-| [Product focus](product-focus.md) | Product job, scope and feature budget |
-| [Execution contract](execution-contract.md) | Evidence, severity, required checks and invalidation |
-| [Decision register](decision-register.md) | Durable decisions, backlog triggers and unresolved questions |
-| [Comparison protocol](competitive-benchmark.md) | Existing fixture measurements and rules for new real-task comparisons |
+| [00 — baseline and decisions](00-baseline-and-decisions.md) | Existing assets, changed direction, limits and unknowns |
+| [01 — product and positioning](01-product-and-positioning.md) | Audience, promise, free/paid scope and exclusions |
+| [02 — customer journeys](02-customer-journeys.md) | Local, PR, installation, review, subscription and removal flows |
+| [03 — deterministic authoring](03-deterministic-authoring.md) | Recorder, checkpoints, readiness, fixtures and formats |
+| [04 — GitHub execution and review](04-github-execution-and-review.md) | Actions, provenance, review policy, forks and checks |
+| [05 — managed infrastructure](05-managed-infrastructure.md) | Serverless topology, quotas, recovery and capacity |
+| [06 — commercial model](06-commercial-model.md) | Pricing, first-sale route, Marketplace, billing and costs |
+| [07 — security and data](07-security-and-data.md) | Trust, permissions, tenants, retention and abuse |
+| [08 — real-project validation](08-real-project-validation.md) | 100-project admission, controls, holdouts and budget |
+| [09 — delivery milestones](09-delivery-milestones.md) | Slices, dependencies, exits, estimates and stop rules |
+| [10 — quality and release](10-quality-and-release.md) | Native checks, reliability, final bytes and rollback |
+| [11 — launch and operations](11-launch-and-operations.md) | Launch packet, marketing hold and self-service operation |
+| [12 — risks and decisions](12-risks-and-decisions.md) | Owners, deadlines, defaults and expansion triggers |
+| [13 — source register](13-source-register.md) | Dated provider facts and recheck obligations |
+| [14 — execution templates](14-execution-templates.md) | Future slice, project, batch, billing and release records |
+| [15 — candidate discovery](15-candidate-discovery.md) | Screening lanes and leads; no compatibility claims |
 
-## Reusable protocols and completed plans
+## Authority and maintenance
 
-The [validation program](validation-program.md), [corpus intent catalog](corpus-catalog.md) and [operational checklists](operational-checklists.md) preserve the previous batch's design and checks. Current implementation lives in the [corpus](../../corpus/README.md); actual counts/hosts belong in dated evidence and the [qualified table](../qualified-compatibility-v0.4.0-rc.1.md). Do not restart the five-pilot discovery or claim every original intent exactly matches an admitted workflow.
+Scope belongs in 01; user behavior in 02; recording in 03; PR trust in 04; quotas in 05; pricing/billing in 06; retention in 07; campaign counting in 08; sequence in the roadmap/09; quality in 10; launch/operations in 11; open decisions in 12. Resolve contradictions before implementation. Numerical thresholds are proposed gates unless explicitly attributed to evidence or a provider source.
 
-Sprint plans [5](sprints/05-suites-and-ci-results.md), [7](sprints/07-failure-diagnosis.md), [8](sprints/08-ci-adoption-and-installation.md), [9](sprints/09-repeatable-workspaces.md), [11](sprints/11-real-project-corpus.md), [13](sprints/13-native-ci-and-release-hardening.md), [14](sprints/14-demos-and-release-kit.md) and [R6](release/06-qualified-release.md) describe delivered scope. [Sprint 12](sprints/12-authoring-and-focused-assertions.md) delivered A; B was deferred. [Sprint 10](sprints/10-terminal-compatibility.md) and the software branch of [Sprint 6](sprints/06-failure-reproduction.md) remain evidence-gated deferrals. Reuse their criteria; do not silently reopen them.
+The former `docs/plans` and `docs/adoption` trees have been removed from their active locations and retained in [the historical archive](../archive/prelaunch-2026-10-06/README.md), with the old roadmap and sprint record. The user's existing planning-index edits and two untracked prompts are preserved there. Existing `AGENTS.md` edits are untouched.
 
-[A1](release/07-maintainer-adoption.md) retains the independent-use protocol but waits for E5 review and specific outreach authorization. [A2](release/08-commercial-discovery.md) is preparation only until repeat independent use. [R3 participant protocol](release/03-real-project-trials.md) supports A1; operator tests are not participants.
+Two old filenames contain archive pointers only: `corpus-catalog.md` and `wide-character-next-steps-prompt.md`. Frozen machine-readable evidence references those paths, so the pointers preserve provenance without retaining executable old plans or modifying evidence JSON.
 
-Historical context: [sprint delivery record](../sprints.md), [19 September audit](planning-audit-2026-09-19.md), [earlier survey](../research/competitive-user-survey-2026-09-19.md), and release plans [R1](release/01-release-candidate.md), [R2](release/02-installation-walkthrough.md), [R3 technical](release/03a-windows-linux-project-trials.md), [R3b](release/03b-trial-findings-and-candidate-readiness.md), [R3c](release/03c-cross-stack-validation.md), [R4](release/04-stable-release.md), [R5](release/05-public-presentation.md). Their original sequence is superseded by the root roadmap.
+Release notes, validation results, research, trials, source and public contracts remain evidence of original work. Relocated links do not change recorded outcomes. [Sprint history](../sprints.md) is an archive entry point, not another roadmap.
 
-## Maintenance rule
+The user authorized replacement plans only. No implementation, registration, spending, deployment, remote publication or outreach follows from this change. Older deferrals of recording/billing/App work no longer veto the new planned scope. Technical and evidence safeguards still apply.
 
-Status belongs in the roadmap; execution results in dated records; public behavior in versioned contracts; research in dated research notes. Preserve failed attempts and exclusions. Update links and next-step wording together. Plans never authorize pushes, releases, outreach or spend. Documentation-only work checks consistency, links and diffs and does not claim fresh runtime verification.
+## Planning review
+
+The planning pass checked local Markdown link targets, whitespace/diffs, numerical consistency, stage dependencies and the boundary between proposed and shipped behavior. The 47 archived documents comparable with the committed baseline retain their prose apart from archive notices and relocated link destinations; the previously edited index and two untracked prompts were preserved separately in the same archive. Runtime tests were not rerun for this documentation-only change. Prices, provider eligibility, final compatibility and independent adoption remain explicitly unproven where noted.

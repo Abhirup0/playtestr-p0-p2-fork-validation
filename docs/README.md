@@ -41,9 +41,10 @@ Development plans describe possible future work and are not released functionali
 
 ## Product planning
 
-- [Current delivery roadmap and completed releases](../roadmap.md).
-- [Weekly status review](plans/weekly-review-2026-09-26.md) and [E0-E5 readiness plan](plans/engineering-readiness.md).
-- [Accepted native E1/E2 evidence and tradeoffs](validation/e1-e2-native-readiness-2026-09-27.md) and [authorized execution prompt](plans/e1-e2-ci-execution-prompt.md).
-- [Competitive research refresh](research/competitive-refresh-2026-09-26.md) and [real-world scenarios](plans/real-world-scenarios.md).
-- [Real-application validation program](plans/validation-program.md) and [original workflow design catalog](plans/corpus-catalog.md).
-- [Maintainer adoption after engineering](plans/release/07-maintainer-adoption.md).
+- [Current product and launch roadmap](../roadmap.md): PR regression workflow, managed operation and prelaunch gates.
+- [Detailed planning set](plans/README.md): product, customer journeys, recording, GitHub review, commerce and security.
+- [100-project validation protocol](plans/08-real-project-validation.md) and [implementation milestones](plans/09-delivery-milestones.md).
+- [Existing release and native evidence](platform-support.md), separate from new planned work.
+- [Historical planning archive](archive/prelaunch-2026-10-06/README.md) and [delivery history](sprints.md).
+
+The new plans do not implement recording, a paid App or billing. Current usage above continues to describe released capabilities. Outreach and marketing remain held pending the new roadmap's launch gate and specific authorization.

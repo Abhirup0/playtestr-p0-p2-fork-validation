@@ -8,7 +8,7 @@ independent trials: zero. No new invitation, reply, edit or follow-up was sent.
 The dated September zero-response statements below remain historical.
 
 Status: further A1 outreach held by the 26 September weekly review pending
-[E0-E5](../plans/engineering-readiness.md) and explicit user authorization.
+[E0-E5](../archive/prelaunch-2026-10-06/plans/engineering-readiness.md) and explicit user authorization.
 Recruitment had opened earlier after R6-V; no independent project has been
 counted. Invitations and consent are not adoption.
 

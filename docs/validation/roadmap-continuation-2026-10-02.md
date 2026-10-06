@@ -25,9 +25,9 @@ bytes including the member index. SHA-256:
 This establishes integrity against the retained seal, not a new runtime campaign.
 See [commands and limits](../evidence-retention.md).
 
-Added sequential [continuation](../plans/roadmap-continuation-execution-prompt.md),
-[conditional-work](../plans/conditional-work-execution-prompt.md) and
-[release-decision](../plans/release-channel-decision-prompt.md) execution
+Added sequential [continuation](../archive/prelaunch-2026-10-06/plans/roadmap-continuation-execution-prompt.md),
+[conditional-work](../archive/prelaunch-2026-10-06/plans/conditional-work-execution-prompt.md) and
+[release-decision](../archive/prelaunch-2026-10-06/plans/release-channel-decision-prompt.md) execution
 prompts. Corrected stale active roadmap, planning-register, readiness and
 Sprint 10 summaries to distinguish released rc.3 from historical development
 and rc.2. The existing user-authored planning-index content remains present.

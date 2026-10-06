@@ -65,6 +65,8 @@ The terminal contract includes viewport dimensions, rendered screen text, cursor
 
 ## Testing expectations
 
+- User preference: use standard GitHub-hosted Actions runners for native Linux and macOS validation when local devices or SSH hosts are unavailable. Do not treat the absence of those devices as a blocker or ask the user to acquire them. Workflow updates, execution, monitoring, and artifact retrieval for requested validation are authorized; respect task scope and existing push/release rules. Paid runners or budget changes require separate authorization. Verify actual successful runs before claiming platform coverage.
+
 - Use table-driven unit tests for parsing, validation, normalization, and other pure logic.
 - Use real PTYs and deterministic helper processes for lifecycle behavior. Mocks do not prove interactive terminal behavior.
 - Cover natural exit, expected nonzero exit, unexpected exit, assertion timeout, forced shutdown, output flood, Unicode, redraws, resize, and child-process cleanup as those features are implemented.

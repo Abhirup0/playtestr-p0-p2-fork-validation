@@ -1,6 +1,6 @@
 # Website redesign validation - 4 October 2026
 
-Publication and production acceptance are complete. The implementation follows the [reviewed website prompt](../plans/website-redesign-execution-prompt.md). The machine-readable record is [website-redesign-2026-10-04.json](website-redesign-2026-10-04.json).
+Publication and production acceptance are complete. The implementation follows the [reviewed website prompt](../archive/prelaunch-2026-10-06/plans/website-redesign-execution-prompt.md). The machine-readable record is [website-redesign-2026-10-04.json](website-redesign-2026-10-04.json).
 
 The original design uses white/cool gray surfaces, navy type, blue links, fine dividers, system fonts and actual captured terminal evidence. Homepage, downloads, documentation, releases, examples, support and 404 share the same restrained components. Stable v0.1.0 and verified prerelease v0.4.0-rc.3 have separate download identities. Current installation, migration and CI paths are explicit; trial recruitment remains held.
 

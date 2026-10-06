@@ -2,7 +2,7 @@
 
 The user authorized publishing downloads and completing distribution checks,
 and explicitly prohibited outreach and marketing. The execution prompt is
-[publish verified downloads](../plans/publish-verified-downloads-prompt.md).
+[publish verified downloads](../archive/prelaunch-2026-10-06/plans/publish-verified-downloads-prompt.md).
 This overrides the earlier publication hold; A1/A2 remain unstarted.
 
 Status: **published and verified on all three native hosts**. The

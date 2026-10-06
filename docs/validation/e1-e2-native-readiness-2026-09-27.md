@@ -4,7 +4,7 @@
 
 ## Authorization and native evidence
 
-The user authorized standard GitHub-hosted Linux/macOS jobs, testing-branch pushes, workflow execution, artifact retrieval, continued E1/E2 repairs and the final completed push. The [execution prompt](../plans/e1-e2-ci-execution-prompt.md) records the boundary. No paid infrastructure, release publication, outreach, PR/issue/discussion activity or E3–E5 execution occurred. GitUI and television remain frozen, unexecuted holdouts.
+The user authorized standard GitHub-hosted Linux/macOS jobs, testing-branch pushes, workflow execution, artifact retrieval, continued E1/E2 repairs and the final completed push. The [execution prompt](../archive/prelaunch-2026-10-06/plans/e1-e2-ci-execution-prompt.md) records the boundary. No paid infrastructure, release publication, outreach, PR/issue/discussion activity or E3–E5 execution occurred. GitUI and television remain frozen, unexecuted holdouts.
 
 The unchanged v0.4.0-rc.1 binaries were acquired from published assets and checked against frozen archive/executable hashes. Linux amd64 runs on Ubuntu 24.04 and macOS arm64 on macOS 15, with Go 1.26.0, Node 24.7.0 and Python 3.12. Windows amd64 uses the frozen published binary and separately labeled Go 1.27.0 candidate checks. Source, target, helper, fixture and derived-definition hashes are retained in the artifact manifests and [compact observations](e1-e2-ci-observations-2026-09-27.json). None of these task samples substitute for the separate 3,000-attempt final-byte qualification.
 

@@ -1,7 +1,7 @@
 # Selected wide-character development repair
 
 28 September 2026. The user requested the
-[three-step execution prompt](../plans/wide-character-next-steps-prompt.md)
+[three-step execution prompt](../archive/prelaunch-2026-10-06/plans/wide-character-next-steps-prompt.md)
 and its implementation. Outreach and marketing remain prohibited.
 
 ## Outcome and scope

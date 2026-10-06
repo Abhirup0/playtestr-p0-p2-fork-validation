@@ -1,6 +1,8 @@
 # Playtestr v0.4.0-rc.1 maintainer trials
 
-> 26 September weekly-review update: further invitations and follow-ups are held pending [E0-E5 readiness](../plans/engineering-readiness.md) and specific user authorization. The trial guide below remains available as preparation; the prior opening and invitation history is preserved in the [cohort](cohort.md).
+> Historical trial protocol. The [6 October roadmap](../../roadmap.md) replaces the old recruitment sequence. No new trial invitation or contact is authorized; the new prelaunch campaign tests external projects without claiming independent human adoption.
+
+> 26 September weekly-review update: further invitations and follow-ups are held pending [E0-E5 readiness](../archive/prelaunch-2026-10-06/plans/engineering-readiness.md) and specific user authorization. The trial guide below remains available as preparation; the prior opening and invitation history is preserved in the [cohort](cohort.md).
 
 Historical opening: A1 recruitment opened 26 September 2026 after the engineering batch
 and R6-V completed. No invitation, consent, review, repeat use, or

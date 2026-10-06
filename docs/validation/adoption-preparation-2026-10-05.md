@@ -1,6 +1,6 @@
 # Adoption and PR workflow preparation — 5 October 2026
 
-Status: implementation, material preparation, authorized source push and hosted validation complete. Website deployment and outreach remain pending. This record describes the current task, not completion of independent adoption or commercial validation. The user explicitly requested execution of the [adoption prompt](../plans/adoption-and-pr-workflow-execution-prompt.md), then authorized committing and pushing the prepared package.
+Status: implementation, material preparation, authorized source push and hosted validation complete. Website deployment and outreach remain pending. This record describes the current task, not completion of independent adoption or commercial validation. The user explicitly requested execution of the [adoption prompt](../archive/prelaunch-2026-10-06/plans/adoption-and-pr-workflow-execution-prompt.md), then authorized committing and pushing the prepared package.
 
 ## Baseline and scope
 
@@ -13,7 +13,7 @@ Existing assets reused: the mission-control demo and its build-time `diagnostics
 - `scripts/ci/report_summary.py` reads at most 8 MiB, accepts 1–1000 results and at most 10,000 aggregate steps, validates the metadata/counts it consumes, and renders at most 100 problem rows. It bounds appended output to 256 KiB, escapes metadata, excludes failure prose/screens, checks evidence presence only within the resolved evidence root, and never launches targets. It is not a full JSON Schema validator.
 - `.github/workflows/terminal-pr-example.yml` uses a named Linux host, read-only permissions, pinned action commits and the actual Go demo. Its test step has no failure suppression. Later HTML, summary and upload steps run after failures where the platform permits; hard cancellation may prevent them. Fork execution needs no secrets or write token. No PR comment publisher or GitHub App exists.
 - `scripts/ci/capture_demo.py` executes the actual published Windows rc.3 binary through normal target, deliberately seeded output defect and unchanged recovery. Final capture: exits 0/1/0, defect `snapshot_mismatch`, cleanup confirmed in each case, unchanged spec/baseline hashes, HTML and Markdown generated for each.
-- Trial kit, article, current tool-choice note, launch drafts, four-week plan and sustainability recommendation are linked from [the review index](../adoption/README.md). Five individualized candidate drafts and route-policy uncertainties are in an ignored private packet. No invitations or posts were sent.
+- Trial kit, article, current tool-choice note, launch drafts, four-week plan and sustainability recommendation are linked from [the review index](../archive/prelaunch-2026-10-06/adoption/README.md). Five individualized candidate drafts and route-policy uncertainties are in an ignored private packet. No invitations or posts were sent.
 - Read-only reconciliation of five old invitation threads found four with no comments and one explicit refusal. The private ledger now marks no further contact for that recipient. The public cohort records only the aggregate response/decline, with zero consents and qualifying participants. The September zero-response statements remain dated history.
 
 ## Provenance
