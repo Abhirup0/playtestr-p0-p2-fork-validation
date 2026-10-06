@@ -36,6 +36,8 @@ func usage(out io.Writer) {
 	fmt.Fprintln(out, "  playtestr test [--list] path [...]")
 	fmt.Fprintln(out, "  playtestr test [--artifacts-dir dir] [--report results.json] [--update [--snapshot name]] path [...]")
 	fmt.Fprintln(out, "  playtestr report --input results.json --evidence-root dir --output report.html")
+	fmt.Fprintln(out, "  playtestr record --output test.json [setup options] -- executable [arguments]")
+	fmt.Fprintln(out, "  playtestr workflow [options]")
 	fmt.Fprintln(out, "  playtestr --version")
 	fmt.Fprintln(out)
 	fmt.Fprintln(out, "Run 'playtestr test --help' or 'playtestr report --help' for command options.")
@@ -52,6 +54,12 @@ func run(ctx context.Context, args []string, stdout, stderr io.Writer) int {
 	}
 	if args[0] == "report" {
 		return runReport(args[1:], stdout, stderr)
+	}
+	if args[0] == "record" {
+		return runRecord(ctx, args[1:], os.Stdin, stdout, stderr)
+	}
+	if args[0] == "workflow" {
+		return runWorkflow(args[1:], stdout, stderr)
 	}
 	if args[0] != "test" {
 		fmt.Fprintf(stderr, "unknown command %q\n\n", args[0])

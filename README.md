@@ -37,6 +37,8 @@ The target application and its runtime remain your responsibility. Playtestr run
 
 To build the current development version with Go 1.25 or newer, use the [source development guide](docs/development.md).
 
+The current source candidate adds an offline [guided recorder](docs/recording.md) and a [PR workflow generator](docs/generated-workflows.md). These commands are not in the existing published archives. Record a trusted interaction, choose checkpoints, review/replay, then export ordinary editable tests. Basic local and GitHub CI use needs no account or paid service.
+
 ## Write a test
 
 Specs are JSON. `command` is an executable followed by arguments and is executed directly without a shell. Executable lookup uses the environment that launches Playtestr. The `cwd` behavior is described below.

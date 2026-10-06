@@ -21,6 +21,10 @@ Created 6 October 2026. **Plans only.** The [root roadmap](../../roadmap.md) def
 | [14 — execution templates](14-execution-templates.md) | Future slice, project, batch, billing and release records |
 | [15 — candidate discovery](15-candidate-discovery.md) | Screening lanes and leads; no compatibility claims |
 
+## Implementation prompt
+
+[Execute P0–P2 fully](p0-p2-full-implementation-prompt.md) is the reusable instruction for a later implementation session. It references the controlling plans, includes full acceptance gates and bounded internal GitHub validation actions, and directs continuous execution across all three phases. Creating or reading that file does not invoke it; the user must explicitly send/invoke it as the task.
+
 ## Authority and maintenance
 
 Scope belongs in 01; user behavior in 02; recording in 03; PR trust in 04; quotas in 05; pricing/billing in 06; retention in 07; campaign counting in 08; sequence in the roadmap/09; quality in 10; launch/operations in 11; open decisions in 12. Resolve contradictions before implementation. Numerical thresholds are proposed gates unless explicitly attributed to evidence or a provider source.

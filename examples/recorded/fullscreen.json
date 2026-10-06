@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "name": "Recorded fullscreen",
+  "command": [
+    "./bin/demo"
+  ],
+  "inherit_env": [
+    "PLAYTESTR_DELAY_MS"
+  ],
+  "width": 80,
+  "height": 24,
+  "timeout_ms": 15000,
+  "run_timeout_ms": 60000,
+  "max_output_bytes": 2000000,
+  "steps": [
+    {
+      "expect": "PLAYTESTR / mission control"
+    },
+    {
+      "key": "ArrowDown"
+    },
+    {
+      "key": "Enter"
+    },
+    {
+      "expect": "Diagnostics: all systems healthy."
+    },
+    {
+      "snapshot": "recorded-diagnostics.txt"
+    },
+    {
+      "text": "q"
+    },
+    {
+      "exit": 0
+    }
+  ]
+}

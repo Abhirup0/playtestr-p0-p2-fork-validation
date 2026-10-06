@@ -2,6 +2,8 @@
 
 Read-only planning research checked **6 October 2026**. Provider facts can change. Recheck at P0 and before production billing/deployment. Links support provider facts, not Playtestr's measured feasibility. No accounts, purchases or deployments were created.
 
+P0 refresh **7 October 2026**: Workers/D1 limits/pricing, Marketplace requirements/payout/agreement, Paddle pricing/seller restrictions/verification/payout/portal/refunds were revisited. See [current scoped conclusions and primary links](../decisions/p0-managed-backend-and-commerce.md). Local supported-runtime measurements do not establish deployed free-tier fit or actual seller eligibility.
+
 | Source | Planning-relevant fact | Required follow-through |
 | --- | --- | --- |
 | [GitHub Marketplace listing requirements](https://docs.github.com/en/apps/github-marketplace/creating-apps-for-github-marketplace/requirements-for-listing-an-app) | Paid Apps require verified organizational publishing; the document lists a minimum of 100 GitHub App installations. Apps process purchase lifecycle events and support monthly/annual paid billing. | Verify actual eligibility and current listing approval; external project tests are not installations |

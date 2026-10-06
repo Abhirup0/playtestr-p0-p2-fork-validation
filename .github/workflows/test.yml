@@ -6,17 +6,19 @@ permissions:
 
 jobs:
   test:
-    timeout-minutes: 15
+    timeout-minutes: 25
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-24.04, macos-15, windows-2025]
     runs-on: ${{ matrix.os }}
     env:
       GOBIN: ${{ github.workspace }}/.tools/external
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-python@v6
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
         with:
           python-version: '3.12'
       - name: Verify evidence-tool failure controls
@@ -25,17 +27,30 @@ jobs:
         run: python -m unittest discover -s scripts/ci -p 'test_*.py' -v
       - name: Verify published prerelease installation and greeting documentation
         run: python scripts/website/install_doc_smoke.py
-      - uses: actions/setup-go@v7
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e
         with:
           go-version-file: go.mod
           cache-dependency-path: go.sum
       - run: go test -count=1 ./...
       - run: go vet ./...
+      - name: Native race checks
+        shell: bash
+        run: |
+          if [ "$RUNNER_OS" = Windows ]; then
+            export PATH="/c/msys64/mingw64/bin:/c/msys64/ucrt64/bin:$PATH"
+            export CC=gcc
+          fi
+          export CGO_ENABLED=1
+          go test -race -count=1 ./...
       - run: go build -o bin/demo${{ runner.os == 'Windows' && '.exe' || '' }} ./cmd/demo
       - run: go build -o bin/fixture${{ runner.os == 'Windows' && '.exe' || '' }} ./cmd/fixture
       - run: go build -trimpath -ldflags "-X github.com/Wyrcan-io/playtestr/internal/buildinfo.Version=ci" -o bin/playtestr${{ runner.os == 'Windows' && '.exe' || '' }} ./cmd/playtestr
       - name: Install pinned external TUI
         run: go install github.com/charmbracelet/gum@v0.17.0
+      - name: Record, fresh replay, mutate target and recover
+        env:
+          PLAYTESTR_GUM: ${{ github.workspace }}/.tools/external/gum${{ runner.os == 'Windows' && '.exe' || '' }}
+        run: python scripts/acceptance/recorded_journey.py
       - name: Run passing acceptance specs
         run: |
           ./bin/playtestr${{ runner.os == 'Windows' && '.exe' || '' }} test --list examples/suite
@@ -56,7 +71,7 @@ jobs:
           grep --fixed-strings 'Playtestr offline report' artifacts/expected-failure.html
           grep --fixed-strings 'snapshot_mismatch' artifacts/expected-failure.html
           grep --fixed-strings 'Preview deployed successfully.' artifacts/expected-failure.html
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
         if: always()
         with:
           name: terminal-evidence-${{ matrix.os }}
@@ -64,5 +79,6 @@ jobs:
             artifacts/*.json
             artifacts/*.html
             artifacts/playtestr/**
+            artifacts/p0-p2-recorded/**
           if-no-files-found: error
           retention-days: 14

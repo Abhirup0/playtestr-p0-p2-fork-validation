@@ -239,6 +239,7 @@ def main(argv=None):
         parser.add_argument(f"--{step}-outcome", choices=OUTCOMES, default="unknown")
     parser.add_argument("--artifact-name", default="playtestr-evidence")
     parser.add_argument("--run-url", default="")
+    parser.add_argument("--context", type=Path)
     args = parser.parse_args(argv)
     if args.run_url and not re.fullmatch(
             r"https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/actions/runs/[0-9]+", args.run_url):
@@ -251,6 +252,27 @@ def main(argv=None):
     except InvalidReport as exc:
         error = str(exc)
     text = render(document, args, error)
+    if args.context:
+        try:
+            with args.context.open("rb") as stream:
+                raw = stream.read(256 * 1024 + 1)
+            require(len(raw) <= 256 * 1024, "context exceeds bound")
+            metadata = json.loads(raw, object_pairs_hook=unique_object, parse_constant=reject_constant)
+            require(metadata.get("context_version") == 1, "unknown context")
+            for field in ("tested_sha", "head_sha", "base_sha"):
+                value = metadata.get(field)
+                require(value is None or isinstance(value, str) and re.fullmatch(r"[a-f0-9]{40}", value), "invalid revision")
+            require(metadata.get("tested_sha") is not None, "missing tested revision")
+            text += "\nPR/build context (customer-controlled CI evidence):\n\n"
+            for field in ("head_sha", "base_sha", "tested_sha", "checkout_strategy"):
+                text += f"- {field}: {cell(metadata.get(field) or 'not applicable')}\n"
+            text += ("\nLocal reproduction: checkout the tested SHA, run the explicit prerequisite/build "
+                     "commands in the committed workflow, install the same pinned runner, then "
+                     "`playtestr test` with the selected paths in context.json. No automatic retry "
+                     "or baseline update is needed.\n")
+        except (OSError, ValueError, TypeError, InvalidReport):
+            text += "\n**PR/build context unavailable; exact reproduction is not established.**\n"
+            error = error or "context unavailable"
     try:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         # Bound the append as well as the generated text, below GitHub's 1 MiB limit.

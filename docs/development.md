@@ -12,6 +12,8 @@ go build -o bin/demo.exe ./cmd/demo
 
 On Unix, omit `.exe` from output names.
 
+This source includes `record` and `workflow`; see [recording](recording.md) and [workflow generation](generated-workflows.md). Native recorded-example validation is `python scripts/acceptance/recorded_journey.py` after installing pinned Gum v0.17.0 under `.tools/external`. It produces ignored synthetic evidence and ten fresh, delay-varied runs per example; it does not perform outreach or add campaign credits.
+
 Run the core checks:
 
 ```powershell

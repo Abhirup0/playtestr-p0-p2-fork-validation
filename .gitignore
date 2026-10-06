@@ -4,6 +4,8 @@
 /artifacts/
 /scripts/website/node_modules/
 /.cache/
+/.wrangler/
+**/.wrangler/
 /.hugo_build.lock
 /.reference/
 /.tools/

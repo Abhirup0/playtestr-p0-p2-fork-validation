@@ -49,6 +49,10 @@ type RunOptions struct {
 	Snapshot               string
 	ArtifactPrefix         string
 	KeepWorkspaceOnFailure bool
+	recordSpec             *Spec
+	recordSnapshots        map[string]string
+	noArtifacts            bool
+	recordEvidence         *string
 }
 
 // WorkspaceSpec opts a version 2 specification into a fresh fixture copy.
@@ -102,9 +106,17 @@ func Load(path string) (Spec, error) {
 		return spec, fmt.Errorf("spec exceeds %d bytes", maxSpecBytes)
 	}
 	data = bytes.TrimPrefix(data, []byte{0xef, 0xbb, 0xbf})
+	return decodeSpec(data, path)
+}
+
+func decodeSpec(data []byte, path string) (Spec, error) {
+	var spec Spec
+	if len(data) > maxSpecBytes {
+		return spec, fmt.Errorf("spec exceeds %d bytes", maxSpecBytes)
+	}
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	if err = decoder.Decode(&spec); err != nil {
+	if err := decoder.Decode(&spec); err != nil {
 		return spec, fmt.Errorf("decode spec: %w", err)
 	}
 	var extra any
@@ -379,6 +391,14 @@ func RunDetailedContext(parent context.Context, path string, options RunOptions,
 		return result
 	}
 	spec, err := Load(path)
+	if options.recordSpec != nil {
+		data, marshalErr := json.Marshal(options.recordSpec)
+		if marshalErr != nil {
+			err = marshalErr
+		} else {
+			spec, err = decodeSpec(data, path)
+		}
+	}
 	if err != nil {
 		runErr := withCategory(FailureInvalidSpec, err)
 		setFailure(FailureInvalidSpec, runErr)
@@ -590,6 +610,12 @@ func captureFailureEvidence(path string, options RunOptions, result *RunResult, 
 	if failureObservation != nil {
 		observation = *failureObservation
 	}
+	if options.recordEvidence != nil {
+		*options.recordEvidence = observation.screen
+	}
+	if options.noArtifacts {
+		return runErr
+	}
 	var mismatch *snapshotMismatchError
 	if errors.As(runErr, &mismatch) {
 		observation.screen = mismatch.actual
@@ -677,7 +703,16 @@ func executeStep(ctx context.Context, specPath string, step Step, options RunOpt
 	updateSnapshot := options.Update && (options.Snapshot == "" || options.Snapshot == step.Snapshot)
 	if step.Snapshot != "" && !updateSnapshot {
 		var err error
-		expected, err = readSnapshot(filepath.Join(base, step.Snapshot))
+		if options.recordSnapshots != nil {
+			content, ok := options.recordSnapshots[step.Snapshot]
+			if !ok {
+				err = os.ErrNotExist
+			} else {
+				expected = []byte(content)
+			}
+		} else {
+			expected, err = readSnapshot(filepath.Join(base, step.Snapshot))
+		}
 		if err != nil {
 			if errors.Is(err, os.ErrNotExist) {
 				return withCategory(FailureArtifact, fmt.Errorf("snapshot %q is missing (create it with --update): %w", step.Snapshot, err))

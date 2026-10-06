@@ -175,7 +175,7 @@ func TestCorpusContract(t *testing.T) {
 		}
 	}
 
-	catalog, err := os.ReadFile(filepath.Join(root, "docs", "plans", "corpus-catalog.md"))
+	catalog, err := os.ReadFile(filepath.Join(root, "docs", "archive", "prelaunch-2026-10-06", "plans", "corpus-catalog.md"))
 	if err != nil {
 		t.Fatal(err)
 	}

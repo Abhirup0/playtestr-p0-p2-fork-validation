@@ -4,6 +4,8 @@ Playtestr is a local runner for deterministic end-to-end tests of trusted intera
 
 ## Start here
 
+Source-candidate additions: [record a trusted CLI/TUI flow](recording.md) and [generate a pinned free PR workflow](generated-workflows.md). Existing published downloads retain their documented command set.
+
 1. [Install the stable binary and run a first test](releases/v0.1.0-installation-walkthrough.md).
 2. [Write a test for your own application](writing-tests.md).
 3. [Adapt a complete real-application recipe](recipes/README.md).

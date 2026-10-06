@@ -1,15 +1,20 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strconv"
 	"strings"
 	"time"
 
 	"golang.org/x/term"
 )
+
+// wizardSuffix is an acceptance-only target behavior mutation, never a test change.
+var wizardSuffix string
 
 func main() {
 	if len(os.Args) != 2 {
@@ -17,6 +22,31 @@ func main() {
 		os.Exit(2)
 	}
 	switch os.Args[1] {
+	case "wizard":
+		if err := wizard(); err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			os.Exit(1)
+		}
+	case "gum":
+		delay, _ := strconv.Atoi(os.Getenv("PLAYTESTR_DELAY_MS"))
+		time.Sleep(time.Duration(delay) * time.Millisecond)
+		data, err := os.ReadFile("choices.txt")
+		if err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			os.Exit(1)
+		}
+		args := []string{"choose", "--header", "Pick deployment"}
+		args = append(args, strings.Fields(string(data))...)
+		program := os.Getenv("PLAYTESTR_GUM")
+		if program == "" {
+			program = "gum"
+		}
+		cmd := exec.Command(program, args...)
+		cmd.Stdin, cmd.Stdout, cmd.Stderr = os.Stdin, os.Stdout, os.Stderr
+		if err := cmd.Run(); err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			os.Exit(1)
+		}
 	case "hang":
 		fmt.Println("fixture ready; waiting forever")
 		time.Sleep(10 * time.Minute)
@@ -115,4 +145,65 @@ func main() {
 		fmt.Fprintf(os.Stderr, "unknown fixture mode %q\n", os.Args[1])
 		os.Exit(2)
 	}
+}
+
+func wizard() error {
+	if _, err := os.Stat("result.txt"); err == nil {
+		return fmt.Errorf("dirty fixture: result.txt already exists")
+	}
+	seed, err := os.ReadFile("seed.txt")
+	if err != nil {
+		return err
+	}
+	old, err := term.MakeRaw(int(os.Stdin.Fd()))
+	if err != nil {
+		return err
+	}
+	defer term.Restore(int(os.Stdin.Fd()), old)
+	delay, _ := strconv.Atoi(os.Getenv("PLAYTESTR_DELAY_MS"))
+	draw := func(text string) {
+		time.Sleep(time.Duration(delay) * time.Millisecond)
+		fmt.Printf("\x1b[2J\x1b[H%s\r\n", text)
+	}
+	draw("Project name? (synthetic workspace)")
+	r := bufio.NewReader(os.Stdin)
+	var name []byte
+	for {
+		b, err := r.ReadByte()
+		if err != nil {
+			return err
+		}
+		if b == '\r' || b == '\n' {
+			break
+		}
+		name = append(name, b)
+		if len(name) > 256 {
+			return fmt.Errorf("name exceeds 256 bytes")
+		}
+	}
+	width, height, err := term.GetSize(int(os.Stdout.Fd()))
+	if err != nil {
+		return err
+	}
+	draw(fmt.Sprintf("Confirm project %s at %dx%d; seed=%s", name, width, height, strings.TrimSpace(string(seed))))
+	b, err := r.ReadByte()
+	if err != nil {
+		return err
+	}
+	if b != 'y' {
+		return fmt.Errorf("confirmation declined")
+	}
+	content := fmt.Sprintf("%s:%s", name, strings.TrimSpace(string(seed)))
+	if err := os.WriteFile("result.txt", []byte(content), 0600); err != nil {
+		return err
+	}
+	actual, err := os.ReadFile("result.txt")
+	if err != nil {
+		return err
+	}
+	if string(actual) != content {
+		return fmt.Errorf("saved state mismatch")
+	}
+	draw("Saved and verified " + content + wizardSuffix)
+	return nil
 }

@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"golang.org/x/term"
 	"os"
+	"strconv"
+	"time"
 )
 
 // diagnosticsSuffix can be replaced at build time to demonstrate that the
@@ -21,6 +23,8 @@ func main() {
 	selected := 0
 	items := []string{"Deploy preview", "Run diagnostics", "Exit"}
 	draw := func() {
+		delay, _ := strconv.Atoi(os.Getenv("PLAYTESTR_DELAY_MS"))
+		time.Sleep(time.Duration(delay) * time.Millisecond)
 		fmt.Print("\x1b[2J\x1b[H\x1b[36mPLAYTESTR / mission control\x1b[0m\r\n\r\n")
 		for i, item := range items {
 			if i == selected {

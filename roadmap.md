@@ -1,6 +1,6 @@
 # Playtestr product and launch roadmap
 
-Planning baseline: **6 October 2026**. Status: **plans only; implementation has not been authorized by this planning request**. This replaces the previous sprint, readiness, adoption, and commercial sequence. The [planning index](docs/plans/README.md) owns the detailed documents; [archived plans](docs/archive/prelaunch-2026-10-06/README.md) preserve history, not instructions to resume old work.
+Planning baseline: **6 October 2026**. Execution update: **7 October 2026**, P0–P2 authorized through the [full batch prompt](docs/plans/p0-p2-full-implementation-prompt.md). P0 scoped decisions complete; P1 implemented/local Windows evidence collected; P2 implemented/hosted acceptance pending. Exact status and failures live in the [acceptance record](docs/validation/p0-p2-2026-10-07.md). Later phases remain planned. The [planning index](docs/plans/README.md) owns detailed plans; [archived plans](docs/archive/prelaunch-2026-10-06/README.md) preserve history.
 
 ## Direction
 
@@ -16,7 +16,7 @@ Operate the integration on managed serverless infrastructure. Target zero mandat
 
 ## Hard constraints
 
-- Planning changes only in this task. No runner, site, workflow, schema, billing account, deployment, purchase, release, or external communication is implemented or initiated.
+- Current implementation scope is P0–P2 only. Billing accounts, production deployment, spending, releases, marketing and outreach remain outside this authorization.
 - Finish the defined product experience and validation before a new commercial launch or marketing campaign.
 - Complete **100 distinct independently maintained real projects**, with meaningful pass/defect/recovery evidence. Repetitions, forks, framework demos, and multiple workflows do not inflate the count.
 - Keep the application under test language/framework independent and the local execution core in Go. A thin serverless integration may use a provider-native language only after a scoped architecture decision.
@@ -33,7 +33,7 @@ The historical corpus records 15 projects and 120 workflows. It is reusable inpu
 
 ## Dependency order and acceptance
 
-All implementation milestones below are **planned / not started under this roadmap**. Effort ranges are planning estimates, not commitments or elapsed work already performed.
+P0–P2 are executing under the explicit batch instruction; P3–P9 remain **planned / not started**. Effort ranges remain planning forecasts, not an elapsed-time report.
 
 | Phase | User-visible outcome | Exit requirement | Dependencies | Focused effort |
 | --- | --- | --- | --- | --- |
@@ -79,4 +79,4 @@ GitHub Marketplace supplies distribution/billing, not backend hosting. Paid-app 
 
 Status lives here; details live in the plans; execution evidence belongs in dated validation records. Public contracts stay accurate to shipped behavior until implementation changes them. Use [milestones](docs/plans/09-delivery-milestones.md), [quality gates](docs/plans/10-quality-and-release.md), and [templates](docs/plans/14-execution-templates.md) when execution is requested.
 
-**Next implementation action, once requested: P0.** Do not start project downloads/builds, register services, implement recording, or resume archived prompts during this planning task.
+**Current action: finish P1 native and P2 real PR acceptance.** P0 ADRs are in `docs/decisions/`; no P3, provider signup, release or marketing starts automatically after this batch.
