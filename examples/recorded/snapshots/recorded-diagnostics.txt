@@ -6,4 +6,4 @@ PLAYTESTR / mission control
 
 Use arrow keys and Enter. Press q to quit.
 
-Diagnostics: all systems healthy.
+Diagnostics: all systems healthy.INTENDED

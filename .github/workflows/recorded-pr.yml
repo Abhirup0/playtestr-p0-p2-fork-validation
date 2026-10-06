@@ -54,7 +54,7 @@ jobs:
       - name: Explicit target build
         id: prepare
         run: |
-          go build -o bin/demo ./cmd/demo
+          go build -ldflags "-X main.diagnosticsSuffix=INTENDED" -o bin/demo ./cmd/demo
       - name: Select committed suite and capture exact context
         id: context
         run: |
